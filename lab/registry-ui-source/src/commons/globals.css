@@ -1,0 +1,115 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+@source "../../node_modules/@openg2p/registry-widgets/dist";
+
+@layer base {
+    :root {
+        --background: var(--color-secondary-first);
+    }
+
+    body {
+        background: var(--background);
+        color: var(--foreground);
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+@layer utilities {
+    .modal-scroll::-webkit-scrollbar {
+        width: 24px;
+    }
+
+    .modal-scroll::-webkit-scrollbar-track {
+        background: var(--color-secondary-second);
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        margin-bottom: 30px;
+        background-clip: content-box;
+    }
+
+    .modal-scroll::-webkit-scrollbar-thumb {
+        background-color: var(--color-secondary-third);
+        border-right: 8px solid transparent;
+        border-left: 8px solid transparent;
+        background-clip: content-box;
+        min-height: 70px;
+    }
+
+    .modal-scroll::-webkit-scrollbar:horizontal {
+        height: 24px;
+    }
+
+    .modal-scroll::-webkit-scrollbar-track:horizontal {
+        background: var(--color-secondary-second);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        margin: 10px;
+        background-clip: content-box;
+    }
+
+    .modal-scroll::-webkit-scrollbar-thumb:horizontal {
+        background-color: var(--color-secondary-third);
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        background-clip: content-box;
+        min-width: 70px;
+    }
+
+    .modal-scroll::-webkit-scrollbar-corner {
+        background: transparent;
+    }
+
+    .message-json-scroll::-webkit-scrollbar {
+        width: 36px;
+    }
+
+    .message-json-scroll::-webkit-scrollbar-track {
+        background: var(--color-secondary-second);
+        border-radius: 15px;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        margin: 10px;
+        background-clip: content-box;
+    }
+
+    .message-json-scroll::-webkit-scrollbar-thumb {
+        background-color: var(--color-secondary-third);
+        border-radius: 15px;
+        border-right: 10px solid transparent;
+        border-left: 10px solid transparent;
+        background-clip: content-box;
+        min-height: 70px;
+    }
+
+    /* Horizontal scrollbar */
+    .message-json-scroll::-webkit-scrollbar:horizontal {
+        height: 36px;
+        /* same as vertical width */
+    }
+
+    .message-json-scroll::-webkit-scrollbar-track:horizontal {
+        background: var(--color-secondary-second);
+        border-radius: 15px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        margin: 10px;
+        background-clip: content-box;
+    }
+
+    .message-json-scroll::-webkit-scrollbar-thumb:horizontal {
+        background-color: var(--color-secondary-third);
+        border-radius: 15px;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        background-clip: content-box;
+        min-width: 70px;
+    }
+
+    .message-json-scroll::-webkit-scrollbar-corner {
+        background: transparent;
+        border-radius: 15px;
+    }
+}

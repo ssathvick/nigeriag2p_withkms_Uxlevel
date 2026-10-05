@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "country_code": "NGA",
+  "code_system": "NigeriaG2P project identifiers, not official P-codes",
+  "zone_source": "https://www.nigerianstat.gov.ng/download/839",
+  "coverage": "36 states and FCT; six demonstration LGAs; no ward catalogue or boundary geometry",
+  "zones": [
+    {
+      "id": "NG-NC",
+      "name": "North Central"
+    },
+    {
+      "id": "NG-NE",
+      "name": "North East"
+    },
+    {
+      "id": "NG-NW",
+      "name": "North West"
+    },
+    {
+      "id": "NG-SE",
+      "name": "South East"
+    },
+    {
+      "id": "NG-SS",
+      "name": "South South"
+    },
+    {
+      "id": "NG-SW",
+      "name": "South West"
+    }
+  ],
+  "areas": [
+    {
+      "id": "NG01",
+      "name": "Abia",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG01",
+      "state_name": "Abia",
+      "zone_id": "NG-SE",
+      "zone_name": "South East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG02",
+      "name": "Adamawa",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG02",
+      "state_name": "Adamawa",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG03",
+      "name": "Akwa Ibom",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG03",
+      "state_name": "Akwa Ibom",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG04",
+      "name": "Anambra",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG04",
+      "state_name": "Anambra",
+      "zone_id": "NG-SE",
+      "zone_name": "South East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG05",
+      "name": "Bauchi",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG05",
+      "state_name": "Bauchi",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG06",
+      "name": "Bayelsa",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG06",
+      "state_name": "Bayelsa",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG07",
+      "name": "Benue",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG07",
+      "state_name": "Benue",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG08",
+      "name": "Borno",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG08",
+      "state_name": "Borno",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG09",
+      "name": "Cross River",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG09",
+      "state_name": "Cross River",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG10",
+      "name": "Delta",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG10",
+      "state_name": "Delta",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG11",
+      "name": "Ebonyi",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG11",
+      "state_name": "Ebonyi",
+      "zone_id": "NG-SE",
+      "zone_name": "South East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG12",
+      "name": "Edo",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG12",
+      "state_name": "Edo",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG13",
+      "name": "Ekiti",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG13",
+      "state_name": "Ekiti",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG14",
+      "name": "Enugu",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG14",
+      "state_name": "Enugu",
+      "zone_id": "NG-SE",
+      "zone_name": "South East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG15",
+      "name": "Gombe",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG15",
+      "state_name": "Gombe",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG16",
+      "name": "Imo",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG16",
+      "state_name": "Imo",
+      "zone_id": "NG-SE",
+      "zone_name": "South East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG17",
+      "name": "Jigawa",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG17",
+      "state_name": "Jigawa",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG18",
+      "name": "Kaduna",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG18",
+      "state_name": "Kaduna",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG19",
+      "name": "Kano",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG19",
+      "state_name": "Kano",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG20",
+      "name": "Katsina",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG20",
+      "state_name": "Katsina",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG21",
+      "name": "Kebbi",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG21",
+      "state_name": "Kebbi",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG22",
+      "name": "Kogi",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG22",
+      "state_name": "Kogi",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG23",
+      "name": "Kwara",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG23",
+      "state_name": "Kwara",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG24",
+      "name": "Lagos",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG24",
+      "state_name": "Lagos",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG25",
+      "name": "Nasarawa",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG25",
+      "state_name": "Nasarawa",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG26",
+      "name": "Niger",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG26",
+      "state_name": "Niger",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG27",
+      "name": "Ogun",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG27",
+      "state_name": "Ogun",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG28",
+      "name": "Ondo",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG28",
+      "state_name": "Ondo",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG29",
+      "name": "Osun",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG29",
+      "state_name": "Osun",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG30",
+      "name": "Oyo",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG30",
+      "state_name": "Oyo",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG31",
+      "name": "Plateau",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG31",
+      "state_name": "Plateau",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG32",
+      "name": "Rivers",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG32",
+      "state_name": "Rivers",
+      "zone_id": "NG-SS",
+      "zone_name": "South South",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG33",
+      "name": "Sokoto",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG33",
+      "state_name": "Sokoto",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG34",
+      "name": "Taraba",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG34",
+      "state_name": "Taraba",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG35",
+      "name": "Yobe",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG35",
+      "state_name": "Yobe",
+      "zone_id": "NG-NE",
+      "zone_name": "North East",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG36",
+      "name": "Zamfara",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG36",
+      "state_name": "Zamfara",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG37",
+      "name": "Federal Capital Territory",
+      "level": "state",
+      "country_code": "NGA",
+      "state_id": "NG37",
+      "state_name": "Federal Capital Territory",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG"
+    },
+    {
+      "id": "NG1901",
+      "name": "Dala",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG19",
+      "state_name": "Kano",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG19"
+    },
+    {
+      "id": "NG1902",
+      "name": "Nassarawa",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG19",
+      "state_name": "Kano",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG19"
+    },
+    {
+      "id": "NG2401",
+      "name": "Ikeja",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG24",
+      "state_name": "Lagos",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG24"
+    },
+    {
+      "id": "NG2402",
+      "name": "Surulere",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG24",
+      "state_name": "Lagos",
+      "zone_id": "NG-SW",
+      "zone_name": "South West",
+      "parent_id": "NG24"
+    },
+    {
+      "id": "NG1801",
+      "name": "Chikun",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG18",
+      "state_name": "Kaduna",
+      "zone_id": "NG-NW",
+      "zone_name": "North West",
+      "parent_id": "NG18"
+    },
+    {
+      "id": "NG3701",
+      "name": "Abuja Municipal",
+      "level": "lga",
+      "country_code": "NGA",
+      "state_id": "NG37",
+      "state_name": "Federal Capital Territory",
+      "zone_id": "NG-NC",
+      "zone_name": "North Central",
+      "parent_id": "NG37"
+    }
+  ]
+}

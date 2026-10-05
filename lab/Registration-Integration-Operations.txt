@@ -1,0 +1,123 @@
+IQS NIGERIA: BENEFICIARY REGISTRATION AND PROGRAMME INTEGRATION
+Implemented and tested on 3 October 2026
+
+ENTRY POINTS
+Home: https://nigeriag2p.com/
+Beneficiary and household registration: https://nigeriag2p.com/registration/
+Staff review: https://nigeriag2p.com/registration/login?mode=staff
+Existing beneficiary portal: https://beneficiary.nigeriag2p.com/selfservice
+Programme Management: https://pbms.nigeriag2p.com/web
+
+BENEFICIARY JOURNEY
+1. Open Beneficiary & household registration from the home page.
+2. Select Create beneficiary account. Enter a unique username, fictional email,
+   first/family names and your own password of at least 10 characters.
+3. After identity sign-in, choose Register myself & my household.
+4. Enter a household name, state/FCT, fictional community and monthly household
+   income. Member 1 is the applicant/head. Add up to seven further members.
+5. Confirm synthetic data use and submit for staff review.
+6. Wait for approval. After approval and synchronization, the household and its
+   people are available in both registries, the portal backend and PBMS.
+7. Select an integrated programme and submit its application once.
+8. Track Pending review -> Checking eligibility -> Eligible -> Enrolled.
+   Not eligible and Rejected are separate possible outcomes.
+9. To use the original beneficiary portal, open it and select SIGN IN TO LOCAL
+   DEMO, then use the same newly created Keycloak account. The integrated
+   programmes and application statuses are available there too.
+
+STAFF JOURNEY
+1. Open Registration & enrollment review from the home page.
+2. Sign in as the existing staff administrator: username admin, with the
+   existing staff password from your private credentials reference.
+3. Open Review details for a submitted household. Check members, income,
+   geography and the synthetic declaration.
+4. Select Approve & synchronize registries, or Return for correction.
+5. Confirm Synchronization is complete. A failed backend connection remains
+   pending and retries every minute; Retry synchronization is also available.
+6. In Programme applications, select Review & run eligibility.
+7. Wait for the native PBMS background worker to finish. Refresh the page.
+8. If Eligible, select Confirm enrollment. PBMS's final enrollment approval and
+   the portal programme membership are both updated. No payment is initiated.
+
+CREATE A CONNECTED PROGRAMME
+1. In the staff workspace, expand Create an integrated benefit programme.
+2. Enter a unique mnemonic suffix, descriptive name, simulated NGN benefit,
+   maximum monthly household income and minimum household member count.
+3. Select Create programme & connect portal.
+4. The integration creates the PBMS household programme, benefit code,
+   enrollment cycle and rules, plus the matching portal programme and form.
+5. Refresh the registration workspace and original beneficiary portal to see
+   the programme. Native portal form submissions are discovered every minute.
+
+The initial connected programme is Nigeria Household Support - Integrated Demo:
+NGN 25,000 simulated benefit; monthly household income <= NGN 100,000;
+at least one household member. These are test criteria, not government policy.
+
+SCOPE AND DATA OWNERSHIP
+This is an IQS sandbox integration layer added to the installed OpenG2P
+components. It is not an upstream feature that was merely switched on.
+The registration service owns intake data and its shared IQS-REG-* references.
+Staff-approved intake records are synchronized to:
+  - Modern registry: individuals, households and household links.
+  - Odoo Social Registry: individuals, household groups and memberships.
+  - Portal Odoo backend: matching records, identity subject and memberships.
+  - PBMS: a dedicated Household Registry adapter, not farmer-shaped fixtures.
+
+Only programmes created through this connected workflow are mapped automatically.
+Existing seeded programmes and applications have not been bulk migrated.
+Unrelated Odoo edits/imports are not a general bidirectional synchronization feed.
+Approved intake profiles are locked; a correction workflow for already approved
+registrations is a separate enhancement. Returned registrations can be edited
+and submitted again. Account registration does not verify NIN, send SMS/email
+verification or automatically approve benefits. Use fictional sandbox data.
+
+SAFETY AND OPERATIONS
+Beneficiary signup is enabled only in the beneficiary identity realm.
+Only staff users assigned iqs-intake-reviewer can review or enroll; the existing
+staff admin has that role. Beneficiary users cannot enter the staff workspace.
+OIDC uses authorization code + PKCE, nonce/state checks and signed token checks.
+Forms enforce CSRF tokens. Server sessions expire after one hour and cookies are
+Secure, HttpOnly and SameSite=Lax. Credentials remain in private WSL files.
+Registry/application retries are serialized across processes and use stable IDs.
+Each integrated eligibility job is explicitly scoped to its applicant household.
+
+After a Windows restart, continue to use only Start-IQS-Public-Sandbox.bat.
+It starts the existing platform, Cloudflare, registration service and sync timer.
+The new services are also enabled in WSL systemd. The PC must remain awake/online.
+
+Diagnostics, run inside Ubuntu as root:
+  systemctl is-active iqs-registration.service iqs-registration-sync.timer
+  journalctl -u iqs-registration.service -n 40 --no-pager
+  journalctl -u iqs-registration-sync.service -n 40 --no-pager
+  systemctl start iqs-registration-sync.service
+  kubectl -n nigeria logs deploy/pbms-celery-worker --tail=80
+  curl https://nigeriag2p.com/registration/health
+
+Private backup:
+  python3 /mnt/h/Nigeria_Mosip/codex/openg2p-lab/backup-lab.py
+Backups now include a consistent SQLite intake snapshot, source/templates,
+private configuration, adapter files, Kubernetes configuration and systemd units.
+Keep these backups private. A complete clean-machine restore has not been tested.
+
+FILES
+Windows source: H:\Nigeria_Mosip\codex\openg2p-lab
+  registration_app.py and registration-ui
+  install-household-adapter.py
+  install-registration-integration.py
+  registration-requirements.txt
+  test-registration-integration.py
+  test-registration-edge-cases.py
+WSL runtime: /opt/openg2p-lab/registration
+Private state: intake.sqlite, config.json, test-account.json (not public downloads).
+Adapter patch records: /opt/openg2p-lab/household-adapter
+Review installed component versions before reapplying patches or chart upgrades.
+
+VERIFIED
+Public identity signup/login; staff authorization; beneficiary staff-access denial;
+CSRF denial; two-member registration; registry and PBMS synchronization;
+idempotent retries; single repeated application; native household eligibility;
+staff final enrollment in PBMS and portal; original portal login/application
+display with the new account; staff programme creation; native portal form
+ingestion; income-based ineligibility; household-scoped lists; recovery after an
+injected temporary backend failure. No live payment/settlement was executed.
+Full Windows restart remains a check for your next planned restart.

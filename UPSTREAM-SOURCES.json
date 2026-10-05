@@ -1,0 +1,32 @@
+[
+  {
+    "directory": "upstream-awe",
+    "origin": "https://github.com/OpenG2P/awe.git",
+    "commit": "656ae20874bbbb725aea78d009c38b8cdeb0aad3"
+  },
+  {
+    "directory": "upstream-data",
+    "origin": "https://github.com/OpenG2P/openg2p-data.git",
+    "commit": "746bb5746e6b065b4eb5dcbefb6ad713ba66f8e6"
+  },
+  {
+    "directory": "upstream-deployment",
+    "origin": "https://github.com/OpenG2P/openg2p-deployment.git",
+    "commit": "2fe290e03c74c6bf09878bf1a5bc7a8c724d8fa6"
+  },
+  {
+    "directory": "upstream-helm",
+    "origin": "https://github.com/OpenG2P/openg2p-helm.git",
+    "commit": "a3b01e9fb79679edc2365afd5b15cbb8bfd08458"
+  },
+  {
+    "directory": "upstream-registry-extensions",
+    "origin": "https://github.com/OpenG2P/openg2p-registry-gen2-extensions.git",
+    "commit": "dcef0b09f46b600b4b99792fcdb801ab410fec77"
+  },
+  {
+    "directory": "upstream-registry-gen2",
+    "origin": "https://github.com/OpenG2P/openg2p-registry-gen2.git",
+    "commit": "8a18f92df1329aa3fd178f1f9cabfcbd896c69a1"
+  }
+]

@@ -1,0 +1,44 @@
+NigeriaG2P local AI - operations and staff guide
+
+Ollama runs as the enabled WSL Ubuntu-22.04 systemd service ollama.
+Inference endpoint: 127.0.0.1:11434 (loopback only; no public Ollama route).
+Model: qwen3:8b, approximately 5.2 GB, Apache 2.0 model license.
+Cloud features disabled using OLLAMA_NO_CLOUD=1 in the systemd override.
+
+Knowledge chat: https://nigeriag2p.com/registration/ai
+Sign in, choose service/role/stage, ask a task question, check source articles.
+Stage-sensitive help panels link directly to the assistant with current context.
+Published library has an assistant link. Citizen and staff accounts can chat.
+Role selection follows existing account permissions.
+
+Staff drafting: Knowledge management > Create guidance > Draft with local AI.
+Choose service/audience/stage, enter drafting instructions, Generate suggestion.
+Review the preview, Apply suggestion, review the fields, then Save draft.
+Generating and applying only change the form. Submit, independent review and
+supervisor publication remain the existing separate steps.
+
+The assistant retrieves up to five published, non-archived guidance articles.
+It cannot read private drafts, household/case records, credentials or database
+configuration, and has no tools for approvals, eligibility or payments.
+Submitted questions and answers are not stored by this integration. Rate limits
+store only a hash of the account subject and timestamps (8 requests/minute).
+Two concurrent model requests maximum; timeout 120 seconds. No cloud AI fallback.
+
+Local inference does not make the public website offline: browser traffic still
+uses the website's existing HTTPS/Cloudflare transport. Avoid entering personal
+or confidential information. Generated answers can be wrong; check sources.
+Retrieval currently uses text matching plus service/stage context; no vector DB.
+When citations are invalid/missing, results are labelled related guidance.
+
+Source: local_ai.py; ai/local-ai.js; registration-ui/local-ai.html.
+Deployment: install-knowledge.py. Existing registration and database backups are
+retained privately under /opt/openg2p-lab/registration/knowledge-backups.
+Service management: systemctl status/restart ollama; ollama list; ollama ps.
+Model files: /usr/share/ollama/.ollama/models.
+Tests: test-local-ai.py and test-persona-workspaces.py, using isolated databases.
+
+Verified 5 October 2026: Ollama 0.35.1; qwen3:8b digest prefix
+500a1f067a9f; ollama ps reports 100% GPU, 6.3 GB, 8192 context.
+Live chat returned published references and correctly distinguished synthetic
+coordinates. Live drafting and Apply filled editor fields without Save.
+10 knowledge/AI tests + 8 persona tests + 35 context mappings passed.

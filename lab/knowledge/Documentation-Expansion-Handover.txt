@@ -1,0 +1,37 @@
+NigeriaG2P knowledge library documentation expansion - 5 October 2026
+
+Added 64 guides: 48 original task summaries from official OpenG2P documentation
+and 16 guides adapted to the installed NigeriaG2P workflows. Total published
+entries: 208, including existing persona variants, across all 18 service modules.
+
+New coverage: registry concepts, change requests, evidence, audit, version
+history, intake processing, duplicate review, CSV and ODK imports, relationships,
+ID types, eligibility, PMT, enrolment, programme cycles, funds, entitlement
+assessment, notifications, reconciliation, reports, approval policy versions,
+quorum, overdue tasks, independent approvers, reassignment, partner lifecycle
+and keys, consent scope/lifecycle, master-data codes/geography/change control,
+IAM application/provider configuration, maps, personas, registration corrections,
+programme status, knowledge maintenance and local AI.
+
+Every new article includes scope, sources and sources_checked_on metadata.
+Upstream-reference articles describe documentation, not a guarantee that the
+feature is installed or enabled. Local-workflow guides match the current custom
+NigeriaG2P application. No real identity verification or real payments are claimed.
+The upstream source may describe a newer release; use installed controls.
+
+Public library and help panels display reference links. Local AI receives the
+published content and scope caveats automatically; no retraining is required.
+Existing articles were not overwritten. Imports use deterministic slugs and
+INSERT OR IGNORE, so subsequent restarts do not replace staff revisions.
+History records documentation_import by system:documentation-import; it does
+not claim a human author or independent human approval. New reference metadata
+is retained when staff edits an article; edited content still requires review.
+
+Source inventory: upstream-docs/manifest.json (48 successful reference downloads,
+URLs and SHA-256 digests). Source snapshot: upstream-docs/*.md.
+Authored pack: documentation-pack.json; deployed seed: ../knowledge-seed.json.
+All prose is short original task guidance, not copied manuals or screenshots.
+
+Validation: isolated knowledge/AI tests, source metadata retention on draft edits,
+unsafe-reference rejection, all 18 module coverage, client stage mappings,
+deployment health and live browser search/expanded article checks.

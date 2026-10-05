@@ -1,0 +1,65 @@
+﻿Service,Guidance title,Guidance stage,Associated application stages,Visible topic recognition,Scope
+register,Understand registries and registers,Registry and register concepts,Find a record; Service overview,registry and register|register concepts,upstream_reference
+register,Understand proposed and approved record changes,Proposed and approved changes,Submit for approval; Individual details; Household details,proposed.*approved|change request|edit details,upstream_reference
+register,Read the record workflow audit,Workflow audit,Submit for approval; Individual details; Household details,workflow audit|audit trail,upstream_reference
+register,Attach and review record documents,Record documents,Individual details; Household details; Submit for approval,supporting documents|attached documents|record documents|document upload,upstream_reference
+register,Monitor imported registry submissions,Ingestion monitoring,Service overview; Submit for approval,incoming messages|ingestion|imported submissions,upstream_reference
+register,Inspect committed record history,Committed record history,Individual details; Household details,version history|committed record history,upstream_reference
+register,Follow the registry intake lifecycle,Registry intake lifecycle,Submit for approval; Service overview,intake form|intake submission|registry intake,upstream_reference
+consent-manager,Understand consent-aware registry sharing,Consent-aware sharing,Review consent; Service overview,consent.aware sharing,upstream_reference
+register,Review potential duplicate registry records,Duplicate candidate review,Find a record; Individual details; Household details; Service overview,duplicate candidates|deduplication|duplicate review,upstream_reference
+iam-staff-ui,Understand role-based access,Operations and configuration roles,Role assignment; Account management; Service overview,operations.*configuration roles,upstream_reference
+register,Understand registry export jobs,Registry export jobs,Find a record; Individual details; Household details,export records|export history,upstream_reference
+pbms,Distinguish programme processing rules,Eligibility and entitlement rules,Eligibility; Benefit calculation; Programme setup,eligibility.*entitlement rules|rule definitions,upstream_reference
+pbms,Distinguish enrolment and disbursement cycles,Enrolment and disbursement cycles,Enrollment; Disbursement; Programme setup,enrolment.*disbursement cycles|dual cycle,upstream_reference
+pbms,Review programme lists before finalisation,List verification,Enrollment; Disbursement; Eligibility,list verification|verify list|verification list,upstream_reference
+pbms,Correct the source of beneficiary lists,Registry-based list corrections,Enrollment; Programme setup,beneficiary list|controlled list|source.*list correction,upstream_reference
+pbms,Understand bank reconciliation,Bank reconciliation concepts,Reconciliation; Disbursement,bank reconciliation|sponsor bank,upstream_reference
+superset,Use programme reports and dashboards,Programme reporting,Choose dashboard; Apply filters; Service overview,programme reports|program reports,upstream_reference
+pbms,Understand programme fund records,Programme fund records,Programme setup; Disbursement,program funds|programme funds|fund allocation,upstream_reference
+pbms,Review cycle manager settings,Cycle manager configuration,Programme setup; Enrollment,cycle manager,upstream_reference
+registry,Create an individual registrant in the legacy registry,Individual registrant entry,Record maintenance; Service overview,create individual|new individual|individual registrant,upstream_reference
+registry,Link members to a household or group,Household membership entry,Household membership; Record maintenance,members|group membership,upstream_reference
+registry,Maintain configured identifier types,Identifier type configuration,Record maintenance; Service overview,id types|identifier types,upstream_reference
+registry,Maintain relationship definitions,Relationship type configuration,Household membership; Service overview,relationship types|relationships configuration,upstream_reference
+registry,Validate a CSV import before loading,CSV import validation,Record maintenance; Service overview,csv|import records|import a file,upstream_reference
+pbms,Understand proxy means test configuration,Proxy means test configuration,Eligibility; Programme setup,proxy means|pmt,upstream_reference
+pbms,Understand eligibility reassessment,Eligibility reassessment,Eligibility; Enrollment,verify eligibility|reassess eligibility|eligibility reassessment,upstream_reference
+pbms,Check programme duplicate status,Programme duplicate checks,Eligibility; Enrollment; Programme setup,deduplicate|duplicated|duplicate check,upstream_reference
+pbms,Interpret programme enrolment results,Enrolment outcomes,Enrollment; Eligibility,enrolment results|enrollment results|enrolled.*not eligible,upstream_reference
+pbms,Understand staged entitlement assessment,Entitlement assessment stages,Benefit calculation; Programme setup,prepare assessment|entitlement assessment|multi.stage approval,upstream_reference
+portal-admin,Review programme notification configuration,Programme notifications,Programme configuration; Application administration,notification manager|programme notifications|program notifications,upstream_reference
+odk,Map field collection data into the registry,ODK import field mapping,Prepare collection form; Submit and quality check; Collect field data; Service overview,odk import|json formatter|field mapping,upstream_reference
+portal-admin,Understand importing a registry data source into PBMS,Social registry data source,Programme configuration; Application administration,data source|registry import,upstream_reference
+iam-staff-ui,Understand application and login-provider administration,Application and login provider configuration,Service overview; Account management; Role assignment,applications|login providers,upstream_reference
+master-data-ui,Understand shared reference code lists,Reference code lists,Maintain shared attributes; Service overview,reference code|code lists|datasets|attributes|values,upstream_reference
+master-data-ui,Plan administrative geography changes,Geography changes,Location reference data; Service overview,boundary change|geography changes|crosswalk,upstream_reference
+master-data-ui,Review changes to shared reference data,Reference data change review,Maintain shared attributes; Location reference data,reference data.*review|change control|reference.*approval,upstream_reference
+master-data-ui,Navigate the reference-data administration interface,Reference data navigation,Service overview; Maintain shared attributes; Location reference data,catalogue overview|reference.data navigation,upstream_reference
+awe,Understand approval stages and quorum,Approval patterns,Assigned tasks; Review evidence; Record decision; Service overview,quorum|approval patterns|stage modes,upstream_reference
+awe,Understand approval policy versions,Policy versions,Service overview; Assigned tasks; Review evidence,policy version|approval policy|policies,upstream_reference
+awe,Understand overdue task escalation,Overdue approval tasks,Assigned tasks; Review evidence,overdue|sla|escalation,upstream_reference
+awe,Understand separation of approval duties,Independent approvers,Record decision; Review evidence,self.approval|separation of duties|independent approver,upstream_reference
+awe,Understand reassignment of a blocked approval task,Task reassignment,Assigned tasks; Review evidence,reassign|reassignment|blocked task,upstream_reference
+partner-management,Understand partner onboarding and public keys,Partner lifecycle and keys,Partner onboarding; Service overview,onboarding|partner lifecycle|public keys|rotate keys|key update,upstream_reference
+partner-management,Understand partner signature verification,Partner key integration,Integration access; Partner onboarding,signature verification|key integration|signing keys,upstream_reference
+consent-manager,Understand effective consent scope,Consent decision enforcement,Review consent; Service overview,effective scope|consent decision|validation result,upstream_reference
+consent-manager,Understand consent policies for partners,Partner policy scope,Review consent; Service overview,partner policy|policy binding|data.share policy,upstream_reference
+consent-manager,Understand consent lifecycle and withdrawal,Consent withdrawal and expiry,Consent withdrawal; Review consent,revocation|withdrawal|expiry|consent lifecycle,upstream_reference
+superset,Prepare a dashboard import,Dashboard import preparation,Choose dashboard; Service overview,import dashboard|dashboard import,upstream_reference
+platform,Follow the NigeriaG2P service journey,End-to-end service journey,Find your service; Service overview,service journey|registration.*review.*application,local_workflow
+platform,Understand personas and account permissions,Persona and permission,Find your service; Service overview,persona.*permission|persona selector,local_workflow
+intake,Prepare a household registration,Registration readiness,Household details; Household members; Submit registration,registration readiness|prepare.*registration,local_workflow
+intake,Respond to a returned registration,Returned registration corrections,Correct returned details,returned registration|reviewer feedback,local_workflow
+review,Prepare an independent registration review,Verification readiness,Verification checks; Approve or return; Review queue,verification readiness|independent registration review,local_workflow
+review,Investigate a registration status question,Registration audit reference,Recorded activity; Review queue; Verification checks,registration audit|status question,local_workflow
+beneficiary,Prepare a programme application,Application preparation,Programme application; Register household,application preparation|prepare.*application,local_workflow
+beneficiary,Interpret household and programme statuses,Status meaning,Application status; Programme application,status meaning|application status,local_workflow
+geography,Interpret state colours on the Nigeria map,Map intensity and counting,State record map; Location coverage,map intensity|state colours|state colors|records by state,local_workflow
+geography,Check household coordinate quality,Coordinate quality,Household location points; Location coverage,coordinate quality|coordinate provenance|synthetic coordinates,local_workflow
+staff-portal,Choose the correct staff service,Staff service navigation,Choose service; Service overview,staff service|staff navigation,local_workflow
+staff-portal,Resolve a staff access problem,Access troubleshooting,Sign-in troubleshooting; Choose service,access problem|access troubleshooting|session expired,local_workflow
+knowledge,Use source-linked task guidance,Source-aware guidance,Browse guidance,source.linked|source.aware|references,local_workflow
+knowledge,Maintain a guidance article,Knowledge content maintenance,Edit guidance; Review and publication; Version history,content maintenance|maintain.*guidance,local_workflow
+knowledge,Check a local AI answer,AI source verification,Ask local AI,ai source|check.*ai answer,local_workflow
+knowledge,Review AI-suggested guidance before saving,AI drafting review,Draft with local AI; Edit guidance,ai.suggested|drafting review,local_workflow

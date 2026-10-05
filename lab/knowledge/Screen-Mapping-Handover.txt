@@ -1,0 +1,31 @@
+NigeriaG2P screen-sensitive help mapping - 5 October 2026
+
+All 64 new documentation-pack guides are associated with appropriate operational
+stages and visible task-topic patterns. Existing role-sensitive stage guidance
+remains primary when a local screen declares an explicit stage.
+
+Detailed topic recognition selects guides for CSV import, document evidence,
+registry history, ingestion, PMT, cycle managers, funds, eligibility reassessment,
+policy versions/quorum/SLA/reassignment, partner keys, consent scope/withdrawal,
+reference data, dashboard imports and the other mapped topics.
+Verified source routes add registry version-history/change-request/intake and
+incoming-message mappings, plus AWE policy list/editor/version screens.
+Related guidance is selected from the current stage and shown in a collapsible
+list with links to published articles. Archived/unpublished guides are excluded.
+Upstream references retain the installed-release caveat. Mapping a guide does
+not enable a feature, grant access or alter the operational workflow.
+
+Maintenance: screen-guide-mappings.json contains the 64 associations; the client
+resolver embeds this data in context.js. build-screen-mappings.py refreshes that
+embedded mapping from the authored associations. Screen-to-Help-Matrix.csv is
+an Excel-compatible inventory. Stage strings must match published guide content.
+For new local screens, use data-km-module and data-km-stage attributes to declare
+the exact context. Native labels and routes may require updates when UIs change.
+Unrecognised pages retain service/stage fallback guidance.
+
+Verification: 35 existing context checks + 22 detailed screen checks passed.
+Every mapped stage was checked against the seed and all 64 added guides have
+reachable stage associations. 12 knowledge/AI permission and lifecycle tests
+passed. Live geography state-map help displayed the related intensity guide;
+live AWE Policies selected Policy versions and its official source automatically.
+Deployment health passed; previous source and SQLite backups retained privately.

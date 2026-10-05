@@ -1,0 +1,192 @@
+{
+  "source": "geoBoundaries NGA-ADM1-27671186 / GRID3 2022",
+  "license": "CC BY 4.0",
+  "pinned_commit": "9469f09",
+  "crosswalk": [
+    {
+      "boundary_name": "Cross River",
+      "state_id": "NG09",
+      "state_name": "Cross River"
+    },
+    {
+      "boundary_name": "Abuja Federal Capital Territory",
+      "state_id": "NG37",
+      "state_name": "Federal Capital Territory"
+    },
+    {
+      "boundary_name": "Ogun",
+      "state_id": "NG27",
+      "state_name": "Ogun"
+    },
+    {
+      "boundary_name": "Oyo",
+      "state_id": "NG30",
+      "state_name": "Oyo"
+    },
+    {
+      "boundary_name": "Sokoto",
+      "state_id": "NG33",
+      "state_name": "Sokoto"
+    },
+    {
+      "boundary_name": "Zamfara",
+      "state_id": "NG36",
+      "state_name": "Zamfara"
+    },
+    {
+      "boundary_name": "Lagos",
+      "state_id": "NG24",
+      "state_name": "Lagos"
+    },
+    {
+      "boundary_name": "Akwa Ibom",
+      "state_id": "NG03",
+      "state_name": "Akwa Ibom"
+    },
+    {
+      "boundary_name": "Bayelsa",
+      "state_id": "NG06",
+      "state_name": "Bayelsa"
+    },
+    {
+      "boundary_name": "Ondo",
+      "state_id": "NG28",
+      "state_name": "Ondo"
+    },
+    {
+      "boundary_name": "Delta",
+      "state_id": "NG10",
+      "state_name": "Delta"
+    },
+    {
+      "boundary_name": "Rivers",
+      "state_id": "NG32",
+      "state_name": "Rivers"
+    },
+    {
+      "boundary_name": "Kwara",
+      "state_id": "NG23",
+      "state_name": "Kwara"
+    },
+    {
+      "boundary_name": "Kogi",
+      "state_id": "NG22",
+      "state_name": "Kogi"
+    },
+    {
+      "boundary_name": "Benue",
+      "state_id": "NG07",
+      "state_name": "Benue"
+    },
+    {
+      "boundary_name": "Borno",
+      "state_id": "NG08",
+      "state_name": "Borno"
+    },
+    {
+      "boundary_name": "Katsina",
+      "state_id": "NG20",
+      "state_name": "Katsina"
+    },
+    {
+      "boundary_name": "Plateau",
+      "state_id": "NG31",
+      "state_name": "Plateau"
+    },
+    {
+      "boundary_name": "Edo",
+      "state_id": "NG12",
+      "state_name": "Edo"
+    },
+    {
+      "boundary_name": "Jigawa",
+      "state_id": "NG17",
+      "state_name": "Jigawa"
+    },
+    {
+      "boundary_name": "Anambra",
+      "state_id": "NG04",
+      "state_name": "Anambra"
+    },
+    {
+      "boundary_name": "Kano",
+      "state_id": "NG19",
+      "state_name": "Kano"
+    },
+    {
+      "boundary_name": "Nasarawa",
+      "state_id": "NG25",
+      "state_name": "Nasarawa"
+    },
+    {
+      "boundary_name": "Kebbi",
+      "state_id": "NG21",
+      "state_name": "Kebbi"
+    },
+    {
+      "boundary_name": "Imo",
+      "state_id": "NG16",
+      "state_name": "Imo"
+    },
+    {
+      "boundary_name": "Gombe",
+      "state_id": "NG15",
+      "state_name": "Gombe"
+    },
+    {
+      "boundary_name": "Adamawa",
+      "state_id": "NG02",
+      "state_name": "Adamawa"
+    },
+    {
+      "boundary_name": "Yobe",
+      "state_id": "NG35",
+      "state_name": "Yobe"
+    },
+    {
+      "boundary_name": "Abia",
+      "state_id": "NG01",
+      "state_name": "Abia"
+    },
+    {
+      "boundary_name": "Ekiti",
+      "state_id": "NG13",
+      "state_name": "Ekiti"
+    },
+    {
+      "boundary_name": "Osun",
+      "state_id": "NG29",
+      "state_name": "Osun"
+    },
+    {
+      "boundary_name": "Bauchi",
+      "state_id": "NG05",
+      "state_name": "Bauchi"
+    },
+    {
+      "boundary_name": "Niger",
+      "state_id": "NG26",
+      "state_name": "Niger"
+    },
+    {
+      "boundary_name": "Kaduna",
+      "state_id": "NG18",
+      "state_name": "Kaduna"
+    },
+    {
+      "boundary_name": "Enugu",
+      "state_id": "NG14",
+      "state_name": "Enugu"
+    },
+    {
+      "boundary_name": "Taraba",
+      "state_id": "NG34",
+      "state_name": "Taraba"
+    },
+    {
+      "boundary_name": "Ebonyi",
+      "state_id": "NG11",
+      "state_name": "Ebonyi"
+    }
+  ]
+}

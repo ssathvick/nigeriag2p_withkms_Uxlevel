@@ -1,0 +1,45 @@
+NigeriaG2P knowledge management — 2026-10-05
+
+Public library: https://nigeriag2p.com/registration/knowledge
+Staff management: https://nigeriag2p.com/registration/knowledge/admin
+
+Central persistence: km_articles and km_history in registration/intake.sqlite.
+118 initial guidance entries spanning the platform and 16 services, including role-specific variants.
+Initial guidance is marked system:initial-guidance, not represented as a human review.
+
+Lifecycle: save draft -> submit for independent review -> verifier reviews -> supervisor publishes.
+Authors cannot review their own version. Legacy sandbox reviewers retain their existing scope.
+Edits do not replace published content until publication. Archive hides public content;
+restore returns it to draft. Historical content can be restored as a new draft.
+Version history records content, actions, actors and timestamps. Conflicting stale edits fail.
+All authoring is plain text with escaped HTML rendering, size validation and existing session/CSRF controls.
+
+Published guidance is intentionally public and must contain task instructions only.
+Drafts/history are staff-only. No new identity privileges were granted.
+Help role selection is informational and never changes application access.
+
+Shared help assets: /iqs-brand/knowledge-help.js and .css.
+Public published-guidance proxy /iqs-brand/knowledge uses the central server, strips incoming
+cookies and outgoing Set-Cookie. Native service CSP and browser CORS do not need weakening.
+Contextual help icons are attached to visible headings. Stage mapping uses known heading keywords;
+users can select the exact stage when a native page has no matching heading. The help launcher
+is available across the configured application services. Identity login screens are excluded.
+
+Private source/template/nginx/consistent SQLite backups: registration/knowledge-backups/.
+Deploy script: install-knowledge.py. The installer seeds only missing slugs and never overwrites staff edits.
+Isolated tests: test-knowledge.py verifies public/private access, CSRF, independent review,
+publication, stale saves, escaping, archive/restore, revision restore, search and audience filtering.
+
+Final validation: 6 knowledge tests and 8 existing workspace tests passed. Live help verified on geography and native registry; supervisor role retained the selected stage. Historical revision page and library filters verified. Return-to-draft requires actionable feedback and records it in history. Knowledge library added to the service catalogue. Final help asset version km5.
+
+Automatic screen/stage help, 2026-10-05:
+- context.js resolves explicit active-screen markers first, then route/model and visible-section rules.
+- Local workspace markers change with persona, tab, record status and approval confirmation.
+- Profile sections, coordinates, submission, review and geography sections have explicit markers.
+- Native registry/beneficiary/AWE routes, Odoo model hashes and other service headings are mapped.
+- Focus, outside-panel clicks, DOM changes, tab changes, scrolling and native SPA URL changes update an open panel.
+- Auto mode selects role variants locally using published-only articles. It sends no field values or record contents to the knowledge endpoint.
+- Optional Browse other help pauses auto mode; Follow current screen resumes it.
+- Unmapped native screens receive a labelled service overview rather than an arbitrary first article.
+- Native account role is not inferred from confidential tokens; pages without an explicit persona receive general guidance.
+- 35 mapping cases plus permission/lifecycle and existing workspace regression suites verify routing and access.

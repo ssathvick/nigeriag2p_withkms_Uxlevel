@@ -1,0 +1,37 @@
+{
+    "homePage": {
+        "welcome": "Bienvenue sur le portail des bénéficiaires OpenG2P",
+        "getStarted": "COMMENCER",
+        "description": "Il a survécu non seulement cinq siècles, mais aussi le passage à la composition électronique, restant essentiellement inchangé."
+    },
+    "navigation": {
+        "dashboard": "Tableau de bord",
+        "profile": "Profil",
+        "settings": "Paramètres"
+    },
+    "loginPage": {
+        "portalName": "Portail des bénéficiaires",
+        "emailOrPhone": "Email ou Téléphone",
+        "password": "Mot de passe",
+        "resetPassword": "Mot de passe oublié",
+        "login": "SE CONNECTER",
+        "loginWithNationalID": "SE CONNECTER AVEC L'ID NATIONAL"
+    },
+    "profileDropdown": {
+        "myProfile": "Mon Profil",
+        "logout": "Se déconnecter"
+    },
+    "profilePage": {
+        "title": "Mon Profil",
+        "personalInfo": "Informations personnelles",
+        "name": "Nom",
+        "providerIdType": "Type d'identifiant fournisseur",
+        "providerUniqueId": "Identifiant unique du fournisseur",
+        "contactInfo": "Informations de contact",
+        "email": "Email",
+        "phone": "Téléphone",
+        "demographics": "Données démographiques",
+        "gender": "Sexe",
+        "birthdate": "Date de naissance"
+    }
+}

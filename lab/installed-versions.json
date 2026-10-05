@@ -1,0 +1,359 @@
+{
+  "recorded_at": "2026-10-03T08:41:58.843136+00:00",
+  "images": [
+    {
+      "image": "apachesuperset.docker.scarf.sh/apache/superset:4.0.1",
+      "digest": "apachesuperset.docker.scarf.sh/apache/superset@sha256:ab9467fd712cbe3738d1a7d574d6230c0b04a88af5e5e11f3fbc38e2af305162"
+    },
+    {
+      "image": "docker.io/alpine/k8s:1.31.0",
+      "digest": "docker.io/alpine/k8s@sha256:66dd3f7db6c4cf152b688d83aad11ceed9eb2da0c4e7de1034c7d4ccea1b55ef"
+    },
+    {
+      "image": "docker.io/injistack/inji-certify-with-plugins:0.14.0",
+      "digest": "docker.io/injistack/inji-certify-with-plugins@sha256:f6686f55f5202815ff691a11bbaa7d1ce5bab4e5b8feaeeda0e33d6bba6bd00b"
+    },
+    {
+      "image": "docker.io/jbergknoff/postgresql-client:latest",
+      "digest": "docker.io/jbergknoff/postgresql-client@sha256:45e175ebb700cfd46e23a610477c3576550055ef40c394e663623946a5eced39"
+    },
+    {
+      "image": "docker.io/mosipid/artifactory-server:1.4.1-ES",
+      "digest": "docker.io/mosipid/artifactory-server@sha256:97ddad06f66d0f1055265e5f3055054893d3f4da927936237cf7cd5dc6c6f2c8"
+    },
+    {
+      "image": "docker.io/mosipid/esignet:1.4.1",
+      "digest": "docker.io/mosipid/esignet@sha256:ca94809978e075aef4933d257a0e705e4ec62fc93c7c7f27919a68474326cdb5"
+    },
+    {
+      "image": "docker.io/mosipid/kernel-keymanager-service:1.2.1.0",
+      "digest": "docker.io/mosipid/kernel-keymanager-service@sha256:f8efecddd4cccdb60c094bfb7b54c212271848168a569644b8e3b307d4b5acaf"
+    },
+    {
+      "image": "docker.io/mosipid/mock-identity-system:0.9.3",
+      "digest": "docker.io/mosipid/mock-identity-system@sha256:2474213ee64c6a3f2a51ad34ec7becedfd6152f219420d4a88dada8fdb01e45d"
+    },
+    {
+      "image": "docker.io/mosipid/oidc-ui:1.4.1",
+      "digest": "docker.io/mosipid/oidc-ui@sha256:8480f2c437a5f1df6e81fdbbe51bd11563a34649a0ae925675f5ec831f09d776"
+    },
+    {
+      "image": "docker.io/mosipid/postgres-init:1.2.0.1-B4",
+      "digest": "docker.io/mosipid/postgres-init@sha256:6096f2c08ac9dbcbf4444f3d94263137bf3fd93e0c57d4fe7f0bdd986d3349c1"
+    },
+    {
+      "image": "docker.io/mosipid/softhsm:v2",
+      "digest": "docker.io/mosipid/softhsm@sha256:e3c643586bbeff4de5b55ca16a959cf935fcd529606e3902985a76ae2fff0cef"
+    },
+    {
+      "image": "docker.io/openg2p/consent-manager-api:1.0.2",
+      "digest": "docker.io/openg2p/consent-manager-api@sha256:37a562ac308be4130c0340782c4b821c219cc65094b8c9b1cb087fefcef737ef"
+    },
+    {
+      "image": "docker.io/openg2p/consent-manager-sanity:1.0.2",
+      "digest": "docker.io/openg2p/consent-manager-sanity@sha256:2d2c3c30384f749ddd39d148f6425d1ab6256065c80daf4a2549111778b5c9bc"
+    },
+    {
+      "image": "docker.io/openg2p/consent-manager-ui:1.0.2",
+      "digest": "docker.io/openg2p/consent-manager-ui@sha256:5e2398be470080c1d5ff4e6d7a4630eb412825430c2e514b1bf596325ec030d1"
+    },
+    {
+      "image": "docker.io/openg2p/iam-agent-portal-api:1.4.1",
+      "digest": "docker.io/openg2p/iam-agent-portal-api@sha256:805d5b1bc39d666d40602831ec394f7d2ed66119fc3932513a29df91a0529679"
+    },
+    {
+      "image": "docker.io/openg2p/iam-staff-portal-api:1.4.1",
+      "digest": "docker.io/openg2p/iam-staff-portal-api@sha256:982bf8b26e012239b9d5a525b69017dbeb9683994f103415baadf5461e0fd2ac"
+    },
+    {
+      "image": "docker.io/openg2p/iam-staff-ui:1.4.1",
+      "digest": "docker.io/openg2p/iam-staff-ui@sha256:a5215f7ef7e95432e9199be1bbd3e7f94a3925d8d2faf3e6ed7ce68696b0a4e2"
+    },
+    {
+      "image": "docker.io/openg2p/kafka-ui:v0.7.2",
+      "digest": "docker.io/openg2p/kafka-ui@sha256:1b784b6a06b1913fd0982f2cf405b8cf8a4ad1302dcc44679ebd39f263afaa2b"
+    },
+    {
+      "image": "docker.io/openg2p/kafka:3.7.1-debian-12-r4",
+      "digest": "docker.io/openg2p/kafka@sha256:127446533dea8320bc2f5b904a0c479b67faca7caf7d1d3ecf1f690b49edd83c"
+    },
+    {
+      "image": "docker.io/openg2p/keycloak-init:1.2.0",
+      "digest": "docker.io/openg2p/keycloak-init@sha256:99bc5cd1bdbdd89c28ab8fb87bd05ee805da439afe7dd5fa7e420f588e68dfdc"
+    },
+    {
+      "image": "docker.io/openg2p/keycloak:24.0.5-debian-12-r1-g2p1",
+      "digest": "docker.io/openg2p/keycloak@sha256:7c1baac44f3495ccfa2084303209da1e29e2b4bdd7b08a59704afe4792bd78d3"
+    },
+    {
+      "image": "docker.io/openg2p/master-data-api:1.1.1",
+      "digest": "docker.io/openg2p/master-data-api@sha256:1841a9203264a7ff0de0ce8559b6f8ba56f5b0540a440ad64e15054f104eb280"
+    },
+    {
+      "image": "docker.io/openg2p/master-data-db-seed:1.1.1",
+      "digest": "docker.io/openg2p/master-data-db-seed@sha256:55871d77ac8785ee01fffda74ff49ef2fae14c819e68fac4315ddb85c4e41d66"
+    },
+    {
+      "image": "docker.io/openg2p/master-data-ui:1.1.1",
+      "digest": "docker.io/openg2p/master-data-ui@sha256:5dc29a5a9e24da4ace61fd7c1030ad71fd26d0164a342ae4b8613dc56a4c7a74"
+    },
+    {
+      "image": "docker.io/openg2p/minio:2023.12.23-debian-11-r2",
+      "digest": "docker.io/openg2p/minio@sha256:96d38ba0a36b5b05a953c3c9abd6ef95a1cad60aa6474cc621e2ec1dd4685d42"
+    },
+    {
+      "image": "docker.io/openg2p/odk-central-backend:v2025.2.1",
+      "digest": "docker.io/openg2p/odk-central-backend@sha256:9ed0175d757165c3c56fd84f8b15ee0d7c1952a280518698da020298f4b20ecc"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-audit-manager:1.2.0",
+      "digest": "docker.io/openg2p/openg2p-audit-manager@sha256:123855aae3794d48b829d6e5e43fa42282f1062cd2826333eb1df64b16191a19"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-awe-ui:1.2.2",
+      "digest": "docker.io/openg2p/openg2p-awe-ui@sha256:4ba9b3dfebee9ac5d43f2a4f3873112ce8029269f07ddc976fe6c09573558db9"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-awe:1.2.2",
+      "digest": "docker.io/openg2p/openg2p-awe@sha256:b88b96e301d1bb652e617348e42e88b424ad8d60ff2838b59c60c0d3808703b8"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-beneficiary-portal-api:1.0.0",
+      "digest": "docker.io/openg2p/openg2p-beneficiary-portal-api@sha256:642224ac85b09927f400f3dbd847db9a32ab3ad9b28111934c7ffa1c7276052b"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-beneficiary-portal-ui:1.0.0",
+      "digest": "docker.io/openg2p/openg2p-beneficiary-portal-ui@sha256:0a876c70e12156a144a2fdf6babf6402d26104a0437399274d7b237e076f3557"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-bene-portal-api:2.1.0",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-bene-portal-api@sha256:d8f83a983572cfbe275aaaa1163767b9d9acdc7ebf4f34d27806721c327f9947"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-celery-beat-producers:2.1.0",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-celery-beat-producers@sha256:e69c774429cc215f618e939d5c765350992f044298281a866f8c20fd7d45d2ee"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-celery-workers:2.1.0",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-celery-workers@sha256:dc70ce00536abd8844ba8ca0af03e22c86b6306f10e819d1554d78afb72c1ffe"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-api:1.1",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-api@sha256:2ad983161abbd7bf54d121dfa5afc4b5b4025c4f8940bdd592a2d029dc80a53d"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-celery:1.1",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-celery@sha256:5e8a21c0587b194febe6bab39d2bbe5e471bf2f1013e989feca54f55889281f1"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-g2p-bridge-partner-api:2.1.0",
+      "digest": "docker.io/openg2p/openg2p-g2p-bridge-partner-api@sha256:376ffffa217254218a4cd31d2535eca96bcdf03638cc1a85ac99b716eb3444d4"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-id-generator:1.1.2",
+      "digest": "docker.io/openg2p/openg2p-id-generator@sha256:ce1ff61a8dbe4d359a45baccf2dfc0e9362e1d228fb5158777fa4d3307e706b3"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-pbms-bg-task-api:3.0.0",
+      "digest": "docker.io/openg2p/openg2p-pbms-bg-task-api@sha256:78565faf53719f9cc25034b3a08f5f15337d1952d07c88afd2344bc7e0e0a9e7"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-pbms-bg-task-celery-beat-producers:3.0.0",
+      "digest": "docker.io/openg2p/openg2p-pbms-bg-task-celery-beat-producers@sha256:cba194f6d055273f28881a57201dacb894c20e4d9856e7a84ee23cc23a8f9474"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-pbms-bg-task-celery-workers:3.0.0",
+      "digest": "docker.io/openg2p/openg2p-pbms-bg-task-celery-workers@sha256:e08aace593530a95c1e23209b1fe2c221cf6e7a2697e09b3d146e7c5b822b9f2"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-pbms-core:1.3.0",
+      "digest": "docker.io/openg2p/openg2p-pbms-core@sha256:f3b32dfae88be416034070f902ea51a9ec793195c6d46e0d7f6605048996943f"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-pbms-core:3.0.0",
+      "digest": "docker.io/openg2p/openg2p-pbms-core@sha256:9fd101369c65b5b3d184a64806060b95196edb6fe1844ec2b0c4b285ebe89fbf"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-bg-tasks-producer:1.1.1",
+      "digest": "docker.io/openg2p/openg2p-registry-bg-tasks-producer@sha256:a6c019ea5f8911f4678897de07cac5eb9d4a4e30471542b98c738b51dc4319d3"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-bg-tasks-worker:1.1.1",
+      "digest": "docker.io/openg2p/openg2p-registry-bg-tasks-worker@sha256:2fa15b67ca473b8135e0195b3a59c46b9b2450316b29bed7450a242c21418d3e"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-celery:1.2.1",
+      "digest": "docker.io/openg2p/openg2p-registry-celery@sha256:e178f80686b9eeb28678357239dddf35af5f16d812acda3c3a82aefc4b374533"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-db-seed:1.2.1",
+      "digest": "docker.io/openg2p/openg2p-registry-db-seed@sha256:b2fdc59774117272bcf798cf9414067b73d7fa7fe21aa1877ca831e6019e3def"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-partner-api:1.2.1",
+      "digest": "docker.io/openg2p/openg2p-registry-partner-api@sha256:aec20d2e6c0a7fc7b103791413ee5544e742dd85c2b2794853632705dc5f33e7"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-staff-api:1.2.1",
+      "digest": "docker.io/openg2p/openg2p-registry-staff-api@sha256:0f7e23d35cce72d5458e340a506565c2313a6dde0f17a96e93962327240dd6a0"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-registry-staff-ui:1.2.1",
+      "digest": "docker.io/openg2p/openg2p-registry-staff-ui@sha256:69f15cd6d0dfadbe137e12fa7d7e8f45bd9fe48fb9e292462f4b6ed30c61ee2a"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-social-registry-core:1.5.7",
+      "digest": "docker.io/openg2p/openg2p-social-registry-core@sha256:94567586660a9f72943c1ee048e17e8bf50c7312236a03f831375af048639933"
+    },
+    {
+      "image": "docker.io/openg2p/openg2p-staff-portal-ui:1.2.0",
+      "digest": "docker.io/openg2p/openg2p-staff-portal-ui@sha256:bacc8dc6712712c90fffa81217fc3a801741b1615d8c9c34b6dc41cbfb0da191"
+    },
+    {
+      "image": "docker.io/openg2p/partner-management-partner-api:1.0.2",
+      "digest": "docker.io/openg2p/partner-management-partner-api@sha256:887ca1fae1dba41dcd7ec71d923d1aae710e25405c60e135141313307b809667"
+    },
+    {
+      "image": "docker.io/openg2p/partner-management-staff-portal-api:1.0.2",
+      "digest": "docker.io/openg2p/partner-management-staff-portal-api@sha256:a5f9c128ffe51739bf1ec2fb664b1c9f5951d0d46891288a81436d012f62e304"
+    },
+    {
+      "image": "docker.io/openg2p/partner-management-staff-portal-ui:1.0.2",
+      "digest": "docker.io/openg2p/partner-management-staff-portal-ui@sha256:f97109868988287c85058ac77e49433f929384d4b8a62f35192bfa7da927634e"
+    },
+    {
+      "image": "docker.io/openg2p/postgresql:16.3.0-debian-12-r16",
+      "digest": "docker.io/openg2p/postgresql@sha256:f308ce9545073530825a1a05a50d72afd7cb4c636e4ce6726425fbf81a25dfe9"
+    },
+    {
+      "image": "docker.io/openg2p/postgresql:16.4.0-debian-12-r14",
+      "digest": "docker.io/openg2p/postgresql@sha256:65b6faa9f30de7dc89f63f055a3dd3e4ba0334172ee95c8badf49da0d08ef1c0"
+    },
+    {
+      "image": "docker.io/openg2p/redis:7.2.5-debian-12-r4",
+      "digest": "docker.io/openg2p/redis@sha256:0fecb897556b5b31eca5be8756a8dcaebb780348f6936805a868d6037ae45232"
+    },
+    {
+      "image": "ghcr.io/enketo/enketo:7.5.1",
+      "digest": "ghcr.io/enketo/enketo@sha256:b43c15667164a3fcb3183df54e09d4e9b77b8b535c7f1c397e22388def19ef05"
+    },
+    {
+      "image": "ghcr.io/getodk/central-nginx:v2025.2.1",
+      "digest": "ghcr.io/getodk/central-nginx@sha256:57e2252d1948c7400d8a51da0168e8dcdb43a74dbe91fe0c4b54b8a7e2ed5598"
+    },
+    {
+      "image": "ghcr.io/getodk/pyxform-http:v3.1.0",
+      "digest": "ghcr.io/getodk/pyxform-http@sha256:8d8fce074968cbe024bb9976c7fe393f0c0b290353015415a9f162d5fa6718ad"
+    },
+    {
+      "image": "registry.gitlab.com/openg2p/spar/spar/bene-portal-api:1.1.0",
+      "digest": "registry.gitlab.com/openg2p/spar/spar/bene-portal-api@sha256:560ff292a4c155c22a317bc59d72055ae07401f0f600931e9faf73b5708cc9e7"
+    },
+    {
+      "image": "registry.gitlab.com/openg2p/spar/spar/mapper-partner-api:1.1.0",
+      "digest": "registry.gitlab.com/openg2p/spar/spar/mapper-partner-api@sha256:b2c3506faaaf7db5cb844a3546a718590931bbd81f9f8b0bd5bf2d76156ce3eb"
+    }
+  ],
+  "helm_releases": [
+    {
+      "name": "bridge",
+      "namespace": "nigeria",
+      "revision": "1",
+      "updated": "2026-10-03 11:01:26.38292002 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-g2p-bridge-3.0.0",
+      "app_version": ""
+    },
+    {
+      "name": "commons",
+      "namespace": "nigeria",
+      "revision": "3",
+      "updated": "2026-10-03 10:52:08.519541146 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-commons-base-2.3.3",
+      "app_version": "2.3.3"
+    },
+    {
+      "name": "commons-services",
+      "namespace": "nigeria",
+      "revision": "3",
+      "updated": "2026-10-03 11:27:25.858926404 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-commons-services-2.3.3",
+      "app_version": "2.3.3"
+    },
+    {
+      "name": "example-bank",
+      "namespace": "nigeria",
+      "revision": "2",
+      "updated": "2026-10-03 11:17:21.79607436 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-example-bank-1.1",
+      "app_version": ""
+    },
+    {
+      "name": "pbms",
+      "namespace": "nigeria",
+      "revision": "2",
+      "updated": "2026-10-03 10:55:05.871472184 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-pbms-3.0.0",
+      "app_version": ""
+    },
+    {
+      "name": "pbms-beneficiary-portal",
+      "namespace": "nigeria",
+      "revision": "1",
+      "updated": "2026-10-03 11:01:27.245626181 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-pbms-beneficiary-portal-2.0.2",
+      "app_version": ""
+    },
+    {
+      "name": "portal-backend",
+      "namespace": "nigeria",
+      "revision": "1",
+      "updated": "2026-10-03 11:36:18.374457871 +0530 IST",
+      "status": "deployed",
+      "chart": "odoo-26.2.9",
+      "app_version": "17.0.20240605"
+    },
+    {
+      "name": "register",
+      "namespace": "nigeria",
+      "revision": "2",
+      "updated": "2026-10-03 11:26:25.035592281 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-registry-1.2.1",
+      "app_version": "1.2.1"
+    },
+    {
+      "name": "registry",
+      "namespace": "nigeria",
+      "revision": "1",
+      "updated": "2026-10-03 10:53:31.752835227 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-social-registry-2.0.8",
+      "app_version": ""
+    },
+    {
+      "name": "spar",
+      "namespace": "nigeria",
+      "revision": "1",
+      "updated": "2026-10-03 11:00:41.456565147 +0530 IST",
+      "status": "deployed",
+      "chart": "openg2p-spar-1.1.0",
+      "app_version": "1.1.0"
+    }
+  ],
+  "source_commits": {
+    "beneficiary-ui-source": "355396188215901b6c86db7cc13f4e2dffa572cb",
+    "registry-ui-source": "5968eb4ecc8bc4583163d0f04572d612a027bfb2",
+    "upstream-awe": "656ae20874bbbb725aea78d009c38b8cdeb0aad3",
+    "upstream-data": "746bb5746e6b065b4eb5dcbefb6ad713ba66f8e6",
+    "upstream-deployment": "2fe290e03c74c6bf09878bf1a5bc7a8c724d8fa6",
+    "upstream-helm": "a3b01e9fb79679edc2365afd5b15cbb8bfd08458",
+    "upstream-registry-extensions": "dcef0b09f46b600b4b99792fcdb801ab410fec77",
+    "upstream-registry-gen2": "8a18f92df1329aa3fd178f1f9cabfcbd896c69a1"
+  }
+}

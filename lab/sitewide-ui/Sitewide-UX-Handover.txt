@@ -1,0 +1,36 @@
+NigeriaG2P SITE-WIDE UX HANDOVER
+
+Client entry: https://nigeriag2p.com/
+
+WHAT IS DEPLOYED
+A React service hub organizes 15 working service entry points by the four core personas. Search finds module links. All services exposes the full catalogue, including specialist tools.
+Integrated browser applications have a shared NigeriaG2P navigation bar with All services, My workspace and a module-specific Service guide. Sign-in presentation and supported native palette classes use the green platform theme.
+The existing registration persona workspace remains connected to its authenticated backend. Other module business screens and workflows continue in their installed applications.
+
+CLIENT PRESENTATION
+1. Open the homepage and select a persona.
+2. Explain the recommended services and next-step link.
+3. Search for a service. Show specialist and other services when needed.
+4. Open Programme management or Modern social registry to show the shared navigation and Service guide.
+5. Return to All services, then open Client walkthrough for the four-persona fictional journey.
+
+ACCESS
+The focus selector organizes links. It does not assign security roles or grant access. Each existing application enforces its own account permissions. Production persona grants and jurisdiction/programme scopes remain a separate configuration task. Staff sandbox accounts may retain broad pre-existing permissions.
+No new payment, entitlement or partner approval authority is provided by the shared navigation.
+
+COVERAGE AND VERIFICATION
+15 service entry pages returned HTTP 200 HTML after their normal redirects and included the shared UX assets. Four shared assets returned HTTP 200.
+Browser checks covered hub persona selection, service search, empty results, specialist service visibility, programme-management sign-in and Service guide, and the modern registry landing page.
+Existing registry translation warnings for Individuals and Households appeared during native page loading. The page still rendered with its existing data and controls.
+Responsive CSS is included. The browser viewport override did not report the requested 390px width, so a true 390px device layout has not been verified.
+Authenticated module transactions have not all been retested. Module-specific React rewrites, deep form redesigns, case assignment, production RBAC and treasury workflows are not completed by this shared UX layer.
+
+MAINTENANCE
+Sources: persona-ui/src/site.jsx, catalogue.js and shell.js; sitewide-ui/index.html, site.css and site-shell.css.
+Build: npm --prefix openg2p-lab/persona-ui run build.
+Deploy from WSL using install-sitewide-ux.py.
+Runtime assets: /opt/openg2p-lab/branding/.
+HTML injection: /etc/nginx/snippets/iqs-brand.conf.
+Private pre-deployment file snapshots: /opt/openg2p-lab/sitewide-ux-backups/.
+The installer validates nginx configuration before reloading and restores saved files if validation/reload fails.
+No application database, programme data, payment records or IAM grants were modified by this deployment.

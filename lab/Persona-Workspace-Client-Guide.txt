@@ -1,0 +1,35 @@
+NigeriaG2P PERSONA WORKSPACE - CLIENT DEMONSTRATION
+
+Client walkthrough (no login):
+https://nigeriag2p.com/registration/workspace?demo=1
+
+Authenticated workspace (existing account):
+https://nigeriag2p.com/registration/workspace
+
+PRESENT IN THREE MINUTES
+1. Registration officer: Open correction, confirm the community, Save correction & resubmit.
+2. Open next workspace: Verification officer. Review case, tick three review checks, Approve registration & connect, Confirm approval.
+3. Open next workspace: Programme supervisor. Show household progress and Recent activity.
+4. Select Citizen / assisted applicant. Show household status and Programme applications.
+5. Reset walkthrough to start again.
+
+The walkthrough uses fictional data held only in the current browser tab. Reload or reset returns it to the starting example. Connected status in this walkthrough is simulated. Registration approval does not authorize benefits or payments.
+
+IMPLEMENTED
+React workspace, role-specific navigation, correction and resubmission, independent verification, read-only supervisory overview, citizen own-record view, status tracking and activity history.
+Authenticated APIs enforce permissions, CSRF, record versions, state transitions and separation of the person correcting a case from its approver.
+Eight isolated backend tests pass. Browser walkthrough verified through correction, resubmission, confirmation and supervisor overview.
+
+CURRENT ACCESS
+Existing sandbox intake reviewers retain their existing broad access to all staff personas. New role identifiers supported by the workspace: iqs-registration-officer, iqs-verification-officer, iqs-programme-supervisor. No new account grants have been provisioned. Citizen access uses existing beneficiary sign-in.
+
+NEXT PRODUCTION WORK
+Agree and provision persona-specific identity grants and jurisdiction/programme scopes. The current sandbox staff view is not geographically scoped. Payment authorization and new programme eligibility decisions are outside this workspace. Existing native registration and programme services remain the underlying system.
+
+OPERATIONS
+Runtime: /opt/openg2p-lab/registration in Ubuntu-22.04 WSL.
+Service: iqs-registration.service.
+Private pre-deployment source, template, static and SQLite snapshots: /opt/openg2p-lab/registration/persona-backups/.
+Rollback requires coordinating source and database versions and checking for changes since the snapshot; do not overwrite a newer database blindly.
+Frontend source: openg2p-lab/persona-ui; build with npm run build.
+Deployment script: openg2p-lab/install-persona-workspaces.py.

@@ -1,0 +1,27 @@
+export const personas = [
+ {id:'officer',name:'Registration officer',lead:'Register households and resolve returned cases.',action:'Open registration workspace'},
+ {id:'verifier',name:'Verification officer',lead:'Review registrations and follow approval tasks.',action:'Open verification workspace'},
+ {id:'supervisor',name:'Programme supervisor',lead:'Oversee programme delivery and operational exceptions.',action:'Open programme workspace'},
+ {id:'citizen',name:'Citizen / assisted applicant',lead:'Register your household and follow your applications.',action:'Open my support workspace'},
+ {id:'all',name:'All services',lead:'Find specialist tools and administration services.',action:'Open persona workspace'}
+];
+export const modules = [
+ {id:'knowledge',title:'Knowledge library',group:'Shared services',host:'nigeriag2p.com',path:'/registration/knowledge',description:'Find stage guidance, common issues and instructions for your role.',roles:['officer','verifier','supervisor','citizen'],task:'Open workflow help'},
+ {id:'intake',title:'Household registration',group:'People and households',host:'nigeriag2p.com',path:'/registration/',description:'Register a household, correct returned details and follow enrollment.',roles:['officer','citizen'],task:'Create or correct a household'},
+ {id:'review',title:'Registration review',group:'People and households',host:'nigeriag2p.com',path:'/registration/workspace',description:'Review household details and record an independent registration decision.',roles:['verifier','officer','supervisor'],task:'Review the registration queue'},
+ {id:'register',title:'Modern social registry',group:'People and households',host:'register.nigeriag2p.com',path:'/',description:'Work with individual records, household intake and registry approvals.',roles:['officer','verifier'],task:'Open registry cases'},
+ {id:'registry',title:'Social registry administration',group:'People and households',host:'registry.nigeriag2p.com',path:'/web',description:'Manage household membership and existing registry records.',roles:['officer','verifier','supervisor'],task:'Open household records'},
+ {id:'beneficiary',title:'Beneficiary portal',group:'People and households',host:'beneficiary.nigeriag2p.com',path:'/selfservice',description:'Use existing self-service forms and follow programme applications.',roles:['citizen'],task:'Open self-service'},
+ {id:'pbms',title:'Programme management',group:'Programmes and approvals',host:'pbms.nigeriag2p.com',path:'/web',description:'Manage programmes, enrollment, benefits and disbursement workflows.',roles:['supervisor'],task:'Open programme operations'},
+ {id:'awe',title:'Approval workflows',group:'Programmes and approvals',host:'awe.nigeriag2p.com',path:'/',description:'Review assigned approval tasks and existing workflow policies.',roles:['verifier','supervisor'],task:'Open approval tasks'},
+ {id:'portal-admin',title:'Beneficiary programme administration',group:'Programmes and approvals',host:'portal-admin.nigeriag2p.com',path:'/web',description:'Administer the programmes connected to the beneficiary portal.',roles:['supervisor'],task:'Open portal administration'},
+ {id:'odk',title:'Field data collection',group:'Field work and insights',host:'odk.nigeriag2p.com',path:'/',description:'Manage field collection projects and forms in ODK Central.',roles:['officer','supervisor'],task:'Open collection projects'},
+ {id:'geography',title:'Geographic record data',group:'Field work and insights',host:'nigeriag2p.com',path:'/registration/geography',description:'Inspect record counts by zone, state and known LGA for the future Nigeria map.',roles:['supervisor'],task:'Open geographic record counts'},
+ {id:'superset',title:'Analytics',group:'Field work and insights',host:'superset.nigeriag2p.com',path:'/',description:'Explore existing dashboards and reports in Apache Superset.',roles:['supervisor'],task:'Open dashboards'},
+ {id:'master-data-ui',title:'Master data',group:'Shared services',host:'master-data-ui.nigeriag2p.com',path:'/',description:'Maintain shared locations and attributes used by the applications.',roles:[],task:'Open shared reference data'},
+ {id:'partner-management',title:'Partner management',group:'Shared services',host:'partner-management.nigeriag2p.com',path:'/',description:'Review partner onboarding and existing integration access workflows.',roles:[],task:'Open partner services'},
+ {id:'consent-manager',title:'Consent manager',group:'Shared services',host:'consent-manager.nigeriag2p.com',path:'/',description:'Manage existing consent records and access policies.',roles:[],task:'Open consent services'},
+ {id:'staff-portal',title:'Staff portal',group:'Shared services',host:'staff-portal.nigeriag2p.com',path:'/',description:'Use the existing staff application launcher and sign-on journey.',roles:['officer','verifier','supervisor'],task:'Open staff services'},
+ {id:'iam-staff-ui',title:'Staff access administration',group:'Shared services',host:'iam-staff-ui.nigeriag2p.com',path:'/',description:'Use existing account administration tools with an authorized staff account.',roles:[],task:'Open access administration'}
+];
+export const url=m=>'https://'+m.host+m.path;

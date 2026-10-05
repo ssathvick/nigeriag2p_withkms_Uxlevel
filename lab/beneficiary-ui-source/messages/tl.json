@@ -1,0 +1,37 @@
+{
+    "homePage": {
+        "welcome": "Maligayang pagdating sa OpenG2P Beneficiary Portal",
+        "getStarted": "MAGSIMULA",
+        "description": "Nabuhay ito hindi lamang sa loob ng limang siglo, kundi pati na rin sa paglipat sa elektronikong pagsasalin, nananatiling halos hindi nagbago."
+    },
+    "navigation": {
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "settings": "Mga Setting"
+    },
+    "loginPage": {
+        "portalName": "Portal ng mga Benepisyaryo",
+        "emailOrPhone": "Email o Telepono",
+        "password": "Password",
+        "resetPassword": "Nakalimutan ang Password",
+        "login": "MAG-LOGIN",
+        "loginWithNationalID": "MAG-LOGIN GAMIT ANG NATIONAL ID"
+    },
+    "profileDropdown": {
+        "myProfile": "Aking Profile",
+        "logout": "Mag-logout"
+    },
+    "profilePage": {
+        "title": "Aking Profile",
+        "personalInfo": "Personal na Impormasyon",
+        "name": "Pangalan",
+        "providerIdType": "Uri ng Provider ID",
+        "providerUniqueId": "Natanging Provider ID",
+        "contactInfo": "Impormasyon sa Pakikipag-ugnayan",
+        "email": "Email",
+        "phone": "Telepono",
+        "demographics": "Mga Detalyeng Demograpiko",
+        "gender": "Kasarian",
+        "birthdate": "Araw ng kapanganakan"
+    }
+}

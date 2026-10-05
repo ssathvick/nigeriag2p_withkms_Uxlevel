@@ -1,0 +1,52 @@
+NIGERIAG2P HOUSEHOLD GEOGRAPHY - DATA HANDOVER
+
+Purpose: prepare geographic record data for a later dashboard showing individual household locations on a Nigeria map.
+
+CURRENT LIVE COVERAGE
+215 individual records and 58 household records in the modern social registry resolve to a zone and state/FCT.
+58 households currently lack coordinates. No household points are invented or substituted with state/LGA centroids.
+The geographic catalogue contains six geopolitical zones, all 36 states and FCT, and six demonstration LGAs. Ward values are optional reported names. The full national LGA/ward catalogue is not installed.
+
+FIELDS
+country_code, zone_id/name, state_id/name, optional lga_id/name, ward, community, household latitude, longitude, reported accuracy_m and coordinate_source.
+Coordinate system: WGS84 decimal degrees. GeoJSON positions use [longitude, latitude]. Coordinate source is user_reported, device_gps_reported, or registry_unverified. Coordinates remain unverified household residence information.
+The project geographic identifiers are local codes, not official Nigerian P-codes. Join to a selected map boundary dataset using an approved crosswalk. No map boundaries are included in this change.
+Zone membership reference: National Bureau of Statistics NNHS 2018, https://www.nigerianstat.gov.ng/download/839
+
+DATA CAPTURE
+The household registration form includes optional LGA, ward, latitude, longitude and accuracy fields.
+Use this device location requires a user click and browser permission. Use it only when physically at the household being recorded. Coordinates persist only on form submission.
+A state/LGA centre or device located elsewhere must not be recorded as the household point.
+Approved profiles retain their existing editing restrictions. Existing household locations require appropriate field collection and the native authorized change workflow. No bulk coordinate import was implemented.
+After staff approval and synchronization, household coordinates reach the modern registry. Individual records retain administrative geography without copying household GPS as individual locations.
+
+AUTHENTICATED PAGES AND ENDPOINTS
+https://nigeriag2p.com/registration/geography
+https://nigeriag2p.com/registration/api/geography/summary
+https://nigeriag2p.com/registration/api/geography/households.geojson
+Public area reference: https://nigeriag2p.com/registration/api/geography/areas
+Summary and point feeds require the existing sandbox reviewer or programme supervisor access. Production jurisdiction/programme restrictions remain to be configured. Exact location data is not part of the public service hub.
+The GeoJSON feed includes household identifiers and location metadata without household names, member names, income, contact information or identity numbers. Missing-coordinate households appear in metadata counts and have no map point.
+
+POSTGRESQL VIEWS IN THE REGISTER DATABASE
+ng2p_record_geography: dynamic geographic projection of registry records.
+ng2p_geography_record_counts: counts grouped by record type, zone, state and known LGA.
+ng2p_geography_areas: project geography catalogue and zone mapping.
+Native registry rows are not duplicated. Views derive zones from each current administrative code, so existing and future records remain linked to their administrative area.
+Counts represent registry records, not confirmed programme beneficiaries. Households and individuals are separate measures and must not be added to count people.
+The aggregate CSV is a snapshot for planning. Dashboard refreshes should use the authenticated endpoints or the database views.
+
+NEXT DASHBOARD WORK
+Supply captured household coordinates, select a licensed Nigeria boundary dataset and create its code crosswalk, then build map markers with location quality and missing-location indicators. Connect programme enrollment separately if the dashboard measures beneficiaries rather than all registry households.
+Protect exact locations under approved production scopes. Decide whether wider audiences receive aggregated or generalized locations.
+
+DEPLOYMENT AND VERIFICATION
+Sources: nigeria_geography.py, nigeria-geography.json, geography/migration.sql and the registration form/workspace sources.
+Installer: install-geography.py. It creates a private source, SQLite and PostgreSQL backup, adds the geographic catalogue/views, annotates the existing intake profiles and deploys the capture interface.
+Private snapshots: /opt/openg2p-lab/registration/geography-backups/.
+The isolated test suite passed, including coordinate pair/range checks, LGA-parent validation, GeoJSON coordinate order and endpoint authorization. Live data totals and unknown-coordinate counts were verified. The service health endpoint returned HTTP 200. Anonymous summary and point requests returned HTTP 401.
+Actual device geolocation was not requested during testing. No device location from this machine was collected.
+
+State choropleth installed on /registration/geography: real geoBoundaries / GRID3 2022 boundaries (CC BY 4.0), pinned commit 9469f09. All 37 units crosswalked in boundary-crosswalk.json. Household/individual selector, state details, keyboard state buttons, actual record-count legend. Records aggregate once across LGA groups. GPS points remain unavailable until coordinates are captured. Refresh page to retrieve current registry totals.
+
+2026-10-05: On user request, 58 missing household coordinate pairs seeded deterministically inside their assigned state polygons. Source synthetic_demo, coordinate_verified false, coordinate_scope state_only. Zone/state/LGA/country/status and record counts preserved. LGA geometry was not validated: demo positions are state-level only. Orange dots and point visibility toggle added to geography map. Original location metadata backed up privately under registration/geography-backups/demo-coordinates-*; seed script never replaces existing coordinates.

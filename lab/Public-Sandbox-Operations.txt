@@ -1,0 +1,77 @@
+IQS NIGERIA PUBLIC SANDBOX
+Configured: 3 October 2026
+
+Share this URL: https://nigeriag2p.com/
+Cloudflare DNS: athena.ns.cloudflare.com / thomas.ns.cloudflare.com
+Plan: Cloudflare Free. No router port forwarding is used.
+Tunnel: iqs-nigeria-sandbox (50914faf-9f90-43d6-b178-ac8a5dba1489)
+
+START AFTER RESTART
+Double-click Start-IQS-Public-Sandbox.bat in this folder, or the matching
+desktop launcher. Allow several minutes for all platform services to start.
+The existing Start-IQS-Nigeria desktop launcher also starts the connector.
+Cloudflared is an enabled WSL systemd service and reconnects automatically.
+This setup starts when Ubuntu/WSL starts, rather than at Windows sign-in.
+
+AVAILABILITY
+Keep the PC powered on, awake, connected to the internet, and the lab running.
+Closing ChatGPT/Codex or a browser does not stop the services.
+Shutdown, sleep, internet loss or WSL shutdown makes the sandbox unavailable.
+Stop-Lab.ps1 stops WSL and therefore stops both local and public services.
+
+TEMPORARILY STOP ONLY PUBLIC ACCESS
+Run in PowerShell:
+wsl -d Ubuntu-22.04 -u root -- systemctl stop cloudflared
+Resume:
+wsl -d Ubuntu-22.04 -u root -- systemctl start cloudflared
+Starting the lab or restarting WSL enables public access again.
+
+LOGINS
+Use the existing application credentials supplied in your credentials document.
+Programme management and Odoo use the existing email address as the login;
+changing the website domain did not change that email or any passwords.
+Staff single sign-on uses the existing staff account.
+Beneficiary demo: select SIGN IN TO LOCAL DEMO, then the existing demo account.
+Application login is required; Cloudflare email invitations are not enabled.
+Share account credentials directly with your intended testers; they are not
+included on the public homepage.
+
+EXPOSED SERVICES
+Programme management, modern registry, Odoo registry, staff portal,
+beneficiary portal, workflows, master data, partner management, consent,
+ODK, analytics, beneficiary programme administration and supporting APIs.
+Keycloak staff/beneficiary sign-in endpoints are public; its administration
+and master realm endpoints are blocked through the tunnel.
+Kafka, MinIO console, Bridge/SPAR administration APIs and Odoo database
+management remain outside the public routes. MinIO's authenticated object
+API is available for application storage operations.
+The environment uses synthetic records and simulated integrations.
+
+CHECK CONNECTOR
+wsl -d Ubuntu-22.04 -u root -- systemctl is-active cloudflared
+wsl -d Ubuntu-22.04 -u root -- journalctl -u cloudflared -n 30 --no-pager
+
+PRIVATE CONFIGURATION / BACKUPS
+Connector config: /etc/cloudflared/config.yml
+Connector credentials: /root/.cloudflared/
+Public origin: /etc/nginx/sites-available/iqs-public (loopback port 18080)
+Local origin and internal trusted HTTPS continue on port 443.
+Backups: /opt/openg2p-lab/backups/
+Pre-public backup: /opt/openg2p-lab/backups/20261003-200132
+Public-domain snapshot: /opt/openg2p-lab/public-domain-backup/
+Run Backup-Lab.ps1 to save database/configuration backups, including the
+private tunnel credentials. Never upload those backups or credentials
+to the public homepage or share them with sandbox testers.
+
+VERIFICATION
+Authenticated HTTPS checks passed for PBMS, Odoo registry and portal admin.
+Browser checks passed for staff, beneficiary, modern registry, partner
+management, AWE, master data, consent, ODK and analytics sign-on.
+All 68 platform Deployment/StatefulSet workloads were ready after migration.
+Private admin/database-manager URLs returned 404 via the public tunnel.
+DNS and TLS requests were verified through Cloudflare, rather than only
+through the local gateway. Every possible business transaction was not replayed.
+
+References:
+https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/do-more-with-tunnels/local-management/create-local-tunnel/
+https://developers.cloudflare.com/dns/zone-setups/full-setup/setup/
