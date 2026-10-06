@@ -1,0 +1,3 @@
+-- Extracted knowledge tables only; SQLite DDL. Application initializes these automatically.
+CREATE TABLE km_articles(id INTEGER PRIMARY KEY,slug TEXT UNIQUE NOT NULL,module TEXT NOT NULL,stage TEXT NOT NULL,audience TEXT NOT NULL,draft TEXT NOT NULL,version INTEGER NOT NULL,status TEXT NOT NULL,author TEXT NOT NULL,reviewer TEXT,published TEXT,published_version INTEGER,updated TEXT NOT NULL, review_note TEXT DEFAULT '');
+CREATE TABLE km_history(id INTEGER PRIMARY KEY,article INTEGER NOT NULL,version INTEGER NOT NULL,action TEXT NOT NULL,actor TEXT NOT NULL,at TEXT NOT NULL,content TEXT NOT NULL, note TEXT DEFAULT '');
