@@ -1,0 +1,11 @@
+Capability,Public reader,Knowledge editor,Knowledge reviewer,Knowledge publisher
+Read published guidance,Yes,Yes,Yes,Yes
+Select task persona,Yes,Yes,Yes,Yes
+Create or edit draft,No,Yes,Yes,Yes
+Submit draft for review,No,Yes,Yes,Yes
+Review or return another author's draft,No,No,Yes,No
+Review own draft,No,No,No,No
+Publish independently reviewed guidance,No,No,No,Yes
+Archive or restore article,No,No,No,Yes
+View history or restore historical content to draft,No,Yes,Yes,Yes
+Grant native OpenG2P service permissions,No,No,No,No

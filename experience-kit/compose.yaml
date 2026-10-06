@@ -1,0 +1,16 @@
+services:
+  experience:
+    build: .
+    ports: ["127.0.0.1:18110:18110"]
+    environment:
+      EXPERIENCE_CONFIG: /app/config/deployment.json
+      EXPERIENCE_DATABASE: /app/data/knowledge.sqlite
+      EXPERIENCE_SESSION_SECRET: ${EXPERIENCE_SESSION_SECRET:?Set a random session secret}
+      EXPERIENCE_GATEWAY_SECRET: ${EXPERIENCE_GATEWAY_SECRET:?Set a random gateway secret}
+      EXPERIENCE_SECURE_COOKIE: ${EXPERIENCE_SECURE_COOKIE:-1}
+    volumes:
+      - experience-data:/app/data
+      - ./config/deployment.json:/app/config/deployment.json:ro
+    restart: unless-stopped
+volumes:
+  experience-data:

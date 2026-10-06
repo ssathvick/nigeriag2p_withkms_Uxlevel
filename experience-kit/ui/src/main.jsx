@@ -1,0 +1,9 @@
+import React,{useEffect,useState} from 'react';
+import {createRoot} from 'react-dom/client';
+function Workspace(){const [config,setConfig]=useState(null),[error,setError]=useState(''),[persona,setPersona]=useState(new URLSearchParams(location.search).get('persona')||'all');
+useEffect(()=>{fetch(document.getElementById('experience-root').dataset.configUrl).then(r=>{if(!r.ok)throw Error('Configuration unavailable');return r.json()}).then(setConfig).catch(()=>setError('The workspace could not load. Open the knowledge library or contact support.'));},[]);
+if(error)return <p role="alert">{error}</p>;if(!config)return <p role="status">Loading your workspace…</p>;
+const active=config.personas.find(p=>p.id===persona)||config.personas.find(p=>p.id==='all');const services=config.services.filter(s=>s.enabled&&(active.id==='all'||s.personas.includes(active.id)));
+function choose(id){setPersona(id);const url=new URL(location.href);url.searchParams.set('persona',id);history.replaceState(null,'',url)}
+return <section data-km-screen="workspace" data-km-module="platform" data-km-stage="Find your service" data-km-persona={active.id}><p>{config.brand.tagline}</p><h1>What would you like to do?</h1><p>Choose a task persona to find the relevant services.</p><div className="personas" aria-label="Task personas">{config.personas.map(p=><button key={p.id} aria-pressed={p.id===active.id} onClick={()=>choose(p.id)}>{p.name}</button>)}</div><h2>{active.name}</h2><p>{active.lead}</p><div className="services">{services.map(s=><article className="card" key={s.id}><h3>{s.title}</h3><p>{s.description}</p><a className="service-link" href={s.url}>Open {s.title.toLowerCase()}</a></article>)}</div>{!services.length&&<p>No services have been configured for this persona yet.</p>}<p>Choosing a persona does not change your account permissions. Each service checks your access.</p></section>}
+createRoot(document.getElementById('experience-root')).render(<Workspace/>);

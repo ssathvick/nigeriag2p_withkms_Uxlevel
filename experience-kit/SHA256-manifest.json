@@ -1,0 +1,150 @@
+[
+  {
+    "file": ".dockerignore",
+    "sha256": "902aafcbb1954080b915e857e0e8bebfb0cc6514b1cdd00d52db125cae36bfcf"
+  },
+  {
+    "file": ".gitignore",
+    "sha256": "c1f4c852a461b3f04fa758f2025dffd847150fe35eb345f0e2de8b9e36418d36"
+  },
+  {
+    "file": "app.py",
+    "sha256": "03a87fff06776c124bdad64b9ecd69c2c657597efd810f6b71fa8a43725b3a99"
+  },
+  {
+    "file": "compose.yaml",
+    "sha256": "85b762a30798784529fd44294b3f373d966add4337b78ff3b70b653da52c588d"
+  },
+  {
+    "file": "config/deployment.json",
+    "sha256": "8cd941c03b631625bcc235844c63adf425db1770337f170c5f2c512d1c92c2e8"
+  },
+  {
+    "file": "Dockerfile",
+    "sha256": "ab9db4f20c44162719e79accaaec607e618ff43c745df632aca97786ea83be19"
+  },
+  {
+    "file": "docs/CONTENT_FORMAT.md",
+    "sha256": "008ac6fbf0147b13d68c32068a1e1039c1246a38fdc199d8e40db8f443fcbbdd"
+  },
+  {
+    "file": "docs/INTEGRATION.md",
+    "sha256": "15489a61d0d6205a859d0ff552f97db180c737b56eb5d14298ed016fb478ee26"
+  },
+  {
+    "file": "docs/PERMISSION_MATRIX.csv",
+    "sha256": "ae1b81aa532af5fa7e5d383d7d69560c84192a2dca923fab7d3cd5e430b6ed1f"
+  },
+  {
+    "file": "docs/preview.jpg",
+    "sha256": "fb7c55a916ed405a530e11fe8eb7f38231da324174657bccef835faa91d7212b"
+  },
+  {
+    "file": "knowledge-seed.json",
+    "sha256": "67ec7809a15a749e2b4d13b7e67d2be785bcb9ea274249d1bd165a4553a996dc"
+  },
+  {
+    "file": "knowledge_management.py",
+    "sha256": "2750cf6b362c9036648d054076735806f81e983b3eea98482e047f4af25fa23e"
+  },
+  {
+    "file": "README.md",
+    "sha256": "ce9c96fabe72a11ae82c5ed7a43fe3be864345c5ade232b1050158df1e1cee8b"
+  },
+  {
+    "file": "requirements.txt",
+    "sha256": "0aeab2f22c2cd9a1c97af9fe5ac1bf4c53dbb81d8afeaab4a3eb32716ab561ff"
+  },
+  {
+    "file": "schema.sql",
+    "sha256": "7335c385cfc7f932d3716dadd03ede777c1b616b8ef0a5237b801a3bed476870"
+  },
+  {
+    "file": "static/context-presets.js",
+    "sha256": "8de2f6b24f9a32e15d4c32a7b1a233b4a6d89541ecc4c83b524618f81848ed80"
+  },
+  {
+    "file": "static/context.js",
+    "sha256": "bc993332a00145e023f0b102bc2c3f664da0851d848a2a41a6221e24fd07b525"
+  },
+  {
+    "file": "static/experience.css",
+    "sha256": "cbf44aa1e47f8cabe0e728fdd91df412b9a8c04cdb5db48096f580a12ce8cb1e"
+  },
+  {
+    "file": "static/help.css",
+    "sha256": "517d5a869a5c45553568781028865c058163316c212f241c91d6baf3d6702f3a"
+  },
+  {
+    "file": "static/help.js",
+    "sha256": "3ac5ec5c416f79555340112f0780f285b5a5ca436407adc1b1a097751c7316d4"
+  },
+  {
+    "file": "static/shell.js",
+    "sha256": "75003b46056610ab7deddd8075851286531440a9589b2d7a9b7d423668731979"
+  },
+  {
+    "file": "static/workspace.js",
+    "sha256": "504deacf6d6c734281a2b77bd05e55e61217cf8f4933b25215602c89e356a4ef"
+  },
+  {
+    "file": "static/workspace.js.LEGAL.txt",
+    "sha256": "573cc95a6417c69a6ca44804f440f00965283c8cdcc50025305a7a50f53940ac"
+  },
+  {
+    "file": "templates/base.html",
+    "sha256": "bec0b5143532eaf83f691fc16075baaf79994c6a9c0ae9bbad76639535e15fc8"
+  },
+  {
+    "file": "templates/home.html",
+    "sha256": "f196e905e583bdb9f711638a40bf3d01c181c7ed9c271ef4eebfc71594d99f42"
+  },
+  {
+    "file": "templates/knowledge-admin.html",
+    "sha256": "44fa3d5ca86b33b96b54ed2f620eeb8b17dc5f1c91db3b80c3e2c6e5709b769d"
+  },
+  {
+    "file": "templates/knowledge-editor.html",
+    "sha256": "88aeec217bc64c1546c56e3536e2bcec9a232d2a983d6074ced6e9329300a8da"
+  },
+  {
+    "file": "templates/knowledge-library.html",
+    "sha256": "2e8f82e337d13f5f1856e8050a413ca4600eb0e453a8ec013263f1a358549a39"
+  },
+  {
+    "file": "templates/knowledge-revision.html",
+    "sha256": "5b4c16d671f652ea79986278424a1eff658e8f7739dbe0eb7516e035e6c299d1"
+  },
+  {
+    "file": "tests/context.test.cjs",
+    "sha256": "6a839d03fbb963b6600e48bcfd39fdcfdcdaa84eee65a87dbbe403253ffdc3e4"
+  },
+  {
+    "file": "tests/test_experience.py",
+    "sha256": "fb398159cc95c7a92953eabe2d2c5f525562c212935b6db52a98e1bb1fe35a2f"
+  },
+  {
+    "file": "THIRD_PARTY_NOTICES.md",
+    "sha256": "51a41ccdb145e038db9f0a133acbb6e3159d6bbc6f16f83ffea230414fe9fbff"
+  },
+  {
+    "file": "ui/build.cjs",
+    "sha256": "10d46c35aba0241f10031d9ef37c3915294f8135080f0d0666e7354fecb1ee65"
+  },
+  {
+    "file": "ui/package-lock.json",
+    "sha256": "1d6bcf2e4226efde65a34122e7c2c4172c913c82f5df1aba85534eddebcad9e0"
+  },
+  {
+    "file": "ui/package.json",
+    "sha256": "08b9a972bc4740f031790fef9dfc98b7dbdd2aa85fafcdfc5939e3b595b7b4cb"
+  },
+  {
+    "file": "ui/src/main.jsx",
+    "sha256": "34ad8f69b0a706131c8a93eadc10b9fb615461eb49df389c1f769a58f663329e"
+  },
+  {
+    "file": "VALIDATION.json",
+    "sha256": "ef0970c2a843e5841a68dea76a8978abf17dce54217edad1f98415f2dd9d795b"
+  }
+]

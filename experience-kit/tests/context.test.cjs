@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const root=require('path').resolve(__dirname,'..');
+const context={window:{OpenG2PExperience:{screenMappings:[{hostname:'other.example.test',path_prefix:'/cases',module:'review',stage:'Review queue'}]}}};
+vm.createContext(context);vm.runInContext(fs.readFileSync(root+'/static/context-presets.js','utf8'),context);
+vm.runInContext(fs.readFileSync(root+'/static/context.js','utf8'),context);
+const resolver=context.window.NG2PKnowledgeContext;
+assert.equal(resolver.resolve({hostname:'other.example.test',path:'/cases/123'}).stage,'Review queue');
+assert.equal(resolver.resolve({hostname:'other.example.test',path:'/cases/123',explicit:{module:'intake',stage:'Household details'}}).module,'intake');
+assert.equal(resolver.resolve({hostname:'pbms.other.example.test',path:'/web',hash:'#model=g2p.program'}).module,'pbms');
+console.log('Context mapping tests passed: configured host, explicit stage, native preset');

@@ -1,0 +1,1 @@
+require('esbuild').buildSync({entryPoints:['src/main.jsx'],outfile:'../static/workspace.js',bundle:true,minify:true,target:['es2020'],define:{'process.env.NODE_ENV':'"production"'},legalComments:'external'});
