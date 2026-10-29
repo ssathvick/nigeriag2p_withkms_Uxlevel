@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "dc2a42387b3ee5edcd59731b5a39838b29b7e4529ef31ac84179d11a39424c43"
+    "sha256": "4a9095635210a5a756eb839d207661d152e77a6d69d48103d1e14d6ec4ebcf3b"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -29,7 +29,7 @@
   },
   {
     "path": "lab/README.md",
-    "sha256": "28282507f23c1c612d9d16f4426688683922c88baea75878973878954d56f5e2"
+    "sha256": "796cfc9e91f3ecac1e2320b74e7e1087a34d5e5dd1b74802ae94e8b2bb1fc44b"
   },
   {
     "path": "lab/Registration-Integration-Operations.txt",
@@ -73,7 +73,7 @@
   },
   {
     "path": "lab/apply-iqs-branding.py",
-    "sha256": "dac99cfe085417a0621b72dc5984d2fb2a9e56d6880d704a5821a7c2d0a11226"
+    "sha256": "380120d1f19b03aa72a4e432bf8e838b8290c8217fbd8f074174836b1d58f653"
   },
   {
     "path": "lab/approve-demo-disbursement.py",
@@ -1325,15 +1325,15 @@
   },
   {
     "path": "lab/branding/README.md",
-    "sha256": "a053ac6f9b7c9d015f7712e5509533fff36038c3f641bd05e9f80058aaf88cc5"
+    "sha256": "c268479f8fc290115d7409ffeaca0058f899b13e73297088070075129c4f84b4"
   },
   {
     "path": "lab/branding/SOURCE.md",
-    "sha256": "35a460af86eb0942c729bd59a2244a62bd089a6bbb1cb74800da02aba34c9c7d"
+    "sha256": "7396743e066349c1567e94a2e8b4173e99c054c491156c097841538f2b6657fa"
   },
   {
     "path": "lab/branding/iqs-brand.css",
-    "sha256": "7a0de76c4bc5362258c59af0adf496e79a17a0b6dde90fba1cf76145e6df43a7"
+    "sha256": "e5f564ae002e1587794d38a8f2248b12775331c5cd95fb835d0252fd099bd89a"
   },
   {
     "path": "lab/branding/iqs-brand.js",
@@ -1345,7 +1345,7 @@
   },
   {
     "path": "lab/branding/iqs-logo.png",
-    "sha256": "b462c498cca2fd449c5b3b01fb91e72865e153e730fa9d666a14b7e8d25e3bac"
+    "sha256": "8d4b0bf4eea8ce608ee3f1f800ed63a45699ebdc6ee65e3d2dd86a5beebc9604"
   },
   {
     "path": "lab/certificate-trust-status.txt",
@@ -5058,6 +5058,46 @@
   {
     "path": "lab/update-public-logins.py",
     "sha256": "4a6c14a655782d16119416ebeb9fdddf11fe5a9763e7bd1876ba5da79792a5cd"
+  },
+  {
+    "path": "lab/updates-2026-10-29/README.md",
+    "sha256": "ea72bf05edb0f04b72274579692f4b49aeb8d54129a4b8e5f255725450c5e581"
+  },
+  {
+    "path": "lab/updates-2026-10-29/deploy-consent-beneficiary-api.py",
+    "sha256": "5b5d5d0fb4151783d097977640b0cb88acac5a7033faa70e6970d782207421a6"
+  },
+  {
+    "path": "lab/updates-2026-10-29/deploy-consent-beneficiary-ui.py",
+    "sha256": "5f4cfbb8bce650eb9265ab7eaff81e1aa6824aeea24d7f6dec61e3d2cd81321d"
+  },
+  {
+    "path": "lab/updates-2026-10-29/fix-partner-session.py",
+    "sha256": "80f40c03e791f4d84066eec8b553df172d3ab212866a1b83729e8a5ed9af1196"
+  },
+  {
+    "path": "lab/updates-2026-10-29/import-ocha-lgas.py",
+    "sha256": "f17d9d4fffc78928bd27b5dee3bfbc877a33796cb737de3adf27d9fb72bdf7fc"
+  },
+  {
+    "path": "lab/updates-2026-10-29/link-consent-beneficiary.py",
+    "sha256": "d3749118bf14552fa368c0472e3dcf31e26c1c54d6e88bfb204c9ba78324ff16"
+  },
+  {
+    "path": "lab/updates-2026-10-29/nigeria_ocha_lga.json",
+    "sha256": "bb9d4543002e3bc23c1b821bb994dfdacefefa4d1c9430ace221bdab60ec5aa2"
+  },
+  {
+    "path": "lab/updates-2026-10-29/refresh-consent-staff-link.py",
+    "sha256": "bc8cf12629012d1119c39c8a24d51028dd2e96298ea4103bb9e32213f45e8337"
+  },
+  {
+    "path": "lab/updates-2026-10-29/test-consent-isolation.py",
+    "sha256": "60ae60943c09070a609418366efda20ba7432b6035d87ef30421efb76d98349d"
+  },
+  {
+    "path": "lab/updates-2026-10-29/verify-ocha-import.py",
+    "sha256": "3f0440a8b86e0db99b5a6550e4a58d3c5b334d276774a857e7e8da374bcab99c"
   },
   {
     "path": "lab/validate-handover.py",

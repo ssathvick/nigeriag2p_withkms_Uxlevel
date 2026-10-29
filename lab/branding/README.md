@@ -1,6 +1,6 @@
 # IQS Nigeria G2P branding
 
-The official IQ Systems Solutions logo was retrieved from its website on 3 October 2026. See [SOURCE.md](SOURCE.md). The downloaded asset spells **IQSS**; visible platform names use **IQS**, as requested. Its connection to the specific Nigeria G2P contract was not independently established.
+The IQS logo is the image supplied by the user on 13 October 2026. See [SOURCE.md](SOURCE.md).
 
 ## Running installation
 

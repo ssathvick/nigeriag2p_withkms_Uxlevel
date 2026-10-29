@@ -1,0 +1,3872 @@
+[
+  {
+    "state": "Abia",
+    "name": "Aba North",
+    "pcode": "NG001001"
+  },
+  {
+    "state": "Abia",
+    "name": "Aba South",
+    "pcode": "NG001002"
+  },
+  {
+    "state": "Borno",
+    "name": "Abadam",
+    "pcode": "NG008001"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Abaji",
+    "pcode": "NG015001"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Abak",
+    "pcode": "NG003001"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Abakaliki",
+    "pcode": "NG011001"
+  },
+  {
+    "state": "Ogun",
+    "name": "Abeokuta North",
+    "pcode": "NG028001"
+  },
+  {
+    "state": "Ogun",
+    "name": "Abeokuta South",
+    "pcode": "NG028002"
+  },
+  {
+    "state": "Cross River",
+    "name": "Abi",
+    "pcode": "NG009001"
+  },
+  {
+    "state": "Imo",
+    "name": "Aboh-Mbaise",
+    "pcode": "NG017001"
+  },
+  {
+    "state": "Rivers",
+    "name": "Abua/Odual",
+    "pcode": "NG033001"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Abuja Municipal",
+    "pcode": "NG015002"
+  },
+  {
+    "state": "Kogi",
+    "name": "Adavi",
+    "pcode": "NG023001"
+  },
+  {
+    "state": "Benue",
+    "name": "Ado",
+    "pcode": "NG007001"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ado-Odo/Ota",
+    "pcode": "NG028003"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ado Ekiti",
+    "pcode": "NG013001"
+  },
+  {
+    "state": "Oyo",
+    "name": "Afijio",
+    "pcode": "NG031001"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Afikpo North",
+    "pcode": "NG011002"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Afikpo South",
+    "pcode": "NG011003"
+  },
+  {
+    "state": "Niger",
+    "name": "Agaie",
+    "pcode": "NG027001"
+  },
+  {
+    "state": "Benue",
+    "name": "Agatu",
+    "pcode": "NG007002"
+  },
+  {
+    "state": "Lagos",
+    "name": "Agege",
+    "pcode": "NG025001"
+  },
+  {
+    "state": "Anambra",
+    "name": "Aguata",
+    "pcode": "NG004001"
+  },
+  {
+    "state": "Niger",
+    "name": "Agwara",
+    "pcode": "NG027002"
+  },
+  {
+    "state": "Imo",
+    "name": "Ahiazu-Mbaise",
+    "pcode": "NG017002"
+  },
+  {
+    "state": "Rivers",
+    "name": "Ahoada East",
+    "pcode": "NG033002"
+  },
+  {
+    "state": "Rivers",
+    "name": "Ahoada West",
+    "pcode": "NG033003"
+  },
+  {
+    "state": "Osun",
+    "name": "Aiyedade",
+    "pcode": "NG030001"
+  },
+  {
+    "state": "Osun",
+    "name": "Aiyedire",
+    "pcode": "NG030002"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Aiyekire (Gbonyin)",
+    "pcode": "NG013002"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ajaokuta",
+    "pcode": "NG023002"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ajeromi-Ifelodun",
+    "pcode": "NG025002"
+  },
+  {
+    "state": "Kano",
+    "name": "Ajingi",
+    "pcode": "NG020001"
+  },
+  {
+    "state": "Cross River",
+    "name": "Akamkpa",
+    "pcode": "NG009002"
+  },
+  {
+    "state": "Oyo",
+    "name": "Akinyele",
+    "pcode": "NG031002"
+  },
+  {
+    "state": "Gombe",
+    "name": "Akko",
+    "pcode": "NG016001"
+  },
+  {
+    "state": "Edo",
+    "name": "Akoko-Edo",
+    "pcode": "NG012001"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akoko North East",
+    "pcode": "NG029001"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akoko North West",
+    "pcode": "NG029002"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akoko South East",
+    "pcode": "NG029003"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akoko South West",
+    "pcode": "NG029004"
+  },
+  {
+    "state": "Cross River",
+    "name": "Akpabuyo",
+    "pcode": "NG009003"
+  },
+  {
+    "state": "Rivers",
+    "name": "Akuku Toru",
+    "pcode": "NG033004"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akure North",
+    "pcode": "NG029005"
+  },
+  {
+    "state": "Ondo",
+    "name": "Akure South",
+    "pcode": "NG029006"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Akwanga",
+    "pcode": "NG026001"
+  },
+  {
+    "state": "Kano",
+    "name": "Albasu",
+    "pcode": "NG020002"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Aleiro",
+    "pcode": "NG022001"
+  },
+  {
+    "state": "Lagos",
+    "name": "Alimosho",
+    "pcode": "NG025003"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Alkaleri",
+    "pcode": "NG005001"
+  },
+  {
+    "state": "Lagos",
+    "name": "Amuwo-Odofin",
+    "pcode": "NG025004"
+  },
+  {
+    "state": "Anambra",
+    "name": "Anambra East",
+    "pcode": "NG004002"
+  },
+  {
+    "state": "Anambra",
+    "name": "Anambra West",
+    "pcode": "NG004003"
+  },
+  {
+    "state": "Anambra",
+    "name": "Anaocha",
+    "pcode": "NG004004"
+  },
+  {
+    "state": "Rivers",
+    "name": "Andoni",
+    "pcode": "NG033005"
+  },
+  {
+    "state": "Enugu",
+    "name": "Aninri",
+    "pcode": "NG014001"
+  },
+  {
+    "state": "Delta",
+    "name": "Aniocha North",
+    "pcode": "NG010001"
+  },
+  {
+    "state": "Delta",
+    "name": "Aniocha South",
+    "pcode": "NG010002"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Anka",
+    "pcode": "NG037001"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ankpa",
+    "pcode": "NG023003"
+  },
+  {
+    "state": "Benue",
+    "name": "Apa",
+    "pcode": "NG007003"
+  },
+  {
+    "state": "Lagos",
+    "name": "Apapa",
+    "pcode": "NG025005"
+  },
+  {
+    "state": "Taraba",
+    "name": "Ardo-Kola",
+    "pcode": "NG035001"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Arewa-Dandi",
+    "pcode": "NG022002"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Argungu",
+    "pcode": "NG022003"
+  },
+  {
+    "state": "Abia",
+    "name": "Arochukwu",
+    "pcode": "NG001003"
+  },
+  {
+    "state": "Kwara",
+    "name": "Asa",
+    "pcode": "NG024001"
+  },
+  {
+    "state": "Rivers",
+    "name": "Asari-Toru",
+    "pcode": "NG033006"
+  },
+  {
+    "state": "Borno",
+    "name": "Askira/Uba",
+    "pcode": "NG008002"
+  },
+  {
+    "state": "Osun",
+    "name": "Atakumosa East",
+    "pcode": "NG030003"
+  },
+  {
+    "state": "Osun",
+    "name": "Atakumosa West",
+    "pcode": "NG030004"
+  },
+  {
+    "state": "Oyo",
+    "name": "Atiba",
+    "pcode": "NG031003"
+  },
+  {
+    "state": "Oyo",
+    "name": "Atigbo",
+    "pcode": "NG031004"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Augie",
+    "pcode": "NG022004"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Auyo",
+    "pcode": "NG018001"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Awe",
+    "pcode": "NG026002"
+  },
+  {
+    "state": "Enugu",
+    "name": "Awgu",
+    "pcode": "NG014002"
+  },
+  {
+    "state": "Anambra",
+    "name": "Awka North",
+    "pcode": "NG004005"
+  },
+  {
+    "state": "Anambra",
+    "name": "Awka South",
+    "pcode": "NG004006"
+  },
+  {
+    "state": "Anambra",
+    "name": "Ayamelum",
+    "pcode": "NG004007"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Babura",
+    "pcode": "NG018002"
+  },
+  {
+    "state": "Lagos",
+    "name": "Badagry",
+    "pcode": "NG025006"
+  },
+  {
+    "state": "Yobe",
+    "name": "Bade",
+    "pcode": "NG036001"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Bagudo",
+    "pcode": "NG022005"
+  },
+  {
+    "state": "Kano",
+    "name": "Bagwai",
+    "pcode": "NG020003"
+  },
+  {
+    "state": "Cross River",
+    "name": "Bakassi",
+    "pcode": "NG009005"
+  },
+  {
+    "state": "Katsina",
+    "name": "Bakori",
+    "pcode": "NG021001"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Bakura",
+    "pcode": "NG037002"
+  },
+  {
+    "state": "Gombe",
+    "name": "Balanga",
+    "pcode": "NG016002"
+  },
+  {
+    "state": "Taraba",
+    "name": "Bali",
+    "pcode": "NG035002"
+  },
+  {
+    "state": "Borno",
+    "name": "Bama",
+    "pcode": "NG008003"
+  },
+  {
+    "state": "Plateau",
+    "name": "Barikin Ladi",
+    "pcode": "NG032001"
+  },
+  {
+    "state": "Kwara",
+    "name": "Baruten",
+    "pcode": "NG024002"
+  },
+  {
+    "state": "Kogi",
+    "name": "Bassa",
+    "pcode": "NG023004"
+  },
+  {
+    "state": "Plateau",
+    "name": "Bassa",
+    "pcode": "NG032002"
+  },
+  {
+    "state": "Katsina",
+    "name": "Batagarawa",
+    "pcode": "NG021002"
+  },
+  {
+    "state": "Katsina",
+    "name": "Batsari",
+    "pcode": "NG021003"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Bauchi",
+    "pcode": "NG005002"
+  },
+  {
+    "state": "Katsina",
+    "name": "Baure",
+    "pcode": "NG021004"
+  },
+  {
+    "state": "Borno",
+    "name": "Bayo",
+    "pcode": "NG008004"
+  },
+  {
+    "state": "Kano",
+    "name": "Bebeji",
+    "pcode": "NG020004"
+  },
+  {
+    "state": "Cross River",
+    "name": "Bekwara",
+    "pcode": "NG009006"
+  },
+  {
+    "state": "Abia",
+    "name": "Bende",
+    "pcode": "NG001004"
+  },
+  {
+    "state": "Cross River",
+    "name": "Biase",
+    "pcode": "NG009007"
+  },
+  {
+    "state": "Kano",
+    "name": "Bichi",
+    "pcode": "NG020005"
+  },
+  {
+    "state": "Niger",
+    "name": "Bida",
+    "pcode": "NG027003"
+  },
+  {
+    "state": "Gombe",
+    "name": "Billiri",
+    "pcode": "NG016003"
+  },
+  {
+    "state": "Katsina",
+    "name": "Bindawa",
+    "pcode": "NG021005"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Binji",
+    "pcode": "NG034001"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Biriniwa",
+    "pcode": "NG018003"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Birni Kudu",
+    "pcode": "NG018004"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Birnin-Gwari",
+    "pcode": "NG019001"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Birnin Kebbi",
+    "pcode": "NG022006"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Birnin Magaji",
+    "pcode": "NG037003"
+  },
+  {
+    "state": "Borno",
+    "name": "Biu",
+    "pcode": "NG008005"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Bodinga",
+    "pcode": "NG034002"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Bogoro",
+    "pcode": "NG005003"
+  },
+  {
+    "state": "Cross River",
+    "name": "Boki",
+    "pcode": "NG009008"
+  },
+  {
+    "state": "Plateau",
+    "name": "Bokkos",
+    "pcode": "NG032003"
+  },
+  {
+    "state": "Osun",
+    "name": "Boluwaduro",
+    "pcode": "NG030005"
+  },
+  {
+    "state": "Delta",
+    "name": "Bomadi",
+    "pcode": "NG010003"
+  },
+  {
+    "state": "Rivers",
+    "name": "Bonny",
+    "pcode": "NG033007"
+  },
+  {
+    "state": "Niger",
+    "name": "Borgu",
+    "pcode": "NG027004"
+  },
+  {
+    "state": "Osun",
+    "name": "Boripe",
+    "pcode": "NG030006"
+  },
+  {
+    "state": "Niger",
+    "name": "Bosso",
+    "pcode": "NG027005"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Brass",
+    "pcode": "NG006001"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Buji",
+    "pcode": "NG018005"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Bukkuyum",
+    "pcode": "NG037004"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Bungudu",
+    "pcode": "NG037005"
+  },
+  {
+    "state": "Kano",
+    "name": "Bunkure",
+    "pcode": "NG020006"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Bunza",
+    "pcode": "NG022007"
+  },
+  {
+    "state": "Yobe",
+    "name": "Bursari",
+    "pcode": "NG036002"
+  },
+  {
+    "state": "Benue",
+    "name": "Buruku",
+    "pcode": "NG007004"
+  },
+  {
+    "state": "Delta",
+    "name": "Burutu",
+    "pcode": "NG010004"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Bwari",
+    "pcode": "NG015003"
+  },
+  {
+    "state": "Cross River",
+    "name": "Calabar-Municipal",
+    "pcode": "NG009010"
+  },
+  {
+    "state": "Cross River",
+    "name": "Calabar South",
+    "pcode": "NG009009"
+  },
+  {
+    "state": "Niger",
+    "name": "Chanchaga",
+    "pcode": "NG027006"
+  },
+  {
+    "state": "Katsina",
+    "name": "Charanchi",
+    "pcode": "NG021006"
+  },
+  {
+    "state": "Borno",
+    "name": "Chibok",
+    "pcode": "NG008006"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Chikun",
+    "pcode": "NG019002"
+  },
+  {
+    "state": "Kano",
+    "name": "Dala",
+    "pcode": "NG020007"
+  },
+  {
+    "state": "Yobe",
+    "name": "Damaturu",
+    "pcode": "NG036003"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Damban",
+    "pcode": "NG005004"
+  },
+  {
+    "state": "Kano",
+    "name": "Dambatta",
+    "pcode": "NG020008"
+  },
+  {
+    "state": "Borno",
+    "name": "Damboa",
+    "pcode": "NG008007"
+  },
+  {
+    "state": "Katsina",
+    "name": "Dan Musa",
+    "pcode": "NG021007"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Dandi",
+    "pcode": "NG022008"
+  },
+  {
+    "state": "Katsina",
+    "name": "Dandume",
+    "pcode": "NG021008"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Dange-Shuni",
+    "pcode": "NG034003"
+  },
+  {
+    "state": "Katsina",
+    "name": "Danja",
+    "pcode": "NG021009"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Darazo",
+    "pcode": "NG005005"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Dass",
+    "pcode": "NG005006"
+  },
+  {
+    "state": "Katsina",
+    "name": "Daura",
+    "pcode": "NG021010"
+  },
+  {
+    "state": "Kano",
+    "name": "Dawakin Kudu",
+    "pcode": "NG020009"
+  },
+  {
+    "state": "Kano",
+    "name": "Dawakin Tofa",
+    "pcode": "NG020010"
+  },
+  {
+    "state": "Rivers",
+    "name": "Degema",
+    "pcode": "NG033008"
+  },
+  {
+    "state": "Kogi",
+    "name": "Dekina",
+    "pcode": "NG023005"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Demsa",
+    "pcode": "NG002001"
+  },
+  {
+    "state": "Borno",
+    "name": "Dikwa",
+    "pcode": "NG008008"
+  },
+  {
+    "state": "Kano",
+    "name": "Doguwa",
+    "pcode": "NG020011"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Doma",
+    "pcode": "NG026003"
+  },
+  {
+    "state": "Taraba",
+    "name": "Donga",
+    "pcode": "NG035003"
+  },
+  {
+    "state": "Gombe",
+    "name": "Dukku",
+    "pcode": "NG016004"
+  },
+  {
+    "state": "Anambra",
+    "name": "Dunukofia",
+    "pcode": "NG004008"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Dutse",
+    "pcode": "NG018006"
+  },
+  {
+    "state": "Katsina",
+    "name": "Dutsi",
+    "pcode": "NG021011"
+  },
+  {
+    "state": "Katsina",
+    "name": "Dutsin-Ma",
+    "pcode": "NG021012"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Eastern Obolo",
+    "pcode": "NG003002"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ebonyi",
+    "pcode": "NG011004"
+  },
+  {
+    "state": "Niger",
+    "name": "Edati",
+    "pcode": "NG027007"
+  },
+  {
+    "state": "Osun",
+    "name": "Ede North",
+    "pcode": "NG030007"
+  },
+  {
+    "state": "Osun",
+    "name": "Ede South",
+    "pcode": "NG030008"
+  },
+  {
+    "state": "Kwara",
+    "name": "Edu",
+    "pcode": "NG024003"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Efon",
+    "pcode": "NG013003"
+  },
+  {
+    "state": "Ogun",
+    "name": "Egbado North",
+    "pcode": "NG028004"
+  },
+  {
+    "state": "Ogun",
+    "name": "Egbado South",
+    "pcode": "NG028005"
+  },
+  {
+    "state": "Oyo",
+    "name": "Egbeda",
+    "pcode": "NG031005"
+  },
+  {
+    "state": "Osun",
+    "name": "Egbedore",
+    "pcode": "NG030009"
+  },
+  {
+    "state": "Edo",
+    "name": "Egor",
+    "pcode": "NG012002"
+  },
+  {
+    "state": "Imo",
+    "name": "Ehime-Mbano",
+    "pcode": "NG017003"
+  },
+  {
+    "state": "Osun",
+    "name": "Ejigbo",
+    "pcode": "NG030010"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Ekeremor",
+    "pcode": "NG006002"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Eket",
+    "pcode": "NG003003"
+  },
+  {
+    "state": "Kwara",
+    "name": "Ekiti",
+    "pcode": "NG024004"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ekiti East",
+    "pcode": "NG013004"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ekiti South West",
+    "pcode": "NG013005"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ekiti West",
+    "pcode": "NG013006"
+  },
+  {
+    "state": "Anambra",
+    "name": "Ekwusigo",
+    "pcode": "NG004009"
+  },
+  {
+    "state": "Rivers",
+    "name": "Eleme",
+    "pcode": "NG033009"
+  },
+  {
+    "state": "Rivers",
+    "name": "Emohua",
+    "pcode": "NG033010"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Emure",
+    "pcode": "NG013007"
+  },
+  {
+    "state": "Enugu",
+    "name": "Enugu East",
+    "pcode": "NG014003"
+  },
+  {
+    "state": "Enugu",
+    "name": "Enugu North",
+    "pcode": "NG014004"
+  },
+  {
+    "state": "Enugu",
+    "name": "Enugu South",
+    "pcode": "NG014005"
+  },
+  {
+    "state": "Lagos",
+    "name": "Epe",
+    "pcode": "NG025007"
+  },
+  {
+    "state": "Edo",
+    "name": "Esan Central",
+    "pcode": "NG012003"
+  },
+  {
+    "state": "Edo",
+    "name": "Esan North East",
+    "pcode": "NG012004"
+  },
+  {
+    "state": "Edo",
+    "name": "Esan South East",
+    "pcode": "NG012005"
+  },
+  {
+    "state": "Edo",
+    "name": "Esan West",
+    "pcode": "NG012006"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ese-Odo",
+    "pcode": "NG029007"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Esit - Eket",
+    "pcode": "NG003004"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Essien Udim",
+    "pcode": "NG003005"
+  },
+  {
+    "state": "Rivers",
+    "name": "Etche",
+    "pcode": "NG033011"
+  },
+  {
+    "state": "Delta",
+    "name": "Ethiope East",
+    "pcode": "NG010005"
+  },
+  {
+    "state": "Delta",
+    "name": "Ethiope West",
+    "pcode": "NG010006"
+  },
+  {
+    "state": "Lagos",
+    "name": "Eti-Osa",
+    "pcode": "NG025008"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Etim Ekpo",
+    "pcode": "NG003006"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Etinan",
+    "pcode": "NG003007"
+  },
+  {
+    "state": "Edo",
+    "name": "Etsako Central",
+    "pcode": "NG012007"
+  },
+  {
+    "state": "Edo",
+    "name": "Etsako East",
+    "pcode": "NG012008"
+  },
+  {
+    "state": "Edo",
+    "name": "Etsako West",
+    "pcode": "NG012009"
+  },
+  {
+    "state": "Cross River",
+    "name": "Etung",
+    "pcode": "NG009011"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ewekoro",
+    "pcode": "NG028006"
+  },
+  {
+    "state": "Enugu",
+    "name": "Ezeagu",
+    "pcode": "NG014006"
+  },
+  {
+    "state": "Imo",
+    "name": "Ezinihitte",
+    "pcode": "NG017004"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ezza North",
+    "pcode": "NG011005"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ezza South",
+    "pcode": "NG011006"
+  },
+  {
+    "state": "Kano",
+    "name": "Fagge",
+    "pcode": "NG020012"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Fakai",
+    "pcode": "NG022009"
+  },
+  {
+    "state": "Katsina",
+    "name": "Faskari",
+    "pcode": "NG021013"
+  },
+  {
+    "state": "Yobe",
+    "name": "Fika",
+    "pcode": "NG036004"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Fufore",
+    "pcode": "NG002002"
+  },
+  {
+    "state": "Gombe",
+    "name": "Funakaye",
+    "pcode": "NG016005"
+  },
+  {
+    "state": "Yobe",
+    "name": "Fune",
+    "pcode": "NG036005"
+  },
+  {
+    "state": "Katsina",
+    "name": "Funtua",
+    "pcode": "NG021014"
+  },
+  {
+    "state": "Kano",
+    "name": "Gabasawa",
+    "pcode": "NG020013"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Gada",
+    "pcode": "NG034004"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Gagarawa",
+    "pcode": "NG018007"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Gamawa",
+    "pcode": "NG005007"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Ganjuwa",
+    "pcode": "NG005008"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Ganye",
+    "pcode": "NG002003"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Garki",
+    "pcode": "NG018008"
+  },
+  {
+    "state": "Kano",
+    "name": "Garko",
+    "pcode": "NG020014"
+  },
+  {
+    "state": "Kano",
+    "name": "Garum Mallam",
+    "pcode": "NG020015"
+  },
+  {
+    "state": "Taraba",
+    "name": "Gashaka",
+    "pcode": "NG035004"
+  },
+  {
+    "state": "Taraba",
+    "name": "Gassol",
+    "pcode": "NG035005"
+  },
+  {
+    "state": "Kano",
+    "name": "Gaya",
+    "pcode": "NG020016"
+  },
+  {
+    "state": "Niger",
+    "name": "Gbako",
+    "pcode": "NG027008"
+  },
+  {
+    "state": "Benue",
+    "name": "Gboko",
+    "pcode": "NG007005"
+  },
+  {
+    "state": "Yobe",
+    "name": "Geidam",
+    "pcode": "NG036006"
+  },
+  {
+    "state": "Kano",
+    "name": "Gezawa",
+    "pcode": "NG020017"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Giade",
+    "pcode": "NG005009"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Girei",
+    "pcode": "NG002005"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Giwa",
+    "pcode": "NG019003"
+  },
+  {
+    "state": "Rivers",
+    "name": "Gokana",
+    "pcode": "NG033012"
+  },
+  {
+    "state": "Gombe",
+    "name": "Gombe",
+    "pcode": "NG016006"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Gombi",
+    "pcode": "NG002004"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Goronyo",
+    "pcode": "NG034006"
+  },
+  {
+    "state": "Borno",
+    "name": "Gubio",
+    "pcode": "NG008009"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Gudu",
+    "pcode": "NG034007"
+  },
+  {
+    "state": "Yobe",
+    "name": "Gujba",
+    "pcode": "NG036007"
+  },
+  {
+    "state": "Yobe",
+    "name": "Gulani",
+    "pcode": "NG036008"
+  },
+  {
+    "state": "Benue",
+    "name": "Guma",
+    "pcode": "NG007006"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Gumel",
+    "pcode": "NG018009"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Gummi",
+    "pcode": "NG037006"
+  },
+  {
+    "state": "Niger",
+    "name": "Gurara",
+    "pcode": "NG027009"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Guri",
+    "pcode": "NG018010"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Gusau",
+    "pcode": "NG037007"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Guyuk",
+    "pcode": "NG002006"
+  },
+  {
+    "state": "Borno",
+    "name": "Guzamala",
+    "pcode": "NG008010"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Gwadabawa",
+    "pcode": "NG034005"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Gwagwalada",
+    "pcode": "NG015004"
+  },
+  {
+    "state": "Kano",
+    "name": "Gwale",
+    "pcode": "NG020018"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Gwandu",
+    "pcode": "NG022010"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Gwaram",
+    "pcode": "NG018011"
+  },
+  {
+    "state": "Kano",
+    "name": "Gwarzo",
+    "pcode": "NG020019"
+  },
+  {
+    "state": "Benue",
+    "name": "Gwer East",
+    "pcode": "NG007007"
+  },
+  {
+    "state": "Benue",
+    "name": "Gwer West",
+    "pcode": "NG007008"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Gwiwa",
+    "pcode": "NG018012"
+  },
+  {
+    "state": "Borno",
+    "name": "Gwoza",
+    "pcode": "NG008011"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Hadejia",
+    "pcode": "NG018013"
+  },
+  {
+    "state": "Borno",
+    "name": "Hawul",
+    "pcode": "NG008012"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Hong",
+    "pcode": "NG002007"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibadan North",
+    "pcode": "NG031006"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibadan North East",
+    "pcode": "NG031007"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibadan North West",
+    "pcode": "NG031008"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibadan South East",
+    "pcode": "NG031009"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibadan South West",
+    "pcode": "NG031010"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ibaji",
+    "pcode": "NG023006"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibarapa Central",
+    "pcode": "NG031011"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibarapa East",
+    "pcode": "NG031012"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ibarapa North",
+    "pcode": "NG031013"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ibeju/Lekki",
+    "pcode": "NG025009"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ibeno",
+    "pcode": "NG003008"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ibesikpo Asutan",
+    "pcode": "NG003009"
+  },
+  {
+    "state": "Taraba",
+    "name": "Ibi",
+    "pcode": "NG035006"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ibiono Ibom",
+    "pcode": "NG003010"
+  },
+  {
+    "state": "Kogi",
+    "name": "Idah",
+    "pcode": "NG023007"
+  },
+  {
+    "state": "Ondo",
+    "name": "Idanre",
+    "pcode": "NG029008"
+  },
+  {
+    "state": "Imo",
+    "name": "Ideato North",
+    "pcode": "NG017005"
+  },
+  {
+    "state": "Imo",
+    "name": "Ideato South",
+    "pcode": "NG017006"
+  },
+  {
+    "state": "Anambra",
+    "name": "Idemili North",
+    "pcode": "NG004010"
+  },
+  {
+    "state": "Anambra",
+    "name": "Idemili South",
+    "pcode": "NG004011"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ido",
+    "pcode": "NG031014"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ido-Osi",
+    "pcode": "NG013008"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ifako-Ijaye",
+    "pcode": "NG025010"
+  },
+  {
+    "state": "Osun",
+    "name": "Ife Central",
+    "pcode": "NG030011"
+  },
+  {
+    "state": "Osun",
+    "name": "Ife East",
+    "pcode": "NG030012"
+  },
+  {
+    "state": "Osun",
+    "name": "Ife North",
+    "pcode": "NG030013"
+  },
+  {
+    "state": "Osun",
+    "name": "Ife South",
+    "pcode": "NG030014"
+  },
+  {
+    "state": "Osun",
+    "name": "Ifedayo",
+    "pcode": "NG030015"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ifedore",
+    "pcode": "NG029009"
+  },
+  {
+    "state": "Kwara",
+    "name": "Ifelodun",
+    "pcode": "NG024005"
+  },
+  {
+    "state": "Osun",
+    "name": "Ifelodun",
+    "pcode": "NG030016"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ifo",
+    "pcode": "NG028007"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Igabi",
+    "pcode": "NG019004"
+  },
+  {
+    "state": "Kogi",
+    "name": "Igalamela-Odolu",
+    "pcode": "NG023008"
+  },
+  {
+    "state": "Enugu",
+    "name": "Igbo-Etiti",
+    "pcode": "NG014007"
+  },
+  {
+    "state": "Enugu",
+    "name": "Igbo-Eze North",
+    "pcode": "NG014008"
+  },
+  {
+    "state": "Enugu",
+    "name": "Igbo-Eze South",
+    "pcode": "NG014009"
+  },
+  {
+    "state": "Edo",
+    "name": "Igueben",
+    "pcode": "NG012010"
+  },
+  {
+    "state": "Anambra",
+    "name": "Ihiala",
+    "pcode": "NG004012"
+  },
+  {
+    "state": "Imo",
+    "name": "Ihitte/Uboma",
+    "pcode": "NG017007"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ijebu East",
+    "pcode": "NG028008"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ijebu North",
+    "pcode": "NG028009"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ijebu North East",
+    "pcode": "NG028010"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ijebu Ode",
+    "pcode": "NG028011"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ijero",
+    "pcode": "NG013009"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ijumu",
+    "pcode": "NG023009"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ika",
+    "pcode": "NG003011"
+  },
+  {
+    "state": "Delta",
+    "name": "Ika North East",
+    "pcode": "NG010007"
+  },
+  {
+    "state": "Delta",
+    "name": "Ika South",
+    "pcode": "NG010008"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Ikara",
+    "pcode": "NG019005"
+  },
+  {
+    "state": "Imo",
+    "name": "Ikeduru",
+    "pcode": "NG017008"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ikeja",
+    "pcode": "NG025011"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ikenne",
+    "pcode": "NG028012"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ikere",
+    "pcode": "NG013010"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ikole",
+    "pcode": "NG013011"
+  },
+  {
+    "state": "Cross River",
+    "name": "Ikom",
+    "pcode": "NG009012"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ikono",
+    "pcode": "NG003012"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ikorodu",
+    "pcode": "NG025012"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ikot Abasi",
+    "pcode": "NG003013"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ikot Ekpene",
+    "pcode": "NG003014"
+  },
+  {
+    "state": "Edo",
+    "name": "Ikpoba-Okha",
+    "pcode": "NG012011"
+  },
+  {
+    "state": "Rivers",
+    "name": "Ikwerre",
+    "pcode": "NG033013"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ikwo",
+    "pcode": "NG011007"
+  },
+  {
+    "state": "Abia",
+    "name": "Ikwuano",
+    "pcode": "NG001005"
+  },
+  {
+    "state": "Osun",
+    "name": "Ila",
+    "pcode": "NG030017"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ilaje",
+    "pcode": "NG029010"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ile-Oluji-Okeigbo",
+    "pcode": "NG029011"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ilejemeji",
+    "pcode": "NG013012"
+  },
+  {
+    "state": "Osun",
+    "name": "Ilesha East",
+    "pcode": "NG030018"
+  },
+  {
+    "state": "Osun",
+    "name": "Ilesha West",
+    "pcode": "NG030019"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Illela",
+    "pcode": "NG034008"
+  },
+  {
+    "state": "Kwara",
+    "name": "Ilorin East",
+    "pcode": "NG024006"
+  },
+  {
+    "state": "Kwara",
+    "name": "Ilorin South",
+    "pcode": "NG024007"
+  },
+  {
+    "state": "Kwara",
+    "name": "Ilorin West",
+    "pcode": "NG024008"
+  },
+  {
+    "state": "Ogun",
+    "name": "Imeko-Afon",
+    "pcode": "NG028013"
+  },
+  {
+    "state": "Katsina",
+    "name": "Ingawa",
+    "pcode": "NG021015"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ini",
+    "pcode": "NG003015"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ipokia",
+    "pcode": "NG028014"
+  },
+  {
+    "state": "Ondo",
+    "name": "Irele",
+    "pcode": "NG029012"
+  },
+  {
+    "state": "Oyo",
+    "name": "Irepo",
+    "pcode": "NG031015"
+  },
+  {
+    "state": "Kwara",
+    "name": "Irepodun",
+    "pcode": "NG024009"
+  },
+  {
+    "state": "Osun",
+    "name": "Irepodun",
+    "pcode": "NG030020"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Irepodun/Ifelodun",
+    "pcode": "NG013013"
+  },
+  {
+    "state": "Osun",
+    "name": "Irewole",
+    "pcode": "NG030021"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Isa",
+    "pcode": "NG034009"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Ise/Orun",
+    "pcode": "NG013014"
+  },
+  {
+    "state": "Oyo",
+    "name": "Iseyin",
+    "pcode": "NG031016"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ishielu",
+    "pcode": "NG011008"
+  },
+  {
+    "state": "Enugu",
+    "name": "Isi-Uzo",
+    "pcode": "NG014010"
+  },
+  {
+    "state": "Abia",
+    "name": "Isiala-Ngwa North",
+    "pcode": "NG001006"
+  },
+  {
+    "state": "Abia",
+    "name": "Isiala-Ngwa South",
+    "pcode": "NG001007"
+  },
+  {
+    "state": "Imo",
+    "name": "Isiala Mbano",
+    "pcode": "NG017009"
+  },
+  {
+    "state": "Kwara",
+    "name": "Isin",
+    "pcode": "NG024010"
+  },
+  {
+    "state": "Abia",
+    "name": "Isiukwuato",
+    "pcode": "NG001008"
+  },
+  {
+    "state": "Osun",
+    "name": "Isokan",
+    "pcode": "NG030022"
+  },
+  {
+    "state": "Delta",
+    "name": "Isoko North",
+    "pcode": "NG010009"
+  },
+  {
+    "state": "Delta",
+    "name": "Isoko South",
+    "pcode": "NG010010"
+  },
+  {
+    "state": "Imo",
+    "name": "Isu",
+    "pcode": "NG017010"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Itas/Gadau",
+    "pcode": "NG005010"
+  },
+  {
+    "state": "Oyo",
+    "name": "Itesiwaju",
+    "pcode": "NG031017"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Itu",
+    "pcode": "NG003016"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ivo",
+    "pcode": "NG011009"
+  },
+  {
+    "state": "Oyo",
+    "name": "Iwajowa",
+    "pcode": "NG031018"
+  },
+  {
+    "state": "Osun",
+    "name": "Iwo",
+    "pcode": "NG030023"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Izzi",
+    "pcode": "NG011010"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Jaba",
+    "pcode": "NG019006"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Jada",
+    "pcode": "NG002008"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Jahun",
+    "pcode": "NG018014"
+  },
+  {
+    "state": "Yobe",
+    "name": "Jakusko",
+    "pcode": "NG036009"
+  },
+  {
+    "state": "Taraba",
+    "name": "Jalingo",
+    "pcode": "NG035007"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Jama'are",
+    "pcode": "NG005011"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Jega",
+    "pcode": "NG022011"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Jema'a",
+    "pcode": "NG019007"
+  },
+  {
+    "state": "Borno",
+    "name": "Jere",
+    "pcode": "NG008013"
+  },
+  {
+    "state": "Katsina",
+    "name": "Jibia",
+    "pcode": "NG021016"
+  },
+  {
+    "state": "Plateau",
+    "name": "Jos East",
+    "pcode": "NG032004"
+  },
+  {
+    "state": "Plateau",
+    "name": "Jos North",
+    "pcode": "NG032005"
+  },
+  {
+    "state": "Plateau",
+    "name": "Jos South",
+    "pcode": "NG032006"
+  },
+  {
+    "state": "Kogi",
+    "name": "Kabba/Bunu",
+    "pcode": "NG023010"
+  },
+  {
+    "state": "Kano",
+    "name": "Kabo",
+    "pcode": "NG020020"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kachia",
+    "pcode": "NG019008"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kaduna North",
+    "pcode": "NG019009"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kaduna South",
+    "pcode": "NG019010"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Kafin Hausa",
+    "pcode": "NG018015"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kafur",
+    "pcode": "NG021017"
+  },
+  {
+    "state": "Borno",
+    "name": "Kaga",
+    "pcode": "NG008014"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kagarko",
+    "pcode": "NG019011"
+  },
+  {
+    "state": "Kwara",
+    "name": "Kaiama",
+    "pcode": "NG024011"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kaita",
+    "pcode": "NG021018"
+  },
+  {
+    "state": "Oyo",
+    "name": "Kajola",
+    "pcode": "NG031019"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kauru",
+    "pcode": "NG019014"
+  },
+  {
+    "state": "Borno",
+    "name": "Kala/Balge",
+    "pcode": "NG008015"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Kalgo",
+    "pcode": "NG022012"
+  },
+  {
+    "state": "Gombe",
+    "name": "Kaltungo",
+    "pcode": "NG016007"
+  },
+  {
+    "state": "Plateau",
+    "name": "Kanam",
+    "pcode": "NG032007"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kankara",
+    "pcode": "NG021019"
+  },
+  {
+    "state": "Plateau",
+    "name": "Kanke",
+    "pcode": "NG032008"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kankia",
+    "pcode": "NG021020"
+  },
+  {
+    "state": "Kano",
+    "name": "Kano Municipal",
+    "pcode": "NG020021"
+  },
+  {
+    "state": "Yobe",
+    "name": "Karasuwa",
+    "pcode": "NG036010"
+  },
+  {
+    "state": "Kano",
+    "name": "Karaye",
+    "pcode": "NG020022"
+  },
+  {
+    "state": "Taraba",
+    "name": "Karim-Lamido",
+    "pcode": "NG035008"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Karu",
+    "pcode": "NG026004"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Katagum",
+    "pcode": "NG005012"
+  },
+  {
+    "state": "Niger",
+    "name": "Katcha",
+    "pcode": "NG027010"
+  },
+  {
+    "state": "Katsina",
+    "name": "Katsina",
+    "pcode": "NG021021"
+  },
+  {
+    "state": "Benue",
+    "name": "Katsina-Ala",
+    "pcode": "NG007009"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Kaugama",
+    "pcode": "NG018016"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kaura",
+    "pcode": "NG019013"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Kaura Namoda",
+    "pcode": "NG037008"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kajuru",
+    "pcode": "NG019012"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Kazaure",
+    "pcode": "NG018017"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Keana",
+    "pcode": "NG026005"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Kebbe",
+    "pcode": "NG034010"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Keffi",
+    "pcode": "NG026006"
+  },
+  {
+    "state": "Rivers",
+    "name": "Khana",
+    "pcode": "NG033014"
+  },
+  {
+    "state": "Kano",
+    "name": "Kibiya",
+    "pcode": "NG020023"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Kirfi",
+    "pcode": "NG005013"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Kiri Kasamma",
+    "pcode": "NG018018"
+  },
+  {
+    "state": "Kano",
+    "name": "Kiru",
+    "pcode": "NG020024"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Kiyawa",
+    "pcode": "NG018019"
+  },
+  {
+    "state": "Kogi",
+    "name": "Kogi",
+    "pcode": "NG023011"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Koko/Besse",
+    "pcode": "NG022013"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Kokona",
+    "pcode": "NG026007"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Kolokuma/Opokuma",
+    "pcode": "NG006003"
+  },
+  {
+    "state": "Borno",
+    "name": "Konduga",
+    "pcode": "NG008016"
+  },
+  {
+    "state": "Benue",
+    "name": "Konshisha",
+    "pcode": "NG007010"
+  },
+  {
+    "state": "Niger",
+    "name": "Kontagora",
+    "pcode": "NG027011"
+  },
+  {
+    "state": "Lagos",
+    "name": "Kosofe",
+    "pcode": "NG025013"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kubau",
+    "pcode": "NG019015"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Kudan",
+    "pcode": "NG019016"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Kuje",
+    "pcode": "NG015005"
+  },
+  {
+    "state": "Borno",
+    "name": "Kukawa",
+    "pcode": "NG008017"
+  },
+  {
+    "state": "Kano",
+    "name": "Kumbotso",
+    "pcode": "NG020025"
+  },
+  {
+    "state": "Kano",
+    "name": "Kunchi",
+    "pcode": "NG020026"
+  },
+  {
+    "state": "Kano",
+    "name": "Kura",
+    "pcode": "NG020027"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kurfi",
+    "pcode": "NG021022"
+  },
+  {
+    "state": "Taraba",
+    "name": "Kurmi",
+    "pcode": "NG035009"
+  },
+  {
+    "state": "Katsina",
+    "name": "Kusada",
+    "pcode": "NG021023"
+  },
+  {
+    "state": "Federal Capital Territory",
+    "name": "Kwali",
+    "pcode": "NG015006"
+  },
+  {
+    "state": "Gombe",
+    "name": "Kwami",
+    "pcode": "NG016008"
+  },
+  {
+    "state": "Benue",
+    "name": "Kwande",
+    "pcode": "NG007011"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Kware",
+    "pcode": "NG034011"
+  },
+  {
+    "state": "Borno",
+    "name": "Kwaya Kusar",
+    "pcode": "NG008018"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Lafia",
+    "pcode": "NG026008"
+  },
+  {
+    "state": "Oyo",
+    "name": "Lagelu",
+    "pcode": "NG031020"
+  },
+  {
+    "state": "Lagos",
+    "name": "Lagos Island",
+    "pcode": "NG025014"
+  },
+  {
+    "state": "Lagos",
+    "name": "Lagos Mainland",
+    "pcode": "NG025015"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Lamurde",
+    "pcode": "NG002009"
+  },
+  {
+    "state": "Plateau",
+    "name": "Langtang North",
+    "pcode": "NG032009"
+  },
+  {
+    "state": "Plateau",
+    "name": "Langtang South",
+    "pcode": "NG032010"
+  },
+  {
+    "state": "Niger",
+    "name": "Lapai",
+    "pcode": "NG027012"
+  },
+  {
+    "state": "Taraba",
+    "name": "Lau",
+    "pcode": "NG035010"
+  },
+  {
+    "state": "Niger",
+    "name": "Lavun",
+    "pcode": "NG027013"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Lere",
+    "pcode": "NG019017"
+  },
+  {
+    "state": "Benue",
+    "name": "Logo",
+    "pcode": "NG007012"
+  },
+  {
+    "state": "Kogi",
+    "name": "Lokoja",
+    "pcode": "NG023012"
+  },
+  {
+    "state": "Yobe",
+    "name": "Machina",
+    "pcode": "NG036011"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Madagali",
+    "pcode": "NG002010"
+  },
+  {
+    "state": "Kano",
+    "name": "Madobi",
+    "pcode": "NG020028"
+  },
+  {
+    "state": "Borno",
+    "name": "Mafa",
+    "pcode": "NG008019"
+  },
+  {
+    "state": "Niger",
+    "name": "Magama",
+    "pcode": "NG027014"
+  },
+  {
+    "state": "Borno",
+    "name": "Magumeri",
+    "pcode": "NG008020"
+  },
+  {
+    "state": "Katsina",
+    "name": "Mai'adua",
+    "pcode": "NG021024"
+  },
+  {
+    "state": "Borno",
+    "name": "Maiduguri",
+    "pcode": "NG008021"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Maigatari",
+    "pcode": "NG018020"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Maiha",
+    "pcode": "NG002011"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Maiyama",
+    "pcode": "NG022014"
+  },
+  {
+    "state": "Kano",
+    "name": "Makoda",
+    "pcode": "NG020029"
+  },
+  {
+    "state": "Benue",
+    "name": "Makurdi",
+    "pcode": "NG007013"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Malam Madori",
+    "pcode": "NG018021"
+  },
+  {
+    "state": "Katsina",
+    "name": "Malumfashi",
+    "pcode": "NG021025"
+  },
+  {
+    "state": "Plateau",
+    "name": "Mangu",
+    "pcode": "NG032011"
+  },
+  {
+    "state": "Katsina",
+    "name": "Mani",
+    "pcode": "NG021026"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Maradun",
+    "pcode": "NG037009"
+  },
+  {
+    "state": "Niger",
+    "name": "Mariga",
+    "pcode": "NG027015"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Markafi",
+    "pcode": "NG019018"
+  },
+  {
+    "state": "Borno",
+    "name": "Marte",
+    "pcode": "NG008022"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Maru",
+    "pcode": "NG037010"
+  },
+  {
+    "state": "Niger",
+    "name": "Mashegu",
+    "pcode": "NG027016"
+  },
+  {
+    "state": "Katsina",
+    "name": "Mashi",
+    "pcode": "NG021027"
+  },
+  {
+    "state": "Katsina",
+    "name": "Matazu",
+    "pcode": "NG021028"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Mayo-Belwa",
+    "pcode": "NG002012"
+  },
+  {
+    "state": "Imo",
+    "name": "Mbaitoli",
+    "pcode": "NG017011"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Mbo",
+    "pcode": "NG003017"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Michika",
+    "pcode": "NG002013"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Miga",
+    "pcode": "NG018022"
+  },
+  {
+    "state": "Plateau",
+    "name": "Mikang",
+    "pcode": "NG032012"
+  },
+  {
+    "state": "Kano",
+    "name": "Minjibir",
+    "pcode": "NG020030"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Misau",
+    "pcode": "NG005014"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Mkpat Enin",
+    "pcode": "NG003018"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Moba",
+    "pcode": "NG013015"
+  },
+  {
+    "state": "Borno",
+    "name": "Mobbar",
+    "pcode": "NG008023"
+  },
+  {
+    "state": "Niger",
+    "name": "Mokwa",
+    "pcode": "NG027017"
+  },
+  {
+    "state": "Borno",
+    "name": "Monguno",
+    "pcode": "NG008024"
+  },
+  {
+    "state": "Kogi",
+    "name": "Mopa-Muro",
+    "pcode": "NG023013"
+  },
+  {
+    "state": "Kwara",
+    "name": "Moro",
+    "pcode": "NG024012"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Mubi North",
+    "pcode": "NG002014"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Mubi South",
+    "pcode": "NG002015"
+  },
+  {
+    "state": "Katsina",
+    "name": "Musawa",
+    "pcode": "NG021029"
+  },
+  {
+    "state": "Lagos",
+    "name": "Mushin",
+    "pcode": "NG025016"
+  },
+  {
+    "state": "Niger",
+    "name": "Muya",
+    "pcode": "NG027018"
+  },
+  {
+    "state": "Gombe",
+    "name": "Nafada",
+    "pcode": "NG016009"
+  },
+  {
+    "state": "Yobe",
+    "name": "Nangere",
+    "pcode": "NG036012"
+  },
+  {
+    "state": "Kano",
+    "name": "Nasarawa",
+    "pcode": "NG020031"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Nasarawa",
+    "pcode": "NG026009"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Nasarawa-Eggon",
+    "pcode": "NG026010"
+  },
+  {
+    "state": "Delta",
+    "name": "Ndokwa East",
+    "pcode": "NG010011"
+  },
+  {
+    "state": "Delta",
+    "name": "Ndokwa West",
+    "pcode": "NG010012"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Nembe",
+    "pcode": "NG006004"
+  },
+  {
+    "state": "Borno",
+    "name": "Ngala",
+    "pcode": "NG008025"
+  },
+  {
+    "state": "Borno",
+    "name": "Nganzai",
+    "pcode": "NG008026"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Ngaski",
+    "pcode": "NG022015"
+  },
+  {
+    "state": "Imo",
+    "name": "Ngor-Okpala",
+    "pcode": "NG017012"
+  },
+  {
+    "state": "Yobe",
+    "name": "Nguru",
+    "pcode": "NG036013"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Ningi",
+    "pcode": "NG005015"
+  },
+  {
+    "state": "Imo",
+    "name": "Njaba",
+    "pcode": "NG017013"
+  },
+  {
+    "state": "Anambra",
+    "name": "Njikoka",
+    "pcode": "NG004013"
+  },
+  {
+    "state": "Enugu",
+    "name": "Nkanu East",
+    "pcode": "NG014011"
+  },
+  {
+    "state": "Enugu",
+    "name": "Nkanu West",
+    "pcode": "NG014012"
+  },
+  {
+    "state": "Imo",
+    "name": "Nkwerre",
+    "pcode": "NG017014"
+  },
+  {
+    "state": "Anambra",
+    "name": "Nnewi North",
+    "pcode": "NG004014"
+  },
+  {
+    "state": "Anambra",
+    "name": "Nnewi South",
+    "pcode": "NG004015"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Nsit Atai",
+    "pcode": "NG003019"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Nsit Ibom",
+    "pcode": "NG003020"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Nsit Ubium",
+    "pcode": "NG003021"
+  },
+  {
+    "state": "Enugu",
+    "name": "Nsukka",
+    "pcode": "NG014013"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Numan",
+    "pcode": "NG002016"
+  },
+  {
+    "state": "Imo",
+    "name": "Nwangele",
+    "pcode": "NG017015"
+  },
+  {
+    "state": "Ogun",
+    "name": "Obafemi-Owode",
+    "pcode": "NG028015"
+  },
+  {
+    "state": "Cross River",
+    "name": "Obanliku",
+    "pcode": "NG009013"
+  },
+  {
+    "state": "Benue",
+    "name": "Obi",
+    "pcode": "NG007014"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Obi",
+    "pcode": "NG026011"
+  },
+  {
+    "state": "Abia",
+    "name": "Obi Ngwa",
+    "pcode": "NG001009"
+  },
+  {
+    "state": "Rivers",
+    "name": "Obia/Akpor",
+    "pcode": "NG033015"
+  },
+  {
+    "state": "Osun",
+    "name": "Obokun",
+    "pcode": "NG030024"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Obot Akara",
+    "pcode": "NG003022"
+  },
+  {
+    "state": "Imo",
+    "name": "Obowo",
+    "pcode": "NG017016"
+  },
+  {
+    "state": "Cross River",
+    "name": "Obubra",
+    "pcode": "NG009014"
+  },
+  {
+    "state": "Cross River",
+    "name": "Obudu",
+    "pcode": "NG009015"
+  },
+  {
+    "state": "Ogun",
+    "name": "Odeda",
+    "pcode": "NG028016"
+  },
+  {
+    "state": "Ondo",
+    "name": "Odigbo",
+    "pcode": "NG029013"
+  },
+  {
+    "state": "Osun",
+    "name": "Odo-Otin",
+    "pcode": "NG030025"
+  },
+  {
+    "state": "Ogun",
+    "name": "Odogbolu",
+    "pcode": "NG028017"
+  },
+  {
+    "state": "Cross River",
+    "name": "Odukpani",
+    "pcode": "NG009016"
+  },
+  {
+    "state": "Kwara",
+    "name": "Offa",
+    "pcode": "NG024013"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ofu",
+    "pcode": "NG023014"
+  },
+  {
+    "state": "Rivers",
+    "name": "Ogba/Egbema/Ndoni",
+    "pcode": "NG033016"
+  },
+  {
+    "state": "Benue",
+    "name": "Ogbadibo",
+    "pcode": "NG007015"
+  },
+  {
+    "state": "Anambra",
+    "name": "Ogbaru",
+    "pcode": "NG004016"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Ogbia",
+    "pcode": "NG006005"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ogbomosho North",
+    "pcode": "NG031021"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ogbomosho South",
+    "pcode": "NG031022"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ogo Oluwa",
+    "pcode": "NG031023"
+  },
+  {
+    "state": "Cross River",
+    "name": "Ogoja",
+    "pcode": "NG009017"
+  },
+  {
+    "state": "Kogi",
+    "name": "Ogori/Magongo",
+    "pcode": "NG023015"
+  },
+  {
+    "state": "Rivers",
+    "name": "Ogu/Bolo",
+    "pcode": "NG033017"
+  },
+  {
+    "state": "Ogun",
+    "name": "Ogun waterside",
+    "pcode": "NG028018"
+  },
+  {
+    "state": "Imo",
+    "name": "Oguta",
+    "pcode": "NG017017"
+  },
+  {
+    "state": "Abia",
+    "name": "Ohafia",
+    "pcode": "NG001010"
+  },
+  {
+    "state": "Imo",
+    "name": "Ohaji/Egbema",
+    "pcode": "NG017018"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ohaozara",
+    "pcode": "NG011011"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Ohaukwu",
+    "pcode": "NG011012"
+  },
+  {
+    "state": "Benue",
+    "name": "Ohimini",
+    "pcode": "NG007016"
+  },
+  {
+    "state": "Enugu",
+    "name": "Oji-River",
+    "pcode": "NG014014"
+  },
+  {
+    "state": "Lagos",
+    "name": "Ojo",
+    "pcode": "NG025017"
+  },
+  {
+    "state": "Benue",
+    "name": "Oju",
+    "pcode": "NG007017"
+  },
+  {
+    "state": "Kwara",
+    "name": "Oke-Ero",
+    "pcode": "NG024014"
+  },
+  {
+    "state": "Kogi",
+    "name": "Okehi",
+    "pcode": "NG023016"
+  },
+  {
+    "state": "Kogi",
+    "name": "Okene",
+    "pcode": "NG023017"
+  },
+  {
+    "state": "Imo",
+    "name": "Okigwe",
+    "pcode": "NG017019"
+  },
+  {
+    "state": "Ondo",
+    "name": "Okitipupa",
+    "pcode": "NG029014"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Okobo",
+    "pcode": "NG003023"
+  },
+  {
+    "state": "Delta",
+    "name": "Okpe",
+    "pcode": "NG010013"
+  },
+  {
+    "state": "Benue",
+    "name": "Okpokwu",
+    "pcode": "NG007018"
+  },
+  {
+    "state": "Rivers",
+    "name": "Okrika",
+    "pcode": "NG033018"
+  },
+  {
+    "state": "Osun",
+    "name": "Ola-oluwa",
+    "pcode": "NG030026"
+  },
+  {
+    "state": "Kogi",
+    "name": "Olamabolo",
+    "pcode": "NG023018"
+  },
+  {
+    "state": "Osun",
+    "name": "Olorunda",
+    "pcode": "NG030027"
+  },
+  {
+    "state": "Oyo",
+    "name": "Olorunsogo",
+    "pcode": "NG031024"
+  },
+  {
+    "state": "Oyo",
+    "name": "Oluyole",
+    "pcode": "NG031025"
+  },
+  {
+    "state": "Kogi",
+    "name": "Omala",
+    "pcode": "NG023019"
+  },
+  {
+    "state": "Rivers",
+    "name": "Omumma",
+    "pcode": "NG033019"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ona-Ara",
+    "pcode": "NG031026"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ondo East",
+    "pcode": "NG029015"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ondo West",
+    "pcode": "NG029016"
+  },
+  {
+    "state": "Ebonyi",
+    "name": "Onicha",
+    "pcode": "NG011013"
+  },
+  {
+    "state": "Anambra",
+    "name": "Onitsha North",
+    "pcode": "NG004017"
+  },
+  {
+    "state": "Anambra",
+    "name": "Onitsha South",
+    "pcode": "NG004018"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Onna",
+    "pcode": "NG003024"
+  },
+  {
+    "state": "Rivers",
+    "name": "Opobo/Nkoro",
+    "pcode": "NG033020"
+  },
+  {
+    "state": "Edo",
+    "name": "Oredo",
+    "pcode": "NG012012"
+  },
+  {
+    "state": "Oyo",
+    "name": "Orelope",
+    "pcode": "NG031027"
+  },
+  {
+    "state": "Edo",
+    "name": "Orhionmwon",
+    "pcode": "NG012013"
+  },
+  {
+    "state": "Oyo",
+    "name": "Ori Ire",
+    "pcode": "NG031028"
+  },
+  {
+    "state": "Osun",
+    "name": "Oriade",
+    "pcode": "NG030028"
+  },
+  {
+    "state": "Imo",
+    "name": "Orlu",
+    "pcode": "NG017020"
+  },
+  {
+    "state": "Osun",
+    "name": "Orolu",
+    "pcode": "NG030029"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Oron",
+    "pcode": "NG003025"
+  },
+  {
+    "state": "Imo",
+    "name": "Orsu",
+    "pcode": "NG017021"
+  },
+  {
+    "state": "Imo",
+    "name": "Oru East",
+    "pcode": "NG017022"
+  },
+  {
+    "state": "Imo",
+    "name": "Oru West",
+    "pcode": "NG017023"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Oruk Anam",
+    "pcode": "NG003026"
+  },
+  {
+    "state": "Anambra",
+    "name": "Orumba North",
+    "pcode": "NG004019"
+  },
+  {
+    "state": "Anambra",
+    "name": "Orumba South",
+    "pcode": "NG004020"
+  },
+  {
+    "state": "Ondo",
+    "name": "Ose",
+    "pcode": "NG029017"
+  },
+  {
+    "state": "Delta",
+    "name": "Oshimili North",
+    "pcode": "NG010014"
+  },
+  {
+    "state": "Delta",
+    "name": "Oshimili South",
+    "pcode": "NG010015"
+  },
+  {
+    "state": "Lagos",
+    "name": "Oshodi-Isolo",
+    "pcode": "NG025018"
+  },
+  {
+    "state": "Abia",
+    "name": "Osisioma Ngwa",
+    "pcode": "NG001011"
+  },
+  {
+    "state": "Osun",
+    "name": "Osogbo",
+    "pcode": "NG030030"
+  },
+  {
+    "state": "Benue",
+    "name": "Oturkpo",
+    "pcode": "NG007019"
+  },
+  {
+    "state": "Edo",
+    "name": "Ovia North East",
+    "pcode": "NG012014"
+  },
+  {
+    "state": "Edo",
+    "name": "Ovia South West",
+    "pcode": "NG012015"
+  },
+  {
+    "state": "Edo",
+    "name": "Owan East",
+    "pcode": "NG012016"
+  },
+  {
+    "state": "Edo",
+    "name": "Owan West",
+    "pcode": "NG012017"
+  },
+  {
+    "state": "Imo",
+    "name": "Owerri-Municipal",
+    "pcode": "NG017026"
+  },
+  {
+    "state": "Imo",
+    "name": "Owerri North",
+    "pcode": "NG017024"
+  },
+  {
+    "state": "Imo",
+    "name": "Owerri West",
+    "pcode": "NG017025"
+  },
+  {
+    "state": "Ondo",
+    "name": "Owo",
+    "pcode": "NG029018"
+  },
+  {
+    "state": "Ekiti",
+    "name": "Oye",
+    "pcode": "NG013016"
+  },
+  {
+    "state": "Anambra",
+    "name": "Oyi",
+    "pcode": "NG004021"
+  },
+  {
+    "state": "Rivers",
+    "name": "Oyigbo",
+    "pcode": "NG033021"
+  },
+  {
+    "state": "Oyo",
+    "name": "Oyo East",
+    "pcode": "NG031029"
+  },
+  {
+    "state": "Oyo",
+    "name": "Oyo West",
+    "pcode": "NG031030"
+  },
+  {
+    "state": "Kwara",
+    "name": "Oyun",
+    "pcode": "NG024015"
+  },
+  {
+    "state": "Niger",
+    "name": "Paikoro",
+    "pcode": "NG027019"
+  },
+  {
+    "state": "Plateau",
+    "name": "Pankshin",
+    "pcode": "NG032013"
+  },
+  {
+    "state": "Delta",
+    "name": "Patani",
+    "pcode": "NG010016"
+  },
+  {
+    "state": "Kwara",
+    "name": "Pategi",
+    "pcode": "NG024016"
+  },
+  {
+    "state": "Rivers",
+    "name": "Port-Harcourt",
+    "pcode": "NG033022"
+  },
+  {
+    "state": "Yobe",
+    "name": "Potiskum",
+    "pcode": "NG036014"
+  },
+  {
+    "state": "Plateau",
+    "name": "Qua'an Pan",
+    "pcode": "NG032014"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Rabah",
+    "pcode": "NG034012"
+  },
+  {
+    "state": "Niger",
+    "name": "Rafi",
+    "pcode": "NG027020"
+  },
+  {
+    "state": "Kano",
+    "name": "Rano",
+    "pcode": "NG020032"
+  },
+  {
+    "state": "Ogun",
+    "name": "Remo North",
+    "pcode": "NG028019"
+  },
+  {
+    "state": "Niger",
+    "name": "Rijau",
+    "pcode": "NG027021"
+  },
+  {
+    "state": "Katsina",
+    "name": "Rimi",
+    "pcode": "NG021030"
+  },
+  {
+    "state": "Kano",
+    "name": "Rimin Gado",
+    "pcode": "NG020033"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Ringim",
+    "pcode": "NG018023"
+  },
+  {
+    "state": "Plateau",
+    "name": "Riyom",
+    "pcode": "NG032015"
+  },
+  {
+    "state": "Kano",
+    "name": "Rogo",
+    "pcode": "NG020034"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Roni",
+    "pcode": "NG018024"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Sabon-Gari",
+    "pcode": "NG019019"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Sabon Birni",
+    "pcode": "NG034013"
+  },
+  {
+    "state": "Katsina",
+    "name": "Sabuwa",
+    "pcode": "NG021031"
+  },
+  {
+    "state": "Katsina",
+    "name": "Safana",
+    "pcode": "NG021032"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Sagbama",
+    "pcode": "NG006006"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Sakaba",
+    "pcode": "NG022016"
+  },
+  {
+    "state": "Oyo",
+    "name": "Saki East",
+    "pcode": "NG031031"
+  },
+  {
+    "state": "Oyo",
+    "name": "Saki West",
+    "pcode": "NG031032"
+  },
+  {
+    "state": "Katsina",
+    "name": "Sandamu",
+    "pcode": "NG021033"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Sanga",
+    "pcode": "NG019020"
+  },
+  {
+    "state": "Delta",
+    "name": "Sapele",
+    "pcode": "NG010017"
+  },
+  {
+    "state": "Taraba",
+    "name": "Sardauna",
+    "pcode": "NG035011"
+  },
+  {
+    "state": "Ogun",
+    "name": "Shagamu",
+    "pcode": "NG028020"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Shagari",
+    "pcode": "NG034014"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Shanga",
+    "pcode": "NG022017"
+  },
+  {
+    "state": "Borno",
+    "name": "Shani",
+    "pcode": "NG008027"
+  },
+  {
+    "state": "Kano",
+    "name": "Shanono",
+    "pcode": "NG020035"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Shelleng",
+    "pcode": "NG002017"
+  },
+  {
+    "state": "Plateau",
+    "name": "Shendam",
+    "pcode": "NG032016"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Shinkafi",
+    "pcode": "NG037011"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Shira",
+    "pcode": "NG005016"
+  },
+  {
+    "state": "Niger",
+    "name": "Shiroro",
+    "pcode": "NG027022"
+  },
+  {
+    "state": "Gombe",
+    "name": "Shomgom",
+    "pcode": "NG016010"
+  },
+  {
+    "state": "Lagos",
+    "name": "Shomolu",
+    "pcode": "NG025019"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Silame",
+    "pcode": "NG034015"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Soba",
+    "pcode": "NG019021"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Sokoto North",
+    "pcode": "NG034016"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Sokoto South",
+    "pcode": "NG034017"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Song",
+    "pcode": "NG002018"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Southern Ijaw",
+    "pcode": "NG006007"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Sule-Tankarkar",
+    "pcode": "NG018025"
+  },
+  {
+    "state": "Niger",
+    "name": "Suleja",
+    "pcode": "NG027023"
+  },
+  {
+    "state": "Kano",
+    "name": "Sumaila",
+    "pcode": "NG020036"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Suru",
+    "pcode": "NG022018"
+  },
+  {
+    "state": "Lagos",
+    "name": "Surulere",
+    "pcode": "NG025020"
+  },
+  {
+    "state": "Oyo",
+    "name": "Surulere",
+    "pcode": "NG031033"
+  },
+  {
+    "state": "Niger",
+    "name": "Tafa",
+    "pcode": "NG027024"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Tafawa-Balewa",
+    "pcode": "NG005017"
+  },
+  {
+    "state": "Rivers",
+    "name": "Tai",
+    "pcode": "NG033023"
+  },
+  {
+    "state": "Kano",
+    "name": "Takai",
+    "pcode": "NG020037"
+  },
+  {
+    "state": "Taraba",
+    "name": "Takum",
+    "pcode": "NG035012"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Talata Mafara",
+    "pcode": "NG037012"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Tambuwal",
+    "pcode": "NG034018"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Tangaza",
+    "pcode": "NG034019"
+  },
+  {
+    "state": "Kano",
+    "name": "Tarauni",
+    "pcode": "NG020038"
+  },
+  {
+    "state": "Benue",
+    "name": "Tarka",
+    "pcode": "NG007020"
+  },
+  {
+    "state": "Yobe",
+    "name": "Tarmua",
+    "pcode": "NG036015"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Taura",
+    "pcode": "NG018026"
+  },
+  {
+    "state": "Kano",
+    "name": "Tofa",
+    "pcode": "NG020039"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Toro",
+    "pcode": "NG005018"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Toto",
+    "pcode": "NG026012"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Toungo",
+    "pcode": "NG002019"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Tsafe",
+    "pcode": "NG037013"
+  },
+  {
+    "state": "Kano",
+    "name": "Tsanyawa",
+    "pcode": "NG020040"
+  },
+  {
+    "state": "Kano",
+    "name": "Tudun Wada",
+    "pcode": "NG020041"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Tureta",
+    "pcode": "NG034020"
+  },
+  {
+    "state": "Enugu",
+    "name": "Udenu",
+    "pcode": "NG014015"
+  },
+  {
+    "state": "Enugu",
+    "name": "Udi",
+    "pcode": "NG014016"
+  },
+  {
+    "state": "Delta",
+    "name": "Udu",
+    "pcode": "NG010018"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Udung Uko",
+    "pcode": "NG003027"
+  },
+  {
+    "state": "Delta",
+    "name": "Ughelli North",
+    "pcode": "NG010019"
+  },
+  {
+    "state": "Delta",
+    "name": "Ughelli South",
+    "pcode": "NG010020"
+  },
+  {
+    "state": "Abia",
+    "name": "Ugwunagbo",
+    "pcode": "NG001012"
+  },
+  {
+    "state": "Edo",
+    "name": "Uhunmwonde",
+    "pcode": "NG012018"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Ukanafun",
+    "pcode": "NG003028"
+  },
+  {
+    "state": "Benue",
+    "name": "Ukum",
+    "pcode": "NG007021"
+  },
+  {
+    "state": "Abia",
+    "name": "Ukwa East",
+    "pcode": "NG001013"
+  },
+  {
+    "state": "Abia",
+    "name": "Ukwa West",
+    "pcode": "NG001014"
+  },
+  {
+    "state": "Delta",
+    "name": "Ukwuani",
+    "pcode": "NG010021"
+  },
+  {
+    "state": "Abia",
+    "name": "Umu-Nneochi",
+    "pcode": "NG001017"
+  },
+  {
+    "state": "Abia",
+    "name": "Umuahia North",
+    "pcode": "NG001015"
+  },
+  {
+    "state": "Abia",
+    "name": "Umuahia South",
+    "pcode": "NG001016"
+  },
+  {
+    "state": "Kano",
+    "name": "Ungogo",
+    "pcode": "NG020042"
+  },
+  {
+    "state": "Imo",
+    "name": "Unuimo",
+    "pcode": "NG017027"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Uruan",
+    "pcode": "NG003029"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Urue-Offong/Oruko",
+    "pcode": "NG003030"
+  },
+  {
+    "state": "Benue",
+    "name": "Ushongo",
+    "pcode": "NG007022"
+  },
+  {
+    "state": "Taraba",
+    "name": "Ussa",
+    "pcode": "NG035013"
+  },
+  {
+    "state": "Delta",
+    "name": "Uvwie",
+    "pcode": "NG010022"
+  },
+  {
+    "state": "Akwa Ibom",
+    "name": "Uyo",
+    "pcode": "NG003031"
+  },
+  {
+    "state": "Enugu",
+    "name": "Uzo-Uwani",
+    "pcode": "NG014017"
+  },
+  {
+    "state": "Benue",
+    "name": "Vandeikya",
+    "pcode": "NG007023"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Wamako",
+    "pcode": "NG034021"
+  },
+  {
+    "state": "Nasarawa",
+    "name": "Wamba",
+    "pcode": "NG026013"
+  },
+  {
+    "state": "Kano",
+    "name": "Warawa",
+    "pcode": "NG020043"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Warji",
+    "pcode": "NG005019"
+  },
+  {
+    "state": "Delta",
+    "name": "Warri North",
+    "pcode": "NG010023"
+  },
+  {
+    "state": "Delta",
+    "name": "Warri South",
+    "pcode": "NG010024"
+  },
+  {
+    "state": "Delta",
+    "name": "Warri South West",
+    "pcode": "NG010025"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Wasagu/Danko",
+    "pcode": "NG022019"
+  },
+  {
+    "state": "Plateau",
+    "name": "Wase",
+    "pcode": "NG032017"
+  },
+  {
+    "state": "Kano",
+    "name": "Wudil",
+    "pcode": "NG020044"
+  },
+  {
+    "state": "Taraba",
+    "name": "Wukari",
+    "pcode": "NG035014"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Wurno",
+    "pcode": "NG034022"
+  },
+  {
+    "state": "Niger",
+    "name": "Wushishi",
+    "pcode": "NG027025"
+  },
+  {
+    "state": "Sokoto",
+    "name": "Yabo",
+    "pcode": "NG034023"
+  },
+  {
+    "state": "Kogi",
+    "name": "Yagba East",
+    "pcode": "NG023020"
+  },
+  {
+    "state": "Kogi",
+    "name": "Yagba West",
+    "pcode": "NG023021"
+  },
+  {
+    "state": "Cross River",
+    "name": "Yakurr",
+    "pcode": "NG009018"
+  },
+  {
+    "state": "Cross River",
+    "name": "Yala",
+    "pcode": "NG009019"
+  },
+  {
+    "state": "Gombe",
+    "name": "Yamaltu/Deba",
+    "pcode": "NG016011"
+  },
+  {
+    "state": "Jigawa",
+    "name": "Yankwashi",
+    "pcode": "NG018027"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Yauri",
+    "pcode": "NG022020"
+  },
+  {
+    "state": "Bayelsa",
+    "name": "Yenegoa",
+    "pcode": "NG006008"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Yola North",
+    "pcode": "NG002020"
+  },
+  {
+    "state": "Adamawa",
+    "name": "Yola South",
+    "pcode": "NG002021"
+  },
+  {
+    "state": "Taraba",
+    "name": "Yorro",
+    "pcode": "NG035015"
+  },
+  {
+    "state": "Yobe",
+    "name": "Yunusari",
+    "pcode": "NG036016"
+  },
+  {
+    "state": "Yobe",
+    "name": "Yusufari",
+    "pcode": "NG036017"
+  },
+  {
+    "state": "Bauchi",
+    "name": "Zaki",
+    "pcode": "NG005020"
+  },
+  {
+    "state": "Katsina",
+    "name": "Zango",
+    "pcode": "NG021034"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Zango-Kataf",
+    "pcode": "NG019022"
+  },
+  {
+    "state": "Kaduna",
+    "name": "Zaria",
+    "pcode": "NG019023"
+  },
+  {
+    "state": "Taraba",
+    "name": "Zing",
+    "pcode": "NG035016"
+  },
+  {
+    "state": "Zamfara",
+    "name": "Zurmi",
+    "pcode": "NG037014"
+  },
+  {
+    "state": "Kebbi",
+    "name": "Zuru",
+    "pcode": "NG022021"
+  }
+]

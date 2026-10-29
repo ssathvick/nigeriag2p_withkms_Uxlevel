@@ -174,3 +174,6 @@ The launcher was tested against the running lab: all 68 workloads and 18 entry p
 
 Partner Management authentication repair: PARTNER_MANAGER_AUTH_DEFAULT_ISSUERS now matches the staff realm's public HTTPS issuer. Signature verification, administrator role checks and JWKS validation remain enabled. Verified fresh browser login, Requests and Partners pages on 3 October 2026.
 
+## 29 October lab updates
+
+See [the integration snapshot](updates-2026-10-29/README.md) for beneficiary consent, partner session handling and the demo master-data geography import. Review environment-specific scripts in staging before use.

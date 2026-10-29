@@ -34,5 +34,4 @@ home=home.replace('<h1>Nigeria IQS Lab</h1>','<div class="iqs-logo-mark" role="i
 home=home.replace('<html lang="en">','<html lang="en"><head>').replace('</style><main>','</style></head><body><main>').replace('</main></html>','</main></body></html>')
 (lab/'home/index.html').write_text(home)
 (base/'lab-home.html').write_text(home)
-(base/'branding/SOURCE.md').write_text('Official website asset: https://iqs-solutions.com/wp-content/uploads/2025/09/iqss-site-logo.png\nCompany: IQ Systems Solutions Limited, https://iqs-solutions.com/\nDownloaded 3 October 2026. Original PNG retained without alteration.\nThe company website uses IQSS in its logo; visible platform text uses IQS as requested.\n')
 print('IQS gateway branding and login theme installed; nginx configuration valid.')
