@@ -1,6 +1,6 @@
 (()=>{'use strict';const config=window.OpenG2PExperience;if(!config?.baseUrl||window.top!==window.self||document.getElementById('ng2p-platform-bar'))return;
 const bar=document.createElement('nav');bar.id='ng2p-platform-bar';bar.setAttribute('aria-label','Shared experience navigation');
-const name=document.createElement('strong');name.textContent=config.brand?.name||'OpenG2P';
+const name=document.createElement('strong');const logo=document.createElement('img');logo.src=config.baseUrl+'/static/branding/nsipa-wordmark.svg';logo.alt=config.brand?.name||'NSIPA';logo.className='nsipa-logo';name.appendChild(logo);
 const workspace=document.createElement('a');workspace.textContent='My workspace';
 const library=document.createElement('a');library.textContent='Knowledge library';library.href=config.baseUrl+'/knowledge';
 const select=document.createElement('select');select.setAttribute('aria-label','Task persona');

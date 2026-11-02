@@ -1,0 +1,32 @@
+NSIPA / SHARED PROGRESS
+Original identity proposal, 3 November 2026.
+
+FILES
+NSIPA-primary.ai: master horizontal logo, editable vector paths and live Arial typography.
+NSIPA-stacked.ai: centred vertical logo.
+NSIPA-monochrome.ai: single-green version.
+NSIPA-reversed.ai: white artwork for dark backgrounds (transparent).
+NSIPA-symbol.ai: standalone emblem.
+SVG equivalents retain editable type; *-outlined.svg versions turn type into editable vector shapes for font-independent reproduction.
+PNG equivalents have transparent backgrounds.
+NSIPA-presentation.ai: editable vector presentation board.
+NSIPA-presentation.psd: Photoshop board with embedded Illustrator Smart Object. Double-click the Smart Object thumbnail to edit the vector board in Illustrator. Hidden raster layer is a preview backup.
+
+CONCEPT
+Three people form an upward-growing community, embraced by an open protective shield. The green-white rhythm refers to Nigeria; the gold centre expresses possibility. The mark is original and is a design proposal, not an adopted official identity.
+
+COLOURS
+National green #006B45 / RGB 0,107,69
+Opportunity gold #D5A63C / RGB 213,166,60
+Deep green #123E31 / RGB 18,62,49
+Files are RGB. For commercial print, convert using the printer's specified CMYK profile and proof the green and gold.
+
+USAGE
+Keep clear space around the mark of at least one central head diameter. Use the standalone symbol below sizes where the full name remains readable. Use the white version on dark green. Do not stretch or add shadows. The presentation slogan is concept copy, not an official agency motto.
+
+NAME AND REFERENCES
+The logo follows the existing NSIPA logo's spelling: National Social Investment Programmes Agency. The current website also uses the singular Programme. Typography remains editable for the agency's preferred final wording.
+Existing NSIPA mark (supporting hand, green and gold): https://x.com/NSIPAgency
+Agency purpose: https://www.nsipa.gov.ng/
+NIPC identity (green, strong acronym and national visual cues): https://nipc.gov.ng/services/nipc-business-registration
+References informed palette and civic character; no existing emblem or coat of arms was traced.

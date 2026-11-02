@@ -2,8 +2,9 @@
   "prefix": "/experience",
   "public_base_url": "http://127.0.0.1:18110/experience",
   "brand": {
-    "name": "OpenG2P Experience",
-    "tagline": "Find your task. Follow clear guidance."
+    "name": "NSIPA",
+    "tagline": "National Social Investment Programmes Agency",
+    "logo": "nsipa-wordmark.svg"
   },
   "allowed_origins": [],
   "reference_hosts": [

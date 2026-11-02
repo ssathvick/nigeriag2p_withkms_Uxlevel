@@ -1,0 +1,5 @@
+
+# Preserve editable Adobe assets as binary files.
+*.ai binary
+*.psd binary
+*.zip binary

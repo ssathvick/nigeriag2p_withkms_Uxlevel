@@ -1,23 +1,20 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-11-03",
+  "version": "0.2.0",
+  "delivery": "v2",
+  "brand": "NSIPA",
   "backend_tests": 12,
   "backend_result": "passed",
   "context_mapping_checks": 3,
   "context_result": "passed",
   "react_build": "passed",
   "browser_checks": [
-    "persona navigation",
-    "automatic stage help",
-    "knowledge library: 54 guides",
-    "shared navigation",
-    "390x844 mobile close button visible",
-    "390x844 no horizontal overflow"
+    "NSIPA header and shared navigation logos",
+    "persona selection",
+    "knowledge library with 54 published guides"
   ],
-  "production_changes": "none",
-  "external_installation_tested": false,
-  "docker_build_tested": false,
-  "knowledge_tables": [
-    "km_articles",
-    "km_history"
+  "limitations": [
+    "External services remain disabled placeholders until configured.",
+    "Live lab gateway and native application branding are separate installers."
   ]
 }

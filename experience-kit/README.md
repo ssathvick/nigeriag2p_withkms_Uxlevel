@@ -1,6 +1,6 @@
-# OpenG2P Experience Kit
+# OpenG2P Experience Kit v2 — NSIPA edition
 
-A reusable UI, persona UX and knowledge management layer extracted from the NigeriaG2P implementation. Version 0.1.0 is a starter integration template, not a replacement for OpenG2P services or their authorization.
+A reusable UI, persona UX and knowledge management layer extracted from the NigeriaG2P implementation. Version 0.2.0 (delivery v2) is a starter integration template, not a replacement for OpenG2P services or their authorization.
 
 ## Included
 
@@ -76,3 +76,11 @@ node tests/context.test.cjs
 The knowledge workflow and help panel were extracted from the local NigeriaG2P source snapshot `49a3f06ac877cafa83f0fade8766e62c178c2de1`. Deployment dependencies were replaced with a standalone adapter. The launcher was rewritten to use configuration instead of fixed Nigeria URLs. This is not an official OpenG2P distribution or certification.
 
 See `THIRD_PARTY_NOTICES.md` and `static/workspace.js.LEGAL.txt` for bundled dependency notices. Source ownership and redistribution permission for project-specific code should follow the originating project's terms; this package does not invent a new license grant.
+
+## NSIPA v2 update — 3 November 2026
+
+The default presentation uses the NSIPA Shared Progress logo, favicon and green/gold palette. Editable Illustrator/SVG/Photoshop sources are in `branding-source/`. This is the demonstration identity proposal used in the Nigeria lab. Technical identifiers, cookies, API routes and upstream attribution remain compatible.
+
+This package is independently runnable. External services remain disabled placeholders until configured for your installation. The full lab gateway and native Keycloak/Odoo branding are maintained in the lab repository, separately from this starter kit.
+
+The v1 package is preserved. See `VALIDATION.json` for checks performed on this edition.

@@ -1,7 +1,7 @@
 [
   {
     "path": ".gitignore",
-    "sha256": "48a64d11f423830dc904a9b88abc3b1173db93fad4f9c1f463cc19fcde76fa75"
+    "sha256": "be8d3df8b93edb604698c5357d6ecc1f31d0ff18a374ae34446cd0c77aa54516"
   },
   {
     "path": "BACKUP-AND-RESTORE.md",
@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "65f21cb9b8bfefcc587a5e51c1cb9adea6caf92910e39de25ec017ebce5f2e71"
+    "sha256": "2a4d04ca6de5f68676610cafa04dfa50f10b212a03f9852f1ba3df29e6485128"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -5242,5 +5242,225 @@
   {
     "path": "lab/verify-nsipa-branding.py",
     "sha256": "cab62efade9bcad231db238a3c1e3ba4ee82f0e9652c6b3f3e9fa64e9e6c48b8"
+  },
+  {
+    "path": "downloads/v2/NigeriaG2P-NSIPA-Complete-Handoff-v2.zip",
+    "sha256": "cb396dfdc2358dd3e09336483386a99b041dc052e124934b3afc0e97bbf82521"
+  },
+  {
+    "path": "downloads/v2/NigeriaG2P-NSIPA-Complete-Handoff-v2.zip.sha256",
+    "sha256": "7d9a501dea54a6b5e46d9478b10f913f76c1830ace99a5351a3934a51cb24ca1"
+  },
+  {
+    "path": "downloads/v2/NigeriaG2P-UX-UI-Design-Package-v2.zip",
+    "sha256": "feedfc0f8c2a0f65350afde3e18023224e1efa71dcf5b934fa993bb3715720de"
+  },
+  {
+    "path": "downloads/v2/NigeriaG2P-UX-UI-Design-Package-v2.zip.sha256",
+    "sha256": "11ba6864d946430ab6c9b97a2225da71f4fabf2086e9d8b00509f909a188b3e4"
+  },
+  {
+    "path": "downloads/v2/OpenG2P-Experience-Kit-v2.zip",
+    "sha256": "6005044c6b3c803d33d02e1e03da486664627d60b3edb372ca11117f17db1405"
+  },
+  {
+    "path": "downloads/v2/OpenG2P-Experience-Kit-v2.zip.sha256",
+    "sha256": "2bdfb4517a0a72577710f2e4536a888963c9532e92115e1716f003303be95c69"
+  },
+  {
+    "path": "downloads/v2/README.md",
+    "sha256": "d70691f1d79c67eb4208f90efaf426b35ba5a60ee80a80ef300b2a78e38c289e"
+  },
+  {
+    "path": "experience-kit/README.md",
+    "sha256": "e3594f4d65b09cf2dcdcaefbbda915d20efd43d3c82094d6dac62feeb3f6cb0c"
+  },
+  {
+    "path": "experience-kit/SHA256-manifest.json",
+    "sha256": "957c765bb0099455b2a76cc45c765ff9c928ccb55de5530a806d14574a6004c7"
+  },
+  {
+    "path": "experience-kit/VALIDATION.json",
+    "sha256": "e149fc69c1c07ab17b312f3f95b56d33668751cb4e1d921f6aaec2302d7a05ab"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-monochrome-outlined.svg",
+    "sha256": "e5d857e541d56e671b6e4c9afd52379d6e23e91e85c118bbb66f3edb108691dd"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-monochrome.ai",
+    "sha256": "dd7c4b20a890d93b0865fc35a36fc83bcd562bee49a11a929d4b28da9f46408d"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-monochrome.png",
+    "sha256": "d3cc24239ef868e74bc37bfbed146d611eb07036063aca414cb21fd20ae02f85"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-monochrome.svg",
+    "sha256": "a3f674c26cf55bf5ec886caa7155d4031409574f8042433c075270cbe70c2471"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-presentation.ai",
+    "sha256": "36d45ecc6cd3cc2290361909b913927286474ff5b174067ac832796e29c29bb8"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-presentation.png",
+    "sha256": "e7596c4b662aa6232bf56b77bfb3f147436d2ce0c4be3c75eca6a420eedd3ab3"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-presentation.psd",
+    "sha256": "8d42c75dd8d1be00e03ab3743253dd5518a93b0b849261d009c29ef524c0d983"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-presentation.svg",
+    "sha256": "b6c962cf3c3d216dcc3ef22d2aa272519cf63b590c404139bda3c545e1e4acc4"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-primary-outlined.svg",
+    "sha256": "d5da9adb6e54205422100e87ffe7076d59a2e95b69df077458d348cd54b07d5d"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-primary.ai",
+    "sha256": "8f6e9fa9626b480bcde0479dd0eef5a0e255f3076822696a7379a1e97e6e8bf3"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-primary.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-primary.svg",
+    "sha256": "96467f09ceda7bc6a972ac43997628c765d17726d23b3e5c9af1ab11989ee801"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-reversed-outlined.svg",
+    "sha256": "f28241f2184f594794a258b2a1336475b722fdf43de85f6865968da02928e996"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-reversed.ai",
+    "sha256": "b46c0fbeb97e7a886db9098796a7943231edd6287282d9c427f11e4bc9d4166c"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-reversed.png",
+    "sha256": "ff6a86d0742ae939d37be4b71e5cf463f602d436373b04afbfee0cb616290e2b"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-reversed.svg",
+    "sha256": "68554982844950d475351d948845780ddfb2b4d7d89dccce04123de9134826a4"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-stacked-outlined.svg",
+    "sha256": "fe4c88744966b1eddb21c69957046a41517af9f4c92e05847710f70bd4ed9063"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-stacked.ai",
+    "sha256": "1da92f57fb05dd80a9890f6f5b15b8b5b6e8f97d36790dd112d37301a9edacf1"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-stacked.png",
+    "sha256": "5164eb14fdd7096780718a763cb19e19cfa7d88b68726de6447bb97e663318c8"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-stacked.svg",
+    "sha256": "0d437310b4bb65dd3624b9be44f83b9f9411febf0517f5335be623e5f05ad57d"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-symbol-outlined.svg",
+    "sha256": "38b283e308eed31fad27943545905b3bfa738ffa2635389cd2df266bb0b27ad7"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-symbol.ai",
+    "sha256": "6165147014b2f49b211ab7dafee07603a1cedac97698ce25a1244f68294e7797"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-symbol.png",
+    "sha256": "184ae624ea6c596c298e7f750f55b7c7ed82a107f571a87027d5e377e53addf0"
+  },
+  {
+    "path": "experience-kit/branding-source/NSIPA-symbol.svg",
+    "sha256": "626cf4fbd6e857d320d74304c8cd6d7c4af502523bd486d2f100e46f3e35a248"
+  },
+  {
+    "path": "experience-kit/branding-source/READ-ME.txt",
+    "sha256": "3e2d7aa223225b9adbddf4c7e505c773fe93ed89a771ccbe3e4f7faf23e5f2bf"
+  },
+  {
+    "path": "experience-kit/branding-source/build.cjs",
+    "sha256": "a8574401ca928a8f940e1b4ec70cbebee4e0e95916c4e0e300463f7ede06d3a3"
+  },
+  {
+    "path": "experience-kit/branding-source/export.jsx",
+    "sha256": "0a9999d670af9ef7d6bbc1a8891fc7373ed53c69daf1ec2dd78ba60640b8be86"
+  },
+  {
+    "path": "experience-kit/branding-source/outline.jsx",
+    "sha256": "e8630bb2d4dbf4241507fd86d4b31ca46606d9cec28a6ee1ab26d0a16e044fc3"
+  },
+  {
+    "path": "experience-kit/branding-source/reference-nipc.jpg",
+    "sha256": "76b5df2331e2a8135bebaf09b54c63935f6b4a8538197693bfc9a629a8b090bb"
+  },
+  {
+    "path": "experience-kit/branding-source/reference-nsipa.jpg",
+    "sha256": "84961eae64cf6819390b03ec3a1d26be4caf2f4a9f09809376d3beae629e1651"
+  },
+  {
+    "path": "experience-kit/config/deployment.json",
+    "sha256": "3308eed12ba29c81adb4144ea7bd4c5785cacb62b4251a0f40a892f22f318af6"
+  },
+  {
+    "path": "experience-kit/docs/INTEGRATION.md",
+    "sha256": "e77d8c5b1f72bc3a1126189ef3da2529fc7cf3f9152d9ace2644d186c49ed726"
+  },
+  {
+    "path": "experience-kit/docs/preview.jpg",
+    "sha256": "2cdcc22ae3f7c1983e87f0bb9f43fe73c6faed88307f514489a48af648c87af3"
+  },
+  {
+    "path": "experience-kit/docs/preview.png",
+    "sha256": "10351e23d5e51e80ed8a484d5800ade43cb0d4f610e2cb34a56380c5307cae6c"
+  },
+  {
+    "path": "experience-kit/static/branding/nsipa-logo.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "experience-kit/static/branding/nsipa-logo.svg",
+    "sha256": "d5da9adb6e54205422100e87ffe7076d59a2e95b69df077458d348cd54b07d5d"
+  },
+  {
+    "path": "experience-kit/static/branding/nsipa-symbol.svg",
+    "sha256": "38b283e308eed31fad27943545905b3bfa738ffa2635389cd2df266bb0b27ad7"
+  },
+  {
+    "path": "experience-kit/static/branding/nsipa-wordmark.svg",
+    "sha256": "d2bfe9545ffb457dc45ab7f63519095c499a03fdede1b691afaa1b5645097c6d"
+  },
+  {
+    "path": "experience-kit/static/experience.css",
+    "sha256": "3f1537a31e6ac0265610e64e77e03a6f31ff2030f248f3d865f37bfcf4bfa001"
+  },
+  {
+    "path": "experience-kit/static/help.css",
+    "sha256": "622059d0d420d29f4926ba2840edb0c9b1f321a74cd871b5e95699b003285382"
+  },
+  {
+    "path": "experience-kit/static/shell.js",
+    "sha256": "a2f53c45f750f883fdbb9b15778653275fc189fd0832b7cf6d3860cb50eeee31"
+  },
+  {
+    "path": "experience-kit/templates/base.html",
+    "sha256": "923b92ea93f25f232649117ad51870062504e67954f7eaec868a8dcea0b9e843"
+  },
+  {
+    "path": "experience-kit/ui/package-lock.json",
+    "sha256": "ec3af49e61f83b75c664219c5f19c471639e87f6bc7b5979712de3c4a3355dad"
+  },
+  {
+    "path": "experience-kit/ui/package.json",
+    "sha256": "a32fab17ad5112495a225022f3c702723c89bef1a9b66bb6bf0d1454c8dea0aa"
+  },
+  {
+    "path": ".gitattributes",
+    "sha256": "6c1675efab7f886886781510aa2de9f570365efdd079f9ee592418d25f46ab93"
   }
 ]

@@ -83,3 +83,7 @@ Back up `config/deployment.json`, your secret-manager entries separately, source
 - Check screen help on each installed application and on a narrow mobile screen.
 - Check guidance wording against the target release and local workflow.
 - Verify backup/restore and CSP/CORS integration.
+
+## NSIPA assets (v2)
+
+The bundled header and shared navigation use `static/branding/nsipa-wordmark.svg`; the favicon uses `nsipa-symbol.svg`. Keep these files accessible beneath the configured prefix. `brand.name` controls accessible labels; replace the bundled vectors when adapting this NSIPA edition for another identity.

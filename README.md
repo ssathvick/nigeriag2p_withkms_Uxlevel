@@ -64,3 +64,7 @@ is granted for project customisations or documents.
 ## NSIPA branding update
 
 The current lab sources include the NSIPA identity, shared service theme and native company/realm branding installers. See [lab/branding/README.md](lab/branding/README.md) for build, application and verification steps, and editable Illustrator/SVG/Photoshop masters. Historical recovery archives retain their original contents; apply the current branding sources after restoration.
+
+## Current NSIPA v2 packages — 3 November 2026
+
+Download the [complete handoff, Figma/FigCraft design kit and Experience Kit v2](downloads/v2/README.md). This includes updated logos, 240 design screens, both Ooru handoffs and five refreshed videos. The runnable source in [`experience-kit`](experience-kit/README.md) is now the NSIPA edition (software 0.2.0). SHA-256 files accompany every download. Earlier archives remain historical baselines.

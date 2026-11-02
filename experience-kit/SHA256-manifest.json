@@ -1,150 +1,290 @@
 [
   {
-    "file": ".dockerignore",
+    "path": ".dockerignore",
     "sha256": "902aafcbb1954080b915e857e0e8bebfb0cc6514b1cdd00d52db125cae36bfcf"
   },
   {
-    "file": ".gitignore",
+    "path": ".gitignore",
     "sha256": "c1f4c852a461b3f04fa758f2025dffd847150fe35eb345f0e2de8b9e36418d36"
   },
   {
-    "file": "app.py",
+    "path": "app.py",
     "sha256": "03a87fff06776c124bdad64b9ecd69c2c657597efd810f6b71fa8a43725b3a99"
   },
   {
-    "file": "compose.yaml",
+    "path": "branding-source/build.cjs",
+    "sha256": "a8574401ca928a8f940e1b4ec70cbebee4e0e95916c4e0e300463f7ede06d3a3"
+  },
+  {
+    "path": "branding-source/export.jsx",
+    "sha256": "0a9999d670af9ef7d6bbc1a8891fc7373ed53c69daf1ec2dd78ba60640b8be86"
+  },
+  {
+    "path": "branding-source/NSIPA-monochrome-outlined.svg",
+    "sha256": "e5d857e541d56e671b6e4c9afd52379d6e23e91e85c118bbb66f3edb108691dd"
+  },
+  {
+    "path": "branding-source/NSIPA-monochrome.ai",
+    "sha256": "dd7c4b20a890d93b0865fc35a36fc83bcd562bee49a11a929d4b28da9f46408d"
+  },
+  {
+    "path": "branding-source/NSIPA-monochrome.png",
+    "sha256": "d3cc24239ef868e74bc37bfbed146d611eb07036063aca414cb21fd20ae02f85"
+  },
+  {
+    "path": "branding-source/NSIPA-monochrome.svg",
+    "sha256": "a3f674c26cf55bf5ec886caa7155d4031409574f8042433c075270cbe70c2471"
+  },
+  {
+    "path": "branding-source/NSIPA-presentation.ai",
+    "sha256": "36d45ecc6cd3cc2290361909b913927286474ff5b174067ac832796e29c29bb8"
+  },
+  {
+    "path": "branding-source/NSIPA-presentation.png",
+    "sha256": "e7596c4b662aa6232bf56b77bfb3f147436d2ce0c4be3c75eca6a420eedd3ab3"
+  },
+  {
+    "path": "branding-source/NSIPA-presentation.psd",
+    "sha256": "8d42c75dd8d1be00e03ab3743253dd5518a93b0b849261d009c29ef524c0d983"
+  },
+  {
+    "path": "branding-source/NSIPA-presentation.svg",
+    "sha256": "b6c962cf3c3d216dcc3ef22d2aa272519cf63b590c404139bda3c545e1e4acc4"
+  },
+  {
+    "path": "branding-source/NSIPA-primary-outlined.svg",
+    "sha256": "d5da9adb6e54205422100e87ffe7076d59a2e95b69df077458d348cd54b07d5d"
+  },
+  {
+    "path": "branding-source/NSIPA-primary.ai",
+    "sha256": "8f6e9fa9626b480bcde0479dd0eef5a0e255f3076822696a7379a1e97e6e8bf3"
+  },
+  {
+    "path": "branding-source/NSIPA-primary.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "branding-source/NSIPA-primary.svg",
+    "sha256": "96467f09ceda7bc6a972ac43997628c765d17726d23b3e5c9af1ab11989ee801"
+  },
+  {
+    "path": "branding-source/NSIPA-reversed-outlined.svg",
+    "sha256": "f28241f2184f594794a258b2a1336475b722fdf43de85f6865968da02928e996"
+  },
+  {
+    "path": "branding-source/NSIPA-reversed.ai",
+    "sha256": "b46c0fbeb97e7a886db9098796a7943231edd6287282d9c427f11e4bc9d4166c"
+  },
+  {
+    "path": "branding-source/NSIPA-reversed.png",
+    "sha256": "ff6a86d0742ae939d37be4b71e5cf463f602d436373b04afbfee0cb616290e2b"
+  },
+  {
+    "path": "branding-source/NSIPA-reversed.svg",
+    "sha256": "68554982844950d475351d948845780ddfb2b4d7d89dccce04123de9134826a4"
+  },
+  {
+    "path": "branding-source/NSIPA-stacked-outlined.svg",
+    "sha256": "fe4c88744966b1eddb21c69957046a41517af9f4c92e05847710f70bd4ed9063"
+  },
+  {
+    "path": "branding-source/NSIPA-stacked.ai",
+    "sha256": "1da92f57fb05dd80a9890f6f5b15b8b5b6e8f97d36790dd112d37301a9edacf1"
+  },
+  {
+    "path": "branding-source/NSIPA-stacked.png",
+    "sha256": "5164eb14fdd7096780718a763cb19e19cfa7d88b68726de6447bb97e663318c8"
+  },
+  {
+    "path": "branding-source/NSIPA-stacked.svg",
+    "sha256": "0d437310b4bb65dd3624b9be44f83b9f9411febf0517f5335be623e5f05ad57d"
+  },
+  {
+    "path": "branding-source/NSIPA-symbol-outlined.svg",
+    "sha256": "38b283e308eed31fad27943545905b3bfa738ffa2635389cd2df266bb0b27ad7"
+  },
+  {
+    "path": "branding-source/NSIPA-symbol.ai",
+    "sha256": "6165147014b2f49b211ab7dafee07603a1cedac97698ce25a1244f68294e7797"
+  },
+  {
+    "path": "branding-source/NSIPA-symbol.png",
+    "sha256": "184ae624ea6c596c298e7f750f55b7c7ed82a107f571a87027d5e377e53addf0"
+  },
+  {
+    "path": "branding-source/NSIPA-symbol.svg",
+    "sha256": "626cf4fbd6e857d320d74304c8cd6d7c4af502523bd486d2f100e46f3e35a248"
+  },
+  {
+    "path": "branding-source/outline.jsx",
+    "sha256": "e8630bb2d4dbf4241507fd86d4b31ca46606d9cec28a6ee1ab26d0a16e044fc3"
+  },
+  {
+    "path": "branding-source/READ-ME.txt",
+    "sha256": "3e2d7aa223225b9adbddf4c7e505c773fe93ed89a771ccbe3e4f7faf23e5f2bf"
+  },
+  {
+    "path": "branding-source/reference-nipc.jpg",
+    "sha256": "76b5df2331e2a8135bebaf09b54c63935f6b4a8538197693bfc9a629a8b090bb"
+  },
+  {
+    "path": "branding-source/reference-nsipa.jpg",
+    "sha256": "84961eae64cf6819390b03ec3a1d26be4caf2f4a9f09809376d3beae629e1651"
+  },
+  {
+    "path": "compose.yaml",
     "sha256": "85b762a30798784529fd44294b3f373d966add4337b78ff3b70b653da52c588d"
   },
   {
-    "file": "config/deployment.json",
-    "sha256": "8cd941c03b631625bcc235844c63adf425db1770337f170c5f2c512d1c92c2e8"
+    "path": "config/deployment.json",
+    "sha256": "3308eed12ba29c81adb4144ea7bd4c5785cacb62b4251a0f40a892f22f318af6"
   },
   {
-    "file": "Dockerfile",
+    "path": "Dockerfile",
     "sha256": "ab9db4f20c44162719e79accaaec607e618ff43c745df632aca97786ea83be19"
   },
   {
-    "file": "docs/CONTENT_FORMAT.md",
+    "path": "docs/CONTENT_FORMAT.md",
     "sha256": "008ac6fbf0147b13d68c32068a1e1039c1246a38fdc199d8e40db8f443fcbbdd"
   },
   {
-    "file": "docs/INTEGRATION.md",
-    "sha256": "15489a61d0d6205a859d0ff552f97db180c737b56eb5d14298ed016fb478ee26"
+    "path": "docs/INTEGRATION.md",
+    "sha256": "e77d8c5b1f72bc3a1126189ef3da2529fc7cf3f9152d9ace2644d186c49ed726"
   },
   {
-    "file": "docs/PERMISSION_MATRIX.csv",
+    "path": "docs/PERMISSION_MATRIX.csv",
     "sha256": "ae1b81aa532af5fa7e5d383d7d69560c84192a2dca923fab7d3cd5e430b6ed1f"
   },
   {
-    "file": "docs/preview.jpg",
-    "sha256": "fb7c55a916ed405a530e11fe8eb7f38231da324174657bccef835faa91d7212b"
+    "path": "docs/preview.jpg",
+    "sha256": "2cdcc22ae3f7c1983e87f0bb9f43fe73c6faed88307f514489a48af648c87af3"
   },
   {
-    "file": "knowledge-seed.json",
+    "path": "docs/preview.png",
+    "sha256": "10351e23d5e51e80ed8a484d5800ade43cb0d4f610e2cb34a56380c5307cae6c"
+  },
+  {
+    "path": "knowledge-seed.json",
     "sha256": "67ec7809a15a749e2b4d13b7e67d2be785bcb9ea274249d1bd165a4553a996dc"
   },
   {
-    "file": "knowledge_management.py",
+    "path": "knowledge_management.py",
     "sha256": "2750cf6b362c9036648d054076735806f81e983b3eea98482e047f4af25fa23e"
   },
   {
-    "file": "README.md",
-    "sha256": "ce9c96fabe72a11ae82c5ed7a43fe3be864345c5ade232b1050158df1e1cee8b"
+    "path": "README.md",
+    "sha256": "e3594f4d65b09cf2dcdcaefbbda915d20efd43d3c82094d6dac62feeb3f6cb0c"
   },
   {
-    "file": "requirements.txt",
+    "path": "requirements.txt",
     "sha256": "0aeab2f22c2cd9a1c97af9fe5ac1bf4c53dbb81d8afeaab4a3eb32716ab561ff"
   },
   {
-    "file": "schema.sql",
+    "path": "schema.sql",
     "sha256": "7335c385cfc7f932d3716dadd03ede777c1b616b8ef0a5237b801a3bed476870"
   },
   {
-    "file": "static/context-presets.js",
+    "path": "static/branding/nsipa-logo.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "static/branding/nsipa-logo.svg",
+    "sha256": "d5da9adb6e54205422100e87ffe7076d59a2e95b69df077458d348cd54b07d5d"
+  },
+  {
+    "path": "static/branding/nsipa-symbol.svg",
+    "sha256": "38b283e308eed31fad27943545905b3bfa738ffa2635389cd2df266bb0b27ad7"
+  },
+  {
+    "path": "static/branding/nsipa-wordmark.svg",
+    "sha256": "d2bfe9545ffb457dc45ab7f63519095c499a03fdede1b691afaa1b5645097c6d"
+  },
+  {
+    "path": "static/context-presets.js",
     "sha256": "8de2f6b24f9a32e15d4c32a7b1a233b4a6d89541ecc4c83b524618f81848ed80"
   },
   {
-    "file": "static/context.js",
+    "path": "static/context.js",
     "sha256": "bc993332a00145e023f0b102bc2c3f664da0851d848a2a41a6221e24fd07b525"
   },
   {
-    "file": "static/experience.css",
-    "sha256": "cbf44aa1e47f8cabe0e728fdd91df412b9a8c04cdb5db48096f580a12ce8cb1e"
+    "path": "static/experience.css",
+    "sha256": "3f1537a31e6ac0265610e64e77e03a6f31ff2030f248f3d865f37bfcf4bfa001"
   },
   {
-    "file": "static/help.css",
-    "sha256": "517d5a869a5c45553568781028865c058163316c212f241c91d6baf3d6702f3a"
+    "path": "static/help.css",
+    "sha256": "622059d0d420d29f4926ba2840edb0c9b1f321a74cd871b5e95699b003285382"
   },
   {
-    "file": "static/help.js",
+    "path": "static/help.js",
     "sha256": "3ac5ec5c416f79555340112f0780f285b5a5ca436407adc1b1a097751c7316d4"
   },
   {
-    "file": "static/shell.js",
-    "sha256": "75003b46056610ab7deddd8075851286531440a9589b2d7a9b7d423668731979"
+    "path": "static/shell.js",
+    "sha256": "a2f53c45f750f883fdbb9b15778653275fc189fd0832b7cf6d3860cb50eeee31"
   },
   {
-    "file": "static/workspace.js",
+    "path": "static/workspace.js",
     "sha256": "504deacf6d6c734281a2b77bd05e55e61217cf8f4933b25215602c89e356a4ef"
   },
   {
-    "file": "static/workspace.js.LEGAL.txt",
+    "path": "static/workspace.js.LEGAL.txt",
     "sha256": "573cc95a6417c69a6ca44804f440f00965283c8cdcc50025305a7a50f53940ac"
   },
   {
-    "file": "templates/base.html",
-    "sha256": "bec0b5143532eaf83f691fc16075baaf79994c6a9c0ae9bbad76639535e15fc8"
+    "path": "templates/base.html",
+    "sha256": "923b92ea93f25f232649117ad51870062504e67954f7eaec868a8dcea0b9e843"
   },
   {
-    "file": "templates/home.html",
+    "path": "templates/home.html",
     "sha256": "f196e905e583bdb9f711638a40bf3d01c181c7ed9c271ef4eebfc71594d99f42"
   },
   {
-    "file": "templates/knowledge-admin.html",
+    "path": "templates/knowledge-admin.html",
     "sha256": "44fa3d5ca86b33b96b54ed2f620eeb8b17dc5f1c91db3b80c3e2c6e5709b769d"
   },
   {
-    "file": "templates/knowledge-editor.html",
+    "path": "templates/knowledge-editor.html",
     "sha256": "88aeec217bc64c1546c56e3536e2bcec9a232d2a983d6074ced6e9329300a8da"
   },
   {
-    "file": "templates/knowledge-library.html",
+    "path": "templates/knowledge-library.html",
     "sha256": "2e8f82e337d13f5f1856e8050a413ca4600eb0e453a8ec013263f1a358549a39"
   },
   {
-    "file": "templates/knowledge-revision.html",
+    "path": "templates/knowledge-revision.html",
     "sha256": "5b4c16d671f652ea79986278424a1eff658e8f7739dbe0eb7516e035e6c299d1"
   },
   {
-    "file": "tests/context.test.cjs",
+    "path": "tests/context.test.cjs",
     "sha256": "6a839d03fbb963b6600e48bcfd39fdcfdcdaa84eee65a87dbbe403253ffdc3e4"
   },
   {
-    "file": "tests/test_experience.py",
+    "path": "tests/test_experience.py",
     "sha256": "fb398159cc95c7a92953eabe2d2c5f525562c212935b6db52a98e1bb1fe35a2f"
   },
   {
-    "file": "THIRD_PARTY_NOTICES.md",
+    "path": "THIRD_PARTY_NOTICES.md",
     "sha256": "51a41ccdb145e038db9f0a133acbb6e3159d6bbc6f16f83ffea230414fe9fbff"
   },
   {
-    "file": "ui/build.cjs",
+    "path": "ui/build.cjs",
     "sha256": "10d46c35aba0241f10031d9ef37c3915294f8135080f0d0666e7354fecb1ee65"
   },
   {
-    "file": "ui/package-lock.json",
-    "sha256": "1d6bcf2e4226efde65a34122e7c2c4172c913c82f5df1aba85534eddebcad9e0"
+    "path": "ui/package-lock.json",
+    "sha256": "ec3af49e61f83b75c664219c5f19c471639e87f6bc7b5979712de3c4a3355dad"
   },
   {
-    "file": "ui/package.json",
-    "sha256": "08b9a972bc4740f031790fef9dfc98b7dbdd2aa85fafcdfc5939e3b595b7b4cb"
+    "path": "ui/package.json",
+    "sha256": "a32fab17ad5112495a225022f3c702723c89bef1a9b66bb6bf0d1454c8dea0aa"
   },
   {
-    "file": "ui/src/main.jsx",
+    "path": "ui/src/main.jsx",
     "sha256": "34ad8f69b0a706131c8a93eadc10b9fb615461eb49df389c1f769a58f663329e"
   },
   {
-    "file": "VALIDATION.json",
-    "sha256": "ef0970c2a843e5841a68dea76a8978abf17dce54217edad1f98415f2dd9d795b"
+    "path": "VALIDATION.json",
+    "sha256": "e149fc69c1c07ab17b312f3f95b56d33668751cb4e1d921f6aaec2302d7a05ab"
   }
 ]
