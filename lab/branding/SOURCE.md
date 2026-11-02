@@ -1,2 +1,1 @@
-User-provided IQS logo: H:/Nigeria_Mosip/codex/iqs_logo.png
-Installed 13 October 2026. Original PNG retained without alteration.
+Original NSIPA Shared Progress identity created on 3 November 2026 for the Nigeria G2P demonstration. Editable AI/SVG masters and the Photoshop presentation are included in `source/`. See `source/READ-ME.txt` for concept, colours, references and usage.

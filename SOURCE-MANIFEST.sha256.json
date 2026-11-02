@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "4a9095635210a5a756eb839d207661d152e77a6d69d48103d1e14d6ec4ebcf3b"
+    "sha256": "65f21cb9b8bfefcc587a5e51c1cb9adea6caf92910e39de25ec017ebce5f2e71"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -73,7 +73,7 @@
   },
   {
     "path": "lab/apply-iqs-branding.py",
-    "sha256": "380120d1f19b03aa72a4e432bf8e838b8290c8217fbd8f074174836b1d58f653"
+    "sha256": "48178ba76f8517a90d5f89d33fa25a907ce5d48d407b975f662b038bbd079ac3"
   },
   {
     "path": "lab/approve-demo-disbursement.py",
@@ -1321,23 +1321,23 @@
   },
   {
     "path": "lab/brand-native-apps.py",
-    "sha256": "527298de40fe7b3b44f6ca547742cc7d8372c868783f0f9cf26c7d426159e2f9"
+    "sha256": "3ef53feb857c0b4585cabdbe0b13e439f08b60a58e6df973255f7c3984a2c770"
   },
   {
     "path": "lab/branding/README.md",
-    "sha256": "c268479f8fc290115d7409ffeaca0058f899b13e73297088070075129c4f84b4"
+    "sha256": "5af370284aee12c7d297afb63f98d9c2b5845f1f068b6eeb1ff1bb0a58dfcd39"
   },
   {
     "path": "lab/branding/SOURCE.md",
-    "sha256": "7396743e066349c1567e94a2e8b4173e99c054c491156c097841538f2b6657fa"
+    "sha256": "47fcc1e5447678345d74af1a06ca98479e4ff186af49da37a6b22d7d65d3100d"
   },
   {
     "path": "lab/branding/iqs-brand.css",
-    "sha256": "e5f564ae002e1587794d38a8f2248b12775331c5cd95fb835d0252fd099bd89a"
+    "sha256": "ecfb88b8df8c2b82ba73a8c7c1e63af0875b1defd345dd79da014329b951f46d"
   },
   {
     "path": "lab/branding/iqs-brand.js",
-    "sha256": "fc5fbddf9c6499d5a1601b961e16b4f2ce9e5426ece140907b98eaa668e87fb4"
+    "sha256": "5c4fc0b5a2efc0c24d57f0bf5087524ba3023e8211283b66e8269720bd70b297"
   },
   {
     "path": "lab/branding/iqs-login.jpg",
@@ -1345,7 +1345,7 @@
   },
   {
     "path": "lab/branding/iqs-logo.png",
-    "sha256": "8d4b0bf4eea8ce608ee3f1f800ed63a45699ebdc6ee65e3d2dd86a5beebc9604"
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
   },
   {
     "path": "lab/certificate-trust-status.txt",
@@ -1889,19 +1889,19 @@
   },
   {
     "path": "lab/persona-ui/src/catalogue.js",
-    "sha256": "6668ceb491a647394a5069b0e812b5adcd7b1c08f5e8622be4190da6345ec1e9"
+    "sha256": "5e8074fc7d4a6b60133c76fd12b2403048dfaf716e919b42d02298900dbc9709"
   },
   {
     "path": "lab/persona-ui/src/main.jsx",
-    "sha256": "d5872a762e9d603ae8b3e715a384839b5500fb93c661580eced4e1c39b62d592"
+    "sha256": "e5ee8a2190c6460e0e5ede3563275637407cc9fb580d19c7727b976a8305cb90"
   },
   {
     "path": "lab/persona-ui/src/shell.js",
-    "sha256": "7e4f32f4d2cab210f66fc281566b7a3335b1ab9d236f35bf65797bb2003bc7cc"
+    "sha256": "aa8cc78b634b0db7109c8434d4c1c186bac044d2817657a00376d7be05e10212"
   },
   {
     "path": "lab/persona-ui/src/site.jsx",
-    "sha256": "62e4eb60f35650f36de9732d53eb562887d02519a5e7de459567b81db5f91834"
+    "sha256": "28780f8108ad358dfe852dbf101d2e49d357e6dd333dc2ab9204975e8c2ba2bb"
   },
   {
     "path": "lab/post-render.py",
@@ -1921,7 +1921,7 @@
   },
   {
     "path": "lab/registration-ui/base.html",
-    "sha256": "2fdc45b11ec27cb29c306850f5fc01be6968b5f159a8dde13aac79041fd2b903"
+    "sha256": "c5e82fd8b4b8532f3534690941a4eca792d1ca33eecf853f261f43dae001fe9f"
   },
   {
     "path": "lab/registration-ui/geo-form.js",
@@ -1953,7 +1953,7 @@
   },
   {
     "path": "lab/registration-ui/knowledge-library.html",
-    "sha256": "eec92bba88a05467617f8015e6a1ed006b8a439ba53cb341118347a8145211f0"
+    "sha256": "778d88b63de2892fd148c8adc03c81e0250e77c6eda0f5d299e65893a544d477"
   },
   {
     "path": "lab/registration-ui/knowledge-revision.html",
@@ -1961,7 +1961,7 @@
   },
   {
     "path": "lab/registration-ui/local-ai.html",
-    "sha256": "a705c2a9b221c8dc1bccc0aee23580a75269507e60a848d215a75cdf509aa879"
+    "sha256": "af8040e94818228a20d951471348316b18b3e804c15c14f57637198c9ef429d5"
   },
   {
     "path": "lab/registration-ui/message.html",
@@ -1993,7 +1993,7 @@
   },
   {
     "path": "lab/registration-ui/workspace.html",
-    "sha256": "ee99366f4f42363b8ae042a75b5b2dd8c9dba23a5952eb844d51af0d89749b53"
+    "sha256": "74c8675a3d7958ff8b87c942f6b2ce7c765f62e6566c30be7f66d10053eece47"
   },
   {
     "path": "lab/registration_app.py",
@@ -4973,11 +4973,11 @@
   },
   {
     "path": "lab/sitewide-ui/index.html",
-    "sha256": "352c7d9643a8e464530ebf18d2b9ee3ac2200e0175589e087b4436c396f1c790"
+    "sha256": "607a9365452a04d19dd0050f6791a7d443eb59adc033c45ccc8bca9972865349"
   },
   {
     "path": "lab/sitewide-ui/modules.json",
-    "sha256": "848df513130c65d14e962f87f836adaed288ecf38dbacc231f4f0d794f8cecc7"
+    "sha256": "a15592e38382d513df09e04208bb765708330ddd7668ba66c706d69145633f14"
   },
   {
     "path": "lab/sitewide-ui/site-shell.css",
@@ -5130,5 +5130,117 @@
   {
     "path": "lab/wait-lab-ready.py",
     "sha256": "77951d04181c704db9392db935042f630d76b2e2f4c2727285e1c8447799227b"
+  },
+  {
+    "path": "lab/apply-nsipa-branding.py",
+    "sha256": "05200df0ab2b9b4eabda79c37b97ba579822a52de53b0e867e7752cec5c3cba0"
+  },
+  {
+    "path": "lab/brand-native-nsipa.py",
+    "sha256": "d3db5623759fe55ccddd9738a89fe04f38ac6fb0945f3aba1f35e27b955fdefa"
+  },
+  {
+    "path": "lab/branding/nsipa-logo.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "lab/branding/nsipa-logo.svg",
+    "sha256": "2dd0040878147aa2ca792028df4c7657e05f415ae5e0f62b286c02d16e0e7be3"
+  },
+  {
+    "path": "lab/branding/nsipa-symbol.svg",
+    "sha256": "cca0bb63e88913f9da229604de0c1a41bb783133d254584782937a2c252c1309"
+  },
+  {
+    "path": "lab/branding/nsipa-verification.json",
+    "sha256": "52fa831212b1e936ffe5c419b26d295d6614634a4170437d54156303b53074c1"
+  },
+  {
+    "path": "lab/branding/nsipa-wordmark.svg",
+    "sha256": "d2bfe9545ffb457dc45ab7f63519095c499a03fdede1b691afaa1b5645097c6d"
+  },
+  {
+    "path": "lab/branding/source/.gitattributes",
+    "sha256": "94d597f594b9774fa0a1a135f0e8abcbef5e59ba833c77945bce8ffa2d2120ab"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-monochrome-outlined.svg",
+    "sha256": "9b816eb69df5062f4f76b8183bbdf410507f2c822316f85e3f934e97ccce8acc"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-monochrome.ai",
+    "sha256": "dd7c4b20a890d93b0865fc35a36fc83bcd562bee49a11a929d4b28da9f46408d"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-monochrome.svg",
+    "sha256": "a3f674c26cf55bf5ec886caa7155d4031409574f8042433c075270cbe70c2471"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-presentation.ai",
+    "sha256": "36d45ecc6cd3cc2290361909b913927286474ff5b174067ac832796e29c29bb8"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-presentation.psd",
+    "sha256": "8d42c75dd8d1be00e03ab3743253dd5518a93b0b849261d009c29ef524c0d983"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-presentation.svg",
+    "sha256": "b6c962cf3c3d216dcc3ef22d2aa272519cf63b590c404139bda3c545e1e4acc4"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-primary-outlined.svg",
+    "sha256": "2dd0040878147aa2ca792028df4c7657e05f415ae5e0f62b286c02d16e0e7be3"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-primary.ai",
+    "sha256": "8f6e9fa9626b480bcde0479dd0eef5a0e255f3076822696a7379a1e97e6e8bf3"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-primary.svg",
+    "sha256": "96467f09ceda7bc6a972ac43997628c765d17726d23b3e5c9af1ab11989ee801"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-reversed-outlined.svg",
+    "sha256": "956ac214b2ef7f487f93a5fb6bb95265ed27422d114f060130f136cdbcee17dd"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-reversed.ai",
+    "sha256": "b46c0fbeb97e7a886db9098796a7943231edd6287282d9c427f11e4bc9d4166c"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-reversed.svg",
+    "sha256": "68554982844950d475351d948845780ddfb2b4d7d89dccce04123de9134826a4"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-stacked-outlined.svg",
+    "sha256": "9cd6d332cf8c02782f8530bf73b79b34109a6ef76af1b93d8f7dbc795714abc3"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-stacked.ai",
+    "sha256": "1da92f57fb05dd80a9890f6f5b15b8b5b6e8f97d36790dd112d37301a9edacf1"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-stacked.svg",
+    "sha256": "0d437310b4bb65dd3624b9be44f83b9f9411febf0517f5335be623e5f05ad57d"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-symbol-outlined.svg",
+    "sha256": "cca0bb63e88913f9da229604de0c1a41bb783133d254584782937a2c252c1309"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-symbol.ai",
+    "sha256": "6165147014b2f49b211ab7dafee07603a1cedac97698ce25a1244f68294e7797"
+  },
+  {
+    "path": "lab/branding/source/NSIPA-symbol.svg",
+    "sha256": "626cf4fbd6e857d320d74304c8cd6d7c4af502523bd486d2f100e46f3e35a248"
+  },
+  {
+    "path": "lab/branding/source/READ-ME.txt",
+    "sha256": "5f40d24387097a0978c9a002d0d007fb2603d9a23b44ff50ff6072c3cc0bcf7a"
+  },
+  {
+    "path": "lab/verify-nsipa-branding.py",
+    "sha256": "cab62efade9bcad231db238a3c1e3ba4ee82f0e9652c6b3f3e9fa64e9e6c48b8"
   }
 ]

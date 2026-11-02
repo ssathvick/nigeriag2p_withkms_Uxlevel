@@ -1,0 +1,231 @@
+{
+  "hosts": [
+    {
+      "host": "nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "pbms.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "register.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "registry.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "staff-portal.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "beneficiary.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "awe.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "master-data-ui.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "partner-management.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "consent-manager.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "iam-staff-ui.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "odk.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "superset.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "portal-admin.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    },
+    {
+      "host": "keycloak.nigeriag2p.com",
+      "checks": {
+        "iqs-brand.js": true,
+        "iqs-brand.css": true,
+        "nsipa-logo.svg": true,
+        "nsipa-wordmark.svg": true,
+        "nsipa-symbol.svg": true,
+        "/resources/02qxz/login/staff-portal/img/keycloak.svg": true,
+        "/openg2p-logo-dark.svg": true,
+        "/static/assets/images/superset-logo-horiz.png": true,
+        "/favicon.ico": true
+      },
+      "passed": true
+    }
+  ],
+  "workloads": 70,
+  "not_ready": []
+}

@@ -108,7 +108,7 @@
     "group": "Field work and insights",
     "host": "odk.nigeriag2p.com",
     "path": "/",
-    "description": "Manage field collection projects and forms in ODK Central.",
+    "description": "Manage field collection projects and forms in NSIPA Field Data.",
     "roles": [
       "officer",
       "supervisor"

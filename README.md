@@ -60,3 +60,7 @@ are excluded. Configure new secrets on a fresh installation, or recover the exac
 running installation using the separately encrypted WSL/data backup.
 The original upstream components retain their own licenses; no new blanket license
 is granted for project customisations or documents.
+
+## NSIPA branding update
+
+The current lab sources include the NSIPA identity, shared service theme and native company/realm branding installers. See [lab/branding/README.md](lab/branding/README.md) for build, application and verification steps, and editable Illustrator/SVG/Photoshop masters. Historical recovery archives retain their original contents; apply the current branding sources after restoration.

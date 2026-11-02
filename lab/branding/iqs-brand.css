@@ -1,19 +1,19 @@
-:root { --iqs-purple:#27166b; --iqs-yellow:#fff200; }
-.iqs-beneficiary-login-note { max-width:420px; padding:14px; margin:16px 0; border:1px solid #d9d3e6; border-radius:8px; background:#f4f2fb; color:#302848; font-size:14px; line-height:1.5; }
+:root { --iqs-purple:#006b45; --iqs-yellow:#d5a63c; }
+.iqs-beneficiary-login-note { max-width:420px; padding:14px; margin:16px 0; border:1px solid #cbded1; border-radius:8px; background:#f1f6f2; color:#123e31; font-size:14px; line-height:1.5; }
 .iqs-brand-logo { object-fit:contain !important; object-position:center !important; background:#fff; width:94px !important; height:44px !important; max-height:64px; max-width:170px; }
-.iqs-logo-mark { width:170px; height:80px; margin:0 auto 20px; background:#fff url('/iqs-brand/iqs-logo.png') center / contain no-repeat; }
-body.iqs-login { min-height:100vh; background:radial-gradient(ellipse at 10% 20%,#ede9fa 0,transparent 48%),linear-gradient(120deg,#f4f2fb,#fffbea) !important; font-family:Inter,Arial,sans-serif !important; }
-body.iqs-login::before { content:''; display:block; position:fixed; top:0; left:0; right:0; height:6px; background:linear-gradient(90deg,#27166b 70%,#fff200 70%); z-index:1000; }
-.iqs-login-card { border:1px solid #e4e0ef !important; border-radius:20px !important; box-shadow:0 18px 55px #27166b15 !important; background:#fff !important; max-width:480px; margin:60px auto !important; padding:32px !important; }
+.iqs-logo-mark { width:170px; height:80px; margin:0 auto 20px; background:#fff url('/iqs-brand/nsipa-logo.svg') center / contain no-repeat; }
+body.iqs-login { min-height:100vh; background:radial-gradient(ellipse at 10% 20%,#e7f1eb 0,transparent 48%),linear-gradient(120deg,#f1f6f2,#faf7ed) !important; font-family:Inter,Arial,sans-serif !important; }
+body.iqs-login::before { content:''; display:block; position:fixed; top:0; left:0; right:0; height:6px; background:linear-gradient(90deg,#006b45 70%,#d5a63c 70%); z-index:1000; }
+.iqs-login-card { border:1px solid #dce7df !important; border-radius:20px !important; box-shadow:0 18px 55px #006b4515 !important; background:#fff !important; max-width:480px; margin:60px auto !important; padding:32px !important; }
 .iqs-login-heading { text-align:center; padding:0 0 20px; }
-.iqs-login-heading h1 { font-size:26px !important; font-weight:700; color:#27166b !important; margin:10px 0 !important; }
-.iqs-login-heading p { font-size:14px; color:#665f79; margin:0; }
-.iqs-login-eyebrow { font-size:10px; letter-spacing:1.8px; font-weight:700; color:#6f6788; }
-.iqs-login form input:not([type='checkbox']):not([type='submit']) { border:1px solid #d9d3e6 !important; border-radius:8px !important; min-height:44px; box-shadow:none !important; }
-.iqs-login form input:focus { outline:2px solid #b9ade8; outline-offset:1px; }
-.iqs-login form button[type='submit'],.iqs-login #kc-login { background:#27166b !important; border:1px solid #27166b !important; border-radius:8px !important; color:#fff !important; font-weight:600; min-height:44px; }
-.iqs-login form button[type='submit']:hover,.iqs-login #kc-login:hover { background:#3d2889 !important; }
-.iqs-login a { color:#39267c !important; }
+.iqs-login-heading h1 { font-size:26px !important; font-weight:700; color:#006b45 !important; margin:10px 0 !important; }
+.iqs-login-heading p { font-size:14px; color:#52675d; margin:0; }
+.iqs-login-eyebrow { font-size:10px; letter-spacing:1.8px; font-weight:700; color:#52675d; }
+.iqs-login form input:not([type='checkbox']):not([type='submit']) { border:1px solid #cbded1 !important; border-radius:8px !important; min-height:44px; box-shadow:none !important; }
+.iqs-login form input:focus { outline:2px solid #7ab49c; outline-offset:1px; }
+.iqs-login form button[type='submit'],.iqs-login #kc-login { background:#006b45 !important; border:1px solid #006b45 !important; border-radius:8px !important; color:#fff !important; font-weight:600; min-height:44px; }
+.iqs-login form button[type='submit']:hover,.iqs-login #kc-login:hover { background:#004e33 !important; }
+.iqs-login a { color:#006b45 !important; }
 .iqs-login .card-body > div.text-center:has(img),.iqs-login #kc-header,.iqs-login #kc-header-wrapper { display:none !important; }
 .iqs-login #wrapwrap,.iqs-login main { background:none !important; }
 .iqs-login .oe_website_login_container { position:relative !important; top:auto !important; left:auto !important; transform:none !important; height:auto !important; width:calc(100% - 32px) !important; background:#fff !important; }
@@ -27,10 +27,31 @@ body.iqs-login::before { content:''; display:block; position:fixed; top:0; left:
 .iqs-login .login-card.iqs-login-card { width:calc(100% - 32px) !important; height:auto !important; }
 .iqs-login .login-card > img.logo,.iqs-login .login-card > .title,.iqs-login .login-card > .subtitle { display:none !important; }
 .iqs-login .login-card .field { margin:0 0 20px !important; }
-.iqs-login .login-card .field label { display:block !important; position:static !important; color:#302848 !important; font-size:14px !important; margin-bottom:8px !important; }
-.iqs-login .login-card .field input { width:100% !important; padding:12px !important; color:#302848 !important; background:#fff !important; }
-.iqs-login .login-card .footer { color:#665f79 !important; font-size:11px !important; margin:20px 0 0 !important; }
-.iqs-login .login-card .custom-message { color:#302848 !important; }
+.iqs-login .login-card .field label { display:block !important; position:static !important; color:#123e31 !important; font-size:14px !important; margin-bottom:8px !important; }
+.iqs-login .login-card .field input { width:100% !important; padding:12px !important; color:#123e31 !important; background:#fff !important; }
+.iqs-login .login-card .footer { color:#52675d !important; font-size:11px !important; margin:20px 0 0 !important; }
+.iqs-login .login-card .custom-message { color:#123e31 !important; }
 @media(max-width:600px) { .iqs-login-card { margin:30px 16px !important; padding:24px !important; } }
 
 .brand img[src*="iqs-logo"] { object-fit:contain; }
+
+/* NSIPA approved vector identity. Compact marks remain readable in navigation. */
+.iqs-brand-logo{width:140px!important;height:46px!important;max-width:180px!important;max-height:64px!important;object-fit:contain!important}
+.iqs-logo-mark{width:min(100%,320px);height:113px;margin:0 auto 14px}
+.iqs-login .powered-by{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;margin-top:20px!important}
+.iqs-login .powered-by .iqs-brand-logo{width:100px!important;height:30px!important}
+.hub-brand,.ng2p-platform-brand{display:inline-flex!important;align-items:center!important}
+.nsipa-nav-logo{display:block!important;width:148px!important;height:42px!important;object-fit:contain!important}
+#ng2p-platform-bar .nsipa-nav-logo{width:112px!important;height:32px!important}
+.wordmark .nsipa-nav-logo{width:160px!important;height:48px!important}
+.brand img[src*="nsipa-"]{width:140px!important;height:48px!important;object-fit:contain!important}
+body.ng2p-odk #app .navbar-brand::before{width:28px!important;height:28px!important;background-image:url('/iqs-brand/nsipa-symbol.svg')!important}
+body.ng2p-odk #app .navbar-brand{height:38px!important}
+.login-pf .kc-logo-text,#kc-logo-wrapper{background-image:url('/iqs-brand/nsipa-wordmark.svg')!important;background-size:contain!important;background-repeat:no-repeat!important}
+@media(max-width:600px){.hub-header{flex-wrap:wrap;gap:14px}.nsipa-nav-logo{width:124px!important;height:36px!important}.iqs-logo-mark{height:98px}}
+
+.iqs-login .powered-by span{color:#52675d!important;font-size:12px!important}
+body.ng2p-odk #home-news,body.ng2p-odk #navbar-analytics-notice{display:none!important}
+
+.nsipa-service-logo{width:40px!important;height:40px!important;object-fit:contain!important}
+body.ng2p-staff-portal .grid.grid-cols-4 img{content:url('/iqs-brand/nsipa-symbol.svg')}
