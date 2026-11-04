@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "43c35c750028b9439a9a9084d9278803be7c4fa09d1b6f7aa6a230066ff17d10"
+    "sha256": "c810c59ec950b38415ed8b57145b88389b8efeb47c2364f7fd922f544119b9aa"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -5501,7 +5501,7 @@
   },
   {
     "path": "experience-kit/examples/android-field-demo/AndroidManifest.xml",
-    "sha256": "475e50f6a1063f88eb08e91ebface15ae7b5d727977f497cfbf53737d1520527"
+    "sha256": "0c309d332dcb8f9a23749fb0c3330caf16a23a0cca70ddc97610e42d6d0959bc"
   },
   {
     "path": "experience-kit/examples/android-field-demo/NOTICE.md",
@@ -5541,7 +5541,7 @@
   },
   {
     "path": "experience-kit/examples/android-field-demo/src/org/nigeriag2p/field/MainActivity.java",
-    "sha256": "ffc4eb06f382320e4bcf3f12e9422c103d295e36a152eba89b326f894475a78b"
+    "sha256": "b511ecafb7a30a4ee9bbd781c744641ab9ca7f17335786431e5c9b810ca61d10"
   },
   {
     "path": "experience-kit/examples/android-field-demo/src/org/nigeriag2p/field/UploadJob.java",
@@ -5597,15 +5597,15 @@
   },
   {
     "path": "experience-kit/static/field-demo/preview.css",
-    "sha256": "b2643d40f8a13683c7ed8d6551ff5daa9fbfcc5119d9bb259d0ca06ed3baaeef"
+    "sha256": "5c31178451bfe37102f20b317d1f3e58116c94ca4afcb1862e2167a7247646f5"
   },
   {
     "path": "experience-kit/static/field-demo/preview.js",
-    "sha256": "01ff859727a785b00dc3e85f2d51c7f47e02ec9bec8aa141e9ccc455db1d85a9"
+    "sha256": "331744f012d5f74632db183cff5b9be63cd6eaf5e9cee6a70852ba4c744799a4"
   },
   {
     "path": "experience-kit/static/field-demo/sw.js",
-    "sha256": "9d4e6e2118735ee1583de9752f05809e9f2fa58b06044aeb66c7a2cf6f541249"
+    "sha256": "9c0b2932cdf91d7021ee91f3de1314555d1decac3f4a98fa55c7c7e05a860178"
   },
   {
     "path": "experience-kit/templates/features.html",
@@ -5665,7 +5665,7 @@
   },
   {
     "path": "lab/field-app/android/test-instructions.html",
-    "sha256": "e73c007c12d359441813659cccf74d8e59db41aa62e02f94b4fc694d88dccaff"
+    "sha256": "ee711fa3f3a4bac732d9c9d518a18bc39ea7be15d75f96bd9cdb6d4cdfef09fc"
   },
   {
     "path": "lab/field-app/apple-touch-icon.png",
@@ -5681,7 +5681,7 @@
   },
   {
     "path": "lab/field-app/index.html",
-    "sha256": "5c937707c4d7dc64df1642c2504882268e1e03814bb91f694018a9cc1f2892c1"
+    "sha256": "b24e0bce9a631a947e07b994069517487cf1cc8b3ff5088bae78ce6f82378e57"
   },
   {
     "path": "lab/field-app/isolate_preview.py",
@@ -5713,7 +5713,7 @@
   },
   {
     "path": "lab/field-app/publish_preview.py",
-    "sha256": "d5a73f1e5bc9fe33c89986e6bd38dcd1d8b4e69d82a3c2af2d843a4bdc34b394"
+    "sha256": "8cb264afbb070d1bd46181fd124f6e867a5fb5716999489df6220a078f12c745"
   },
   {
     "path": "lab/field-app/sw.js",
@@ -6038,5 +6038,21 @@
   {
     "path": "lab/wire-representative-ui.py",
     "sha256": "804848f19d686c3285fb2e4fc4067aa48aa3698dba65ab3b8ce05ec09429697a"
+  },
+  {
+    "path": "lab/field-app/android/releases/nigeria-g2p-field-demo-v0.5.apk",
+    "sha256": "5ad490d62cc439fe48c0c2511b255a20cfb90440c41ab6bc30a1f0dc8c779d1a"
+  },
+  {
+    "path": "lab/field-app/android/releases/nigeria-g2p-field-demo-v0.5.apk.sha256",
+    "sha256": "5e6018981f99369ad2f432453caa4987298b55ee33e8a6ae8b28ed36ada97f0a"
+  },
+  {
+    "path": "lab/field-app/android/res/drawable-nodpi/field_splash.png",
+    "sha256": "447ea6bd765fc6398419dd4cfb5944fc5aa61f325d003d55391b13540ddc4191"
+  },
+  {
+    "path": "lab/field-app/splash.png",
+    "sha256": "447ea6bd765fc6398419dd4cfb5944fc5aa61f325d003d55391b13540ddc4191"
   }
 ]

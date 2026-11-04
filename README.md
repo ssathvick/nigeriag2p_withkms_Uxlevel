@@ -74,3 +74,7 @@ Download the [complete handoff, Figma/FigCraft design kit and Experience Kit v2]
 Download the [UX/UI Design Package v3](downloads/v3/NigeriaG2P-UX-UI-Design-Package-v3.zip?raw=true), [Complete Handoff v3](downloads/v3/NigeriaG2P-NSIPA-Complete-Handoff-v3.zip?raw=true), or [Experience Kit v3](downloads/v3/OpenG2P-Experience-Kit-v3.zip?raw=true). See the [v3 package guide](downloads/v3/README.md) and companion `.sha256` files. Earlier v2 packages remain available.
 
 This source snapshot adds connected service dashboards, the public territorial atlas, the synthetic Jos CCT pilot, and the sample Android/iOS field experience. Source files and installers are lab-specific, not an unattended installer. Payments remain simulated; source-dated geographic gaps are retained. The Android test PIN is not an authenticated supervisor and the iOS web preview has no server sync. No runtime credentials, ODK App User URL, private keys or household databases are included.
+
+## Version 0.5 splash update
+
+The Android test build and the iPhone/iPad browser preview now show the field-demo introduction artwork at launch. Android package v0.5 is test-signed and supports in-place updates from v0.4 using the same demo signing key. The iOS option remains a web preview, not an IPA or a connected sync client. The splash update has not yet been tested on a physical phone. See the [download and test page](https://nigeriag2p.com/field-preview/android/). Earlier v3 delivery archives remain unchanged historical snapshots.
