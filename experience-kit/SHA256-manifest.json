@@ -8,16 +8,24 @@
     "sha256": "c1f4c852a461b3f04fa758f2025dffd847150fe35eb345f0e2de8b9e36418d36"
   },
   {
+    "path": "Dockerfile",
+    "sha256": "ab9db4f20c44162719e79accaaec607e618ff43c745df632aca97786ea83be19"
+  },
+  {
+    "path": "README.md",
+    "sha256": "cba67b4386d093c3944eaf326cd1e5d6c7e843f6f478b3cf92493f4e9d72fee6"
+  },
+  {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "sha256": "51a41ccdb145e038db9f0a133acbb6e3159d6bbc6f16f83ffea230414fe9fbff"
+  },
+  {
+    "path": "VALIDATION.json",
+    "sha256": "699480dd04ba806e122f24e4993e52adf8cb61f8e07d1554855873663bc6620a"
+  },
+  {
     "path": "app.py",
-    "sha256": "03a87fff06776c124bdad64b9ecd69c2c657597efd810f6b71fa8a43725b3a99"
-  },
-  {
-    "path": "branding-source/build.cjs",
-    "sha256": "a8574401ca928a8f940e1b4ec70cbebee4e0e95916c4e0e300463f7ede06d3a3"
-  },
-  {
-    "path": "branding-source/export.jsx",
-    "sha256": "0a9999d670af9ef7d6bbc1a8891fc7373ed53c69daf1ec2dd78ba60640b8be86"
+    "sha256": "c36426f1b2899d8d945713f1288992cb2fa405ac7461dc7f33c3643e8a523086"
   },
   {
     "path": "branding-source/NSIPA-monochrome-outlined.svg",
@@ -116,12 +124,20 @@
     "sha256": "626cf4fbd6e857d320d74304c8cd6d7c4af502523bd486d2f100e46f3e35a248"
   },
   {
-    "path": "branding-source/outline.jsx",
-    "sha256": "e8630bb2d4dbf4241507fd86d4b31ca46606d9cec28a6ee1ab26d0a16e044fc3"
-  },
-  {
     "path": "branding-source/READ-ME.txt",
     "sha256": "3e2d7aa223225b9adbddf4c7e505c773fe93ed89a771ccbe3e4f7faf23e5f2bf"
+  },
+  {
+    "path": "branding-source/build.cjs",
+    "sha256": "a8574401ca928a8f940e1b4ec70cbebee4e0e95916c4e0e300463f7ede06d3a3"
+  },
+  {
+    "path": "branding-source/export.jsx",
+    "sha256": "0a9999d670af9ef7d6bbc1a8891fc7373ed53c69daf1ec2dd78ba60640b8be86"
+  },
+  {
+    "path": "branding-source/outline.jsx",
+    "sha256": "e8630bb2d4dbf4241507fd86d4b31ca46606d9cec28a6ee1ab26d0a16e044fc3"
   },
   {
     "path": "branding-source/reference-nipc.jpg",
@@ -137,11 +153,7 @@
   },
   {
     "path": "config/deployment.json",
-    "sha256": "3308eed12ba29c81adb4144ea7bd4c5785cacb62b4251a0f40a892f22f318af6"
-  },
-  {
-    "path": "Dockerfile",
-    "sha256": "ab9db4f20c44162719e79accaaec607e618ff43c745df632aca97786ea83be19"
+    "sha256": "255756e4626c0c952d86914133a08e76652d132cab0ee5ca35b9ba489c351315"
   },
   {
     "path": "docs/CONTENT_FORMAT.md",
@@ -156,12 +168,64 @@
     "sha256": "ae1b81aa532af5fa7e5d383d7d69560c84192a2dca923fab7d3cd5e430b6ed1f"
   },
   {
+    "path": "docs/V3-SCOPE.md",
+    "sha256": "e0d8b0aad8b0f66ee0e75cbc004629677d578b0ad53e0000f50494afd5312111"
+  },
+  {
     "path": "docs/preview.jpg",
     "sha256": "2cdcc22ae3f7c1983e87f0bb9f43fe73c6faed88307f514489a48af648c87af3"
   },
   {
     "path": "docs/preview.png",
     "sha256": "10351e23d5e51e80ed8a484d5800ade43cb0d4f610e2cb34a56380c5307cae6c"
+  },
+  {
+    "path": "examples/android-field-demo/AndroidManifest.xml",
+    "sha256": "475e50f6a1063f88eb08e91ebface15ae7b5d727977f497cfbf53737d1520527"
+  },
+  {
+    "path": "examples/android-field-demo/NOTICE.md",
+    "sha256": "64afa1f600600b6cb60f435a753f08f6963fbc9465346e6bc3ade41d3c50b88c"
+  },
+  {
+    "path": "examples/android-field-demo/README.md",
+    "sha256": "28a824024d9ba0adda3e3dfea2557a2f71821076a8430b5b85ed46755994a63a"
+  },
+  {
+    "path": "examples/android-field-demo/assets/locations.json",
+    "sha256": "ea8e9c5ef858f9a174491b5650932c4d337cfe947f48da9becdbed8607037b0b"
+  },
+  {
+    "path": "examples/android-field-demo/build.sh",
+    "sha256": "90ffd950c7f817db5934e4b45b0a05d309beec733c071f9fc6377230a44336e7"
+  },
+  {
+    "path": "examples/android-field-demo/nigeria-g2p-field-demo.apk",
+    "sha256": "acd78ad33f30c1ee36b803e30e99bbcc834b0b8999faaf46f777c62b869c776b"
+  },
+  {
+    "path": "examples/android-field-demo/nsipa-field-demo.xlsx",
+    "sha256": "d638b28305a2146b1178e5281fbb50e84c35c862110d57efa838621504f05333"
+  },
+  {
+    "path": "examples/android-field-demo/nsipa-field-demo.xml",
+    "sha256": "07a42c3c1cc0df9b568777222c8074142edd081120708b862a2e303ea7a9b91c"
+  },
+  {
+    "path": "examples/android-field-demo/res/drawable-nodpi/nsipa_logo.png",
+    "sha256": "ebd2a8c7e487fbc53ef7e18959b4f1c17ab28371052eef37d6d97bb9ccd5423e"
+  },
+  {
+    "path": "examples/android-field-demo/src/org/nigeriag2p/field/FieldStore.java",
+    "sha256": "62b6ab9f1c5799492db673479152114481901bdb67e896f37c474f1a01e669e0"
+  },
+  {
+    "path": "examples/android-field-demo/src/org/nigeriag2p/field/MainActivity.java",
+    "sha256": "ffc4eb06f382320e4bcf3f12e9422c103d295e36a152eba89b326f894475a78b"
+  },
+  {
+    "path": "examples/android-field-demo/src/org/nigeriag2p/field/UploadJob.java",
+    "sha256": "1565f389e312534f5a4126e32aae8c38d4b211b2f5f15188a6c008dc7df1eb02"
   },
   {
     "path": "knowledge-seed.json",
@@ -172,8 +236,32 @@
     "sha256": "2750cf6b362c9036648d054076735806f81e983b3eea98482e047f4af25fa23e"
   },
   {
-    "path": "README.md",
-    "sha256": "e3594f4d65b09cf2dcdcaefbbda915d20efd43d3c82094d6dac62feeb3f6cb0c"
+    "path": "reference-source/Service-Dashboards-Handover.txt",
+    "sha256": "04b3d0a1fa1c325b0ca1881ed07020efdb5236d6705025ff1f748256c05d6cf9"
+  },
+  {
+    "path": "reference-source/persona-ui/src/dashboard.css",
+    "sha256": "e51df2b363319460e7ae8c892e66d1a0fc04ce388fcc3cd867c9543bbb2b6fd1"
+  },
+  {
+    "path": "reference-source/persona-ui/src/dashboard.jsx",
+    "sha256": "9f39336cf8667d3b7b644e04d84d34b5db42ff62d7504526febc6ff0f0c26272"
+  },
+  {
+    "path": "reference-source/persona-ui/src/jos-cct.css",
+    "sha256": "1b03382b667b347dd65f7040b155ab4fed10087aadb1604d5b371efd7d8c3fd0"
+  },
+  {
+    "path": "reference-source/persona-ui/src/jos-cct.jsx",
+    "sha256": "ddf5100080333ecbd56ad9691007bb8d1a260891f44893a01a46ef5b3065e4bf"
+  },
+  {
+    "path": "reference-source/persona-ui/src/territories.css",
+    "sha256": "6abf422f1a77b05108a21dadb9278d787607395bd0156349569dd2117a6fe040"
+  },
+  {
+    "path": "reference-source/persona-ui/src/territories.jsx",
+    "sha256": "f793bbc7e5d32fbf604aa3f5cd643767657665732531b7dc16053dcb8ced3ffb"
   },
   {
     "path": "requirements.txt",
@@ -212,6 +300,38 @@
     "sha256": "3f1537a31e6ac0265610e64e77e03a6f31ff2030f248f3d865f37bfcf4bfa001"
   },
   {
+    "path": "static/field-demo/apple-touch-icon.png",
+    "sha256": "818e5e06b1d8890370ee2d15203d17e2e5df2b3da7783a05ab44742743d33bf6"
+  },
+  {
+    "path": "static/field-demo/icon-512.png",
+    "sha256": "535f46cfc170e4e3f13500d1136288e2303234836fca33544db948b82144e38c"
+  },
+  {
+    "path": "static/field-demo/index.html",
+    "sha256": "ef50653cf36eaf122c6ba7ae672a135ebb8d88ec424dee41c7f0dfc590d284de"
+  },
+  {
+    "path": "static/field-demo/manifest.webmanifest",
+    "sha256": "dc34996c3c4f917c9129571ec472699f05dec6ceb89bef481b86e4fb7226053b"
+  },
+  {
+    "path": "static/field-demo/nsipa-logo.png",
+    "sha256": "657203874dd8445f9880db5c2d25c11c5f382120d75555b791c2e5ef5eac21e2"
+  },
+  {
+    "path": "static/field-demo/preview.css",
+    "sha256": "b2643d40f8a13683c7ed8d6551ff5daa9fbfcc5119d9bb259d0ca06ed3baaeef"
+  },
+  {
+    "path": "static/field-demo/preview.js",
+    "sha256": "01ff859727a785b00dc3e85f2d51c7f47e02ec9bec8aa141e9ccc455db1d85a9"
+  },
+  {
+    "path": "static/field-demo/sw.js",
+    "sha256": "9d4e6e2118735ee1583de9752f05809e9f2fa58b06044aeb66c7a2cf6f541249"
+  },
+  {
     "path": "static/help.css",
     "sha256": "622059d0d420d29f4926ba2840edb0c9b1f321a74cd871b5e95699b003285382"
   },
@@ -234,6 +354,10 @@
   {
     "path": "templates/base.html",
     "sha256": "923b92ea93f25f232649117ad51870062504e67954f7eaec868a8dcea0b9e843"
+  },
+  {
+    "path": "templates/features.html",
+    "sha256": "bd6d4b7178d4aef022627bafaa1f8716063cf68cf439e0b2dad028bafbdce0c5"
   },
   {
     "path": "templates/home.html",
@@ -264,27 +388,19 @@
     "sha256": "fb398159cc95c7a92953eabe2d2c5f525562c212935b6db52a98e1bb1fe35a2f"
   },
   {
-    "path": "THIRD_PARTY_NOTICES.md",
-    "sha256": "51a41ccdb145e038db9f0a133acbb6e3159d6bbc6f16f83ffea230414fe9fbff"
-  },
-  {
     "path": "ui/build.cjs",
     "sha256": "10d46c35aba0241f10031d9ef37c3915294f8135080f0d0666e7354fecb1ee65"
   },
   {
     "path": "ui/package-lock.json",
-    "sha256": "ec3af49e61f83b75c664219c5f19c471639e87f6bc7b5979712de3c4a3355dad"
+    "sha256": "dbc6493ee134e38cf73783c15a3f507c39e44ef2105acbc57259ccb30e7c98ad"
   },
   {
     "path": "ui/package.json",
-    "sha256": "a32fab17ad5112495a225022f3c702723c89bef1a9b66bb6bf0d1454c8dea0aa"
+    "sha256": "6d5fbbf902849eca2962e171d8ff4f0a38bacf79a6e54a881b265b0d4b8d4620"
   },
   {
     "path": "ui/src/main.jsx",
     "sha256": "34ad8f69b0a706131c8a93eadc10b9fb615461eb49df389c1f769a58f663329e"
-  },
-  {
-    "path": "VALIDATION.json",
-    "sha256": "e149fc69c1c07ab17b312f3f95b56d33668751cb4e1d921f6aaec2302d7a05ab"
   }
 ]

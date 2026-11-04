@@ -1,0 +1,114 @@
+[
+  {
+    "module": "intake",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "nigeriag2p.com/registration/"
+  },
+  {
+    "module": "review",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "nigeriag2p.com/registration/workspace"
+  },
+  {
+    "module": "register",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "register.nigeriag2p.com/en"
+  },
+  {
+    "module": "registry",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "registry.nigeriag2p.com/web/login"
+  },
+  {
+    "module": "beneficiary",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "beneficiary.nigeriag2p.com/selfservice/en"
+  },
+  {
+    "module": "pbms",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "pbms.nigeriag2p.com/web/login"
+  },
+  {
+    "module": "awe",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "awe.nigeriag2p.com/"
+  },
+  {
+    "module": "portal-admin",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "portal-admin.nigeriag2p.com/web/login"
+  },
+  {
+    "module": "odk",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "odk.nigeriag2p.com/"
+  },
+  {
+    "module": "geography",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "keycloak.nigeriag2p.com/realms/staff/protocol/openid-connect/auth"
+  },
+  {
+    "module": "superset",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "superset.nigeriag2p.com/login/"
+  },
+  {
+    "module": "master-data-ui",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "master-data-ui.nigeriag2p.com/en"
+  },
+  {
+    "module": "partner-management",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "partner-management.nigeriag2p.com/"
+  },
+  {
+    "module": "consent-manager",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "consent-manager.nigeriag2p.com/"
+  },
+  {
+    "module": "staff-portal",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "staff-portal.nigeriag2p.com/en"
+  },
+  {
+    "module": "iam-staff-ui",
+    "status": 200,
+    "html": true,
+    "ux_assets": true,
+    "destination": "iam-staff-ui.nigeriag2p.com/en"
+  }
+]

@@ -1,0 +1,68 @@
+NIGERIA TERRITORIAL INTELLIGENCE — PUBLIC FIRST RELEASE
+
+Economic extension, 4 November 2026
+- Follow-up: separate publisher report library now adds 24 reports across 22 state/FCT areas, with 19 sector groups and 33 component activities per report. NBS 2017 appendix (22 areas), Jigawa 2023 and Delta 2022. These do not replace the comparable 2023 series. See Economic-Source-Audit.txt and territory_state_reports.py for retrieval results, conflicts, parsing and denominator checks. Selected-report CSV exports contain row type to distinguish sector groups from component activities. Fourteen data tests pass.
+- World Bank October 2025 Nigeria Development Update, Box 1 (printed p5) and Annex 3 (p53); underlying NBS / World Bank 2023 state figures.
+- Published rounded GDP totals: Lagos, Delta, FCT (3). National GDP shares: those three plus Jigawa, Yobe, Gombe (6). GDP per capita: FCT, Lagos, Kwara, Borno, Zamfara, Jigawa (6).
+- Top-three sector shares for all 37 state/FCT areas. Crop, livestock, trade, construction, cement and oil/gas are preserved as named source activities. No full agriculture aggregate or missing sector zero is invented.
+- GDP per capita is economic output per person, never household income or wages. Uses published 2023 per-capita figures directly, not 2020 population. Household income remains unavailable.
+- No LGA or electoral economic allocation. Containing-state economic panels on those views are clearly labelled state context only.
+- Clickable sector bars open provenance; comparison buttons set state map/ranking metric; CSV exports retain source, year, level, classification and qualifications.
+- territory_economy.py integrates into build-territory-data.py. Source PDF/text retained privately under raw/worldbank-ndu-2025; collect-territory-sources.py can reacquire. Build manifest hashes original PDF.
+- 11 dataset tests passed, including exact source values, coverage, missingness and prevention of geographic inheritance.
+
+Public URL: https://nigeriag2p.com/territories/
+Homepage: new Public data and insights service, visible for every persona; no login.
+
+Coverage
+- 37 states/FCT, 774 GRID3 LGA polygons and 109 NBS senatorial district profiles.
+- 2020 WorldPop UN-adjusted population raster; exclusive pixel-centre LGA aggregation.
+- NBS 2022 MPI Tables D6/D7: poverty incidence, index, estimated number of poor and confidence intervals.
+- 2026 GRID3 health facilities v4.0: 70,235 listed records aggregated by source state/LGA.
+- Tracka 2023 ZIP allocation and project-count summaries for 37 state/FCT areas.
+- One specifically sourced project example: ERGP202302166, Idanre / Ondo Central, allocation NGN 100 million. Not a complete project register.
+- Allowlisted PBMS programme-status and beneficiary-list-workflow aggregates; state household counts from the sandbox geography cache. Explicitly synthetic, not national coverage.
+
+Mapping rules
+Administrative LGA-to-state membership comes from GRID3 publisher attributes. District-to-state association uses the NBS survey codebook a1b and state-name validation. These are separately typed relations in crosswalk; senatorial links set can_allocate=false. NBS survey codes and GRID3 LGA codes are NOT advertised as INEC delimitation identifiers.
+No LGA/ward-to-constituency allocation is inferred. Electoral maps display containing-state context only. No constituency polygons or federal/State Assembly profile records are loaded. INEC PDF download attempts failed; unresolved layers are clearly disclosed.
+
+Data quality
+The NBS report repeats Osun West identically in D7. All 11 source columns were compared and one duplicate removed. Borno state and district poverty results are not representative and remain unranked. Survey CIs retained. Published tables were visually checked against rendered PDFs.
+WorldPop assigned population: 205,620,462; unassigned boundary-mismatch population: 519,125; raster total: 206,139,587. Per-area rounding can cause a small rounding difference. Do not redistribute the unmatched population as observed data.
+Five facility/LGA names remain unmatched (239 facilities); source-attributed state totals include them, LGA totals do not. Missing values are absent, never zero-filled. GRID3 facility data are non-exhaustive and not fully government-validated; counts do not assert facilities are functioning.
+Reference years vary. No GDP, GVA, personal income, employment, causal multiplier, real-time treasury or national G2P coverage is fabricated. Planning scenarios are explicitly synthetic arithmetic and never modify published measures.
+
+Public access and privacy
+Static allowlisted package only: index, JS, CSS, data.json, states.geojson, lgas.geojson, measures.csv. No private registry APIs are called by the atlas. No household identifiers, names, phone numbers, bank details, household coordinates, credentials or sessions are published. Existing analytics API still returns 401 without authentication.
+Nginx /territories/ uses a standalone presentation location to avoid authenticated application widgets; /territories redirects to the canonical HTTPS URL. Public files use no-cache. No authentication or authorization rule for other services changed.
+
+Source and refresh files
+persona-ui/src/territories.jsx and territories.css: public React interface.
+territory-data/raw/: privately retained source PDFs, GeoTIFF, JSON metadata and downloaded source aggregates.
+territory-data/public/: reviewed publication package; do not copy raw/ to the web root.
+build-territory-data.py: deterministic extraction, validation, raster aggregation and public aggregate allowlist. Reads ONLY analytics_source_cache from intake.sqlite.
+territory-data/build-manifest.json: source SHA-256 fingerprints and coverage checks.
+collect-territory-sources.py, inspect-territory-layers.py, download-territory-layers.py: source acquisition. Existing raw downloads are cached; review new publisher versions and licences before replacing.
+
+Build and deploy (WSL Ubuntu-22.04)
+cd /mnt/h/Nigeria_Mosip/codex/openg2p-lab
+/opt/openg2p-lab/registration-venv/bin/python build-territory-data.py
+/opt/openg2p-lab/registration-venv/bin/python test-territory-data.py
+From Windows persona-ui directory: node build.cjs
+As root: /opt/openg2p-lab/registration-venv/bin/python install-public-territories.py
+For catalogue changes: run install-service-dashboards.py after the frontend build.
+/opt/openg2p-lab/registration-venv/bin/python verify-public-territories.py
+Public snapshots refresh only when this explicit build/deploy process runs. No recurring job was added.
+
+Rollback
+Installer creates private /opt/openg2p-lab/registration/territory-backups/TIMESTAMP/manifest.json with original files and nginx config. Restore saved files, remove only exact newly created manifest paths if necessary, run nginx -t and reload nginx. Homepage/shared UI backups remain under dashboard-backups.
+
+Verification
+10 public-data contract tests; 13 analytics tests; 9 persona/permission tests; 360 existing route checks plus login-loader scenarios. Browser checks: homepage public entry, 37-state map, 20-LGA Lagos map, three Lagos senatorial profiles, Borno exclusion, source modal precision, filtered CSV export (Ikeja), synthetic slider/reset, and 390px responsive viewport without page overflow. Source licences and limitations are visible in the Sources & coverage screen and downloads.
+2026-11-04 Representative directory and performance evidence
+Public route: /territories/?section=representatives
+Sources: NALTF members-of-the-senate (109 rows); honorable-members (358 rows); Ogun Assembly current members and 26 individual profiles. Publisher snapshots, not certified live electoral register; row effective dates absent. Two Bauchi federal constituency entries conflict and are flagged. Senate 106 exact normalized district+state joins; Gombe/Jigawa incomplete labels and FCT differing label remain unlinked, no guessed polygons.
+NALTF BillTracker public API /api/bills supplied 3506 records. Strict chamber + exact normalized name-token matches; dated first readings 2023-06-13 to 2026-11-04 only. 2272 bills linked to275 directory members;57 missing/out-of-period dates and1177 unmatched/ambiguous sponsor records excluded. Public fields allowlisted: no tracking-user data or raw sponsor profiles published. Invalid chronology, including SB559 second-reading year2029, withheld from date-based counts and qualified per record.
+Performance UI: source-linked bill counts, recorded second readings, current Passed/Assented statuses, policy-tag filters, year cohorts, CSV evidence export. Attendance, oversight, personal project delivery, citizen engagement unavailable without verified evidence. No composite politician rating, no synthetic performance, no state GDP/poverty attribution to individuals. State MLA coverage currently only Ogun; other state assemblies and executive/local heads remain unverified. All17 data tests and public access/private API isolation checks passed.
+Final refinement: excluded one SB-prefixed bill assigned to a House sponsor (SB1055). Final attributed total2271,275 members. Kalu139 records. Cross-chamber ambiguity is excluded rather than resolved by inference.

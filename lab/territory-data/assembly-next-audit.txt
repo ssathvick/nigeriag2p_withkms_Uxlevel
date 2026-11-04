@@ -1,0 +1,62 @@
+Assembly expansion audit — 2026-11-04
+
+446 assembly entries across 36 states. 950 total directory entries.
+24 distinct activity records linked to 45 people.
+
+At least one sourced entry per covered state does NOT mean a complete assembly roster.
+Sources include official assembly/government directories, parliamentary directories,
+government/public-broadcaster reports and attributed news reports. Each dated report
+retains its source date. No synthetic performance values, attendance rates or scores.
+
+State | entries | entries with unverified constituency
+Abia | 1 | 1
+Adamawa | 24 | 24
+Akwa Ibom | 1 | 1
+Anambra | 17 | 2
+Bauchi | 2 | 2
+Bayelsa | 1 | 1
+Benue | 32 | 0
+Borno | 1 | 1
+Cross River | 24 | 0
+Delta | 1 | 1
+Ebonyi | 6 | 1
+Edo | 4 | 0
+Ekiti | 26 | 0
+Enugu | 1 | 1
+Gombe | 1 | 1
+Imo | 27 | 6
+Jigawa | 30 | 0
+Kaduna | 2 | 1
+Kano | 40 | 0
+Katsina | 1 | 1
+Kebbi | 3 | 0
+Kogi | 1 | 0
+Kwara | 24 | 0
+Lagos | 40 | 0
+Nasarawa | 2 | 2
+Niger | 1 | 1
+Ogun | 26 | 0
+Ondo | 26 | 0
+Osun | 26 | 0
+Oyo | 32 | 7
+Plateau | 1 | 1
+Rivers | 16 | 4
+Sokoto | 1 | 1
+Taraba | 1 | 1
+Yobe | 3 | 3
+Zamfara | 1 | 0
+
+Notable exclusions and qualifications:
+- Kano explicitly deceased Kundila excluded; current successor retained.
+- Cross River Ogoja contradictory labels excluded pending resolution.
+- Adamawa older deceased/replaced roster excluded; updated Planning Commission roster used.
+- Edo old CPA/speaker listings excluded in favour of dated replacement evidence.
+- Missing seats stay null; no constituency-to-LGA mapping inferred.
+- Motion, debate, engagement, launch, team inspection and reported completion are distinct.
+- Multiple participants in one source do not create multiple distinct projects.
+- Existing 2,271 federal bill records and governor/FCT directory retained.
+
+Reproduction: extract-lagos-next.py then review-lagos-seats.py;
+extract-northern-next.py; extract-southern-next.py; associated activity builders.
+Build via build-territory-data.py, then frontend build.cjs and test-territory-data.py.
+Source snapshots and reviewed intermediate JSON are under territory-data/raw/.

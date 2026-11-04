@@ -1,5 +1,20 @@
 [
   {
+    "id": "knowledge",
+    "title": "Knowledge library",
+    "group": "Shared services",
+    "host": "nigeriag2p.com",
+    "path": "/registration/knowledge",
+    "description": "Find stage guidance, common issues and instructions for your role.",
+    "roles": [
+      "officer",
+      "verifier",
+      "supervisor",
+      "citizen"
+    ],
+    "task": "Open workflow help"
+  },
+  {
     "id": "intake",
     "title": "Household registration",
     "group": "People and households",
@@ -131,13 +146,15 @@
     "id": "superset",
     "title": "Analytics",
     "group": "Field work and insights",
-    "host": "superset.nigeriag2p.com",
-    "path": "/",
-    "description": "Explore existing dashboards and reports in Apache Superset.",
+    "host": "nigeriag2p.com",
+    "path": "/registration/analytics",
+    "description": "Inspect operational status, knowledge publishing and guidance usage with connected Superset reporting.",
     "roles": [
+      "officer",
+      "verifier",
       "supervisor"
     ],
-    "task": "Open dashboards"
+    "task": "View operations and knowledge metrics"
   },
   {
     "id": "master-data-ui",

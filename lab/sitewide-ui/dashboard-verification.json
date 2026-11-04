@@ -1,0 +1,87 @@
+[
+  {
+    "service": "knowledge",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "intake",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "review",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "register",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "registry",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "beneficiary",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "pbms",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "awe",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "portal-admin",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "odk",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "geography",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "superset",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "master-data-ui",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "partner-management",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "consent-manager",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "staff-portal",
+    "status": 200,
+    "shared_dashboard_assets": true
+  },
+  {
+    "service": "iam-staff-ui",
+    "status": 200,
+    "shared_dashboard_assets": true
+  }
+]

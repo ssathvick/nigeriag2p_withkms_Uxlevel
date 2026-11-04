@@ -1,0 +1,9 @@
+import React from 'react';
+export function ConstituencyEvidence({record:r}){
+ const e=r.constituency_evidence;if(!e)return null;
+ return <div className="ti-notice"><strong>Constituency evidence reviewed</strong><p><a href={e.source_url} target="_blank" rel="noreferrer">{e.source_name} ↗</a> · reference year {e.reference_year} · state constituency · Published data</p><p>{e.source_date?'Source date: '+e.source_date:'Publication date not supplied; directory/report checked '+e.checked_on}. This source date is separate from the officeholder directory check.</p><details><summary>Identity match and qualifications</summary><p>{e.note}</p><p>Previous atlas label: {r.constituency_before_review||'not verified'}. No boundary or LGA mapping is implied.</p></details></div>
+}
+export function ArchivedRepresentatives({members=[]}){
+ if(!members.length)return null;
+ return <details className="ti-panel"><summary>Previous officeholders and source corrections · {members.length}</summary><p>These entries are excluded from the active directory. Earlier activities remain with the person who performed them, and are not transferred to a successor.</p>{members.map(r=><article key={r.id}><h3>{r.name} · {r.state_name}</h3><p>{r.constituency} · {r.chamber}</p><p>{r.withdrawal.reason}</p><p><a href={r.withdrawal.source_url} target="_blank" rel="noreferrer">{r.withdrawal.source_name} ↗</a> · {r.withdrawal.source_date} · Published data</p>{r.withdrawal.corroborating_source_url&&<a href={r.withdrawal.corroborating_source_url} target="_blank" rel="noreferrer">Corroborating membership report ↗</a>}<h4>Earlier documented activity</h4>{r.evidence.map(e=><p key={e.id}><a href={e.source_url} target="_blank" rel="noreferrer">{e.title} ↗</a> · {e.date} · {e.source_name} · {e.level} · Published data</p>)}</article>)}</details>
+}

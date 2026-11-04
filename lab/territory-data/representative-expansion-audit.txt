@@ -1,0 +1,29 @@
+Representative expansion — checked 2026-11-04
+
+Published directory: 739 entries. Senate 109, federal House 358, state assemblies 235,
+governors 36, appointed FCT minister 1. Directory snapshots are not certified live
+electoral registers. Party changes and tenure dates have not been inferred.
+
+Assembly coverage: Ogun 26, Kwara 24, Ekiti 26, Imo 27, Ondo 26, Osun 26,
+Benue 32, Oyo 32, Rivers 16 (partial). Twelve total directory entries have
+conflicting seat labels; preserve both and do not assert a unique occupant.
+Leadership entries without a constituency retain null seats. No inferred
+constituency-to-LGA mapping. Remaining 27 state assemblies are explicitly gaps.
+FCT does not have a State House of Assembly.
+
+Reviewed source extracts: raw/expanded-officials.json and cached publisher HTML.
+Reproduce extraction with extract-expanded-officials.py. Official NGF governor
+cards only are extracted; unrelated footer content is excluded.
+
+Performance addition: three distinct official Ogun reports, linked to named
+participants after manual shortened-name review. These document an oversight
+visit, audit review and budget defence. They are official self-reports, not
+independent outcome audits. Planned inspection is not marked completed.
+No attendance denominator, personal project-delivery score or synthetic value.
+Existing 2,271 reliably linked federal bill records remain unchanged.
+
+Validation: 17 data tests pass; frontend builds; anonymous published endpoints
+return 200; private analytics remain 401. Browser verified 36 governor filter,
+appointed Wike profile, 24 Kwara assembly entries and new activity ledger.
+Deployment rollback manifest:
+/opt/openg2p-lab/registration/territory-backups/20261104-153757/manifest.json

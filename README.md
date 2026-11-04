@@ -6,12 +6,12 @@ central knowledge management, Nigeria state mapping and local Ollama assistance.
 
 ## Reusable UI, UX and knowledge management template
 
-The separately installable **[OpenG2P Experience Kit](experience-kit/README.md)**
+The separately installable **[OpenG2P Experience Kit v3](experience-kit/README.md)**
 provides a React persona launcher, shared navigation, mobile screen-sensitive
 help, and a versioned knowledge library with independent review and publication.
 It runs as a separate service and does not connect to beneficiary databases.
 
-**[Download the ready-to-run starter ZIP](downloads/OpenG2P-Experience-Kit-v0.1.0.zip?raw=true)**
+**[Download the ready-to-run starter ZIP](downloads/v3/OpenG2P-Experience-Kit-v3.zip?raw=true)**
 or clone this repository and open `experience-kit/`:
 
 ```sh
@@ -68,3 +68,9 @@ The current lab sources include the NSIPA identity, shared service theme and nat
 ## Current NSIPA v2 packages — 3 November 2026
 
 Download the [complete handoff, Figma/FigCraft design kit and Experience Kit v2](downloads/v2/README.md). This includes updated logos, 240 design screens, both Ooru handoffs and five refreshed videos. The runnable source in [`experience-kit`](experience-kit/README.md) is now the NSIPA edition (software 0.2.0). SHA-256 files accompany every download. Earlier archives remain historical baselines.
+
+## Current NSIPA v3 packages — 4 November 2026
+
+Download the [UX/UI Design Package v3](downloads/v3/NigeriaG2P-UX-UI-Design-Package-v3.zip?raw=true), [Complete Handoff v3](downloads/v3/NigeriaG2P-NSIPA-Complete-Handoff-v3.zip?raw=true), or [Experience Kit v3](downloads/v3/OpenG2P-Experience-Kit-v3.zip?raw=true). See the [v3 package guide](downloads/v3/README.md) and companion `.sha256` files. Earlier v2 packages remain available.
+
+This source snapshot adds connected service dashboards, the public territorial atlas, the synthetic Jos CCT pilot, and the sample Android/iOS field experience. Source files and installers are lab-specific, not an unattended installer. Payments remain simulated; source-dated geographic gaps are retained. The Android test PIN is not an authenticated supervisor and the iOS web preview has no server sync. No runtime credentials, ODK App User URL, private keys or household databases are included.

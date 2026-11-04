@@ -1,0 +1,12 @@
+from pathlib import Path
+p=Path('persona-ui/src/jos-cct.jsx');s=p.read_text().replace("import './jos-cct.css';", "import './jos-cct.css';\nimport Connected from './jos-connected';")
+s=s.replace("[tab,setTab]=useState('Overview')","[tab,setTab]=useState(new URLSearchParams(location.search).get('view')==='connected'?'Connected services':'Overview')")
+s=s.replace("'Casework','Budget','Readiness']", "'Casework','Budget','Connected services','Readiness']")
+s=s.replace("{tab==='Overview'&&", "{tab==='Connected services'&&<Connected/>}\n {tab==='Overview'&&")
+s=s.replace("DEMONSTRATION ONLY · All household and transaction records are fictional · No funds transferred", "DEMONSTRATION ONLY · All beneficiaries are fictional · Browser simulation and local-bank sandbox · No real money")
+s=s.replace("eligible-sitting or school-day denominators", "school-day denominators")
+p.write_text(s)
+p=Path('registration_app.py');s=p.read_text().replace("g.session['login']['phase1']=", "g.session['login']['jos']=request.args.get('jos')=='1'\n g.session['login']['phase1']=")
+s=s.replace("if flow.get('grievances'):","if flow.get('jos'):return redirect(PREFIX+'/jos-cct')\n if flow.get('grievances'):")
+s=s.replace("if __name__=='__main__':", "import jos_connected\njos_connected.install(os.sys.modules[__name__])\nif __name__=='__main__':")
+p.write_text(s)

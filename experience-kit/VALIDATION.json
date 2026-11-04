@@ -1,20 +1,16 @@
 {
-  "date": "2026-11-03",
-  "version": "0.2.0",
-  "delivery": "v2",
-  "brand": "NSIPA",
+  "date": "2026-11-04",
+  "delivery": "v3",
   "backend_tests": 12,
   "backend_result": "passed",
-  "context_mapping_checks": 3,
-  "context_result": "passed",
-  "react_build": "passed",
-  "browser_checks": [
-    "NSIPA header and shared navigation logos",
-    "persona selection",
-    "knowledge library with 54 published guides"
-  ],
+  "v3_route_smoke": "passed",
+  "browser_preview": "persona workspace and field preview checked",
+  "design_roundtrip": "31 native exports reopened in FigCraft",
+  "figma_import": "not independently tested",
   "limitations": [
-    "External services remain disabled placeholders until configured.",
-    "Live lab gateway and native application branding are separate installers."
+    "External service links remain disabled placeholders until configured.",
+    "Demo PIN does not authenticate a supervisor.",
+    "iOS web preview does not sync.",
+    "Existing videos are v2 historical recordings."
   ]
 }

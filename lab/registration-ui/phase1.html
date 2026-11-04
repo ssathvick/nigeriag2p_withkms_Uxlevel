@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% block content %}
+<h1>Phase 1 sandbox workspace</h1>
+<p><a href="{{prefix}}/phase1/readiness">View technical readiness evidence</a></p>
+<p>Explore the nine modules with fictional records. Identity, bank, SMS, USSD and call-centre responses are simulated. These demonstrations do not certify production acceptance targets.</p>
+<p><a href="{{prefix}}/phase1/field">Open offline field delivery</a> · <a href="{{prefix}}/phase1/portal">Open multilingual demonstration portal</a> · <a href="{{prefix}}/phase1/cms">Manage portal content</a></p>
+<h2>Follow the service journey</h2>
+<ol>
+<li><strong>Beneficiary repository</strong> — <a href="{{prefix}}/workspace">register and independently review a household</a>. <a href="https://register.nigeriag2p.com/">Inspect the connected registry</a>.</li>
+<li><strong>Programme management</strong> — <a href="{{prefix}}/staff">create programmes, check eligibility and enrol</a>. <a href="{{prefix}}/phase1/conditionality">Test fictional CCT conditionality and release or hold decisions</a>.</li>
+<li><strong>Payment account registry</strong> — <a href="{{prefix}}/simulation">test valid and invalid simulated payment accounts</a>. The installed SPAR API remains private.</li>
+<li><strong>G2P Bridge</strong> — <a href="{{prefix}}/simulation">simulate successful, delayed, failed, reversed and mismatched payments</a>. Native Bridge remains private.</li>
+<li><strong>Last mile delivery</strong> — <a href="{{prefix}}/phase1/field">save fictional delivery proof offline and synchronise</a>.</li>
+<li><strong>Partner management</strong> — <a href="https://partner-management.nigeriag2p.com/">open the installed partner workspace</a>. Field-agent certification and 50,000-agent scale need separate validation.</li>
+<li><strong>Grievance handling</strong> — use the case queue below; six intake channels are represented as simulations.</li>
+<li><strong>Knowledge management</strong> — <a href="{{prefix}}/knowledge">search guidance</a> and <a href="{{prefix}}/knowledge/admin">author, independently review, publish and inspect versions</a>.</li>
+<li><strong>Public portal</strong> — <a href="{{prefix}}/phase1/portal">view the four-language demonstration</a>. <a href="https://beneficiary.nigeriag2p.com/selfservice">Open beneficiary self-service</a>.</li>
+</ol>
+<h2 id="grievances">Grievance intake</h2>
+<p>Choose a fictional household and issue. Each case receives a 48-hour response deadline and a 14-day resolution deadline. No messages are sent to an external channel.</p>
+<form method="post" action="{{prefix}}/phase1/grievances">
+<input type="hidden" name="csrf" value="{{csrf}}"><input type="hidden" name="request_id" value="{{request_id}}">
+<label>Fictional household<select name="household" required>{% for ref,zone,state,lga in locations %}<option value="{{ref}}">{{ref}} · {{lga}} · {{zone}}</option>{% endfor %}</select></label>
+<label>Simulated intake channel<select name="channel" required>{% for x in channels %}<option value="{{x}}">{{x|replace('_',' ')}}</option>{% endfor %}</select></label>
+<label>Issue<select name="reason" required>{% for x in reasons %}<option value="{{x}}">{{x|replace('_',' ')}}</option>{% endfor %}</select></label><button>Create fictional case</button></form>
+{% for c in report.grievances %}<section><h3>{{c.id}} · {{c.status}}</h3><p>{{c.household}} · {{c.channel|replace('_',' ')}} · {{c.reason|replace('_',' ')}}</p><p>Response due {{c.response_due}}{% if c.response_overdue %} — OVERDUE{% endif %}<br>Resolution due {{c.resolution_due}}{% if c.resolution_overdue %} — OVERDUE{% endif %}</p>
+{% for action in (['acknowledge'] if c.status=='open' else ['escalate','resolve'] if c.status=='acknowledged' else ['resolve'] if c.status=='escalated' else []) %}<form method="post" action="{{prefix}}/phase1/grievances/{{c.id}}/{{action}}"><input type="hidden" name="csrf" value="{{csrf}}"><input type="hidden" name="version" value="{{c.version}}"><button>{{action|capitalize}} case</button></form>{% endfor %}</section>{% else %}<p>No fictional cases yet.</p>{% endfor %}
+<h2 id="agents">Fictional field agent training and certification</h2><p>Six demonstration agents cover six example LGA territories. Train and certify an agent before synchronising delivery for its assigned household. No real certification is issued.</p>
+<p>{{report.agent_total}} agent records · {{report.agent_counts.get('certified',0)}} certified. Showing up to 200 records.</p>
+{% for a in report.agents %}<section><h3>{{a.id}} · {{a.state}}</h3><p>Assigned territory household {{a.household}} · Updated {{a.updated}}</p>{% for action in (['train'] if a.state=='onboarded' else ['certify'] if a.state=='trained' else ['revoke'] if a.state=='certified' else []) %}<form method="post" action="{{prefix}}/phase1/agents/{{a.id}}/{{action}}"><input type="hidden" name="csrf" value="{{csrf}}"><input type="hidden" name="version" value="{{a.version}}"><button>{{action|capitalize}} fictional agent</button></form>{% endfor %}</section>{% endfor %}
+<h2>Synchronised delivery proof</h2>{% for x in report.deliveries %}<p>{{x.household}} · {{x.id}} · Captured {{x.captured}} · Synchronised {{x.received}} · Mock biometric match · Reported accuracy {{x.accuracy_m}} m</p>{% else %}<p>No delivery records synchronised yet.</p>{% endfor %}
+<h2>Recent sandbox activity</h2><ul>{% for x in report.events %}<li>{{x.at}} · {{x.action|replace('_',' ')}} · {{x.reference}}</li>{% else %}<li>No activity yet.</li>{% endfor %}</ul>
+{% endblock %}

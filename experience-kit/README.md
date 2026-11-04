@@ -1,6 +1,6 @@
-# OpenG2P Experience Kit v2 — NSIPA edition
+# OpenG2P Experience Kit v3 — NSIPA edition
 
-A reusable UI, persona UX and knowledge management layer extracted from the NigeriaG2P implementation. Version 0.2.0 (delivery v2) is a starter integration template, not a replacement for OpenG2P services or their authorization.
+A reusable UI, persona UX and knowledge management layer extracted from the NigeriaG2P implementation. Version 0.3.0 (delivery v3) is a starter integration template, not a replacement for OpenG2P services or their authorization.
 
 ## Included
 
@@ -84,3 +84,11 @@ The default presentation uses the NSIPA Shared Progress logo, favicon and green/
 This package is independently runnable. External services remain disabled placeholders until configured for your installation. The full lab gateway and native Keycloak/Odoo branding are maintained in the lab repository, separately from this starter kit.
 
 The v1 package is preserved. See `VALIDATION.json` for checks performed on this edition.
+
+## Version 3 — 4 November 2026
+
+This kit adds a runnable, clearly marked fictional field web preview and a v3 feature guide linked from the persona workspace. The web preview stores a sample draft locally and does not implement supervisor authentication or server sync. `examples/android-field-demo/` includes source, sample XForm, reference geography and the test-signed APK: the PIN is a shared demonstration PIN, not an independent authenticated supervisor. OnePlus sample offline reconnection and ODK receipt were tested in the lab, not this portable installation. Never enter real personal information.
+
+`reference-source/` contains selected UI code and dashboard notes from the lab as implementation references, not drop-in standalone services. The atlas and pilot links are disabled configuration placeholders. Dashboards, verified geographical mappings, actual service access, server-side supervisor authorization and programme/payment integrations require separate deployment and acceptance. Real money is never moved by the Jos demonstration. Geographic measures require source, year, level and classification; keep missing values empty.
+
+Offline reference catalogue: Open Admin Data, Nigeria Administrative Divisions, CC BY 4.0, https://github.com/open-admin-data/nigeria-administrative-divisions, retrieved 4 November 2026. Names and IDs need local validation.

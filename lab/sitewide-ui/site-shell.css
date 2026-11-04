@@ -2,3 +2,115 @@
 #ng2p-platform-bar{position:fixed!important;bottom:0!important;left:0!important;right:0!important;z-index:99990!important;display:flex!important;align-items:center!important;gap:22px!important;min-height:60px!important;padding:12px 22px!important;background:#fff!important;border-top:1px solid #dbe5de!important;box-shadow:0 -3px 18px #193c350d!important;font:14px/1.5 system-ui,Arial,sans-serif!important;color:#193c35!important;box-sizing:border-box!important}#ng2p-platform-bar a{font:650 14px/1.5 system-ui,Arial,sans-serif!important;color:#155d50!important;text-decoration:none!important;white-space:nowrap!important}#ng2p-platform-bar .ng2p-platform-brand{font-size:21px!important;font-weight:800!important;letter-spacing:-.5px!important}#ng2p-platform-bar .ng2p-platform-module{flex:1!important;font-size:13px!important;color:#5b7068!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}#ng2p-platform-bar button,#ng2p-platform-guide button{font:650 13px/1.5 system-ui,Arial,sans-serif!important;color:#fff!important;background:#155d50!important;border:1px solid #155d50!important;border-radius:7px!important;padding:8px 13px!important;cursor:pointer!important;white-space:nowrap!important}#ng2p-platform-guide{position:fixed!important;bottom:76px!important;right:22px!important;z-index:99991!important;width:min(440px,calc(100vw - 36px))!important;max-height:calc(100vh - 120px)!important;overflow:auto!important;background:#fff!important;color:#193c35!important;border:1px solid #dbe5de!important;border-radius:13px!important;box-shadow:0 12px 40px #193c3526!important;padding:26px!important;font:15px/1.7 system-ui,Arial,sans-serif!important;box-sizing:border-box!important}#ng2p-platform-guide[hidden]{display:none!important}#ng2p-platform-guide h2{font:700 23px/1.3 system-ui,Arial,sans-serif!important;color:#193c35!important;margin:0 0 14px!important}#ng2p-platform-guide p{color:#5b7068!important;font-size:14px!important;margin:12px 0!important}#ng2p-platform-bar :focus-visible,#ng2p-platform-guide :focus-visible{outline:3px solid #488f7f!important;outline-offset:3px!important}body.ng2p-site-shell{padding-bottom:64px!important}body.ng2p-site-shell>.o_web_client{height:calc(100% - 64px)!important}body.ng2p-site-shell:not(.iqs-login) .btn-primary,body.ng2p-site-shell:not(.iqs-login) .o_button_import{background-color:#155d50;border-color:#155d50;color:white}body.ng2p-site-shell .o_main_navbar{background-color:#155d50}.iqs-login .iqs-login-heading h1{color:#155d50!important}.iqs-login form button[type=submit],.iqs-login #kc-login{background:#155d50!important;border-color:#155d50!important}.iqs-login .iqs-login-eyebrow{color:#5b7068!important}body.iqs-login{background:linear-gradient(120deg,#edf3ec,#f9fbf8)!important}body.iqs-login::before{background:#155d50!important}.iqs-login .iqs-login-card{border-color:#dbe5de!important;box-shadow:0 18px 55px #155d5015!important}.iqs-login a{color:#155d50!important}@media(max-width:700px){#ng2p-platform-bar{gap:13px!important;padding:11px 14px!important;min-height:60px!important}#ng2p-platform-bar .ng2p-platform-brand{font-size:17px!important}#ng2p-platform-bar .ng2p-platform-module{display:none!important}#ng2p-platform-bar a{font-size:12px!important}#ng2p-platform-bar button{font-size:12px!important;padding:7px 9px!important}#ng2p-platform-guide{right:18px!important}}@media(max-width:390px){#ng2p-platform-bar a[href$='/registration/workspace']{display:none!important}#ng2p-platform-bar{justify-content:space-between!important}}@media print{#ng2p-platform-bar,#ng2p-platform-guide{display:none!important}body.ng2p-site-shell{padding-bottom:0!important}}
 /* Native registry landing palette, using the existing application classes. */
 body.ng2p-site-shell .bg-primary-first{background-color:#eaf1e8!important;background-image:none!important}body.ng2p-site-shell .border-primary-second{border-color:#b6c9be!important}body.ng2p-site-shell .after\:bg-primary-second::after{background-color:#b6c9be!important}
+
+/* Staff launcher: theme the existing React application without changing its service grants. */
+body.ng2p-staff-portal{background:#f3f7f3!important;color:#193c35!important}
+body.ng2p-staff-portal > header{height:72px!important;padding:12px clamp(18px,4vw,54px)!important;border-bottom:1px solid #dce8df!important;box-shadow:0 2px 14px #193c350a!important}
+body.ng2p-staff-portal > header a span,body.ng2p-staff-portal > header button span{color:#193c35!important}
+body.ng2p-staff-portal .pt-17\.5 > div{min-height:calc(100vh - 72px)!important;background:#f3f7f3!important}
+body.ng2p-staff-portal .pt-17\.5 > div > div:first-child{height:auto!important;min-height:210px!important;padding:42px 24px!important;box-sizing:border-box!important;background:linear-gradient(120deg,#e1efe7,#f2f7ed)!important;color:#174b3e!important}
+body.ng2p-staff-portal .pt-17\.5 h1{font-family:system-ui,sans-serif!important;font-size:clamp(27px,3.4vw,40px)!important;line-height:1.2!important;letter-spacing:-.03em!important}
+body.ng2p-staff-portal .pt-17\.5 h1 + p{max-width:760px!important;line-height:1.65!important;color:#506b60!important}
+body.ng2p-staff-portal .pt-17\.5 .bg-black.py-12{background:#f3f7f3!important;padding:40px clamp(18px,5vw,72px) 64px!important}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4{max-width:1280px!important;margin:auto!important;padding:0!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))!important;gap:18px!important}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div{height:auto!important;min-height:160px!important;padding:24px!important;border:1px solid #d9e7dc!important;border-radius:14px!important;background:#fff!important;color:#193c35!important;box-shadow:0 4px 18px #193c350a!important;transition:box-shadow .18s,transform .18s,border-color .18s!important}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div:hover{border-color:#79a995!important;box-shadow:0 10px 26px #193c3518!important;transform:translateY(-2px)}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div :is(p,h2,h3,span){color:#193c35!important}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div:has(.opacity-50){background:#f6f9f6!important}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div:focus-within{outline:3px solid #488f7f!important;outline-offset:3px!important}
+@media(max-width:600px){body.ng2p-staff-portal > header{height:64px!important;padding:10px 16px!important}body.ng2p-staff-portal > header button span{max-width:110px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}body.ng2p-staff-portal .pt-17\.5 > div > div:first-child{min-height:190px!important;padding:36px 20px!important}body.ng2p-staff-portal .pt-17\.5 .bg-black.py-12{padding:24px 16px 44px!important}body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div{min-height:140px!important;padding:18px!important;overflow-wrap:anywhere}}
+@media(max-width:350px){body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4{grid-template-columns:1fr!important}}
+body.ng2p-staff-portal .pt-17\.5 .grid.grid-cols-4 > div .text-white{color:#193c35!important;font-size:18px!important;line-height:1.35!important}
+
+/* ODK Central retains its identity and behaviour; colours follow NigeriaG2P. */
+body.ng2p-odk{background:#f3f7f3!important;color:#193c35!important}
+body.ng2p-odk #app .navbar-default{background:#fff!important;border-bottom:1px solid #dce8df!important;box-shadow:0 2px 14px #193c350d!important}
+body.ng2p-odk #app .navbar-default .navbar-brand{color:#155d50!important;font-weight:750!important}
+body.ng2p-odk #app .navbar-default .navbar-nav > li > a{color:#315c4e!important}
+body.ng2p-odk #app .navbar-default .navbar-nav > .active > a{color:#155d50!important;background:#e7f1e9!important}
+body.ng2p-odk #app a{color:#155d50}
+body.ng2p-odk #app .btn-primary{background:#155d50!important;border-color:#155d50!important;color:#fff!important}
+body.ng2p-odk #app .btn-primary:hover,body.ng2p-odk #app .btn-primary:focus{background:#104b40!important;border-color:#104b40!important}
+body.ng2p-odk #app :is(a,button,input,select):focus-visible{outline:3px solid #488f7f!important;outline-offset:2px!important}
+body.ng2p-odk #home-summary{background:#e5f0e8!important;border-bottom:1px solid #d4e3d8!important}
+body.ng2p-odk #home-summary .home-summary-item{color:#193c35!important}
+body.ng2p-odk #home-summary .home-summary-item .body{color:#506b60!important}
+body.ng2p-odk #page-body .page-section{background:#fff!important;border:1px solid #dce8df!important;border-radius:12px!important;box-shadow:0 4px 18px #193c350a!important;overflow:hidden}
+body.ng2p-odk #page-body .page-section-heading{color:#193c35!important}
+body.ng2p-odk #app .form-control:focus{border-color:#488f7f!important;box-shadow:0 0 0 3px #488f7f35!important}
+@media(max-width:700px){body.ng2p-odk #page-body .page-section{border-radius:8px!important}body.ng2p-odk #app .navbar-default .navbar-toggle{border-color:#b6cfc0!important}body.ng2p-odk #app .navbar-default .navbar-icon-bar{background:#155d50!important}}
+body.ng2p-odk #app .navbar-default{border-top-color:#155d50!important}
+body.ng2p-odk #app .page-section-heading > span{color:#155d50!important}
+body.ng2p-odk #home-summary .home-summary-item .heading > [class*="icon-"]{color:#155d50!important;background:#e4f0e9!important}
+body.ng2p-odk #app .navbar-brand{display:flex!important;align-items:center!important;gap:7px!important;height:30px!important;min-height:0!important;padding:3px 12px!important;box-sizing:border-box!important}
+body.ng2p-odk #app .navbar-brand::before{content:"";display:inline-block;width:36px;height:22px;background:url("/iqs-brand/iqs-logo.png") center / contain no-repeat;flex:none}
+/* Label the existing registry filter button; the application handles all filtering. */
+body.ng2p-registry button[aria-label="Filters"]{gap:6px!important;padding-left:10px!important;padding-right:10px!important;white-space:nowrap!important}
+body.ng2p-registry button[aria-label="Filters"]::after{content:attr(aria-label);font:600 14px/1.2 system-ui,sans-serif;color:#155d50}
+body.ng2p-registry img[data-iqs-registry-hero]{display:block!important;width:100%!important;height:auto!important;max-height:380px!important;object-fit:contain!important;object-position:center bottom!important;margin:20px auto 0!important}
+
+/* Registry dashboard readability: keep the existing data, selection and permissions. */
+body.ng2p-registry .max-w-6xl [role="button"].bg-secondary-second{background:#fff!important;color:#31584b!important;border:1px solid #d5e4da!important;box-shadow:0 3px 14px #193c350b}
+body.ng2p-registry .max-w-6xl [role="button"].bg-neutral-first{background:#155d50!important;color:#fff!important;border-color:#155d50!important}
+body.ng2p-registry .max-w-6xl [role="button"] h3,body.ng2p-registry .max-w-6xl [role="button"] li span{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+body.ng2p-registry .max-w-6xl [role="button"]:focus-visible{outline:3px solid #488f7f!important;outline-offset:3px!important}
+@media(max-width:700px){
+ body.ng2p-registry .max-w-6xl .overscroll-none > .overflow-hidden:has([role="button"]){overflow-x:auto!important;overscroll-behavior-x:contain;scrollbar-width:thin}
+ body.ng2p-registry .max-w-6xl .overscroll-none > .overflow-hidden > .will-change-transform{width:max-content!important;transform:none!important;transition:none!important;padding:3px 3px 10px}
+ body.ng2p-registry .max-w-6xl .overscroll-none > .overflow-hidden > .will-change-transform > div{width:205px!important;min-width:205px!important}
+ body.ng2p-registry .max-w-6xl .overscroll-none > button{display:none!important}
+ body.ng2p-registry .max-w-6xl .overscroll-none [role="button"]{padding:18px!important;min-height:210px!important}
+ body.ng2p-registry .max-w-6xl .relative.border:has(input){width:100%!important;min-width:0!important}
+ body.ng2p-registry .max-w-6xl .relative.border:has(input) input{min-width:0!important;font-size:16px!important}
+ body.ng2p-registry .max-w-6xl .relative.border:has(input) > div{min-width:0!important}
+}
+@media(max-width:700px){
+ body.ng2p-registry a[href*="/register/"][class*="flex-1"][class*="min-w-0"]{display:grid!important;grid-template-columns:48px minmax(0,1fr)!important;align-items:start!important;gap:8px 12px!important}
+ body.ng2p-registry a[href*="/register/"][class*="flex-1"][class*="min-w-0"] > div:nth-child(n+3){grid-column:2;min-width:0}
+ body.ng2p-registry a[href*="/register/"][class*="flex-1"][class*="min-w-0"] p{white-space:normal!important;overflow-wrap:anywhere;overflow:visible!important}
+ body.ng2p-registry a[href*="/register/"][class*="flex-1"][class*="min-w-0"] p.invisible{display:none}
+}
+/* Keep selection and search controls within the mobile viewport. */
+@media(max-width:700px){
+ body.ng2p-registry div.bg-neutral-second:has(> div > div > input[placeholder="Search"]){flex-wrap:wrap!important;gap:12px!important}
+ body.ng2p-registry div.bg-neutral-second:has(> div > div > input[placeholder="Search"]) > div:first-child{flex:1 1 100%!important;min-width:0}
+ body.ng2p-registry div.bg-neutral-second:has(> div > div > input[placeholder="Search"]) > div.relative{flex:1 1 100%!important;min-width:0!important;width:100%!important;margin-left:0!important}
+ body.ng2p-registry div.relative:has(> div > div > input[placeholder="Search"]) > div{width:100%!important;min-width:0!important}
+ body.ng2p-registry input[placeholder="Search"]{min-width:0!important}
+}
+@media(max-width:700px){
+ body.ng2p-registry div[class*="min-w-[500px]"]{min-width:0!important;width:100%!important;max-width:100%!important;flex-direction:column!important;min-height:0!important}
+ body.ng2p-registry div[class*="min-w-[500px]"] > div:first-of-type{width:100%!important;flex-direction:row!important;flex-wrap:wrap!important;padding:46px 12px 10px!important;gap:4px!important;border-radius:10px 10px 0 0!important}
+ body.ng2p-registry div[class*="min-w-[500px]"] > div:first-of-type button{width:auto!important;padding:6px 10px!important}
+ body.ng2p-registry div[class*="min-w-[500px]"] > div:last-of-type{min-width:0!important;padding:16px!important}
+}
+@media(max-width:700px){
+ body.ng2p-registry div.bg-neutral-second.flex:has(> div.relative input[placeholder="Search"]){flex-wrap:wrap!important;gap:12px!important}
+ body.ng2p-registry div.bg-neutral-second.flex:has(> div.relative input[placeholder="Search"]) > div:first-child{flex:1 1 100%!important;flex-wrap:wrap!important;min-width:0!important}
+ body.ng2p-registry div.bg-neutral-second.flex:has(> div.relative input[placeholder="Search"]) > div.relative{flex:1 1 100%!important;min-width:0!important;width:100%!important;margin:0!important}
+ body.ng2p-registry div.bg-neutral-second.flex:has(> div.relative input[placeholder="Search"]) > div.relative > div:first-child{width:100%!important;min-width:0!important}
+ body.ng2p-registry div.flex:has(> div img[alt="next"]):has(> div img[alt="prev"]){flex-wrap:wrap}
+ body.ng2p-registry div.flex:has(> div > div img[alt="next"]):has(> a[href$="/en"]){flex-wrap:wrap!important}
+}
+@media(max-width:700px){
+ body.ng2p-registry input[placeholder="Search"]:not([type="hidden"]){width:0!important;min-width:0!important}
+ body.ng2p-registry div:has(> input[placeholder="Search"]){min-width:0!important}
+}
+@media(max-width:700px){
+ body.ng2p-registry .section-panels .panel-horizontal > .grid{grid-template-columns:minmax(0,1fr)!important}
+ body.ng2p-registry .section-panels .panel-horizontal > .grid > [class*="min-w-200"]{min-width:0!important;padding-left:0!important;padding-right:0!important}
+ body.ng2p-registry .section-panels .widget-container{min-width:0;overflow-wrap:anywhere}
+}
+/* Household member tables scroll within the panel on small screens. */
+@media(max-width:700px){
+ body.ng2p-registry .section-hh_members .table-widget-container{min-width:0!important;width:100%!important;max-width:100%!important}
+ body.ng2p-registry .section-hh_members .table-widget-container > .overflow-x-auto{max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}
+}
+@media(max-width:700px){
+ body.ng2p-registry header > div > a{flex:1 1 auto;min-width:0!important;overflow:hidden!important}
+ body.ng2p-registry header > div > a span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:14px!important}
+ body.ng2p-registry header > div > div.flex{flex-shrink:0;gap:4px!important}
+ body.ng2p-registry header button:has(img[alt="User Avatar"]) > span{max-width:65px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ body.ng2p-registry button[class*="rounded-t-"]{max-width:none!important;min-width:0!important}
+ body.ng2p-registry button[class*="rounded-t-"] > span{white-space:normal!important;overflow:visible!important}
+}

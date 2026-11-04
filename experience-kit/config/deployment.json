@@ -139,6 +139,56 @@
         "supervisor"
       ],
       "enabled": true
+    },
+    {
+      "id": "field-preview",
+      "title": "Field collection preview",
+      "description": "Fictional sample draft only; supervisor authentication and server sync are not implemented in this web preview.",
+      "url": "/experience/static/field-demo/index.html",
+      "personas": [
+        "officer",
+        "verifier",
+        "supervisor"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "v3-feature-guide",
+      "title": "Dashboards, atlas and pilot guide",
+      "description": "Review the delivered v3 workflows and their implementation boundaries.",
+      "url": "/experience/features",
+      "personas": [
+        "officer",
+        "verifier",
+        "supervisor",
+        "citizen"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "territory-atlas",
+      "title": "Territorial intelligence",
+      "description": "Configure a public atlas deployment with source and year labels.",
+      "url": "https://atlas.example.invalid/",
+      "personas": [
+        "officer",
+        "verifier",
+        "supervisor",
+        "citizen"
+      ],
+      "enabled": false
+    },
+    {
+      "id": "jos-pilot",
+      "title": "Cash transfer pilot",
+      "description": "Configure a fictional payment walkthrough separately from production.",
+      "url": "https://pilot.example.invalid/",
+      "personas": [
+        "officer",
+        "verifier",
+        "supervisor"
+      ],
+      "enabled": false
     }
   ],
   "screen_mappings": [

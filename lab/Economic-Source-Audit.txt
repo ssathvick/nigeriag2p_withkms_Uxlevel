@@ -1,0 +1,30 @@
+Economic source audit — 4 November 2026
+
+User chose: preserve comparable-year gaps and add verified state reports separately.
+
+Not achieved: a complete, publicly retrievable, verified 2023 state GDP and same-year per-capita dataset for all 36 states and FCT. No claim of national completeness is made.
+
+Sources investigated
+- NBS NADA GDP catalogue 147 / related-materials: retrievable national GDP reports and tables; no complete state workbook listed there.
+- NBS legacy e-library requests returned HTTP 500 during retrieval. Indexed older report links remained downloadable.
+- NBS-linked Open Data for Africa landing page returned HTTP 403. No bypass attempted.
+- Nigeria Integrated Data Sharing Portal: public application links access to login. No new account or protected data access attempted.
+- World Bank October 2025 NDU: retains 2023 summary facts and top-three sectors. Numeric maps are class intervals, not precise state observations; no values reverse-engineered from shading.
+- Jigawa official statistics portal supplied the original 2019–2023 GDP publication through its public publication catalogue.
+- Delta State government publication supplied current-basic-price sector accounts and market-price GDP/per-person output for 2022.
+- NBS May 2019 State Nominal GDP report supplied the 2017 appendix for 22 states/FCT. Appendix page 186 is used consistently; summary-page differences are flagged.
+
+Publication changes
+24 separate report records, 22 distinct state/FCT areas. No new historical/state-specific values copied into the World Bank 2023 map/rankings. Each report has GDP, 19 sector groups and 33 component activities. Numeric zeros and source dashes are distinguished. Parent groups and component activities are separate display modes to avoid double-counting.
+
+Delta: 2022 basic-price GDP NGN 4,871,008,780,000; market-price GDP NGN 4,956,910,390,000; projected population 6,374,321; published GDP per person NGN 777,637.40. Report uses the term per-capita income, but calculation is GDP/population; UI calls it GDP per person. Population projection labelled modelled. Tables 3.1a and 3.3.
+
+Jigawa: 2023 basic-price GDP NGN 5,650,421,320,000. Detailed agriculture share 36.60% is repeated on PDF pages 6–7; introductory infographic page 3 says 33.60%. Detailed series retained, discrepancy disclosed. Main World Bank Annex 3 source is distinct and remains unmodified. No per-person value derived without a verified matching population denominator.
+
+NBS 2017: 22 accounts reconcile sector groups to GDP within NGN 30,000 (rounding of values published in millions). Akwa Ibom appendix GDP differs from summary-page GDP; appendix value retained, explicitly qualified. No estimated per-capita values added.
+
+Implementation: territory_state_reports.py, persona-ui/src/economic-reports.jsx. Rebuild through build-territory-data.py; source downloads included in collect-territory-sources.py. Raw originals remain private; data.json contains source-attributed statistical extracts only. Each report has an export with report ID, price basis, source URL, year, geography, classification and qualifications.
+
+Validation: 14 data contracts passed, including source values, denominator/year matching, 52 rows / 19 groups, missing-vs-zero handling, reconciliation and no contamination of comparable-series values.
+
+2026-11-04 continuation: Retrieved all 36 NGF public state profiles; cached original HTML and ngf-gdp-2023.json. GDP 2023 amounts in NGN million converted to NGN. Price basis/methodology unspecified, explicitly labelled. Population 2025 NOT used for 2023 per-capita. Added 36 independent reports; FCT absent from NGF. Added Lagos LEDU 2025 report's 2024 forecasts: nominal GDP NGN54.77tn (printed p59), real PPP GDP per person US$5043 (p29, figure p30); modelled, different bases, not actuals. Total 61 reports across37 areas, comparable series unchanged. No new observed per-capita series verified.

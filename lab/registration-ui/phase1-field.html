@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fictional offline field delivery</title><link rel="stylesheet" href="{{prefix}}/static/style.css"><script defer src="{{prefix}}/static/phase1-field.js?v=2"></script></head><body><main>
+<h1>Fictional offline field delivery</h1><p>Save only the supplied demonstration references. Biometric matches and coordinates are simulated; this does not verify a person or measure GPS accuracy.</p><p><a href="{{prefix}}/phase1">Back to Phase 1 workspace</a></p>
+<p id="connection" role="status"></p><p id="message" role="status" aria-live="polite"></p>
+<form id="delivery"><label>Fictional household<select name="household" required>{% for ref,zone,state,lga in locations %}<option value="{{ref}}">{{ref}} · {{lga}} · {{zone}}</option>{% endfor %}</select></label>
+<label>Mock biometric result<select name="biometric"><option value="mock_match">Mock match</option><option value="mock_mismatch">Mock mismatch</option></select></label>
+<p>The demonstration location is 12.0 latitude, 8.5 longitude with 5 m reported accuracy. These are test values.</p>
+<button>Save fictional proof on this device</button></form>
+<h2>Device queue</h2><p>Records remain on this device until synchronised. Reconnect and sign in to the staff workspace if the session has expired.</p><button id="sync" type="button">Synchronise queued proof</button><ul id="queue"></ul>
+<h2>Offline UAT</h2><p>Load this page online first, wait for “Offline page available”, disconnect, capture records, close and reopen the page, and retain it offline for 48 hours before reconnecting. Record timestamps and device evidence. A 48-hour result is pending until that test is actually completed.</p>
+</main></body></html>

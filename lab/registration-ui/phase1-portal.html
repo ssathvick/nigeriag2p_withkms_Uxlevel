@@ -1,0 +1,10 @@
+{% extends 'base.html' %}{% block content %}
+<div lang="{{lang}}"><h1>{{text[0]}}</h1><p>{{text[1]}}</p>
+<nav aria-label="Language"><a lang="en" href="?lang=en">English</a> · <a lang="ha" href="?lang=ha">Hausa</a> · <a lang="yo" href="?lang=yo">Yorùbá</a> · <a lang="ig" href="?lang=ig">Igbo</a></nav>
+<h2>{{text[3]}}</h2><p>{{text[2]}} · DEMO-CCT · NGN 25,000</p><p>{{text[1]}}</p>
+<p><a href="{{prefix}}/">Self service registration</a> · <a href="{{prefix}}/knowledge">Guidance</a> · <a href="{{prefix}}/phase1">Staff grievance workspace</a></p>
+<h2>{{text[4]}}</h2><ul>{% for ref,zone,state,lga in locations %}<li>{{lga}} · {{state}} · {{zone}} · {{ref}}</li>{% endfor %}</ul>
+<h2>{{text[5]}}</h2><p>{{text[0]}} · 12 October 2026</p>
+<h2>{{text[6]}}</h2><p>6 {{text[4]}} · 1 DEMO-CCT</p></div>
+<p>Programme amounts and location entries are fictional examples, not NSIPA policy or an operational service directory. Translation review, full portal localisation, WCAG audit and performance certification remain pending.</p>
+{% endblock %}

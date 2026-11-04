@@ -70,6 +70,9 @@ def create_app(config_path=None,database_path=None):
     @app.get(prefix+'/')
     def home():return adapter.page('home.html')
 
+    @app.get(prefix+'/features')
+    def features():return adapter.page('features.html')
+
     @app.get(prefix+'/api/config')
     def public_config():return jsonify({k:config[k] for k in ['prefix','brand','personas','services']})
 

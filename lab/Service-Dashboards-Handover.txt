@@ -1,0 +1,99 @@
+NSIPA connected service dashboards — completed 4 November 2026
+
+Entry: https://nigeriag2p.com/registration/analytics
+All 17 catalogue services have a data-backed dashboard. No unconnected-service
+placeholder remains for authorized users with a current collector snapshot.
+
+Sources
+- Intake / registration review: live registration profiles and applications.
+- Knowledge: published guidance, editorial workflow and recorded usage.
+- Modern registry: native individual, household and change-request aggregates.
+- PBMS: programmes, beneficiary lists, benefit calculation and Bridge instruction status.
+- Approval workflows: request states and completed turnaround times.
+- Social registry administration: registrants, availability and household memberships.
+- Beneficiary portal: programme availability and native programme memberships.
+- Beneficiary programme administration: programmes, cycles, entitlements and memberships.
+- Master data: geographic references, attribute structure and reference catalogues.
+- Partner management: partner, request and onboarding-type distributions.
+- Consent manager: native requests, artefacts and audit inventory; separate demo dataset.
+- Staff portal: application availability, roles and permission catalogue.
+- Staff access administration: roles, permissions, assignments and policy counts.
+- Field data collection: ODK projects, forms, submission review and daily volumes;
+  separate demo dataset while the native ODK database has no project/submission data.
+- Geography: household state totals, individual zones and household coordinate coverage.
+- Analytics: Superset publication, chart types and dataset inventory.
+- Bridge: additional native overview snapshot and detailed report.
+
+Synthetic datasets
+72 records were persisted in dashboard_demo_records in the registration SQLite DB:
+36 consent training records and 36 field-collection training records.
+They are deliberately separate from native consent grants, signed receipts, ODK forms,
+submissions, financial entitlements and payment instructions. The UI clearly labels
+Synthetic demo dataset and lets users switch to Native records. Native zero counts
+are preserved. Demo rows can be searched by reference, state and status, and filtered
+by type. Stable references make provisioning repeatable without duplicates.
+
+Refresh and permissions
+15 backend sources are collected every 15 minutes by the existing timer.
+Refresh report now runs a real source collection, with a 15-second cooldown and
+cross-process exclusion. Intake filters read immediately without forcing collection.
+37 new aggregate metrics use dedicated read-only views in nsipa_reporting.
+New readers cannot select the original personal-data tables or mutate the views.
+Staff-access and geographic dashboards retain supervisor/reviewer restrictions and
+are excluded from the broader Superset aggregate dataset.
+Beneficiary sessions receive only their own intake and linked portal memberships;
+they cannot receive staff-wide reports or trigger source collection.
+Normal registration sign-in lands on the authorized dashboard. Specific workflow
+login intents continue to preserve their existing destination.
+All measurements remain synthetic sandbox measurements. Instruction acceptance is
+not evidence of bank settlement. Household and individual counts are separate units.
+
+Verified
+22 automated analytics/persona tests passed.
+All 17 dashboards rendered charts in the authenticated browser.
+15 sources were current with no collection errors.
+All 37 new metrics reconciled exactly with their source views.
+72 demo identifiers were unique. Demo filtering and native/demo switching passed.
+Manual source refresh completed successfully in the browser.
+All 17 service entry routes and presentation assets passed HTTP checks.
+
+Files
+service_reporting.py: aggregate definitions, metadata, role filters, personal view.
+analytics_sources.py: native collector and restricted-export exclusions.
+provision-service-reporting.py: read views and persistent demo records.
+platform_analytics.py: reporting endpoints, CSRF-protected refresh, per-user access.
+persona-ui/src/dashboard.jsx and dashboard.css: charts and dataset explorer.
+verify-connected-dashboards.py: reconciliation and read-only privilege checks.
+verify-service-dashboards.py: shared entry/asset checks.
+test-analytics.py / test-persona-workspaces.py: permissions and login behavior.
+
+Build and install
+Run node build.cjs in persona-ui.
+Run provision-service-reporting.py with /opt/openg2p-lab/registration-venv/bin/python
+inside Ubuntu-22.04 WSL when provisioning a new environment.
+Run install-service-dashboards.py to deploy local sources and build assets.
+Start iqs-analytics.service once after a new provision/deployment.
+The existing iqs-analytics.timer handles subsequent collection.
+
+Recovery
+The pre-connection-change backup is:
+/opt/openg2p-lab/registration/dashboard-backups/connections-20261104-134345
+It contains the prior reporting connection config and consistent SQLite backup.
+App/assets deployment snapshots have manifest.json files under dashboard-backups.
+Restore selected application/config files and restart iqs-registration.service;
+reload Nginx only if restoring proxy configuration. Do not restore an entire older
+SQLite database over new business records solely to roll back presentation changes.
+Synthetic rows are identified by batch NSIPA-DEMO-20261104. Aggregate views can remain
+unused after a presentation rollback; they have no write access to native records.
+
+Dashboard landing and drill-down update — 4 November 2026
+- Every catalogue service now starts with its service dashboard. Native default landing paths use dashboard-landing.js; login and OAuth callbacks remain intact. Client-side login completion is also handled.
+- Intentional record URLs carry _nsipa_records=1. Existing deep links, record hashes, demo paths, forms and same-application navigation are preserved.
+- Registration login intents for review, geography and knowledge now return to their dashboards, unless the user explicitly followed a record link.
+- Cards, donut totals, chart categories, bar rows and chart tables open the relevant native record list or action screen. Native filters remain native; category links do not claim to apply an unsupported status filter.
+- Synthetic cards and categories select exact entity/status filters and focus the separate demo record table. These remain distinct from native records.
+- Citizen-owned registration/application cards return to their own intake screen. Portal membership cards use beneficiary self-service, never staff administration.
+Verification: 360 routing checks plus OAuth/client-login loader scenarios, 13 analytics tests, 9 persona/permission tests, all 17 HTTP service-entry checks and all 17 dashboard interaction inventories passed. Live browser drill-downs verified PBMS beneficiary lists, Master Data geography, and eight awaiting-response synthetic consent records.
+Fresh native sign-in was not repeated for Social Registry, Portal Administration or Superset: their separate sessions require login. Their post-login default route mappings and injected loader were checked; existing authentication remains unchanged.
+Latest deployment rollback: /opt/openg2p-lab/registration/dashboard-backups/20261104-140535/manifest.json
+Sources: persona-ui/src/dashboard-navigation.js, dashboard-landing.js, dashboard.jsx; registration_app.py; install-service-dashboards.py.

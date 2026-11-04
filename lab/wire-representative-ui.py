@@ -1,0 +1,23 @@
+from pathlib import Path
+p=Path('persona-ui/src/territories.jsx');s=p.read_text();s=s.replace("import EconomicReports from './economic-reports';","import EconomicReports from './economic-reports';\nimport Representatives from './representatives';")
+s=s.replace("const initial=new URLSearchParams(location.search);","const initial=new URLSearchParams(location.search);const [repsView,setRepsView]=useState(initial.get('section')==='representatives');")
+s=s.replace('return <div className="ti-app"><header','return <div className={"ti-app"+(repsView?" ti-reps-mode":"")}><header')
+s=s.replace('<nav><a href="/">All services ↗</a>','<nav><a href="/">All services ↗</a><a href="./">Atlas</a><a href="?section=representatives">Representatives & performance ↗</a>')
+s=s.replace('onClick={()=>setLedger(!ledger)}','onClick={()=>{setRepsView(false);setLedger(!ledger)}}')
+s=s.replace('{ledger?<section className="ti-ledger">','{repsView?<Representatives dataset={data.representatives} states={data.states}/>:ledger?<section className="ti-ledger">')
+s=s.replace('These are dataset coverage counts. Federal and State Assembly profiles are not yet loaded.','Geographic coverage counts. See Representatives & performance for officeholder directories and legislative evidence.')
+needle='<div className="ti-metrics">{listedMetrics.map'
+repblock='''<div className="ti-panel ti-area-representatives"><h3>Elected representatives</h3>{mode==='electoral'?<>{data.representatives?.members.filter(r=>r.district_id===area.id).map(r=><p key={r.id}><a href={'?section=representatives&representative='+r.id+'&repstate='+state.id}>{r.name} · performance evidence ↗</a><small>NALTF directory · checked {r.as_of} · Published data</small></p>)}{!data.representatives?.members.some(r=>r.district_id===area.id)&&<p>No officeholder safely linked to this district label. See the state directory for unlinked entries.</p>}</>:<p>Explore senators, federal representatives and available state assembly members for {state.name}. {level==='LGA'?'State-wide list; no LGA-to-constituency mapping is assumed.':''}</p>}<a href={'?section=representatives&repstate='+state.id}>All loaded representatives in {state.name} ↗</a></div>'''
+s=s.replace(needle,repblock+needle)
+s=s.replace('contains no names, household identifiers','contains no beneficiary names, household identifiers')
+p.write_text(s)
+p=Path('persona-ui/src/representatives.jsx');s=p.read_text().replace("[stage,setStage]=useState('all'),","[stage,setStage]=useState('all'),[sector,setSector]=useState(''),")
+s=s.replace("setBillPage(0);setStage('all')","setBillPage(0);setStage('all');setSector('')")
+s=s.replace("cohort.filter(b=>isStage(b,stage))","cohort.filter(b=>isStage(b,stage)&&(!sector||b.sectors.includes(sector)))")
+s=s.replace("setSelected(id);setStage('all');","setSelected(id);setStage('all');setSector('');")
+s=s.replace("setStage(key);setBillPage(0)","setStage(key);setSector('');setBillPage(0)")
+s=s.replace('<a className="ti-sector-bar" key={label} href={dataset.bill_source_url} target="_blank" rel="noreferrer">','<button className="ti-sector-bar" key={label} onClick={()=>{setSector(label);setStage(\'all\');setBillPage(0)}}>')
+s=s.replace("count/cohort.length*100+'%'}}/></span></a>","count/cohort.length*100+'%'}}/></span></button>")
+s=s.replace('{stageLabels[stage]} · {shown.length} records','{sector||stageLabels[stage]} · {shown.length} records')
+s=s.replace('<p>Source: <a href={dataset.bill_source_url}', '<p>{sector&&<button onClick={()=>setSector(\'\')}>Clear policy-area filter ×</button>} Source: <a href={dataset.bill_source_url}')
+p.write_text(s)

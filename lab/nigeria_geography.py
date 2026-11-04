@@ -45,7 +45,7 @@ def install(r):
  bp=Blueprint('geography',__name__)
  def require():
   r.require_user()
-  if not (g.staff or 'iqs-programme-supervisor' in g.user.get('roles',[])):abort(403,'This geographic overview requires supervisor access.')
+  if g.session.get('mode') != 'staff' or not (g.staff or 'iqs-programme-supervisor' in g.user.get('roles',[])):abort(403,'This geographic overview requires supervisor or intake reviewer access.')
  @bp.get(r.PREFIX+'/api/geography/areas')
  def areas():return CATALOGUE
  @bp.get(r.PREFIX+'/api/geography/summary')
@@ -55,5 +55,6 @@ def install(r):
  @bp.get(r.PREFIX+'/geography')
  def overview():
   if not g.user:return redirect(r.PREFIX+'/login?mode=staff&geography=1')
+  if g.session.get('mode') != 'staff':return r.page('staff-access-required.html',service='Geographic Data',login_url=r.PREFIX+'/login?mode=staff&geography=1',role_note='supervisor or intake reviewer access'),403
   require();return r.page('geography.html',report=summary(r))
  r.app.register_blueprint(bp)

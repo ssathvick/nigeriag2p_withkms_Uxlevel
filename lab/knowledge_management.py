@@ -1,5 +1,6 @@
 """Versioned, plain-text knowledge guidance; permissions remain native."""
-import json,re
+import json,re,datetime,unicodedata,math
+from urllib.parse import urlencode
 from pathlib import Path
 from flask import Blueprint,g,request,abort,redirect
 SEED=json.loads(Path(__file__).with_name('knowledge-seed.json').read_text(encoding='utf-8'))
@@ -35,34 +36,82 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   r.require_user()
   if not permissions()[action]:abort(403,'Your account cannot perform this knowledge action.')
  def history(c,a,action,note=''):c.execute('INSERT INTO km_history(article,version,action,actor,at,content,note) VALUES(?,?,?,?,?,?,?)',(a['id'],a['version'],action,g.user['sub'],r.stamp(),a['draft'],note))
+ def readable(content):
+  if content.get('visibility','public')=='public':return True
+  if not g.user or g.session.get('mode')!='staff':return False
+  roles=set(g.user.get('roles',[]))
+  if 'iqs-intake-reviewer' in roles:return True
+  required={'officer':'iqs-registration-officer','verifier':'iqs-verification-officer','supervisor':'iqs-programme-supervisor'}
+  audience=content.get('audience','all')
+  return bool(roles.intersection(required.values())) if audience in ('all','citizen') else required.get(audience) in roles
+ def governance(form,previous=None):
+  previous=previous or {};visibility=form.get('visibility',previous.get('visibility','public'));due=form.get('review_due',previous.get('review_due','')).strip()
+  if visibility not in ('public','staff'):abort(400,'Choose public or staff-only visibility.')
+  if due:
+   try:datetime.date.fromisoformat(due)
+   except ValueError:abort(400,'Use a valid review date.')
+  return {'visibility':visibility,'review_due':due}
+ def normalized(value):
+  return ''.join(c for c in unicodedata.normalize('NFKD',value.casefold()) if not unicodedata.combining(c))
+ def matches(article,query):
+  words=normalized(query).split();text=normalized(' '.join(str(article[k]) for k in FIELDS))
+  return all(word in text for word in words)
  def published():
   result=[]
   for row in r.rows("SELECT * FROM km_articles WHERE published IS NOT NULL AND status!='archived' ORDER BY module,stage,audience"):
-   result.append({'id':row['id'],'slug':row['slug'],'version':row['published_version'],**json.loads(row['published'])})
+   content=json.loads(row['published'])
+   if readable(content):result.append({'id':row['id'],'slug':row['slug'],'version':row['published_version'],**content})
   return result
  @bp.get(r.PREFIX+'/api/knowledge')
  def public_api():
   articles=published();module=request.args.get('module');audience=request.args.get('audience','all')
+  if module and module not in MODULES:abort(400,'Unknown service')
   if module:articles=[a for a in articles if a['module']==module]
   if audience not in AUDIENCES:abort(400,'Unknown audience')
   if request.args.get('include_roles')!='1':articles=[a for a in articles if a['audience'] in ['all',audience]]
-  response=r.app.make_response({'articles':articles,'modules':SEED['modules'],'audiences':AUDIENCES,'notice':'Published task guidance is public. Role filters do not grant permissions.'})
+  query=request.args.get('q','').strip()
+  if len(query)>160:abort(400,'Keep searches under 160 characters.')
+  if query:articles=[a for a in articles if matches(a,query)]
+  response=r.app.make_response({'articles':articles,'modules':SEED['modules'],'audiences':AUDIENCES,'notice':'Public guidance is open; staff-only guidance requires an authorised staff session. Audience filters do not grant permissions.'})
   origin=request.headers.get('Origin','');host=origin.removeprefix('https://')
   if origin.startswith('https://') and (host=='nigeriag2p.com' or re.fullmatch(r'[a-z0-9-]+\.nigeriag2p\.com',host)):response.headers['Access-Control-Allow-Origin']=origin;response.headers['Vary']='Origin'
+  response.headers['Cache-Control']='private, no-store'
+  response.headers['Vary']='Cookie, Origin'
   return response
  @bp.get(r.PREFIX+'/knowledge')
  def library():
   articles=published();total_published=len(articles);source_guides=sum(bool(a.get('sources')) for a in articles);q=request.args.get('q','').strip().lower();module=request.args.get('module','');audience=request.args.get('audience','all')
   if module:articles=[a for a in articles if a['module']==module]
   if audience not in AUDIENCES:abort(400)
-  articles=[a for a in articles if a['audience'] in ['all',audience] and (not q or q in ' '.join(str(a[k]) for k in FIELDS).lower())]
+  if len(q)>160 or module and module not in MODULES:abort(400,'Choose a service and a search of at most 160 characters.')
+  articles=[a for a in articles if a['audience'] in ['all',audience] and matches(a,q)]
   if audience!='all':
    choices={}
    for a in articles:
     key=(a['module'],a['stage'])
     if key not in choices or a['audience']==audience:choices[key]=a
    articles=list(choices.values())
-  return r.page('knowledge-library.html',articles=articles,modules=MODULES,audiences=AUDIENCES,perms=permissions(),total_published=total_published,source_guides=source_guides,q=request.args.get('q',''),module=module,audience=audience)
+  if q and hasattr(r,'analytics_search'):r.analytics_search(module,len(articles))
+  if q:articles.sort(key=lambda a:sum(normalized(a['title']).count(w)*3 for w in normalized(q).split()),reverse=True)
+  total_matches=len(articles)
+  try:page_number=int(request.args.get('page','1'))
+  except ValueError:abort(400,'Use a valid page number.')
+  pages=max(1,math.ceil(total_matches/12))
+  if not 1<=page_number<=pages:abort(400,'This result page does not exist.')
+  articles=articles[(page_number-1)*12:page_number*12]
+  def page_url(n):return r.PREFIX+'/knowledge?'+urlencode({'q':request.args.get('q',''),'module':module,'audience':audience,'page':n})
+  return r.page('knowledge-library.html',articles=articles,modules=MODULES,audiences=AUDIENCES,perms=permissions(),total_published=total_published,source_guides=source_guides,q=request.args.get('q',''),module=module,audience=audience,total_matches=total_matches,page_number=page_number,pages=pages,previous_url=page_url(page_number-1) if page_number>1 else None,next_url=page_url(page_number+1) if page_number<pages else None)
+ @bp.get(r.PREFIX+'/knowledge/<int:aid>')
+ def article_page(aid):
+  item=next((a for a in published() if a['id']==aid),None)
+  if not item:abort(404)
+  return r.page('knowledge-article.html',article=item,modules=MODULES)
+ @bp.get(r.PREFIX+'/knowledge/<int:aid>/export')
+ def export(aid):
+  item=next((a for a in published() if a['id']==aid),None)
+  if not item:abort(404)
+  body=item['title']+'\nPublished version '+str(item['version'])+'\n\n'+'\n\n'.join(k.replace('_',' ').title()+'\n'+item[k] for k in FIELDS if k not in ('title','module','audience','stage'))
+  response=r.app.make_response(body);response.headers['Content-Type']='text/plain; charset=utf-8';response.headers['Content-Disposition']='attachment; filename="knowledge-'+str(aid)+'-v'+str(item['version'])+'.txt"';response.headers['Cache-Control']='private, no-store';return response
  @bp.get(r.PREFIX+'/knowledge/admin')
  def admin():
   if not g.user:return redirect(r.PREFIX+'/login?mode=staff&knowledge=1')
@@ -80,14 +129,14 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   require('edit');aid=request.form.get('id');data={k:request.form.get(k,'').strip() for k in FIELDS}
   if data['module'] not in MODULES or data['audience'] not in AUDIENCES:abort(400,'Choose a valid module and audience.')
   if any(not data[k] for k in FIELDS) or any(len(v)>6000 for v in data.values()) or len(data['title'])>160 or len(data['stage'])>160:abort(400,'Complete every field; keep guidance concise (maximum 6000 characters per field).')
-  actor=g.user['sub'];now=r.stamp();content=json.dumps(data)
+  actor=g.user['sub'];now=r.stamp();content=json.dumps({**data,**governance(request.form)})
   with r.db() as c:
    c.execute('BEGIN IMMEDIATE')
    if aid:
     a=c.execute('SELECT * FROM km_articles WHERE id=?',(aid,)).fetchone()
     if not a:abort(404)
     if request.form.get('version')!=str(a['version']):abort(409,'Guidance changed. Reload before saving.')
-    content=json.dumps({**data,**reference_metadata(json.loads(a['draft']))});version=a['version']+1;c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=?,status='draft',author=?,reviewer=NULL,updated=? WHERE id=?",(data['module'],data['stage'],data['audience'],content,version,actor,now,aid))
+    previous=json.loads(a['draft']);content=json.dumps({**data,**reference_metadata(previous),**governance(request.form,previous)});version=a['version']+1;c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=?,status='draft',author=?,reviewer=NULL,review_note='',updated=? WHERE id=?",(data['module'],data['stage'],data['audience'],content,version,actor,now,aid))
    else:
     import secrets
     slug=re.sub('[^a-z0-9]+','-',data['title'].lower()).strip('-')+'-'+secrets.token_hex(4)
@@ -129,8 +178,9 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
    c.execute('BEGIN IMMEDIATE');a=c.execute('SELECT * FROM km_articles WHERE id=?',(aid,)).fetchone();old=c.execute('SELECT * FROM km_history WHERE article=? AND id=?',(aid,hid)).fetchone()
    if not a or not old:abort(404)
    if request.form.get('version')!=str(a['version']):abort(409,'Guidance changed. Reload before restoring.')
-   content=json.loads(old['content']);c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=version+1,status='draft',author=?,reviewer=NULL,updated=? WHERE id=?",(content['module'],content['stage'],content['audience'],old['content'],g.user['sub'],r.stamp(),aid))
+   content=json.loads(old['content']);c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=version+1,status='draft',author=?,reviewer=NULL,review_note='',updated=? WHERE id=?",(content['module'],content['stage'],content['audience'],old['content'],g.user['sub'],r.stamp(),aid))
    if a['status']=='archived':c.execute('UPDATE km_articles SET published=NULL,published_version=NULL WHERE id=?',(aid,))
    history(c,dict(c.execute('SELECT * FROM km_articles WHERE id=?',(aid,)).fetchone()),'restore_version')
   return redirect(r.PREFIX+'/knowledge/admin/'+str(aid))
+ r.knowledge_readable=readable
  r.app.register_blueprint(bp)

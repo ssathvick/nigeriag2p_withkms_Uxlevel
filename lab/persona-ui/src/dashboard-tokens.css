@@ -1,0 +1,1 @@
+html,body{margin:0;padding:0}body:has(.dash-app)>#ng2p-platform-bar,body:has(.dash-app)>#ng2p-platform-guide{display:none!important}body:has(.dash-app){padding-top:0!important}
