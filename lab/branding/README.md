@@ -1,30 +1,29 @@
-# NSIPA branding
+# NSIPA Nigeria G2P branding
 
-The Nigeria G2P lab uses the original NSIPA Shared Progress identity. Editable Illustrator, SVG and Photoshop masters are in [source](source/READ-ME.txt). This is a demonstration identity proposal, not an adopted official government mark. The outlined web assets work without installed fonts. `nsipa-wordmark.svg` is the compact navigation logo; `nsipa-symbol.svg` is the favicon; `nsipa-logo.svg` is the full signature.
+The running site uses the original NSIPA Shared Progress identity created on 3 November 2026. Vector masters are in `../../NSIPA-Identity`. `nsipa-logo.svg` is the full signature, `nsipa-wordmark.svg` is the compact emblem/acronym lockup, and `nsipa-symbol.svg` is the standalone emblem. SVG type is outlined. The legacy `iqs-logo.png` URL now serves NSIPA for backward compatibility.
 
-The shared theme replaces visible IQS, OpenG2P, Keycloak, ODK and analytics branding, including staff-service logos, login pages, titles, favicons and product attribution. Native Odoo company logos and Keycloak realm display names are set by the native installer. Existing `/iqs-brand/` URLs are retained for compatibility. Authentication routes, API identifiers, record references and upstream license/source notices retain their technical values.
+The shared gateway theme covers visible brand text, logo images, embedded staff-service logos, titles, favicons, login/error/reset forms, and product attribution. Native company names/logos are updated in the three Odoo installations; staff, beneficiary and master realm display names are NSIPA. Login styling uses the green/gold palette. Staff catalogue icons and analytics branding are included. ODK vendor news and promotional feedback panels are hidden.
 
-## Install on an existing lab
+Authentication routes, database identifiers, record references, account names, API payloads and upstream source/license notices retain their existing technical values. Branding is a presentation customization. Do not globally rename service hostnames, cookies, package names or fixture IDs.
 
-Prerequisites: the existing Nigeria lab deployed under `/opt/openg2p-lab`, its gateway Nginx snippet, registration service, Kubernetes namespace and locally provisioned credentials. These scripts customize that installation; they are not a fresh platform installer. Build with Node.js/npm, then run the Python scripts as root in the lab's Ubuntu environment (Python requests and PyYAML required).
+## Apply and verify
 
-From this repository's `lab` directory (inside `latest-source` in the recovery repository):
+Build from `openg2p-lab/persona-ui` with `node build.cjs` after changing React source. Check `branding/iqs-brand.js` with `node --check` before deployment.
 
-```sh
-cd persona-ui
-npm ci
-npm run build
-cd ..
-node --check branding/iqs-brand.js
-python3 apply-nsipa-branding.py
-python3 brand-native-nsipa.py
-python3 verify-nsipa-branding.py
+In Ubuntu-22.04 as root:
+
+```
+python3 /mnt/h/Nigeria_Mosip/codex/openg2p-lab/apply-nsipa-branding.py
+python3 /mnt/h/Nigeria_Mosip/codex/openg2p-lab/brand-native-nsipa.py
+python3 /mnt/h/Nigeria_Mosip/codex/openg2p-lab/verify-nsipa-branding.py
 ```
 
-Run scripts from the checkout or a staged copy that contains the built `persona-ui/dist` files. The old `apply-iqs-branding.py` and `brand-native-apps.py` entry points delegate to the NSIPA installers. After restoring a historical recovery archive, apply these current sources to obtain NSIPA branding.
+The old `apply-iqs-branding.py` and `brand-native-apps.py` entry points delegate to these installers. The deployed directory remains `/opt/openg2p-lab/branding` and the compatibility URL remains `/iqs-brand/`.
 
-## Verification and rollback
+## Verification and recovery
 
-`nsipa-verification.json` records the 3 November 2026 live deployment: 135 asset checks across 15 virtual hosts and 70 ready workloads. Rerun the verifier for the current installation. Browser checks also covered public and authenticated pages, including staff sign-in, field data and analytics.
+135 checks across 15 public virtual hosts verify the five shared assets plus replacement Keycloak, OpenG2P, analytics and favicon URLs. All 70 workloads were ready after deployment. Browser checks covered public and authenticated pages; staff sign-in to field data succeeded. Evidence is in `../../outputs/nsipa-live-branding`.
 
-The shared installer creates private timestamped snapshots under `/opt/openg2p-lab/nsipa-branding-backups` and restores the snapshot automatically if installation fails. Native pre-change company and realm data are saved under `/opt/openg2p-lab/nsipa-native-backup` for manual recovery. Keep these runtime backups and credentials outside Git. Refresh browser tabs after applying the versioned theme.
+Private rollback snapshot: `/opt/openg2p-lab/nsipa-branding-backups/20261103-024545` (assets, home pages, registration templates/static files and Nginx snippet). Native company/realm snapshots: `/opt/openg2p-lab/nsipa-native-backup`. Source snapshot: `../../outputs/nsipa-source-backup-20261103-024518`.
+
+Refresh existing browser tabs to load the new versioned theme.

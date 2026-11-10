@@ -1,0 +1,9 @@
+import json
+from pathlib import Path
+events=[]
+def add(key,date,title,slug,ids,summary):
+ events.append(dict(id=key,date=date,reference_year=int(date[:4]),title=title,category='Oversight',source_url='https://ogha.og.gov.ng/blog/'+date.replace('-','/')+'/'+slug+'/',source_name='Ogun State House of Assembly',classification='published',level='state assembly / named committee participants',status='Officially reported activity',qualification='Official self-report; not an independent outcome audit, complete attendance register or personal project-delivery claim.',summary=summary,attribution='Named participants reviewed against official member profiles; shortened names and spelling variants checked manually.',member_ids=['ogun-'+str(i) for i in ids]))
+add('ogun-oversight-20250509','2025-05-09','Imeko-Afon oversight visit','ogha-committee-begins-oversight-visit-to-lgas-charges-imeko-afon-lg-on-fiscal-discipline',[29,10,15,30,20,4],'Reported visit assessed council projects and requested financial and procurement documentation. It does not establish that the participants delivered these projects.')
+add('ogun-audit-20250417','2025-04-17','Audit review and request for financial documents','ogha-committee-set-to-inspect-key-infrastructural-projects-requests-more-financial-documents-from-agencies',[22,18,27,6,4,10,21,3,16,19],'Reported committee review of agency financial reports. Infrastructure inspection was planned, not documented as completed in this report.')
+add('ogun-budget-20251222','2025-12-22','2026 budget defence concluded','ogha-concludes-2026-budget-defence-by-mdas-stresses-quality-service-delivery-as-ogirs-targets-n250bn-next-year',[21,16],'Finance and Appropriation committee chair and vice-chair named in the report of budget defence. Next-year revenue targets are not realised revenue or individual outcomes.')
+Path('territory-data/raw/representative-activity-evidence.json').write_text(json.dumps(events,indent=2))

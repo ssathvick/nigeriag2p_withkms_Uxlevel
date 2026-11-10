@@ -3,7 +3,7 @@ from pathlib import Path
 import concurrent.futures, requests, json, hashlib, subprocess
 root=Path('/opt/openg2p-lab')
 source=Path(__file__).resolve().parent
-hosts=['nigeriag2p.com','pbms.nigeriag2p.com','register.nigeriag2p.com','registry.nigeriag2p.com','staff-portal.nigeriag2p.com','beneficiary.nigeriag2p.com','awe.nigeriag2p.com','master-data-ui.nigeriag2p.com','partner-management.nigeriag2p.com','consent-manager.nigeriag2p.com','iam-staff-ui.nigeriag2p.com','odk.nigeriag2p.com','superset.nigeriag2p.com','portal-admin.nigeriag2p.com','keycloak.nigeriag2p.com']
+hosts=['g2p.wverve.in','g2p-pbms.wverve.in','g2p-register.wverve.in','g2p-registry.wverve.in','g2p-staff-portal.wverve.in','g2p-beneficiary.wverve.in','g2p-awe.wverve.in','g2p-master-data-ui.wverve.in','g2p-partner-management.wverve.in','g2p-consent-manager.wverve.in','g2p-iam-staff-ui.wverve.in','g2p-odk.wverve.in','g2p-superset.wverve.in','g2p-portal-admin.wverve.in','g2p-keycloak.wverve.in']
 def check(host):
     # Test the actual public virtual host on its loopback origin without changing TLS configuration.
     session=requests.Session();headers={'Host':host}

@@ -9,7 +9,7 @@ print('Databases',sql('postgres','select datname from pg_database where datistem
 for db in ['iamdb','iam','commonsdb']:
  try:print(db,sql(db,"select table_name,column_name from information_schema.columns where column_name like '%url%' or column_name like '%endpoint%' or column_name like '%redirect%';"))
  except subprocess.CalledProcessError:pass
-u='https://staff-portal.nigeriag2p.com'; r=requests.get(u+'/en')
+u='https://g2p-staff-portal.wverve.in'; r=requests.get(u+'/en')
 for source in re.findall(r'<script[^>]+src="([^"]+)"',r.text):
  x=requests.get(u+source if source.startswith('/') else source)
  print('script',source,x.status_code,x.headers.get('content-type'),len(x.content))

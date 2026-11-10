@@ -1,0 +1,695 @@
+{
+  "guides": [
+    {
+      "slug": "nsipa-screen-platform-sign-in",
+      "module": "platform",
+      "stage": "Sign in",
+      "audience": "all",
+      "title": "Sign in",
+      "purpose": "Use your existing NSIPA account to access the requested service.",
+      "steps": "Check the service address and choose the sign-in method shown on the page.\nEnter your account details and submit the sign-in form.\nWait for the service to open. If an error appears after sign-in, retain the service name and error message for the administrator; never share your password.",
+      "requirements": "An active account for the relevant staff or beneficiary service.",
+      "next_step": "Confirm that the requested service and your own account are shown before continuing.",
+      "issues": "A successful identity sign-in does not grant access to every service. A callback error or repeated redirect needs administrator investigation; do not create duplicate accounts to resolve it.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-profile-details",
+      "module": "beneficiary",
+      "stage": "Profile details",
+      "audience": "all",
+      "title": "Profile details",
+      "purpose": "Review the personal details used by the beneficiary portal.",
+      "steps": "Open your profile and check that it belongs to you.\nReview the displayed contact and identifying information.\nUse the available edit controls for supported corrections and confirm the saved result.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Return to the programme or application that needs the corrected information.",
+      "issues": "Check the selected record and any active filters. Resolve the displayed validation message before retrying. If access is denied, contact the service administrator; choosing another help role does not change your permissions.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-payment-account-details",
+      "module": "beneficiary",
+      "stage": "Payment account details",
+      "audience": "all",
+      "title": "Payment account details",
+      "purpose": "Review the payment account information linked through the available account service.",
+      "steps": "Open Accounts and select the relevant account or mapper.\nCheck the account identity and any verification status shown before entering a correction.\nSubmit only the changes requested by the form and confirm the returned status. Do not put full account credentials in help or complaint text.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Check the account status before proceeding with a programme application or payment enquiry.",
+      "issues": "An account link does not itself confirm enrollment or settlement. If linking fails, record the displayed error and contact the authorised support team.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-benefit-history",
+      "module": "beneficiary",
+      "stage": "Benefit history",
+      "audience": "all",
+      "title": "Benefit history",
+      "purpose": "Review the benefits displayed for your registered programmes.",
+      "steps": "Select the relevant benefit or programme.\nCheck the period, amount or quantity and the recorded status.\nOpen available details to distinguish an entitlement from a completed payment.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Use the application or enquiry workflow if a displayed benefit needs clarification.",
+      "issues": "A listed benefit is not proof that funds have reached an account. Use the recorded payment status and authorised support process to investigate discrepancies.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-complaints-and-enquiries",
+      "module": "beneficiary",
+      "stage": "Complaints and enquiries",
+      "audience": "all",
+      "title": "Complaints and enquiries",
+      "purpose": "Raise or follow an enquiry about your registration, application or benefit.",
+      "steps": "Check whether an enquiry already exists for the issue.\nDescribe the issue using the relevant application or programme reference and provide only the information requested.\nSubmit the enquiry and retain its reference so you can follow the response.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Track the enquiry status and respond to requests for additional information.",
+      "issues": "Do not include passwords or unnecessary financial information. An enquiry does not change eligibility or guarantee payment.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-notifications",
+      "module": "beneficiary",
+      "stage": "Notifications",
+      "audience": "all",
+      "title": "Notifications",
+      "purpose": "Read service messages and identify any action needed on your application.",
+      "steps": "Open the notification and check the referenced programme or application.\nRead the complete message and any due date shown.\nUse the linked service screen to complete the requested action, then check its status.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Return to the related application to confirm the outcome.",
+      "issues": "Do not treat a message preview as the full instruction. Open the notification before acting and verify unexpected requests with the service administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-news-and-announcements",
+      "module": "beneficiary",
+      "stage": "News and announcements",
+      "audience": "all",
+      "title": "News and announcements",
+      "purpose": "Read programme announcements without confusing them with an individual application decision.",
+      "steps": "Open the announcement and check its date and programme.\nRead the full eligibility or application information provided.\nUse the programme screen to check whether an application is available to your account.",
+      "requirements": "Access to the beneficiary portal.",
+      "next_step": "Track your own application separately from public announcements.",
+      "issues": "An announcement does not confirm that you are enrolled or entitled to a benefit.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-beneficiary-beneficiary-dashboard",
+      "module": "beneficiary",
+      "stage": "Beneficiary dashboard",
+      "audience": "all",
+      "title": "Beneficiary dashboard",
+      "purpose": "Understand the summary of your registrations, applications and benefits.",
+      "steps": "Review the summary labels and any active period filter.\nOpen the relevant application or benefit for its detailed status.\nRespond to requested corrections using the related workflow.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Use the detailed record when you need to confirm a decision or payment status.",
+      "issues": "Summary counts can cover different stages. Do not interpret an application count as an approval or a benefit count as settlement.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-register-registry-configuration",
+      "module": "register",
+      "stage": "Registry configuration",
+      "audience": "all",
+      "title": "Registry configuration",
+      "purpose": "Maintain the registry definitions and forms available to authorised configuration staff.",
+      "steps": "Identify the registry, register, data model or intake form being configured.\nReview field definitions, required values, labels and existing dependencies before editing.\nSave only authorised changes and check the affected form or record screen before using the new configuration.",
+      "requirements": "Registry configuration permission and an agreed definition of the intended change.",
+      "next_step": "Verify the resulting fields and validation behaviour in the affected registration workflow.",
+      "issues": "Changing a label does not migrate stored data. If a change affects existing fields or records, follow the registry administrator’s change process before proceeding.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-register-sharing-and-approval-configuration",
+      "module": "register",
+      "stage": "Sharing and approval configuration",
+      "audience": "all",
+      "title": "Sharing and approval configuration",
+      "purpose": "Review the policies that control registry sharing and approval routing.",
+      "steps": "Open the intended policy or workflow mapping.\nCheck its scope, applicable records, decision stages and permitted recipients.\nSave authorised changes and confirm the selected policy and status.",
+      "requirements": "Permission to administer registry policies and the agreed policy requirements.",
+      "next_step": "Check the affected request workflow using an authorised test record.",
+      "issues": "Do not broaden data access to resolve an unrelated form error. A policy shown in configuration must also be valid for the applicable workflow.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-register-outgoing-message-monitoring",
+      "module": "register",
+      "stage": "Outgoing message monitoring",
+      "audience": "all",
+      "title": "Outgoing message monitoring",
+      "purpose": "Inspect outgoing registry messages and identify delivery failures.",
+      "steps": "Find the message associated with the correct record or request.\nCheck its destination, event and processing status.\nReview the displayed error before using any authorised retry or correction action.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Confirm the resulting delivery status and retain the message reference for unresolved failures.",
+      "issues": "A queued message is not confirmed receipt by the destination. Avoid repeated retries until the cause of a failure is understood.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-register-outgoing-integration-configuration",
+      "module": "register",
+      "stage": "Outgoing integration configuration",
+      "audience": "all",
+      "title": "Outgoing integration configuration",
+      "purpose": "Maintain the configured topics and templates for outgoing registry integration.",
+      "steps": "Select the intended topic or template.\nCheck its field mappings, destination and expected record type.\nSave authorised changes and verify an approved test message before relying on the integration.",
+      "requirements": "Integration configuration permission and the approved destination schema.",
+      "next_step": "Inspect outgoing message status for the configured integration.",
+      "issues": "A template change can affect future messages. Confirm dependencies and avoid using live personal data in troubleshooting examples.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-register-registry-profile",
+      "module": "register",
+      "stage": "Registry profile",
+      "audience": "all",
+      "title": "Registry profile",
+      "purpose": "Check the staff profile associated with the current registry session.",
+      "steps": "Confirm that the account shown is your own.\nReview the available profile information and permitted update controls.\nContact the access administrator if the identity or assigned access is incorrect.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Return to the registry task once the account details are correct.",
+      "issues": "Profile changes do not automatically grant new registry permissions.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-awe-approval-simulation",
+      "module": "awe",
+      "stage": "Approval simulation",
+      "audience": "all",
+      "title": "Approval simulation",
+      "purpose": "Test how a policy version routes a supplied example request.",
+      "steps": "Confirm the policy and version selected for simulation.\nEnter a fictional example that matches the expected request structure.\nRun the simulation and inspect the resolved stages and approvers.",
+      "requirements": "Policy access and a synthetic test request without personal or confidential data.",
+      "next_step": "Compare the simulated routing with the intended approval design before any policy activation.",
+      "issues": "Simulation does not approve a live request. A successful example does not prove that every production input resolves correctly.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-awe-approval-delegation",
+      "module": "awe",
+      "stage": "Approval delegation",
+      "audience": "all",
+      "title": "Approval delegation",
+      "purpose": "Review delegation settings that affect who can act on approval tasks.",
+      "steps": "Identify the delegating user and intended substitute.\nCheck the permitted scope and effective dates shown by the form.\nSave only an authorised delegation and confirm its resulting status.",
+      "requirements": "Permission to administer delegations and the agreed delegation scope.",
+      "next_step": "Check the affected task assignment after the delegation becomes effective.",
+      "issues": "Delegation must not be used to avoid independent-review requirements. Check the effective period before assuming a substitute can act.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-awe-webhook-deliveries",
+      "module": "awe",
+      "stage": "Webhook deliveries",
+      "audience": "all",
+      "title": "Webhook deliveries",
+      "purpose": "Follow delivery of approval events to configured receiving services.",
+      "steps": "Locate the delivery associated with the relevant approval request.\nReview its destination, attempt status and response or error.\nUse an available retry only after checking the cause and confirming that the receiving service can safely handle it.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Confirm the final delivery status separately from the approval decision.",
+      "issues": "An approved request may still have a failed delivery. Repeated delivery is not a new approval and must not be treated as a duplicate decision.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-awe-approval-audit-log",
+      "module": "awe",
+      "stage": "Approval audit log",
+      "audience": "all",
+      "title": "Approval audit log",
+      "purpose": "Inspect recorded approval events to understand the sequence of actions.",
+      "steps": "Filter the log to the relevant request, policy or actor.\nRead timestamps, action names and related identifiers in sequence.\nOpen the related request to confirm its current state.",
+      "requirements": "An account authorised for this service and the correct record or task reference.",
+      "next_step": "Use the event references when asking the approval administrator to investigate a discrepancy.",
+      "issues": "An audit event records an action at a point in time; it may not describe the current request state. Avoid including unrelated personal information in exported evidence.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-programme-analytics",
+      "module": "platform",
+      "stage": "Programme analytics",
+      "audience": "all",
+      "title": "Programme analytics",
+      "purpose": "Review the registration and programme measures available to your staff account.",
+      "steps": "Check the reporting period and scope.\nApply the available filters and inspect the chart labels and counts.\nOpen the underlying workflow when you need to confirm an individual status.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-partner-simulation",
+      "module": "platform",
+      "stage": "Partner simulation",
+      "audience": "all",
+      "title": "Partner simulation",
+      "purpose": "Explore a synthetic integration journey and inspect its recorded outcomes.",
+      "steps": "Read the scenario and confirm that all inputs are fictional.\nOpen an existing run to inspect the recorded steps and outcomes.\nIf authorised to start a demonstration, review its inputs first and inspect the resulting report afterward.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-mobile-collection-setup",
+      "module": "platform",
+      "stage": "Mobile collection setup",
+      "audience": "all",
+      "title": "Mobile collection setup",
+      "purpose": "Choose the available mobile collection application or web preview.",
+      "steps": "Read the installation or preview instructions for your device.\nUse the supplied demonstration with fictional information.\nCheck the documented synchronisation and submission behaviour before relying on a collected record.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-readiness",
+      "module": "platform",
+      "stage": "Sandbox readiness",
+      "audience": "all",
+      "title": "Sandbox readiness",
+      "purpose": "Inspect the evidence of which demonstration capabilities are available.",
+      "steps": "Read each capability and its reported status.\nOpen any linked evidence and check its scope and date.\nDistinguish demonstrated behaviour from integrations that still require configuration.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-grievances",
+      "module": "platform",
+      "stage": "Sandbox grievances",
+      "audience": "all",
+      "title": "Sandbox grievances",
+      "purpose": "Review or record a fictional grievance in the demonstration workflow.",
+      "steps": "Locate the case or open the available new-case form.\nDescribe the fictional issue and follow the displayed status controls.\nConfirm the recorded case reference and resulting status.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-conditionality",
+      "module": "platform",
+      "stage": "Sandbox conditionality",
+      "audience": "all",
+      "title": "Sandbox conditionality",
+      "purpose": "Inspect the demonstration checks associated with programme conditions.",
+      "steps": "Select the fictional programme or household record.\nReview the condition, observation and result displayed.\nRecord only permitted demonstration changes and confirm the resulting status.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-field-collection",
+      "module": "platform",
+      "stage": "Sandbox field collection",
+      "audience": "all",
+      "title": "Sandbox field collection",
+      "purpose": "Use the demonstration field workflow to capture a fictional collection record.",
+      "steps": "Choose the relevant form or existing record.\nEnter fictional information and resolve validation errors.\nSubmit through the displayed workflow and confirm its recorded status.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-content-management",
+      "module": "platform",
+      "stage": "Sandbox content management",
+      "audience": "all",
+      "title": "Sandbox content management",
+      "purpose": "Manage the demonstration content available to authorised staff.",
+      "steps": "Open the relevant content item.\nReview its title, complete text and intended audience before editing.\nSave or publish only through the controls available to your account and confirm the result.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-sandbox-portal",
+      "module": "platform",
+      "stage": "Sandbox portal",
+      "audience": "all",
+      "title": "Sandbox portal",
+      "purpose": "Navigate the NSIPA demonstration features and understand their limits.",
+      "steps": "Choose the demonstration feature needed for your task.\nRead the screen instructions and use only fictional records.\nInspect the resulting status or report without treating it as a live eligibility or payment decision.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-territorial-intelligence",
+      "module": "platform",
+      "stage": "Territorial intelligence",
+      "audience": "all",
+      "title": "Territorial intelligence",
+      "purpose": "Explore geographic indicators together with their stated sources and reporting periods.",
+      "steps": "Select the administrative area and indicator.\nRead the source, reporting year and coverage notes before comparing values.\nUse the map or detail view to inspect the selected area without interpreting an indicator as a household eligibility decision.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-platform-jos-pilot-demonstration",
+      "module": "platform",
+      "stage": "Jos pilot demonstration",
+      "audience": "all",
+      "title": "Jos pilot demonstration",
+      "purpose": "Explore the proposed pilot using the explicitly fictional demonstration records.",
+      "steps": "Choose a dashboard or journey step.\nReview the assumptions, measures and simulation labels.\nInspect the demonstration outcome without treating it as an authorised allocation or real payment.",
+      "requirements": "An account with the required screen permission, where sign-in is requested. Use fictional information for sandbox and demonstration screens.",
+      "next_step": "Review the resulting screen or report and follow the next action that is actually available.",
+      "issues": "Demonstration results are not proof of a live integration, eligibility decision or transferred funds. If the screen is unavailable, report the service address and displayed error to the administrator.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-consent-manager-partner-consent-bindings",
+      "module": "consent-manager",
+      "stage": "Partner consent bindings",
+      "audience": "all",
+      "title": "Partner consent bindings",
+      "purpose": "Review the association between a partner and the policy that limits its access.",
+      "steps": "Open the partner binding and check the partner, policy and applicable scope.\nBefore creating a binding, confirm that the intended partner and policy are correct.\nSave only an authorised change and verify the resulting binding.",
+      "requirements": "An authorised consent-management account and the correct partner or request reference.",
+      "next_step": "Confirm the current request, policy and consent state before continuing with the related sharing workflow.",
+      "issues": "If no record appears, check the selected filters and account permissions. Consent approval does not approve programme enrollment or payment. Ask the service administrator to investigate inconsistent or unavailable records.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-consent-manager-consent-approvals",
+      "module": "consent-manager",
+      "stage": "Consent approvals",
+      "audience": "all",
+      "title": "Consent approvals",
+      "purpose": "Review consent-related requests awaiting an authorised decision.",
+      "steps": "Open the relevant request and inspect its partner, purpose and requested scope.\nCheck the supporting information and the decision controls available to your account.\nRecord an authorised decision only after completing the required checks, then confirm the resulting status.",
+      "requirements": "An authorised consent-management account and the correct partner or request reference.",
+      "next_step": "Confirm the current request, policy and consent state before continuing with the related sharing workflow.",
+      "issues": "If no record appears, check the selected filters and account permissions. Consent approval does not approve programme enrollment or payment. Ask the service administrator to investigate inconsistent or unavailable records.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    },
+    {
+      "slug": "nsipa-screen-consent-manager-consent-decisions",
+      "module": "consent-manager",
+      "stage": "Consent decisions",
+      "audience": "all",
+      "title": "Consent decisions",
+      "purpose": "Inspect the consent decisions recorded for a sharing request.",
+      "steps": "Locate the relevant decision using the available filters.\nRead its outcome, scope and related identifiers.\nUse the linked request or policy to investigate discrepancies without assuming that a past decision grants permanent access.",
+      "requirements": "An authorised consent-management account and the correct partner or request reference.",
+      "next_step": "Confirm the current request, policy and consent state before continuing with the related sharing workflow.",
+      "issues": "If no record appears, check the selected filters and account permissions. Consent approval does not approve programme enrollment or payment. Ask the service administrator to investigate inconsistent or unavailable records.",
+      "scope": "local_workflow",
+      "visibility": "public"
+    }
+  ],
+  "routes": [
+    {
+      "module": "partner-management",
+      "stage": "Partner requests",
+      "pattern": "/requests(?:/|$)"
+    },
+    {
+      "module": "partner-management",
+      "stage": "Partner onboarding",
+      "pattern": "/onboard(?:/|$)"
+    },
+    {
+      "module": "iam-staff-ui",
+      "stage": "Application configuration",
+      "pattern": "/applications(?:/|$)"
+    },
+    {
+      "module": "iam-staff-ui",
+      "stage": "Login provider configuration",
+      "pattern": "/login-providers(?:/|$)"
+    },
+    {
+      "module": "odk",
+      "stage": "Field collection users",
+      "pattern": "^/users(?:/|$)"
+    },
+    {
+      "module": "odk",
+      "stage": "Collection system audit",
+      "pattern": "^/system/audits(?:/|$)"
+    },
+    {
+      "module": "odk",
+      "stage": "Usage reporting",
+      "pattern": "^/system/analytics(?:/|$)"
+    },
+    {
+      "module": "odk",
+      "stage": "Collection account profile",
+      "pattern": "^/account/edit(?:/|$)"
+    },
+    {
+      "module": "superset",
+      "stage": "Analytics datasets",
+      "pattern": "^/(?:tablemodelview|dataset)(?:/|$)"
+    },
+    {
+      "module": "beneficiary",
+      "stage": "Portal information",
+      "pattern": "/(?:aboutus|contactus|otherpage)(?:/|$)"
+    },
+    {
+      "module": "consent-manager",
+      "pattern": "/decisions(?:/|$)",
+      "stage": "Consent decisions"
+    },
+    {
+      "module": "consent-manager",
+      "pattern": "/approvals(?:/|$)",
+      "stage": "Consent approvals"
+    },
+    {
+      "module": "consent-manager",
+      "pattern": "/partners(?:/|$)",
+      "stage": "Partner consent bindings"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/myprofile(?:/|$)",
+      "stage": "Profile details"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/accounts(?:/|$)",
+      "stage": "Payment account details"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/benefits(?:/|$)",
+      "stage": "Benefit history"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/complaints(?:/|$)",
+      "stage": "Complaints and enquiries"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/notifications(?:/|$)",
+      "stage": "Notifications"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/news(?:/|$)",
+      "stage": "News and announcements"
+    },
+    {
+      "module": "beneficiary",
+      "pattern": "/dashboard(?:/|$)",
+      "stage": "Beneficiary dashboard"
+    },
+    {
+      "module": "register",
+      "pattern": "/configuration/(?:registry|registers|data-models|intake-forms)(?:/|$)",
+      "stage": "Registry configuration"
+    },
+    {
+      "module": "register",
+      "pattern": "/configuration/(?:data-policies|awe-policy-config)(?:/|$)",
+      "stage": "Sharing and approval configuration"
+    },
+    {
+      "module": "register",
+      "pattern": "/outgoing-messages(?:/|$)",
+      "stage": "Outgoing message monitoring"
+    },
+    {
+      "module": "register",
+      "pattern": "/configuration/outgest-configurations(?:/|$)",
+      "stage": "Outgoing integration configuration"
+    },
+    {
+      "module": "register",
+      "pattern": "/myprofile(?:/|$)",
+      "stage": "Registry profile"
+    },
+    {
+      "module": "awe",
+      "pattern": "/policies/[^/]+/versions/[^/]+/simulate(?:/|$)",
+      "stage": "Approval simulation"
+    },
+    {
+      "module": "awe",
+      "pattern": "/delegations(?:/|$)",
+      "stage": "Approval delegation"
+    },
+    {
+      "module": "awe",
+      "pattern": "/deliveries(?:/|$)",
+      "stage": "Webhook deliveries"
+    },
+    {
+      "module": "awe",
+      "pattern": "/audit(?:/|$)",
+      "stage": "Approval audit log"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/(analytics|dashboard)(?:/|$)",
+      "stage": "Programme analytics"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/simulation(?:/|$)",
+      "stage": "Partner simulation"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/(registration/mobile|field-preview)(?:/|$)",
+      "stage": "Mobile collection setup"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1/readiness(?:/|$)",
+      "stage": "Sandbox readiness"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1/grievances(?:/|$)",
+      "stage": "Sandbox grievances"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1/conditionality(?:/|$)",
+      "stage": "Sandbox conditionality"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1/field(?:/|$)",
+      "stage": "Sandbox field collection"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1/cms(?:/|$)",
+      "stage": "Sandbox content management"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/registration/phase1(?:/|$)",
+      "stage": "Sandbox portal"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/territories(?:/|$)",
+      "stage": "Territorial intelligence"
+    },
+    {
+      "module": "platform",
+      "pattern": "^/(jos-cct|registration/jos)(?:/|$)",
+      "stage": "Jos pilot demonstration"
+    },
+    {
+      "module": "odk",
+      "pattern": "/projects/[^/]+/forms/[^/]+/submissions",
+      "stage": "Submit and quality check"
+    },
+    {
+      "module": "odk",
+      "pattern": "/projects",
+      "stage": "Prepare collection form"
+    },
+    {
+      "module": "master-data-ui",
+      "pattern": "/(geo-locations|geograph|location|administrative)",
+      "stage": "Location reference data"
+    },
+    {
+      "module": "master-data-ui",
+      "pattern": "/(attribute|code-list|dataset)",
+      "stage": "Maintain shared attributes"
+    },
+    {
+      "module": "partner-management",
+      "pattern": "/(partner|organisation)",
+      "stage": "Partner onboarding"
+    },
+    {
+      "module": "partner-management",
+      "pattern": "/(key|integration|credential)",
+      "stage": "Integration access"
+    },
+    {
+      "module": "consent-manager",
+      "pattern": "/(polic)",
+      "stage": "Partner policy scope"
+    },
+    {
+      "module": "consent-manager",
+      "pattern": "/(consent|request)",
+      "stage": "Review consent"
+    },
+    {
+      "module": "iam-staff-ui",
+      "pattern": "/(role|permission)",
+      "stage": "Role assignment"
+    },
+    {
+      "module": "iam-staff-ui",
+      "pattern": "/(user|account|staff)",
+      "stage": "Account management"
+    },
+    {
+      "module": "iam-staff-ui",
+      "pattern": "/(application|login-provider)",
+      "stage": "Application and login provider configuration"
+    }
+  ]
+}

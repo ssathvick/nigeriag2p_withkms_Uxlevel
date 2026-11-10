@@ -21,7 +21,7 @@ try:
  }''')
   config.write_text(content)
  if 'location = /territories {' not in content:
-  content=content.replace(' # Public territorial atlas: standalone presentation', ' location = /territories { return 308 https://nigeriag2p.com/territories/; }\n # Public territorial atlas: standalone presentation')
+  content=content.replace(' # Public territorial atlas: standalone presentation', ' location = /territories { return 308 https://g2p.wverve.in/territories/; }\n # Public territorial atlas: standalone presentation')
   config.write_text(content)
  for folder in ['public-home','home']:
   target=base/folder/'territories';target.mkdir(exist_ok=True)
@@ -37,7 +37,7 @@ try:
  subprocess.run(['nginx','-t'],check=True)
  subprocess.run(['systemctl','reload','nginx'],check=True)
  for name in ['','data.json','states.geojson','lgas.geojson','measures.csv','territories.js','territories.css']:
-  r=requests.get('http://127.0.0.1:18080/territories/'+name,headers={'Host':'nigeriag2p.com'},timeout=15)
+  r=requests.get('http://127.0.0.1:18080/territories/'+name,headers={'Host':'g2p.wverve.in'},timeout=15)
   assert r.status_code==200,(name,r.status_code)
   assert not r.headers.get('Set-Cookie'),name
   if name=='data.json':assert len(r.json()['districts'])==109

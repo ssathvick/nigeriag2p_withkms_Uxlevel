@@ -1,6 +1,6 @@
 from pathlib import Path
 import requests,json,re,datetime
-s=requests.Session();base='https://nigeriag2p.com';results={}
+s=requests.Session();base='https://g2p.wverve.in';results={}
 for path in ['/jos-cct/','/jos-cct/brief.html','/jos-cct/jos-cct.js','/jos-cct/jos-cct.css']:
  r=s.get(base+path,timeout=30,allow_redirects=False);assert r.status_code==200,(path,r.status_code);assert not r.headers.get('Set-Cookie');results[path]=r.status_code
  if path=='/jos-cct/':assert 'jos-root' in r.text and 'site-shell.js' not in r.text

@@ -1,0 +1,5481 @@
+{
+  "g2p.registry": {
+    "fields": {
+      "link_registry_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Link Registry ID",
+        "type": "char"
+      }
+    }
+  },
+  "g2p.administrative.area.large": {
+    "fields": {
+      "area_mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Area Mnemonic",
+        "type": "char"
+      },
+      "area_description": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Area Description",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Administrative Area Large\">\n                <sheet>\n                    <group>\n                        <field name=\"area_mnemonic\"/>\n                        <field name=\"area_description\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 528,
+      "model": "g2p.administrative.area.large",
+      "models": {
+        "g2p.administrative.area.large": [
+          "id",
+          "area_mnemonic",
+          "area_description",
+          "write_date"
+        ]
+      }
+    }
+  },
+  "g2p.administrative.area.small": {
+    "fields": {
+      "area_mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Area Mnemonic",
+        "type": "char"
+      },
+      "area_description": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Area Description",
+        "type": "char"
+      },
+      "administrative_area_large_id": {
+        "readonly": false,
+        "relation": "g2p.administrative.area.large",
+        "required": true,
+        "store": true,
+        "string": "Administrative Area Large",
+        "type": "many2one"
+      },
+      "administrative_area_large_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Large Area Mnemonic",
+        "type": "char"
+      },
+      "administrative_area_large_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Large Area Description",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Administrative Area Small\">\n                <sheet>\n                    <group>\n                        <field name=\"area_mnemonic\"/>\n                        <field name=\"area_description\"/>\n                        <field name=\"administrative_area_large_id\" options=\"{'no_create': True, 'no_create_edit': True}\" can_create=\"True\" can_write=\"True\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 526,
+      "model": "g2p.administrative.area.small",
+      "models": {
+        "g2p.administrative.area.small": [
+          "write_date",
+          "area_description",
+          "id",
+          "area_mnemonic",
+          "administrative_area_large_id"
+        ]
+      }
+    }
+  },
+  "g2p.agency": {
+    "fields": {
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "agency_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Mnemonic",
+        "type": "char"
+      },
+      "admin_name": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Name",
+        "type": "char"
+      },
+      "admin_email": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Email",
+        "type": "char"
+      },
+      "admin_mobile": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Mobile",
+        "type": "char"
+      },
+      "administrative_area_small_ids": {
+        "readonly": false,
+        "relation": "g2p.administrative.area.small",
+        "required": false,
+        "store": true,
+        "string": "Administrative Areas (Small)",
+        "type": "many2many"
+      },
+      "agency_program_benefit_codes": {
+        "readonly": false,
+        "relation": "g2p.agency.program.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Agency Program Benefit Codes",
+        "type": "one2many"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Agency\">\n                <sheet>\n                    <group colspan=\"2\">\n                        <group string=\"Agency Details\">\n                            <field name=\"name\" readonly=\"not context.get('agency_form_edit')\"/>\n                            <field name=\"agency_mnemonic\" readonly=\"not context.get('agency_form_edit')\"/>\n                        </group>\n                        <group string=\"Administrator Details\">\n                            <field name=\"admin_name\" string=\"Admin Name\" readonly=\"not context.get('agency_form_edit')\"/>\n                            <field name=\"admin_email\" string=\"Admin Email\" readonly=\"not context.get('agency_form_edit')\"/>\n                            <field name=\"admin_mobile\" string=\"Admin Mobile\" readonly=\"not context.get('agency_form_edit')\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page string=\"Agency Program Benefit Code\">\n                            <field name=\"agency_program_benefit_codes\" nolabel=\"1\" options=\"{'no_quick_create': True}\"><tree string=\"Agency Program Benefit Codes\">\n                <control>\n                    <create string=\"Add Program &amp; Benefit Code\"/>\n                </control>\n                <field name=\"program_mnemonic\"/>\n                <field name=\"benefit_mnemonic\"/>\n                <field name=\"measurement_unit\"/>\n                <field name=\"additional_info\" string=\"Custom Data\"/>\n            </tree></field>\n                        </page>\n                        <page string=\"Administrative Areas (Small)\">\n                            <field name=\"administrative_area_small_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\" can_create=\"True\" can_write=\"True\"><tree string=\"G2P Administrative Area Small\" limit=\"10\">\n                <control>\n                    <create string=\"Add Administrative Area (Small)\"/>\n                </control>\n                <field name=\"area_mnemonic\"/>\n                <field name=\"area_description\"/>\n                <field name=\"administrative_area_large_mnemonic\"/>\n                <field name=\"administrative_area_large_description\"/>\n                <button name=\"action_open_edit\" type=\"object\" class=\"fa fa-pencil\" title=\"Edit\"/>\n            </tree></field>\n                        </page>\n                    </notebook>\n                </sheet>\n            </form>",
+      "id": 512,
+      "model": "g2p.agency",
+      "models": {
+        "g2p.agency": [
+          "write_date",
+          "name",
+          "administrative_area_small_ids",
+          "admin_name",
+          "agency_mnemonic",
+          "agency_program_benefit_codes",
+          "id",
+          "admin_mobile",
+          "admin_email"
+        ],
+        "g2p.agency.program.benefit.codes": [
+          "benefit_mnemonic",
+          "write_date",
+          "additional_info",
+          "measurement_unit",
+          "id",
+          "program_mnemonic"
+        ],
+        "g2p.administrative.area.small": [
+          "write_date",
+          "area_description",
+          "administrative_area_large_mnemonic",
+          "administrative_area_large_description",
+          "id",
+          "area_mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.agency.program.benefit.codes": {
+    "fields": {
+      "agency_id": {
+        "help": "The agency this benefit code is associated with.",
+        "readonly": false,
+        "relation": "g2p.agency",
+        "required": true,
+        "store": true,
+        "string": "Agency",
+        "type": "many2one"
+      },
+      "program_id": {
+        "help": "The program this benefit code is associated with.",
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": true,
+        "store": true,
+        "string": "Program",
+        "type": "many2one"
+      },
+      "benefit_code_id": {
+        "help": "Select the benefit code for this agency and program.",
+        "readonly": false,
+        "relation": "g2p.benefit.codes",
+        "required": true,
+        "store": true,
+        "string": "Benefit Code",
+        "type": "many2one"
+      },
+      "benefit_codes": {
+        "readonly": true,
+        "relation": "g2p.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Benefit Codes",
+        "type": "many2many"
+      },
+      "additional_info": {
+        "help": "Additional info related to this agency program benefit code",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Custom Data",
+        "type": "text"
+      },
+      "agency_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Agency Mnemonic",
+        "type": "char"
+      },
+      "agency_name": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Agency Name",
+        "type": "char"
+      },
+      "program_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Program Mnemonic",
+        "type": "char"
+      },
+      "program_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Program Description",
+        "type": "char"
+      },
+      "target_registry": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Target Registry",
+        "type": "selection"
+      },
+      "program_status": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "ACTIVE",
+            "Active"
+          ],
+          [
+            "PAUSED",
+            "Paused"
+          ],
+          [
+            "CLOSED",
+            "Closed"
+          ]
+        ],
+        "store": true,
+        "string": "Program Status",
+        "type": "selection"
+      },
+      "benefit_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "CASH_DIGITAL",
+            "Cash (Digital)"
+          ],
+          [
+            "CASH_PHYSICAL",
+            "Cash (Physical)"
+          ],
+          [
+            "COMMODITY",
+            "Commodity"
+          ],
+          [
+            "SERVICE",
+            "Service"
+          ],
+          [
+            "COMBINATION",
+            "Combination"
+          ]
+        ],
+        "store": true,
+        "string": "Benefit Type",
+        "type": "selection"
+      },
+      "measurement_unit": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "benefit_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Description",
+        "type": "text"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Agency Program Benefit Codes\">\n                <sheet>\n                    <group>\n                        <field name=\"agency_id\" readonly=\"1\"/>\n                        <field name=\"program_id\" options=\"{'no_create': True, 'no_edit': True, 'no_quick_create': True}\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"benefit_codes\" invisible=\"1\"/>\n                        <field name=\"benefit_code_id\" domain=\"[('id', 'in', benefit_codes)]\" options=\"{'no_create': True, 'no_edit': True, 'no_quick_create': True}\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"benefit_type\" readonly=\"1\"/>                        \n                        <field name=\"additional_info\" string=\"Custom Data\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 525,
+      "model": "g2p.agency.program.benefit.codes",
+      "models": {
+        "g2p.agency.program.benefit.codes": [
+          "write_date",
+          "agency_id",
+          "additional_info",
+          "benefit_type",
+          "id",
+          "program_id",
+          "benefit_codes",
+          "benefit_code_id"
+        ]
+      }
+    }
+  },
+  "g2p.bgtask.summary.wizard": {
+    "fields": {
+      "target_registry": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Registry Type",
+        "type": "selection"
+      },
+      "mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Mnemonic",
+        "type": "char"
+      },
+      "brief": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Brief",
+        "type": "text"
+      },
+      "program_id": {
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "Program",
+        "type": "many2one"
+      },
+      "beneficiary_list_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List ID",
+        "type": "integer"
+      },
+      "beneficiary_list_uuid": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List ID",
+        "type": "char"
+      },
+      "enrollment_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Enrollment Cycle",
+        "type": "integer"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle",
+        "type": "integer"
+      },
+      "beneficiary_search": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Search Beneficiary",
+        "type": "char"
+      },
+      "list_stage": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "List Stage",
+        "type": "char"
+      },
+      "list_workflow_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "List Workflow Status",
+        "type": "char"
+      },
+      "verification_ids": {
+        "readonly": true,
+        "relation": "storage.file",
+        "required": false,
+        "store": false,
+        "string": "Community Verification",
+        "type": "one2many"
+      },
+      "enrollment_start_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Enrollment Start Date",
+        "type": "date"
+      },
+      "enrollment_end_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Enrollment End Date",
+        "type": "date"
+      },
+      "approved_for_enrollment": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Approved for Enrollment",
+        "type": "boolean"
+      },
+      "disbursement_cycle_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle",
+        "type": "char"
+      },
+      "approved_for_disbursement": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Approved for Disbursement",
+        "type": "boolean"
+      },
+      "summary_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.summary.line",
+        "required": false,
+        "store": true,
+        "string": "Summary Details",
+        "type": "one2many"
+      },
+      "summary_general_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.summary.line",
+        "required": false,
+        "store": false,
+        "string": "General Info",
+        "type": "one2many"
+      },
+      "summary_eligibility_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.summary.line",
+        "required": false,
+        "store": false,
+        "string": "Registry Info",
+        "type": "one2many"
+      },
+      "summary_entitlement_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.summary.line",
+        "required": false,
+        "store": false,
+        "string": "Registry Info",
+        "type": "one2many"
+      },
+      "general_title": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Group Title",
+        "type": "char"
+      },
+      "eligibility_group_title": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Group Title",
+        "type": "char"
+      },
+      "entitlement_group_title": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Group Title",
+        "type": "char"
+      },
+      "dummy_beneficiaries_field": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Beneficiaries",
+        "type": "text"
+      },
+      "sql_query": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Query",
+        "type": "char"
+      },
+      "order_by_condition": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Order By",
+        "type": "char"
+      },
+      "disbursement_envelope_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.disbursement.envelope.line",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelopes",
+        "type": "one2many"
+      },
+      "disbursement_batch_line_ids": {
+        "readonly": true,
+        "relation": "g2p.api.disbursement.batch.line",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batches",
+        "type": "one2many"
+      },
+      "show_approve_enrolment_button": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Show Approve Enrolment Button",
+        "type": "boolean"
+      },
+      "show_approve_disbursement_button": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Show Approve Disbursement Button",
+        "type": "boolean"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Eligibility Summary\" create=\"0\" delete=\"0\">\n        <header>\n          <!-- Community Leader -->\n          <button type=\"object\" class=\"btn-primary\" icon=\"fa-files-o\" string=\"Add a Verification\" name=\"action_record_verifications\" invisible=\"not(list_stage == 'enrollment' and list_workflow_status == 'initiated')\"/> \n          <!-- Enrollment Reviewer -->\n          <button type=\"object\" class=\"btn-success\" icon=\"fa-thumbs-o-up\" name=\"action_approve_final_enrollment\" invisible=\"not(show_approve_enrolment_button and list_stage == 'enrollment' and list_workflow_status == 'initiated')\" string=\"Approve Final Enrollment\"/>\n          <!-- Disbursement Reviewer -->\n          <button type=\"object\" class=\"btn-primary\" icon=\"fa-files-o\" string=\"Add a Verification\" name=\"action_record_verifications\" invisible=\"not(list_stage == 'disbursement' and list_workflow_status == 'initiated')\"/> \n          <button type=\"object\" class=\"btn-success\" icon=\"fa-thumbs-o-up\" name=\"action_approve_for_disbursement\" invisible=\"not(show_approve_disbursement_button and list_stage == 'disbursement' and list_workflow_status == 'initiated')\" string=\"Approve for Disbursement\"/>\n        </header>\n        <sheet>\n          <group>\n            <group string=\"Beneficiary List Info\">\n              <field name=\"program_id\" readonly=\"1\" on_change=\"1\"/>\n              <field name=\"mnemonic\" string=\"List Mnemonic\" readonly=\"1\"/>\n              <field name=\"brief\" string=\"Brief\" readonly=\"1\"/>\n              <field name=\"beneficiary_list_id\" invisible=\"1\" on_change=\"1\"/>\n              <field name=\"list_stage\" invisible=\"1\" on_change=\"1\"/>\n              <field name=\"list_workflow_status\" widget=\"badge\" invisible=\"1\"/>\n            </group>\n            <group string=\"Enrollment Cycle Info\" invisible=\"list_stage != 'enrollment'\">\n              <field name=\"enrollment_cycle_id\" readonly=\"1\"/>\n              <field name=\"enrollment_start_date\" readonly=\"1\"/>\n              <field name=\"enrollment_end_date\" readonly=\"1\"/>\n              <field name=\"show_approve_enrolment_button\" invisible=\"1\"/>\n              <field name=\"show_approve_disbursement_button\" invisible=\"1\"/>\n            </group>\n            <group string=\"Disbursement Cycle Info\" invisible=\"list_stage != 'disbursement'\">\n              <field name=\"disbursement_cycle_mnemonic\" readonly=\"1\"/>\n              <field name=\"approved_for_disbursement\" invisible=\"1\"/>\n            </group>\n          </group>\n          <notebook>\n            <!-- Enrollment Summary Page -->\n            <page string=\"Summary\">\n                <group>\n                  <div style=\"white-space: nowrap; margin-bottom: 10px;\">\n                    <strong>\n                      <field name=\"general_title\" readonly=\"1\" widget=\"handle_display\"/>\n                    </strong>\n                  </div>\n                  <field name=\"summary_general_line_ids\" nolabel=\"1\" colspan=\"2\">\n                    <tree class=\"summary_tree_view\" create=\"false\" edit=\"false\">\n                      <field name=\"summary_type\" nolabel=\"1\" invisible=\"1\"/>\n                      <field name=\"key\" nolabel=\"1\"/>\n                      <field name=\"value\" nolabel=\"1\"/>\n                    </tree>\n                  </field>\n                </group>\n                <group colspan=\"2\">\n                  <group>\n                    <div style=\"white-space: nowrap; margin-bottom: 10px;\">\n                      <strong>\n                        <field name=\"eligibility_group_title\" readonly=\"1\" widget=\"handle_display\"/>\n                      </strong>\n                    </div>\n                    <field name=\"summary_eligibility_line_ids\" nolabel=\"1\" colspan=\"2\">\n                      <tree class=\"summary_tree_view\" create=\"false\" edit=\"false\">\n                        <field name=\"summary_type\" nolabel=\"1\" invisible=\"1\"/>\n                        <field name=\"key\" nolabel=\"1\"/>\n                        <field name=\"value\" nolabel=\"1\"/>\n                      </tree>\n                    </field>\n                  </group>\n                  <group>\n                    <div style=\"white-space: nowrap; margin-bottom: 10px;\">\n                      <strong>\n                        <field name=\"entitlement_group_title\" readonly=\"1\" widget=\"handle_display\"/>\n                      </strong>\n                    </div>\n                    <field name=\"summary_entitlement_line_ids\" nolabel=\"1\" colspan=\"2\">\n                      <tree class=\"summary_tree_view\" create=\"false\" edit=\"false\">\n                        <field name=\"summary_type\" nolabel=\"1\" invisible=\"1\"/>\n                        <field name=\"key\" nolabel=\"1\"/>\n                        <field name=\"value\" nolabel=\"1\"/>\n                      </tree>\n                    </field>\n                  </group>\n                </group>\n            </page>\n            <page string=\"Beneficiaries\">\n            <group>\n                <field name=\"target_registry\" invisible=\"1\" on_change=\"1\"/>\n            </group>\n        <!-- Only one beneficiary_search field is shown based on registry type -->\n        <group name=\"beneficiary_search_farmer\" invisible=\"target_registry != 'farmer'\">\n          <widget name=\"g2p_beneficiaries_widget\" model=\"g2p.farmer.registry\" id=\"farmer_beneficiary_search_widget\"/>\n        </group>\n        <group name=\"beneficiary_search_student\" invisible=\"target_registry != 'student'\">\n          <widget name=\"g2p_beneficiaries_widget\" model=\"g2p.student.registry\" id=\"student_beneficiary_search_widget\"/>\n        </group>\n          </page>\n          <page string=\"Verifications\">\n            <field name=\"verification_ids\" readonly=\"1\" nolabel=\"1\" on_change=\"1\">\n              <tree>\n                <field name=\"verified_by\"/>\n                <field name=\"comment\"/>\n                <field name=\"verification_timestamp\"/>\n                <field name=\"data\" widget=\"download_binary\" filename=\"data_filename\"/>\n              </tree>\n            </field>\n          </page>\n\n          <page string=\"Disbursement Envelopes\" invisible=\"list_stage != 'disbursement'\">\n            <field name=\"disbursement_envelope_line_ids\" readonly=\"1\" nolabel=\"1\">\n              <tree limit=\"10\">\n                <field name=\"disbursement_envelope_id\" string=\"Envelope ID\"/>\n                <field name=\"benefit_code_mnemonic\" string=\"Benefit Code\"/>\n                <field name=\"number_of_beneficiaries\" string=\"# Beneficiaries\"/>\n                <field name=\"total_disbursement_quantity\" string=\"Disbursement Qty\"/>\n                <field name=\"measurement_unit\" string=\"Units\"/>\n                <button name=\"action_view_disbursement_envelope\" type=\"object\" string=\"View Envelope\" class=\"oe_link\" title=\"View Disbursement Envelope\"/>\n              </tree>\n            </field>\n          </page>\n          <page string=\"Disbursement Batches\" invisible=\"list_stage != 'disbursement'\">\n            <field name=\"disbursement_batch_line_ids\" readonly=\"1\" nolabel=\"1\">\n              <tree limit=\"10\">\n                <field name=\"disbursement_envelope_id\" string=\"Envelope ID\"/>\n                <field name=\"benefit_code_mnemonic\" string=\"Benefit Code\"/>\n                <field name=\"number_of_beneficiaries\" string=\"# Beneficiaries\"/>\n                <field name=\"total_disbursement_quantity\" string=\"Disbursement Qty\"/>\n                <field name=\"measurement_unit\" string=\"Units\"/>\n                <field name=\"batch_id\"/>\n                <field name=\"disbursement_status\" string=\"Sent to Bridge\" widget=\"badge\"/>\n                <button name=\"action_view_disbursement_batch\" type=\"object\" string=\"View Batch\" class=\"oe_link\" title=\"View Disbursement Batch\" invisible=\"disbursement_status!='complete'\"/>\n              </tree>\n            </field>\n          </page>\n          </notebook>\n        </sheet>\n      </form>",
+      "id": 540,
+      "model": "g2p.bgtask.summary.wizard",
+      "models": {
+        "g2p.bgtask.summary.wizard": [
+          "enrollment_end_date",
+          "summary_general_line_ids",
+          "summary_entitlement_line_ids",
+          "disbursement_envelope_line_ids",
+          "entitlement_group_title",
+          "summary_eligibility_line_ids",
+          "mnemonic",
+          "beneficiary_list_id",
+          "enrollment_cycle_id",
+          "write_date",
+          "approved_for_disbursement",
+          "general_title",
+          "id",
+          "disbursement_cycle_mnemonic",
+          "list_stage",
+          "eligibility_group_title",
+          "show_approve_disbursement_button",
+          "show_approve_enrolment_button",
+          "enrollment_start_date",
+          "program_id",
+          "list_workflow_status",
+          "brief",
+          "verification_ids",
+          "target_registry",
+          "disbursement_batch_line_ids"
+        ],
+        "g2p.api.summary.line": [
+          "summary_type",
+          "write_date",
+          "value",
+          "key",
+          "id"
+        ],
+        "storage.file": [
+          "write_date",
+          "verification_timestamp",
+          "verified_by",
+          "id",
+          "comment",
+          "data"
+        ],
+        "g2p.api.disbursement.envelope.line": [
+          "write_date",
+          "disbursement_envelope_id",
+          "measurement_unit",
+          "number_of_beneficiaries",
+          "benefit_code_mnemonic",
+          "id",
+          "total_disbursement_quantity"
+        ],
+        "g2p.api.disbursement.batch.line": [
+          "write_date",
+          "disbursement_envelope_id",
+          "measurement_unit",
+          "number_of_beneficiaries",
+          "benefit_code_mnemonic",
+          "id",
+          "batch_id",
+          "disbursement_status",
+          "total_disbursement_quantity"
+        ]
+      }
+    }
+  },
+  "g2p.benefit.codes": {
+    "fields": {
+      "benefit_mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Benefit Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "CASH_DIGITAL",
+            "Cash (Digital)"
+          ],
+          [
+            "CASH_PHYSICAL",
+            "Cash (Physical)"
+          ],
+          [
+            "COMMODITY",
+            "Commodity"
+          ],
+          [
+            "SERVICE",
+            "Service"
+          ],
+          [
+            "COMBINATION",
+            "Combination"
+          ]
+        ],
+        "store": true,
+        "string": "Benefit Type",
+        "type": "selection"
+      },
+      "benefit_description": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Description",
+        "type": "text"
+      },
+      "decimal_places": {
+        "help": "Number of decimal places to use for this benefit code's value. Maximum allowed value is 4. This field can only be set during creation, updation can not and should not be done.",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Decimal Places",
+        "type": "integer"
+      },
+      "measurement_unit": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Benefit Codes\">\n                <sheet>\n                    <group>\n                        <field name=\"benefit_mnemonic\" readonly=\"not context.get('benefit_code_form_edit')\"/>\n                        <field name=\"benefit_type\" readonly=\"not context.get('benefit_code_form_edit')\"/>\n                        <field name=\"measurement_unit\" widget=\"g2p_pbms.benefit_unit_widget\" readonly=\"not context.get('benefit_code_form_edit')\"/>\n                        <field name=\"decimal_places\" readonly=\"not context.get('benefit_code_form_edit')\"/>\n                        <field name=\"benefit_description\" readonly=\"not context.get('benefit_code_form_edit')\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 518,
+      "model": "g2p.benefit.codes",
+      "models": {
+        "g2p.benefit.codes": [
+          "benefit_mnemonic",
+          "write_date",
+          "measurement_unit",
+          "decimal_places",
+          "benefit_description",
+          "benefit_type",
+          "id"
+        ]
+      }
+    }
+  },
+  "g2p.api.disbursement.batch.line": {
+    "fields": {
+      "wizard_id": {
+        "readonly": false,
+        "relation": "g2p.bgtask.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "Wizard",
+        "type": "many2one"
+      },
+      "batch_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Batch ID",
+        "type": "char"
+      },
+      "beneficiary_list_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List ID",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle ID",
+        "type": "char"
+      },
+      "beneficiary_list_details_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List Details ID",
+        "type": "char"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "disbursements": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursements",
+        "type": "text"
+      },
+      "disbursement_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Batch Status",
+        "type": "char"
+      },
+      "benefit_code_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code ID",
+        "type": "integer"
+      },
+      "benefit_code_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Benefit Code Mnemonic",
+        "type": "char"
+      },
+      "measurement_unit": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "number_of_beneficiaries": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Beneficiaries",
+        "type": "integer"
+      },
+      "number_of_disbursements": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements",
+        "type": "integer"
+      },
+      "total_disbursement_quantity": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Disbursement Quantity",
+        "type": "float"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Batch Line\"><group><group><field name=\"wizard_id\" can_create=\"True\" can_write=\"True\"/><field name=\"beneficiary_list_id\"/><field name=\"beneficiary_list_details_id\"/></group><group><field name=\"batch_id\"/><field name=\"disbursement_cycle_id\"/><field name=\"disbursement_envelope_id\"/></group></group><group><field name=\"disbursements\"/></group><group><group><field name=\"disbursement_status\"/><field name=\"benefit_code_mnemonic\"/><field name=\"number_of_beneficiaries\"/><field name=\"total_disbursement_quantity\"/></group><group><field name=\"benefit_code_id\" on_change=\"1\"/><field name=\"measurement_unit\"/><field name=\"number_of_disbursements\"/></group></group><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.api.disbursement.batch.line",
+      "models": {
+        "g2p.api.disbursement.batch.line": [
+          "benefit_code_id",
+          "write_date",
+          "disbursement_envelope_id",
+          "measurement_unit",
+          "disbursement_cycle_id",
+          "disbursements",
+          "number_of_beneficiaries",
+          "wizard_id",
+          "benefit_code_mnemonic",
+          "id",
+          "batch_id",
+          "disbursement_status",
+          "number_of_disbursements",
+          "total_disbursement_quantity",
+          "beneficiary_list_id",
+          "beneficiary_list_details_id"
+        ]
+      }
+    }
+  },
+  "g2p.disbursement.batch.summary.geo": {
+    "fields": {
+      "disbursement_batch_summary_id": {
+        "readonly": false,
+        "relation": "g2p.disbursement.batch.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Summary",
+        "type": "many2one"
+      },
+      "disbursement_batch_control_geo_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Control Geo ID",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle ID",
+        "type": "char"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "disbursement_batch_control_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Control ID",
+        "type": "char"
+      },
+      "administrative_zone_id_large": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Zone ID",
+        "type": "char"
+      },
+      "administrative_zone_mnemonic_large": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Zone Mnemonic",
+        "type": "char"
+      },
+      "administrative_zone_id_small": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Zone ID",
+        "type": "char"
+      },
+      "administrative_zone_mnemonic_small": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Zone Mnemonic",
+        "type": "char"
+      },
+      "no_of_beneficiaries": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Beneficiaries",
+        "type": "integer"
+      },
+      "total_quantity": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Quantity",
+        "type": "float"
+      },
+      "warehouse_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse ID",
+        "type": "char"
+      },
+      "warehouse_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Mnemonic",
+        "type": "char"
+      },
+      "warehouse_additional_attributes": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Attributes",
+        "type": "char"
+      },
+      "agency_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency ID",
+        "type": "char"
+      },
+      "agency_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Mnemonic",
+        "type": "char"
+      },
+      "agency_additional_attributes": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Attributes",
+        "type": "char"
+      },
+      "warehouse_notification_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Notification Status",
+        "type": "char"
+      },
+      "agency_notification_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Notification Status",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Batch Summary Geo\"><group><group><field name=\"disbursement_batch_summary_id\" can_create=\"True\" can_write=\"True\"/><field name=\"disbursement_cycle_id\"/><field name=\"disbursement_batch_control_id\"/><field name=\"administrative_zone_mnemonic_large\"/><field name=\"administrative_zone_mnemonic_small\"/><field name=\"total_quantity\"/><field name=\"warehouse_mnemonic\"/><field name=\"agency_id\"/><field name=\"agency_additional_attributes\"/><field name=\"agency_notification_status\"/></group><group><field name=\"disbursement_batch_control_geo_id\"/><field name=\"disbursement_envelope_id\"/><field name=\"administrative_zone_id_large\"/><field name=\"administrative_zone_id_small\"/><field name=\"no_of_beneficiaries\"/><field name=\"warehouse_id\"/><field name=\"warehouse_additional_attributes\"/><field name=\"agency_mnemonic\"/><field name=\"warehouse_notification_status\"/></group></group><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.disbursement.batch.summary.geo",
+      "models": {
+        "g2p.disbursement.batch.summary.geo": [
+          "agency_additional_attributes",
+          "disbursement_envelope_id",
+          "administrative_zone_id_large",
+          "disbursement_cycle_id",
+          "warehouse_additional_attributes",
+          "disbursement_batch_summary_id",
+          "write_date",
+          "agency_id",
+          "no_of_beneficiaries",
+          "warehouse_notification_status",
+          "id",
+          "administrative_zone_id_small",
+          "agency_notification_status",
+          "warehouse_mnemonic",
+          "disbursement_batch_control_id",
+          "disbursement_batch_control_geo_id",
+          "administrative_zone_mnemonic_small",
+          "total_quantity",
+          "warehouse_id",
+          "agency_mnemonic",
+          "administrative_zone_mnemonic_large"
+        ]
+      }
+    }
+  },
+  "g2p.disbursement.batch.summary.wizard": {
+    "fields": {
+      "wizard_id": {
+        "readonly": false,
+        "relation": "g2p.bgtask.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "BG Task Summary Wizard",
+        "type": "many2one"
+      },
+      "disbursement_batch_control_id": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Disbursement Batch Control ID",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle ID",
+        "type": "integer"
+      },
+      "disbursement_cycle_code_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle Code Mnemonic",
+        "type": "char"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "benefit_code_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code ID",
+        "type": "integer"
+      },
+      "benefit_code_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Benefit Type",
+        "type": "char"
+      },
+      "measurement_unit": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "fa_resolution_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "FA Resolution Status",
+        "type": "char"
+      },
+      "fa_resolution_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "FA Resolution Timestamp",
+        "type": "datetime"
+      },
+      "fa_resolution_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "FA Resolution Latest Error Code",
+        "type": "char"
+      },
+      "fa_resolution_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "FA Resolution Attempts",
+        "type": "integer"
+      },
+      "sponsor_bank_dispatch_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Sponsor Bank Dispatch Status",
+        "type": "char"
+      },
+      "sponsor_bank_dispatch_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Sponsor Bank Dispatch Timestamp",
+        "type": "datetime"
+      },
+      "sponsor_bank_dispatch_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Sponsor Bank Dispatch Latest Error Code",
+        "type": "char"
+      },
+      "sponsor_bank_dispatch_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Sponsor Bank Dispatch Attempts",
+        "type": "integer"
+      },
+      "geo_resolution_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Geo Resolution Status",
+        "type": "char"
+      },
+      "geo_resolution_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Geo Resolution Timestamp",
+        "type": "datetime"
+      },
+      "geo_resolution_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Geo Resolution Latest Error Code",
+        "type": "char"
+      },
+      "geo_resolution_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Geo Resolution Attempts",
+        "type": "integer"
+      },
+      "warehouse_allocation_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Allocation Status",
+        "type": "char"
+      },
+      "warehouse_allocation_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Allocation Timestamp",
+        "type": "datetime"
+      },
+      "warehouse_allocation_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Allocation Latest Error Code",
+        "type": "char"
+      },
+      "warehouse_allocation_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Allocation Attempts",
+        "type": "integer"
+      },
+      "agency_allocation_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Allocation Status",
+        "type": "char"
+      },
+      "agency_allocation_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Allocation Timestamp",
+        "type": "datetime"
+      },
+      "agency_allocation_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Allocation Latest Error Code",
+        "type": "char"
+      },
+      "agency_allocation_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Allocation Attempts",
+        "type": "integer"
+      },
+      "disbursement_batch_summary_geo_ids": {
+        "readonly": false,
+        "relation": "g2p.disbursement.batch.summary.geo",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Control Geos",
+        "type": "one2many"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Batch Summary Wizard\"><group><group><field name=\"wizard_id\" can_create=\"True\" can_write=\"True\"/><field name=\"disbursement_cycle_id\"/><field name=\"disbursement_envelope_id\"/><field name=\"benefit_code_mnemonic\"/><field name=\"measurement_unit\"/><field name=\"fa_resolution_timestamp\"/><field name=\"fa_resolution_attempts\"/><field name=\"sponsor_bank_dispatch_timestamp\"/><field name=\"sponsor_bank_dispatch_attempts\"/><field name=\"geo_resolution_timestamp\"/><field name=\"geo_resolution_attempts\"/><field name=\"warehouse_allocation_timestamp\"/><field name=\"warehouse_allocation_attempts\"/><field name=\"agency_allocation_timestamp\"/><field name=\"agency_allocation_attempts\"/></group><group><field name=\"disbursement_batch_control_id\"/><field name=\"disbursement_cycle_code_mnemonic\"/><field name=\"benefit_code_id\"/><field name=\"benefit_type\"/><field name=\"fa_resolution_status\"/><field name=\"fa_resolution_latest_error_code\"/><field name=\"sponsor_bank_dispatch_status\"/><field name=\"sponsor_bank_dispatch_latest_error_code\"/><field name=\"geo_resolution_status\"/><field name=\"geo_resolution_latest_error_code\"/><field name=\"warehouse_allocation_status\"/><field name=\"warehouse_allocation_latest_error_code\"/><field name=\"agency_allocation_status\"/><field name=\"agency_allocation_latest_error_code\"/></group></group><group><field name=\"disbursement_batch_summary_geo_ids\"><tree string=\"Disbursement Batch Summary Geo\"><field name=\"id\"/></tree></field></group><group/><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.disbursement.batch.summary.wizard",
+      "models": {
+        "g2p.disbursement.batch.summary.wizard": [
+          "disbursement_envelope_id",
+          "disbursement_cycle_id",
+          "agency_allocation_timestamp",
+          "geo_resolution_timestamp",
+          "fa_resolution_latest_error_code",
+          "warehouse_allocation_attempts",
+          "fa_resolution_attempts",
+          "warehouse_allocation_latest_error_code",
+          "geo_resolution_latest_error_code",
+          "write_date",
+          "warehouse_allocation_status",
+          "id",
+          "agency_allocation_latest_error_code",
+          "disbursement_cycle_code_mnemonic",
+          "disbursement_batch_control_id",
+          "sponsor_bank_dispatch_status",
+          "sponsor_bank_dispatch_attempts",
+          "sponsor_bank_dispatch_latest_error_code",
+          "fa_resolution_status",
+          "disbursement_batch_summary_geo_ids",
+          "agency_allocation_attempts",
+          "sponsor_bank_dispatch_timestamp",
+          "benefit_code_id",
+          "geo_resolution_status",
+          "measurement_unit",
+          "warehouse_allocation_timestamp",
+          "benefit_type",
+          "geo_resolution_attempts",
+          "wizard_id",
+          "benefit_code_mnemonic",
+          "fa_resolution_timestamp",
+          "agency_allocation_status"
+        ],
+        "g2p.disbursement.batch.summary.geo": [
+          "id",
+          "write_date"
+        ]
+      }
+    }
+  },
+  "g2p.api.disbursement.envelope.line": {
+    "fields": {
+      "wizard_id": {
+        "readonly": false,
+        "relation": "g2p.bgtask.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "Wizard",
+        "type": "many2one"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "beneficiary_list_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List ID",
+        "type": "char"
+      },
+      "benefit_code_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code ID",
+        "type": "integer"
+      },
+      "benefit_code_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Benefit Code Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Type",
+        "type": "char"
+      },
+      "benefit_program_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Program Mnemonic",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle ID",
+        "type": "char"
+      },
+      "cycle_code_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Cycle Code Mnemonic",
+        "type": "char"
+      },
+      "number_of_beneficiaries": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Beneficiaries",
+        "type": "integer"
+      },
+      "number_of_disbursements": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements",
+        "type": "integer"
+      },
+      "total_disbursement_quantity": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Disbursement Quantity",
+        "type": "float"
+      },
+      "measurement_unit": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Envelope Line\"><group><group><field name=\"wizard_id\" can_create=\"True\" can_write=\"True\"/><field name=\"beneficiary_list_id\"/><field name=\"benefit_code_mnemonic\"/><field name=\"benefit_program_mnemonic\"/><field name=\"cycle_code_mnemonic\"/><field name=\"number_of_disbursements\"/><field name=\"measurement_unit\"/></group><group><field name=\"disbursement_envelope_id\"/><field name=\"benefit_code_id\" on_change=\"1\"/><field name=\"benefit_type\"/><field name=\"disbursement_cycle_id\"/><field name=\"number_of_beneficiaries\"/><field name=\"total_disbursement_quantity\"/></group></group><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.api.disbursement.envelope.line",
+      "models": {
+        "g2p.api.disbursement.envelope.line": [
+          "benefit_code_id",
+          "write_date",
+          "disbursement_envelope_id",
+          "measurement_unit",
+          "disbursement_cycle_id",
+          "number_of_beneficiaries",
+          "benefit_type",
+          "wizard_id",
+          "benefit_program_mnemonic",
+          "benefit_code_mnemonic",
+          "id",
+          "number_of_disbursements",
+          "total_disbursement_quantity",
+          "beneficiary_list_id",
+          "cycle_code_mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.disbursement.envelope.summary.geo": {
+    "fields": {
+      "disbursement_envelope_summary_id": {
+        "readonly": false,
+        "relation": "g2p.disbursement.envelope.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope Summary",
+        "type": "many2one"
+      },
+      "disbursement_batch_control_geo_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Control Geo ID",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle ID",
+        "type": "char"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "disbursement_batch_control_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Control ID",
+        "type": "char"
+      },
+      "administrative_zone_id_large": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Zone ID",
+        "type": "char"
+      },
+      "administrative_zone_mnemonic_large": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Zone Mnemonic",
+        "type": "char"
+      },
+      "administrative_zone_id_small": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Zone ID",
+        "type": "char"
+      },
+      "administrative_zone_mnemonic_small": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Zone Mnemonic",
+        "type": "char"
+      },
+      "no_of_beneficiaries": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Beneficiaries",
+        "type": "integer"
+      },
+      "total_quantity": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Quantity",
+        "type": "float"
+      },
+      "warehouse_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse ID",
+        "type": "char"
+      },
+      "warehouse_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Mnemonic",
+        "type": "char"
+      },
+      "warehouse_additional_attributes": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Attributes",
+        "type": "char"
+      },
+      "agency_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency ID",
+        "type": "char"
+      },
+      "agency_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Mnemonic",
+        "type": "char"
+      },
+      "agency_additional_attributes": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Attributes",
+        "type": "char"
+      },
+      "warehouse_notification_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Notification Status",
+        "type": "char"
+      },
+      "agency_notification_status": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Agency Notification Status",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Envelope Summary Geo\"><group><group><field name=\"disbursement_envelope_summary_id\" can_create=\"True\" can_write=\"True\"/><field name=\"disbursement_cycle_id\"/><field name=\"disbursement_batch_control_id\"/><field name=\"administrative_zone_mnemonic_large\"/><field name=\"administrative_zone_mnemonic_small\"/><field name=\"total_quantity\"/><field name=\"warehouse_mnemonic\"/><field name=\"agency_id\"/><field name=\"agency_additional_attributes\"/><field name=\"agency_notification_status\"/></group><group><field name=\"disbursement_batch_control_geo_id\"/><field name=\"disbursement_envelope_id\"/><field name=\"administrative_zone_id_large\"/><field name=\"administrative_zone_id_small\"/><field name=\"no_of_beneficiaries\"/><field name=\"warehouse_id\"/><field name=\"warehouse_additional_attributes\"/><field name=\"agency_mnemonic\"/><field name=\"warehouse_notification_status\"/></group></group><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.disbursement.envelope.summary.geo",
+      "models": {
+        "g2p.disbursement.envelope.summary.geo": [
+          "agency_additional_attributes",
+          "disbursement_envelope_id",
+          "administrative_zone_id_large",
+          "disbursement_cycle_id",
+          "warehouse_additional_attributes",
+          "write_date",
+          "agency_id",
+          "no_of_beneficiaries",
+          "warehouse_notification_status",
+          "id",
+          "administrative_zone_id_small",
+          "agency_notification_status",
+          "warehouse_mnemonic",
+          "disbursement_batch_control_id",
+          "disbursement_batch_control_geo_id",
+          "disbursement_envelope_summary_id",
+          "administrative_zone_mnemonic_small",
+          "total_quantity",
+          "warehouse_id",
+          "agency_mnemonic",
+          "administrative_zone_mnemonic_large"
+        ]
+      }
+    }
+  },
+  "g2p.disbursement.envelope.summary.wizard": {
+    "fields": {
+      "wizard_id": {
+        "readonly": false,
+        "relation": "g2p.bgtask.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "BG Task Summary Wizard",
+        "type": "many2one"
+      },
+      "disbursement_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope ID",
+        "type": "char"
+      },
+      "benefit_code_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code ID",
+        "type": "char"
+      },
+      "benefit_code_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Code Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Benefit Type",
+        "type": "char"
+      },
+      "measurement_unit": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "number_of_beneficiaries_received": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Beneficiaries Received",
+        "type": "integer"
+      },
+      "number_of_beneficiaries_declared": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Beneficiaries Declared",
+        "type": "integer"
+      },
+      "number_of_disbursements_declared": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements Declared",
+        "type": "integer"
+      },
+      "number_of_disbursements_received": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements Received",
+        "type": "integer"
+      },
+      "total_disbursement_quantity_declared": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Disbursement Quantity Declared",
+        "type": "char"
+      },
+      "total_disbursement_quantity_received": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Total Disbursement Quantity Received",
+        "type": "char"
+      },
+      "funds_available_with_bank": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Available With Bank",
+        "type": "char"
+      },
+      "funds_available_latest_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Available Latest Timestamp",
+        "type": "datetime"
+      },
+      "funds_available_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Available Latest Error Code",
+        "type": "char"
+      },
+      "funds_available_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Available Attempts",
+        "type": "integer"
+      },
+      "funds_blocked_with_bank": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Blocked With Bank",
+        "type": "char"
+      },
+      "funds_blocked_latest_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Blocked Latest Timestamp",
+        "type": "datetime"
+      },
+      "funds_blocked_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Blocked Latest Error Code",
+        "type": "char"
+      },
+      "funds_blocked_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Blocked Attempts",
+        "type": "integer"
+      },
+      "funds_blocked_reference_number": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Funds Blocked Reference Number",
+        "type": "char"
+      },
+      "number_of_disbursements_shipped": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements Shipped",
+        "type": "integer"
+      },
+      "number_of_disbursements_reconciled": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements Reconciled",
+        "type": "integer"
+      },
+      "number_of_disbursements_reversed": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Disbursements Reversed",
+        "type": "integer"
+      },
+      "no_of_warehouses_allocated": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Warehouses Allocated",
+        "type": "integer"
+      },
+      "no_of_warehouses_notified": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Warehouses Notified",
+        "type": "integer"
+      },
+      "no_of_agencies_allocated": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Agencies Allocated",
+        "type": "integer"
+      },
+      "no_of_agencies_notified": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Agencies Notified",
+        "type": "integer"
+      },
+      "no_of_beneficiaries_notified": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of Beneficiaries Notified",
+        "type": "integer"
+      },
+      "no_of_pods_received": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No. of PODs Received",
+        "type": "integer"
+      },
+      "disbursement_envelope_summary_geo_ids": {
+        "readonly": false,
+        "relation": "g2p.disbursement.envelope.summary.geo",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Envelope Summary Geos",
+        "type": "one2many"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Disbursement Envelope Summary Wizard\"><group><group><field name=\"wizard_id\" can_create=\"True\" can_write=\"True\"/><field name=\"benefit_code_id\"/><field name=\"benefit_type\"/><field name=\"number_of_beneficiaries_received\"/><field name=\"number_of_disbursements_declared\"/><field name=\"total_disbursement_quantity_declared\"/><field name=\"funds_available_with_bank\"/><field name=\"funds_available_latest_error_code\"/><field name=\"funds_blocked_with_bank\"/><field name=\"funds_blocked_latest_error_code\"/><field name=\"funds_blocked_reference_number\"/><field name=\"number_of_disbursements_reconciled\"/><field name=\"no_of_warehouses_allocated\"/><field name=\"no_of_agencies_allocated\"/><field name=\"no_of_beneficiaries_notified\"/></group><group><field name=\"disbursement_envelope_id\"/><field name=\"benefit_code_mnemonic\"/><field name=\"measurement_unit\"/><field name=\"number_of_beneficiaries_declared\"/><field name=\"number_of_disbursements_received\"/><field name=\"total_disbursement_quantity_received\"/><field name=\"funds_available_latest_timestamp\"/><field name=\"funds_available_attempts\"/><field name=\"funds_blocked_latest_timestamp\"/><field name=\"funds_blocked_attempts\"/><field name=\"number_of_disbursements_shipped\"/><field name=\"number_of_disbursements_reversed\"/><field name=\"no_of_warehouses_notified\"/><field name=\"no_of_agencies_notified\"/><field name=\"no_of_pods_received\"/></group></group><group><field name=\"disbursement_envelope_summary_geo_ids\"><tree string=\"Disbursement Envelope Summary Geo\"><field name=\"id\"/></tree></field></group><group/><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.disbursement.envelope.summary.wizard",
+      "models": {
+        "g2p.disbursement.envelope.summary.wizard": [
+          "no_of_agencies_allocated",
+          "disbursement_envelope_id",
+          "funds_blocked_latest_error_code",
+          "funds_blocked_latest_timestamp",
+          "no_of_agencies_notified",
+          "number_of_beneficiaries_received",
+          "number_of_disbursements_declared",
+          "funds_blocked_reference_number",
+          "number_of_disbursements_reconciled",
+          "write_date",
+          "total_disbursement_quantity_received",
+          "funds_available_attempts",
+          "number_of_beneficiaries_declared",
+          "number_of_disbursements_reversed",
+          "id",
+          "funds_blocked_with_bank",
+          "funds_available_with_bank",
+          "disbursement_envelope_summary_geo_ids",
+          "total_disbursement_quantity_declared",
+          "no_of_beneficiaries_notified",
+          "no_of_warehouses_notified",
+          "benefit_code_id",
+          "number_of_disbursements_received",
+          "measurement_unit",
+          "funds_available_latest_timestamp",
+          "funds_available_latest_error_code",
+          "no_of_warehouses_allocated",
+          "benefit_type",
+          "number_of_disbursements_shipped",
+          "wizard_id",
+          "benefit_code_mnemonic",
+          "funds_blocked_attempts",
+          "no_of_pods_received"
+        ],
+        "g2p.disbursement.envelope.summary.geo": [
+          "id",
+          "write_date"
+        ]
+      }
+    }
+  },
+  "g2p.api.summary.line": {
+    "fields": {
+      "wizard_id": {
+        "readonly": false,
+        "relation": "g2p.bgtask.summary.wizard",
+        "required": false,
+        "store": true,
+        "string": "Wizard",
+        "type": "many2one"
+      },
+      "key": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Field",
+        "type": "char"
+      },
+      "value": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Value",
+        "type": "text"
+      },
+      "summary_type": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "general",
+            "General"
+          ],
+          [
+            "entitlement",
+            "Entitlement"
+          ],
+          [
+            "eligibility",
+            "Eligibility"
+          ]
+        ],
+        "store": true,
+        "string": "Summary Type",
+        "type": "selection"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form><sheet string=\"Dynamic API Summary Line\"><group><group><field name=\"wizard_id\" can_create=\"True\" can_write=\"True\"/></group><group><field name=\"key\"/></group></group><group><field name=\"value\"/></group><group><group><field name=\"summary_type\"/></group></group><group><separator/></group></sheet></form>",
+      "id": false,
+      "model": "g2p.api.summary.line",
+      "models": {
+        "g2p.api.summary.line": [
+          "summary_type",
+          "write_date",
+          "value",
+          "key",
+          "wizard_id",
+          "id"
+        ]
+      }
+    }
+  },
+  "g2p.farmer.registry": {
+    "fields": {
+      "link_registry_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Link Registry ID",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "gender": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "male",
+            "Male"
+          ],
+          [
+            "female",
+            "Female"
+          ]
+        ],
+        "store": true,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "land_area": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Land Area",
+        "type": "float"
+      },
+      "no_of_cattle_heads": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No of Cattle Heads",
+        "type": "integer"
+      },
+      "no_of_poultry_heads": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "No of Poultry Heads",
+        "type": "integer"
+      },
+      "annual_income": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Annual Income",
+        "type": "float"
+      },
+      "large_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Area ID",
+        "type": "integer"
+      },
+      "large_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Area Code",
+        "type": "char"
+      },
+      "small_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Area ID",
+        "type": "integer"
+      },
+      "small_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Area Code",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Farmer Registry\" create=\"0\">\n                <sheet>\n                    <group>\n                        <field name=\"link_registry_id\"/>\n                        <field name=\"name\"/>\n                        <field name=\"gender\"/>\n                        <field name=\"land_area\"/>\n                        <field name=\"no_of_cattle_heads\"/>\n                        <field name=\"no_of_poultry_heads\"/>\n                        <field name=\"annual_income\"/>\n                        <field name=\"large_area_id\"/>\n                        <field name=\"large_area_code\"/>\n                        <field name=\"small_area_id\"/>\n                        <field name=\"small_area_code\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 553,
+      "model": "g2p.farmer.registry",
+      "models": {
+        "g2p.farmer.registry": [
+          "link_registry_id",
+          "write_date",
+          "name",
+          "gender",
+          "large_area_id",
+          "annual_income",
+          "small_area_code",
+          "large_area_code",
+          "id",
+          "land_area",
+          "small_area_id",
+          "no_of_cattle_heads",
+          "no_of_poultry_heads"
+        ]
+      }
+    }
+  },
+  "g2p.beneficiary.list": {
+    "fields": {
+      "beneficiary_list_id": {
+        "readonly": true,
+        "required": true,
+        "store": true,
+        "string": "Beneficiary List ID",
+        "type": "char"
+      },
+      "mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Mnemonic",
+        "type": "char"
+      },
+      "program_id": {
+        "readonly": true,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "G2P Program",
+        "type": "many2one"
+      },
+      "enrollment_cycle_id": {
+        "readonly": false,
+        "relation": "g2p.enrollment.cycle",
+        "required": false,
+        "store": true,
+        "string": "Enrollment Cycle",
+        "type": "many2one"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "relation": "g2p.disbursement.cycle",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle",
+        "type": "many2one"
+      },
+      "brief": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Brief",
+        "type": "text"
+      },
+      "eligibility_process_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Eligibility Process Status",
+        "type": "selection"
+      },
+      "eligibility_number_of_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Eligibility Number of Attempts",
+        "type": "integer"
+      },
+      "eligibility_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Eligibility Latest Error Code",
+        "type": "char"
+      },
+      "eligibility_processed_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Eligibility Processed Date",
+        "type": "datetime"
+      },
+      "entitlement_process_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Entitlement Process Status",
+        "type": "selection"
+      },
+      "entitlement_number_of_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Entitlement Number of Attempts",
+        "type": "integer"
+      },
+      "entitlement_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Entitlement Latest Error Code",
+        "type": "char"
+      },
+      "entitlement_processed_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Entitlement Processed Date",
+        "type": "datetime"
+      },
+      "envelope_creation_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Disbursement Envelope Status",
+        "type": "selection"
+      },
+      "envelope_creation_number_of_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Number of Attempts",
+        "type": "integer"
+      },
+      "envelope_creation_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Latest Error Code",
+        "type": "char"
+      },
+      "envelope_creation_processed_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Processed Date",
+        "type": "datetime"
+      },
+      "disbursement_batch_creation_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Disbursement Envelope Status",
+        "type": "selection"
+      },
+      "dbc_number_of_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Creation Number of Attempts",
+        "type": "integer"
+      },
+      "dbc_latest_error_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Creation Latest Error Code",
+        "type": "char"
+      },
+      "dbc_processed_date": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Disbursement Batch Creation Processed Date",
+        "type": "datetime"
+      },
+      "number_of_registrants": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Registrants",
+        "type": "integer"
+      },
+      "number_of_entitlements_processed": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Number of Entitlements Processed",
+        "type": "integer"
+      },
+      "list_stage": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "enrollment",
+            "ENROLLMENT"
+          ],
+          [
+            "disbursement",
+            "DISBURSEMENT"
+          ]
+        ],
+        "store": true,
+        "string": "List Stage",
+        "type": "selection"
+      },
+      "approval_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Approval Date",
+        "type": "date"
+      },
+      "list_workflow_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "initiated",
+            ""
+          ],
+          [
+            "approved_final_enrolment",
+            "APPROVED FINAL ENROLMENT"
+          ],
+          [
+            "approved_for_disbursement",
+            "APPROVED FOR DISBURSEMENT"
+          ]
+        ],
+        "store": true,
+        "string": "List Workflow Status",
+        "type": "selection"
+      },
+      "verification_ids": {
+        "readonly": false,
+        "relation": "storage.file",
+        "required": false,
+        "store": true,
+        "string": "Community Verification",
+        "type": "one2many"
+      },
+      "creation_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Creation Date",
+        "type": "datetime"
+      },
+      "processed_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Processed Date",
+        "type": "datetime"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      },
+      "iqs_household_ref": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "IQS application household reference",
+        "type": "char"
+      }
+    },
+    "view": {
+      "arch": "<form create=\"0\" delete=\"0\">\n                <group>\n                    <field name=\"program_id\" readonly=\"1\"/>\n                    <field name=\"mnemonic\"/>\n                    <field name=\"brief\"/>\n                    <!-- Hide fields during creation -->\n                    <field name=\"eligibility_process_status\" invisible=\"1\"/>\n                    <!-- <field name=\"entitlement_process_status\" invisible=\"1\"/> -->\n                    <field name=\"processed_date\" invisible=\"1\"/>\n                    <field name=\"creation_date\" invisible=\"1\"/>\n                </group>\n            </form>",
+      "id": 534,
+      "model": "g2p.beneficiary.list",
+      "models": {
+        "g2p.beneficiary.list": [
+          "write_date",
+          "eligibility_process_status",
+          "processed_date",
+          "id",
+          "program_id",
+          "creation_date",
+          "mnemonic",
+          "brief"
+        ]
+      }
+    }
+  },
+  "g2p.disbursement.cycle": {
+    "fields": {
+      "cycle_mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Cycle Mnemonic",
+        "type": "char"
+      },
+      "bridge_envelope_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Bridge Envelope ID",
+        "type": "char"
+      },
+      "program_id": {
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "G2P Program",
+        "type": "many2one"
+      },
+      "target_registry": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": false,
+        "string": "Target Registry Type",
+        "type": "selection"
+      },
+      "priority_rule_ids": {
+        "readonly": false,
+        "relation": "g2p.priority.rule.definition",
+        "required": false,
+        "store": true,
+        "string": "Priority Rules",
+        "type": "one2many"
+      },
+      "beneficiary_list_ids": {
+        "readonly": false,
+        "relation": "g2p.beneficiary.list",
+        "required": false,
+        "store": true,
+        "string": "Beneficiary List",
+        "type": "one2many"
+      },
+      "envelope_creation_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Envelope Creation Status",
+        "type": "selection"
+      },
+      "batch_creation_status": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "not_applicable",
+            "not applicable"
+          ],
+          [
+            "pending",
+            "pending"
+          ],
+          [
+            "processing",
+            "processing"
+          ],
+          [
+            "complete",
+            "complete"
+          ]
+        ],
+        "store": true,
+        "string": "Batch Creation Status",
+        "type": "selection"
+      },
+      "approved_for_disbursement": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Approved for Disbursement",
+        "type": "boolean"
+      },
+      "creation_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Creation Date",
+        "type": "datetime"
+      },
+      "envelope_creation_latest_error_code": {
+        "help": "Latest error code for envelope creation",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Latest Error Code",
+        "type": "char"
+      },
+      "envelope_creation_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Attempts",
+        "type": "integer"
+      },
+      "batch_creation_latest_error_code": {
+        "help": "Latest error code for batch creation",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Batch Creation Latest Error Code",
+        "type": "char"
+      },
+      "batch_creation_attempts": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Batch Creation Attempts",
+        "type": "integer"
+      },
+      "disbursement_schedule_date": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Disbursement Schedule Date",
+        "type": "date"
+      },
+      "envelope_creation_latest_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Envelope Creation Latest Timestamp",
+        "type": "datetime"
+      },
+      "batch_creation_latest_timestamp": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Batch Creation Latest Timestamp",
+        "type": "datetime"
+      },
+      "is_readonly": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Is Readonly",
+        "type": "boolean"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form create=\"0\" delete=\"0\">\n                <sheet>\n                    <group>\n                        <field name=\"program_id\" readonly=\"1\" on_change=\"1\"/>\n                        <field name=\"cycle_mnemonic\" readonly=\"is_readonly\"/>\n                        <field name=\"target_registry\" invisible=\"1\"/>\n                        <field name=\"approved_for_disbursement\" invisible=\"1\"/>\n                        <field name=\"is_readonly\" invisible=\"1\"/>\n                    </group>\n\n                    <!-- Hide fields during creation -->\n                    <notebook>\n                        <!-- Priority Rules -->\n                        <page string=\"Disbursement Rules\" invisible=\"id == False\">\n                            <field name=\"priority_rule_ids\" readonly=\"approved_for_disbursement\" nolabel=\"1\" options=\"{'no_quick_create': True}\" context=\"{'default_target_registry': target_registry}\"><tree string=\"Disbursement Rule\">\n                <control>\n                    <create string=\"Add Disbursement Rule\"/>\n                </control>\n                <field name=\"mnemonic\"/>\n                <field name=\"description\"/>\n                <field name=\"target_registry\" invisible=\"0\"/>\n                <button name=\"action_open_view\" type=\"object\" string=\"View Disbursement Rule\" class=\"oe_link\" title=\"View Disbursement Rule\"/>\n            </tree></field>\n                        </page>\n                        <!-- Disbursement List -->\n                        <page string=\"Disbursement List\" invisible=\"id == False\">\n                            <field name=\"beneficiary_list_ids\" nolabel=\"1\" readonly=\"approved_for_disbursement\">\n                                <tree default_order=\"creation_date desc\" delete=\"false\" limit=\"10\">\n                                    <control>\n                                        <create string=\"Create New Disbursement List\"/>\n                                    </control>\n                                    <field name=\"mnemonic\" string=\"Mnemonic\"/>\n                                    <field name=\"eligibility_process_status\" string=\"Priority Process Status\" widget=\"badge\"/>\n                                    <field name=\"entitlement_process_status\" string=\" Entitlement Summary Status\" widget=\"badge\"/>\n                                    <field name=\"creation_date\" string=\"Created On\" readonly=\"1\"/>\n                                    <field name=\"processed_date\" string=\"Processed On\" readonly=\"1\"/>\n                                    <field name=\"list_workflow_status\" string=\"Status\" widget=\"badge\" invisible=\"list_workflow_status != 'approved_for_disbursement'\"/>\n                                    <button name=\"action_open_summary_wizard\" type=\"object\" string=\"View Disbursement List\" class=\"oe_link\" invisible=\"entitlement_process_status!='complete'\"/>\n                                </tree>\n                            </field>\n                        </page>\n                    </notebook>\n                </sheet>\n            </form>",
+      "id": 532,
+      "model": "g2p.disbursement.cycle",
+      "models": {
+        "g2p.disbursement.cycle": [
+          "write_date",
+          "approved_for_disbursement",
+          "target_registry",
+          "id",
+          "program_id",
+          "cycle_mnemonic",
+          "beneficiary_list_ids",
+          "is_readonly",
+          "priority_rule_ids"
+        ],
+        "g2p.priority.rule.definition": [
+          "write_date",
+          "target_registry",
+          "description",
+          "id",
+          "mnemonic"
+        ],
+        "g2p.beneficiary.list": [
+          "write_date",
+          "eligibility_process_status",
+          "processed_date",
+          "id",
+          "creation_date",
+          "list_workflow_status",
+          "entitlement_process_status",
+          "mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.document.tag": {
+    "fields": {
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    }
+  },
+  "g2p.enrollment.cycle": {
+    "fields": {
+      "enrollment_cycle_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Enrollment Cycle ID",
+        "type": "char"
+      },
+      "cycle_number": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Cycle Number",
+        "type": "integer"
+      },
+      "cycle_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Enrollment Cycle Mnemonic",
+        "type": "char"
+      },
+      "program_id": {
+        "readonly": true,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "G2P Program",
+        "type": "many2one"
+      },
+      "beneficiary_list_ids": {
+        "readonly": false,
+        "relation": "g2p.beneficiary.list",
+        "required": false,
+        "store": true,
+        "string": "Beneficiary Lists",
+        "type": "one2many"
+      },
+      "enrollment_start_date": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Enrollment Start Date",
+        "type": "date"
+      },
+      "enrollment_end_date": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Enrollment End Date",
+        "type": "date"
+      },
+      "disbursement_start_date": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Disbursement Start Date",
+        "type": "date"
+      },
+      "disbursement_end_date": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Disbursement End Date",
+        "type": "date"
+      },
+      "approved_for_enrollment": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Approved for Enrollment",
+        "type": "boolean"
+      },
+      "is_readonly": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Is Readonly",
+        "type": "boolean"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form create=\"0\" delete=\"0\">\n                <sheet>\n                    <group colspan=\"2\">\n                        <group string=\"Enrollment Cycle\">\n                            <field name=\"is_readonly\" invisible=\"1\"/>\n                            <field name=\"cycle_number\" readonly=\"1\" on_change=\"1\"/>\n                            <field name=\"program_id\" readonly=\"1\"/>\n                            <field name=\"approved_for_enrollment\" invisible=\"1\"/>\n                        </group>\n                        <group string=\"Cycle Configuration\">\n                            <field name=\"enrollment_start_date\" readonly=\"is_readonly\"/>\n                            <field name=\"enrollment_end_date\" readonly=\"is_readonly\"/>\n                            <field name=\"disbursement_start_date\" readonly=\"is_readonly\" nolabel=\"0\"/>\n                            <field name=\"disbursement_end_date\" readonly=\"is_readonly\" nolabel=\"0\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page string=\"Enrollment Lists\" invisible=\"id == False\">\n                            <field name=\"beneficiary_list_ids\" nolabel=\"1\" readonly=\"approved_for_enrollment\">\n                                <tree default_order=\"creation_date desc\" delete=\"false\" limit=\"10\">\n                                    <control>\n                                        <create string=\"Create New Enrollment List\"/>\n                                    </control>\n                                    <field name=\"mnemonic\" string=\"Mnemonic\"/>\n                                    <field name=\"eligibility_process_status\" string=\"Eligibility Process Status\" widget=\"badge\"/>\n                                    <field name=\"creation_date\" string=\"Created On\" readonly=\"1\"/>\n                                    <field name=\"processed_date\" string=\"Processed On\" readonly=\"1\"/>\n                                    <field name=\"list_workflow_status\" string=\"Status\" widget=\"badge\" invisible=\"list_workflow_status == 'initiated'\"/>                  \n                                    <button name=\"action_open_summary_wizard\" type=\"object\" string=\"View Enrollment List\" class=\"oe_link\" invisible=\"eligibility_process_status!='complete'\"/>\n                                </tree>\n                            </field>\n                        </page>\n                    </notebook>\n                </sheet>\n            </form>",
+      "id": 536,
+      "model": "g2p.enrollment.cycle",
+      "models": {
+        "g2p.enrollment.cycle": [
+          "enrollment_end_date",
+          "write_date",
+          "enrollment_start_date",
+          "disbursement_end_date",
+          "approved_for_enrollment",
+          "id",
+          "cycle_number",
+          "program_id",
+          "disbursement_start_date",
+          "beneficiary_list_ids",
+          "is_readonly"
+        ],
+        "g2p.beneficiary.list": [
+          "write_date",
+          "eligibility_process_status",
+          "processed_date",
+          "id",
+          "creation_date",
+          "list_workflow_status",
+          "mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.priority.rule.definition": {
+    "fields": {
+      "mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Rule Mnemonic",
+        "type": "char"
+      },
+      "description": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Description",
+        "type": "char"
+      },
+      "disbursement_cycle_id": {
+        "readonly": false,
+        "relation": "g2p.disbursement.cycle",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle",
+        "type": "many2one"
+      },
+      "program_id": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Program ID",
+        "type": "integer"
+      },
+      "target_registry": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Registry Type",
+        "type": "selection"
+      },
+      "pbms_domain": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Domain",
+        "type": "char"
+      },
+      "sql_query": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "SQL Query",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Disbursement Rule\">\n                <sheet>\n                    <group>\n                        <field name=\"mnemonic\"/>\n                        <field name=\"description\"/>\n                        <field name=\"target_registry\" invisible=\"0\" on_change=\"1\"/>\n\n                <!-- Domain widget for the 'farmer' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.farmer.registry', 'allowed_fields': ['priority_rank']}\" invisible=\"target_registry != 'farmer'\" on_change=\"1\"/>\n\n                <!-- Domain widget for the 'student' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.student.registry', 'allowed_fields': ['priority_rank']}\" invisible=\"target_registry != 'student'\" on_change=\"1\"/>\n                    </group>\n                </sheet>\n                <sheet>\n                    <group>\n                        <field name=\"sql_query\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 543,
+      "model": "g2p.priority.rule.definition",
+      "models": {
+        "g2p.priority.rule.definition": [
+          "pbms_domain",
+          "write_date",
+          "target_registry",
+          "sql_query",
+          "description",
+          "id",
+          "mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.program.definition": {
+    "fields": {
+      "program_mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Program Mnemonic",
+        "type": "char"
+      },
+      "description": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Description",
+        "type": "char"
+      },
+      "target_registry": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Target Registry",
+        "type": "selection"
+      },
+      "program_status": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "ACTIVE",
+            "Active"
+          ],
+          [
+            "PAUSED",
+            "Paused"
+          ],
+          [
+            "CLOSED",
+            "Closed"
+          ]
+        ],
+        "store": true,
+        "string": "Program Status",
+        "type": "selection"
+      },
+      "benefit_code_ids": {
+        "readonly": true,
+        "relation": "g2p.benefit.codes",
+        "required": false,
+        "store": false,
+        "string": "Benefit Codes",
+        "type": "many2many"
+      },
+      "program_benefit_code_ids": {
+        "readonly": false,
+        "relation": "g2p.program.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Program Benefit Codes",
+        "type": "one2many"
+      },
+      "eligibility_rule_ids": {
+        "readonly": false,
+        "relation": "g2p.eligibility.rule.definition",
+        "required": false,
+        "store": true,
+        "string": "Eligibility Rules",
+        "type": "one2many"
+      },
+      "entitlement_rule_ids": {
+        "readonly": false,
+        "relation": "g2p.entitlement.rule.definition",
+        "required": false,
+        "store": true,
+        "string": "Entitlement Rules",
+        "type": "one2many"
+      },
+      "beneficiary_list_ids": {
+        "readonly": false,
+        "relation": "g2p.beneficiary.list",
+        "required": false,
+        "store": true,
+        "string": "Eligibility Request Queue",
+        "type": "one2many"
+      },
+      "enrollment_cycle_ids": {
+        "readonly": false,
+        "relation": "g2p.enrollment.cycle",
+        "required": false,
+        "store": true,
+        "string": "Enrollment Cycle",
+        "type": "one2many"
+      },
+      "disbursement_cycle_ids": {
+        "readonly": false,
+        "relation": "g2p.disbursement.cycle",
+        "required": false,
+        "store": true,
+        "string": "Disbursement Cycle",
+        "type": "one2many"
+      },
+      "service_providers_required": {
+        "help": "If checked, the program will require benefits to be collected from specified agency and warehouse. If unchecked, beneficiaries may collect benefits from any agency/warehouse in the country. ",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Service Providers required",
+        "type": "boolean"
+      },
+      "verifications_for_enrolment": {
+        "help": "Minimum number of verifications required before lists can be approved",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Verifications required for enrolment",
+        "type": "integer"
+      },
+      "auto_approve_enrolment": {
+        "help": "If enabled and the number of required verifications is 0, lists will be automatically approved as soon as they are created, without needing any verifications.",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Auto approve enrollment",
+        "type": "boolean"
+      },
+      "verifications_for_disbursement": {
+        "help": "Minimum number of verifications required before lists can be approved",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Verifications required for disbursement",
+        "type": "integer"
+      },
+      "auto_approve_disbursement": {
+        "help": "If enabled and the number of required verifications is 0, lists will be automatically approved as soon as they are created, without needing any verifications.",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Auto approve disbursement",
+        "type": "boolean"
+      },
+      "enrollment_frequency": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "Daily",
+            "Daily"
+          ],
+          [
+            "Weekly",
+            "Weekly"
+          ],
+          [
+            "Fortnightly",
+            "Fortnightly"
+          ],
+          [
+            "Monthly",
+            "Monthly"
+          ],
+          [
+            "BiMonthly",
+            "BiMonthly"
+          ],
+          [
+            "Quarterly",
+            "Quarterly"
+          ],
+          [
+            "SemiAnnually",
+            "SemiAnnually"
+          ],
+          [
+            "Annually",
+            "Annually"
+          ],
+          [
+            "OnDemand",
+            "OnDemand"
+          ]
+        ],
+        "store": true,
+        "string": "Enrollment Frequency",
+        "type": "selection"
+      },
+      "disbursement_frequency": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "Daily",
+            "Daily"
+          ],
+          [
+            "Weekly",
+            "Weekly"
+          ],
+          [
+            "Fortnightly",
+            "Fortnightly"
+          ],
+          [
+            "Monthly",
+            "Monthly"
+          ],
+          [
+            "BiMonthly",
+            "BiMonthly"
+          ],
+          [
+            "Quarterly",
+            "Quarterly"
+          ],
+          [
+            "SemiAnnually",
+            "SemiAnnually"
+          ],
+          [
+            "Annually",
+            "Annually"
+          ],
+          [
+            "OnDemand",
+            "OnDemand"
+          ]
+        ],
+        "store": true,
+        "string": "Disbursement Frequency",
+        "type": "selection"
+      },
+      "on_demand_cycle_allowed": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "On-Demand Cycle Allowed",
+        "type": "boolean"
+      },
+      "beneficiary_list": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "latest_always",
+            "Latest Always"
+          ],
+          [
+            "labeled",
+            "Labeled"
+          ]
+        ],
+        "store": true,
+        "string": "Beneficiary List",
+        "type": "selection"
+      },
+      "label_for_beneficiary_list_id": {
+        "readonly": false,
+        "relation": "g2p.beneficiary.list",
+        "required": false,
+        "store": true,
+        "string": "Label for Beneficiary List",
+        "type": "many2one"
+      },
+      "show_label_for_beneficiary_list": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Show Label For Beneficiary List",
+        "type": "boolean"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Programs\">\n        <sheet>\n          <group>\n            <group string=\"Program Information\">\n              <field name=\"id\" invisible=\"1\"/>\n              <field name=\"program_mnemonic\" readonly=\"not context.get('program_form_edit')\"/>\n              <field name=\"description\" readonly=\"not context.get('program_form_edit')\"/>\n              <field name=\"program_status\" readonly=\"not context.get('program_form_edit')\"/>\n            </group>\n            <group string=\"Program Configuration\">\n              <field string=\"Base Registry\" name=\"target_registry\" readonly=\"not context.get('program_form_create')\"/>\n              <field name=\"service_providers_required\" readonly=\"not context.get('program_form_create')\"/>\n              <field name=\"show_label_for_beneficiary_list\" invisible=\"1\"/>\n            </group>\n            <group string=\"Enrollment Configuration\">\n              <field string=\"Frequency\" name=\"enrollment_frequency\" readonly=\"not context.get('program_form_edit')\"/>\n              <field string=\"# of Verifications\" name=\"verifications_for_enrolment\" readonly=\"not context.get('program_form_edit')\"/>\n              <field name=\"auto_approve_enrolment\" readonly=\"not context.get('program_form_edit')\"/>\n            </group>\n            <group string=\"Disbursement Configuration\">\n              <field string=\"Frequency\" name=\"disbursement_frequency\" readonly=\"not context.get('program_form_edit')\"/>\n              <field string=\"# of Verifications\" name=\"verifications_for_disbursement\" readonly=\"not context.get('program_form_edit')\"/>\n              <field name=\"auto_approve_disbursement\" readonly=\"not context.get('program_form_edit')\"/>\n            </group>\n          </group>\n          <notebook>\n            <!-- Benefit Codes Page (Invisible) -->\n            <page string=\"Benefit Codes\" invisible=\"1\">\n              <field name=\"benefit_code_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\"><tree string=\"Benefit Codes\">\n                <field name=\"benefit_mnemonic\"/>\n                <field name=\"benefit_type\"/>\n                <field name=\"measurement_unit\"/>\n                <field name=\"benefit_description\"/>\n                <button name=\"action_open_edit\" type=\"object\" class=\"fa fa-pencil\"/>\n            </tree></field>\n            </page>\n            <!-- Program Benefit Codes Page -->\n            <page string=\"Program Benefit Codes\">\n              <field name=\"program_benefit_code_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\" on_change=\"1\"><tree string=\"Program Program Benefit Codes\">\n            <control>\n                <create string=\"Add Program Benefit Code\"/>\n            </control>\n                <field name=\"benefit_mnemonic\"/>\n                <field name=\"benefit_type\"/>\n                <field name=\"max_quantity\"/>\n                <field name=\"measurement_unit\"/>\n                <field name=\"benefit_description\"/>\n            </tree></field>\n            </page>\n            <!-- Eligibility Rules Page -->\n            <page string=\"Eligibility Rules\">\n              <field name=\"eligibility_rule_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\" context=\"{'default_program_id': id, 'default_target_registry': target_registry}\"><tree string=\"Eligibility Rule\" default_order=\"rule_number asc\">\n                <control>\n                  <create string=\"Add Eligibility Rule\"/>\n                </control>\n                <field name=\"rule_number\"/>\n                <field name=\"mnemonic\"/>\n                <field name=\"target_registry\"/>\n                <field name=\"set_operator\"/>\n                <field name=\"description\"/>\n                <button name=\"action_open_view\" type=\"object\" string=\"View Eligibility Rule\" class=\"oe_link\" title=\"View Eligibility Rule\"/>\n            </tree></field>\n            </page>\n            <!-- Entitlement Rules Page -->\n            <page string=\"Entitlement Rules\">\n              <field name=\"entitlement_rule_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\" context=\"{'default_target_registry': target_registry, 'default_allowed_benefit_code_ids': benefit_code_ids}\"><tree string=\"Entitlement Rule\">\n                <control>\n                    <create string=\"Add Entitlement Rule\"/>\n                  </control>\n                <field name=\"mnemonic\" string=\"Rule Mnemonic\" options=\"{'no_create': True, 'no_edit': True}\"/>\n                <field name=\"benefit_code_id\" string=\"Benefit Code\" on_change=\"1\"/>\n                <field name=\"target_registry\"/>\n                <field name=\"quantity\" string=\"Quantity\"/>\n                <field name=\"measurement_unit\" string=\"Measurement Unit\"/>\n                <field name=\"multiplier\" string=\"Multiplier\"/>\n                <field name=\"description\" string=\"Description\"/>\n                <button name=\"action_open_view\" type=\"object\" string=\"View Entitlement Rule\" class=\"oe_link\" title=\"View Entitlement Rule\"/>\n            </tree></field>\n            </page>\n            <!-- Enrollment Cycles Page -->\n            <page string=\"Enrollment Cycles\">\n              <field name=\"enrollment_cycle_ids\" no_label=\"0\" context=\"{'default_program_id': id}\" mode=\"tree\"><tree default_order=\"cycle_number desc\" delete=\"false\">\n                <control>\n                    <create string=\"Create New Enrollment Cycle\"/>\n                </control>\n                <field name=\"cycle_number\" string=\"Cycle Number\" on_change=\"1\"/>\n                <field name=\"enrollment_start_date\" string=\"Enrollment Start Date\"/>\n                <field name=\"enrollment_end_date\" string=\"Enrollment End Date\"/>\n                <field name=\"disbursement_start_date\" string=\"Disbursement Start Date\"/>\n                <field name=\"disbursement_end_date\" string=\"Disbursement End Date\"/>\n                <field name=\"approved_for_enrollment\" string=\"Approved for Enrollment\"/>\n                <button name=\"action_open_view\" type=\"object\" string=\"View Enrollment Cycle\" class=\"oe_link\"/>\n            </tree></field>\n            </page>\n            <!-- Disbursement Cycles Page -->\n            <page string=\"Disbursement Cycles\">\n              <field name=\"disbursement_cycle_ids\" nolabel=\"1\"><tree default_order=\"creation_date desc\" delete=\"false\">\n                <control>\n                    <create string=\"Create New Disbursement Cycle\"/>\n                </control>\n                <field name=\"cycle_mnemonic\" string=\"Cycle\"/>\n                <!-- <field name=\"bridge_envelope_id\" readonly=\"1\"/> -->\n                <field name=\"approved_for_disbursement\" widget=\"boolean_button\" readonly=\"1\"/>\n                <!-- <field name=\"envelope_creation_status\" string=\"Envelope Creation Status\" widget=\"badge\"/> -->\n                <!-- <field name=\"batch_creation_status\" string=\"Disbursement Batch Creation Status\" widget=\"badge\"/> -->\n                <field name=\"creation_date\" string=\"Created On\"/>\n                <button name=\"action_open_view\" type=\"object\" string=\"View Disbursement Cycle\" class=\"oe_link\"/>\n                <!-- <button name=\"action_open_disbursement_envelope_summary_wizard\" type=\"object\" string=\"View Envelope Summary\" class=\"oe_link\" invisible=\"envelope_creation_status != 'complete'\"/> -->\n            </tree></field>                \n            </page>\n          </notebook>\n        </sheet>\n      </form>",
+      "id": 530,
+      "model": "g2p.program.definition",
+      "models": {
+        "g2p.program.definition": [
+          "description",
+          "verifications_for_enrolment",
+          "entitlement_rule_ids",
+          "verifications_for_disbursement",
+          "enrollment_frequency",
+          "benefit_code_ids",
+          "show_label_for_beneficiary_list",
+          "disbursement_cycle_ids",
+          "service_providers_required",
+          "write_date",
+          "program_status",
+          "id",
+          "auto_approve_enrolment",
+          "auto_approve_disbursement",
+          "enrollment_cycle_ids",
+          "disbursement_frequency",
+          "program_mnemonic",
+          "target_registry",
+          "program_benefit_code_ids",
+          "eligibility_rule_ids"
+        ],
+        "g2p.benefit.codes": [
+          "benefit_mnemonic",
+          "write_date",
+          "measurement_unit",
+          "benefit_description",
+          "benefit_type",
+          "id"
+        ],
+        "g2p.program.benefit.codes": [
+          "benefit_mnemonic",
+          "write_date",
+          "measurement_unit",
+          "benefit_description",
+          "max_quantity",
+          "benefit_type",
+          "id"
+        ],
+        "g2p.eligibility.rule.definition": [
+          "write_date",
+          "target_registry",
+          "description",
+          "set_operator",
+          "id",
+          "rule_number",
+          "mnemonic"
+        ],
+        "g2p.entitlement.rule.definition": [
+          "benefit_code_id",
+          "write_date",
+          "target_registry",
+          "measurement_unit",
+          "description",
+          "multiplier",
+          "id",
+          "mnemonic",
+          "quantity"
+        ],
+        "g2p.enrollment.cycle": [
+          "enrollment_end_date",
+          "write_date",
+          "enrollment_start_date",
+          "disbursement_end_date",
+          "approved_for_enrollment",
+          "id",
+          "cycle_number",
+          "disbursement_start_date"
+        ],
+        "g2p.disbursement.cycle": [
+          "write_date",
+          "approved_for_disbursement",
+          "id",
+          "creation_date",
+          "cycle_mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.eligibility.rule.definition": {
+    "fields": {
+      "mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Rule Mnemonic",
+        "type": "char"
+      },
+      "rule_number": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Rule Number",
+        "type": "integer"
+      },
+      "description": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Description",
+        "type": "char"
+      },
+      "program_id": {
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "G2P Program",
+        "type": "many2one"
+      },
+      "target_registry": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Target Registry",
+        "type": "selection"
+      },
+      "set_operator": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "NONE",
+            "NONE"
+          ],
+          [
+            "INTERSECT",
+            "INTERSECT"
+          ],
+          [
+            "EXCEPT",
+            "EXCEPT"
+          ],
+          [
+            "UNION",
+            "UNION"
+          ]
+        ],
+        "store": true,
+        "string": "Set Operator",
+        "type": "selection"
+      },
+      "pbms_domain": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Domain",
+        "type": "char"
+      },
+      "sql_query": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "SQL Query",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Eligibility Rule\">\n                <sheet>\n                    <group>\n                        <field name=\"rule_number\" readonly=\"rule_number==1\"/>\n                        <field name=\"mnemonic\"/>\n                        <field name=\"description\"/>\n                        <field name=\"target_registry\" on_change=\"1\"/>\n                        <field name=\"set_operator\" readonly=\"rule_number==1\"/>\n\n                <!-- Domain widget for the 'farmer' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.farmer.registry'}\" invisible=\"target_registry != 'farmer'\" on_change=\"1\"/>\n\n                <!-- Domain widget for the 'student' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.student.registry'}\" invisible=\"target_registry != 'student'\" on_change=\"1\"/>\n                    </group>\n                </sheet>\n                <sheet>\n                    <group>\n                        <field name=\"sql_query\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 538,
+      "model": "g2p.eligibility.rule.definition",
+      "models": {
+        "g2p.eligibility.rule.definition": [
+          "pbms_domain",
+          "write_date",
+          "target_registry",
+          "sql_query",
+          "description",
+          "set_operator",
+          "id",
+          "rule_number",
+          "mnemonic"
+        ]
+      }
+    }
+  },
+  "g2p.entitlement.rule.definition": {
+    "fields": {
+      "mnemonic": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Rule Mnemonic",
+        "type": "char"
+      },
+      "description": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Description",
+        "type": "char"
+      },
+      "program_id": {
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": false,
+        "store": true,
+        "string": "G2P Program",
+        "type": "many2one"
+      },
+      "benefit_code_id": {
+        "help": "Select a benefit code defined in the selected program.",
+        "readonly": false,
+        "relation": "g2p.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Benefit Code",
+        "type": "many2one"
+      },
+      "decimal_places": {
+        "help": "Number of decimal places to use for this benefit code's value. Maximum allowed value is 4. This field can only be set during creation, updation can not and should not be done.",
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Decimal Places",
+        "type": "integer"
+      },
+      "measurement_unit": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "quantity": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Quantity",
+        "type": "float"
+      },
+      "multiplier": {
+        "help": "Select an integer field from the registry to use as a multiplier.",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Multiplier",
+        "type": "char"
+      },
+      "target_registry": {
+        "readonly": false,
+        "required": true,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Target Registry",
+        "type": "selection"
+      },
+      "pbms_domain": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Domain",
+        "type": "char"
+      },
+      "sql_query": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "SQL Query",
+        "type": "char"
+      },
+      "allowed_benefit_code_ids": {
+        "readonly": true,
+        "relation": "g2p.benefit.codes",
+        "required": false,
+        "store": false,
+        "string": "Benefit Codes",
+        "type": "many2many"
+      },
+      "allowed_multipliers": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Allowed Multipliers",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Entitlement Rule\">\n                <sheet>\n                    <group>\n                        <field name=\"allowed_benefit_code_ids\" invisible=\"1\"/>\n                        <field name=\"allowed_multipliers\" invisible=\"1\"/>\n                        <field name=\"mnemonic\"/>\n                        <field name=\"description\"/>\n                        <field name=\"target_registry\" invisible=\"0\" on_change=\"1\"/>\n                        <field name=\"benefit_code_id\" domain=\"[('id', 'in', allowed_benefit_code_ids)]\" options=\"{'no_quick_create': True}\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"quantity\"/>\n                        <field name=\"multiplier\" widget=\"g2p_pbms.multiplier_widget\"/>\n                        <field name=\"measurement_unit\" readonly=\"1\" no_label=\"1\"/>\n\n                <!-- Domain widget for the 'farmer' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.farmer.registry'}\" invisible=\"target_registry != 'farmer'\" on_change=\"1\"/>\n\n                <!-- Domain widget for the 'student' type -->\n                <field name=\"pbms_domain\" widget=\"domain\" options=\"{'model': 'g2p.student.registry'}\" invisible=\"target_registry != 'student'\" on_change=\"1\"/>\n                    </group>\n                </sheet>\n                <sheet>\n                    <group>\n                        <field name=\"sql_query\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 541,
+      "model": "g2p.entitlement.rule.definition",
+      "models": {
+        "g2p.entitlement.rule.definition": [
+          "pbms_domain",
+          "write_date",
+          "target_registry",
+          "sql_query",
+          "measurement_unit",
+          "allowed_multipliers",
+          "description",
+          "multiplier",
+          "allowed_benefit_code_ids",
+          "quantity",
+          "id",
+          "mnemonic",
+          "benefit_code_id"
+        ]
+      }
+    }
+  },
+  "g2p.household.registry": {
+    "fields": {
+      "link_registry_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Link Registry ID",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "gender": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "male",
+            "Male head"
+          ],
+          [
+            "female",
+            "Female head"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "size_total": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Household members",
+        "type": "integer"
+      },
+      "size_adults": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Adults",
+        "type": "integer"
+      },
+      "size_children": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Children",
+        "type": "integer"
+      },
+      "annual_income": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Annual household income (NGN)",
+        "type": "float"
+      },
+      "large_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Area",
+        "type": "integer"
+      },
+      "large_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "State / FCT",
+        "type": "char"
+      },
+      "small_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Area",
+        "type": "integer"
+      },
+      "small_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Community",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Household Registry\" delete=\"False\">\n                <sheet>\n                    <group>\n                        <field name=\"link_registry_id\"/>\n                        <field name=\"name\"/>\n                        <field name=\"gender\"/>\n                        <field name=\"size_total\"/>\n                        <field name=\"size_adults\"/>\n                        <field name=\"size_children\"/>\n                        <field name=\"annual_income\"/>\n                        <field name=\"large_area_id\"/>\n                        <field name=\"large_area_code\"/>\n                        <field name=\"small_area_id\"/>\n                        <field name=\"small_area_code\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 1321,
+      "model": "g2p.household.registry",
+      "models": {
+        "g2p.household.registry": [
+          "link_registry_id",
+          "write_date",
+          "name",
+          "size_total",
+          "gender",
+          "large_area_id",
+          "annual_income",
+          "small_area_code",
+          "large_area_code",
+          "id",
+          "size_children",
+          "size_adults",
+          "small_area_id"
+        ]
+      }
+    }
+  },
+  "g2p.program.benefit.codes": {
+    "fields": {
+      "program_id": {
+        "help": "The program this benefit code is associated with.",
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": true,
+        "store": true,
+        "string": "Program",
+        "type": "many2one"
+      },
+      "benefit_code_id": {
+        "help": "Select the benefit code for this program.",
+        "readonly": false,
+        "relation": "g2p.benefit.codes",
+        "required": true,
+        "store": true,
+        "string": "Benefit Code",
+        "type": "many2one"
+      },
+      "max_quantity": {
+        "help": "Maximum quantity allowed for this benefit code in the program.",
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Maximum Quantity",
+        "type": "float"
+      },
+      "benefit_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "CASH_DIGITAL",
+            "Cash (Digital)"
+          ],
+          [
+            "CASH_PHYSICAL",
+            "Cash (Physical)"
+          ],
+          [
+            "COMMODITY",
+            "Commodity"
+          ],
+          [
+            "SERVICE",
+            "Service"
+          ],
+          [
+            "COMBINATION",
+            "Combination"
+          ]
+        ],
+        "store": true,
+        "string": "Benefit Type",
+        "type": "selection"
+      },
+      "measurement_unit": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "benefit_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Description",
+        "type": "text"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Program Benefit Codes\">\n                <sheet>\n                    <group>\n                        <field name=\"benefit_code_id\" options=\"{'create': False, 'create_edit': False, 'no_quick_create': True}\" readonly=\"context.get('benefit_code_form_edit')\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"max_quantity\" readonly=\"context.get('benefit_code_form_edit')\"/>\n                        <field name=\"measurement_unit\" readonly=\"1\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 520,
+      "model": "g2p.program.benefit.codes",
+      "models": {
+        "g2p.program.benefit.codes": [
+          "write_date",
+          "measurement_unit",
+          "max_quantity",
+          "id",
+          "benefit_code_id"
+        ]
+      }
+    }
+  },
+  "g2p.student.registry": {
+    "fields": {
+      "link_registry_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Link Registry ID",
+        "type": "char"
+      },
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Name",
+        "type": "char"
+      },
+      "gender": {
+        "readonly": false,
+        "required": false,
+        "selection": [
+          [
+            "male",
+            "Male"
+          ],
+          [
+            "female",
+            "Female"
+          ]
+        ],
+        "store": true,
+        "string": "Gender",
+        "type": "selection"
+      },
+      "institution_name": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Institution Name",
+        "type": "char"
+      },
+      "date_of_birth": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Date of Birth",
+        "type": "date"
+      },
+      "large_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Area ID",
+        "type": "integer"
+      },
+      "large_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Large Area Code",
+        "type": "char"
+      },
+      "small_area_id": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Area ID",
+        "type": "integer"
+      },
+      "small_area_code": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Small Area Code",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Student Registry\" create=\"0\">\n                <sheet>\n                    <group>\n                        <field name=\"link_registry_id\"/>\n                        <field name=\"name\"/>\n                        <field name=\"gender\"/>\n                        <field name=\"institution_name\"/>\n                        <field name=\"date_of_birth\"/>\n                        <field name=\"large_area_id\"/>\n                        <field name=\"large_area_code\"/>\n                        <field name=\"small_area_id\"/>\n                        <field name=\"small_area_code\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 555,
+      "model": "g2p.student.registry",
+      "models": {
+        "g2p.student.registry": [
+          "link_registry_id",
+          "date_of_birth",
+          "name",
+          "write_date",
+          "gender",
+          "large_area_id",
+          "small_area_code",
+          "large_area_code",
+          "id",
+          "small_area_id",
+          "institution_name"
+        ]
+      }
+    }
+  },
+  "g2p.warehouse": {
+    "fields": {
+      "name": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Warehouse Name",
+        "type": "char"
+      },
+      "warehouse_mnemonic": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Mnemonic",
+        "type": "char"
+      },
+      "is_sponsor_bank": {
+        "help": "Does this service provider operate as a sponsor bank?",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Is Sponsor Bank",
+        "type": "boolean"
+      },
+      "admin_name": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Name",
+        "type": "char"
+      },
+      "admin_email": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Email",
+        "type": "char"
+      },
+      "admin_mobile": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Admin Mobile",
+        "type": "char"
+      },
+      "administrative_area_large_ids": {
+        "readonly": false,
+        "relation": "g2p.administrative.area.large",
+        "required": false,
+        "store": true,
+        "string": "Administrative Areas (Large)",
+        "type": "many2many"
+      },
+      "warehouse_program_benefit_codes": {
+        "readonly": false,
+        "relation": "g2p.warehouse.program.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Warehouse Program Benefit Codes",
+        "type": "one2many"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"G2P Sponsor Bank\">\n                <sheet>\n                    <group colspan=\"2\">\n                        <group string=\"Sponsor Bank Details\">\n                            <field name=\"name\" string=\"Sponsor Bank Name\" readonly=\"not context.get('warehouse_form_edit')\"/>\n                            <field name=\"warehouse_mnemonic\" string=\"Sponsor Bank Mnemonic\" readonly=\"not context.get('warehouse_form_edit')\"/>\n                            <field name=\"is_sponsor_bank\" invisible=\"1\"/>\n                        </group>\n                        <group string=\"Administrator Details\">\n                            <field name=\"admin_name\" string=\"Admin Name\" readonly=\"not context.get('warehouse_form_edit')\"/>\n                            <field name=\"admin_email\" string=\"Admin Email\" readonly=\"not context.get('warehouse_form_edit')\"/>\n                            <field name=\"admin_mobile\" string=\"Admin Mobile\" readonly=\"not context.get('warehouse_form_edit')\"/>\n                        </group>\n                    </group>\n                    <notebook>\n                        <page string=\"Sponsor Bank Program Benefit Code\">\n                            <field name=\"warehouse_program_benefit_codes\" nolabel=\"1\" options=\"{'no_quick_create': True}\"><tree string=\"Warehouse Program Benefit Codes\">\n                <control>\n                    <create string=\"Add Program &amp; Benefit Code\"/>\n                </control>\n                <field name=\"program_mnemonic\"/>\n                <field name=\"benefit_mnemonic\"/>\n                <field name=\"measurement_unit\"/>\n                <field name=\"additional_info\" string=\"Custom Data\"/>\n            </tree></field>\n                        </page>\n                        <page string=\"Administrative Areas (Large)\" invisible=\"is_sponsor_bank\">\n                            <field name=\"administrative_area_large_ids\" nolabel=\"1\" options=\"{'no_quick_create': True}\" can_create=\"True\" can_write=\"True\"><tree string=\"G2P Administrative Area Large\" limit=\"10\">\n                <control>\n                    <create string=\"Add Administrative Area (Large)\"/>\n                </control>\n                <field name=\"area_mnemonic\"/>\n                <field name=\"area_description\"/>\n                <button name=\"action_open_edit\" type=\"object\" class=\"fa fa-pencil\" title=\"Edit\"/>\n            </tree></field>\n                        </page>\n                    </notebook>\n                </sheet>\n            </form>",
+      "id": 516,
+      "model": "g2p.warehouse",
+      "models": {
+        "g2p.warehouse": [
+          "write_date",
+          "name",
+          "warehouse_mnemonic",
+          "administrative_area_large_ids",
+          "admin_name",
+          "id",
+          "admin_mobile",
+          "is_sponsor_bank",
+          "warehouse_program_benefit_codes",
+          "admin_email"
+        ],
+        "g2p.warehouse.program.benefit.codes": [
+          "benefit_mnemonic",
+          "write_date",
+          "additional_info",
+          "measurement_unit",
+          "id",
+          "program_mnemonic"
+        ],
+        "g2p.administrative.area.large": [
+          "id",
+          "area_mnemonic",
+          "area_description",
+          "write_date"
+        ]
+      }
+    }
+  },
+  "g2p.warehouse.program.benefit.codes": {
+    "fields": {
+      "warehouse_id": {
+        "help": "The warehouse this benefit code is associated with.",
+        "readonly": false,
+        "relation": "g2p.warehouse",
+        "required": true,
+        "store": true,
+        "string": "Warehouse",
+        "type": "many2one"
+      },
+      "program_id": {
+        "help": "The program this benefit code is associated with.",
+        "readonly": false,
+        "relation": "g2p.program.definition",
+        "required": true,
+        "store": true,
+        "string": "Program",
+        "type": "many2one"
+      },
+      "benefit_code_id": {
+        "help": "Select the benefit code for this warehouse and program.",
+        "readonly": false,
+        "relation": "g2p.benefit.codes",
+        "required": true,
+        "store": true,
+        "string": "Benefit Code",
+        "type": "many2one"
+      },
+      "benefit_codes": {
+        "readonly": true,
+        "relation": "g2p.benefit.codes",
+        "required": false,
+        "store": true,
+        "string": "Benefit Codes",
+        "type": "many2many"
+      },
+      "additional_info": {
+        "help": "Additional info related to this warehouse program benefit code",
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Custom Data",
+        "type": "text"
+      },
+      "warehouse_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Mnemonic",
+        "type": "char"
+      },
+      "warehouse_name": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Warehouse Name",
+        "type": "char"
+      },
+      "warehouse_is_sponsor_bank": {
+        "help": "Does this service provider operate as a sponsor bank?",
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Is Sponsor Bank",
+        "type": "boolean"
+      },
+      "program_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Program Mnemonic",
+        "type": "char"
+      },
+      "program_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Program Description",
+        "type": "char"
+      },
+      "target_registry": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "farmer",
+            "Farmer"
+          ],
+          [
+            "student",
+            "Student"
+          ],
+          [
+            "household",
+            "Household"
+          ],
+          [
+            "other",
+            "Other"
+          ]
+        ],
+        "store": true,
+        "string": "Target Registry",
+        "type": "selection"
+      },
+      "program_status": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "ACTIVE",
+            "Active"
+          ],
+          [
+            "PAUSED",
+            "Paused"
+          ],
+          [
+            "CLOSED",
+            "Closed"
+          ]
+        ],
+        "store": true,
+        "string": "Program Status",
+        "type": "selection"
+      },
+      "benefit_mnemonic": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Mnemonic",
+        "type": "char"
+      },
+      "benefit_type": {
+        "readonly": true,
+        "required": false,
+        "selection": [
+          [
+            "CASH_DIGITAL",
+            "Cash (Digital)"
+          ],
+          [
+            "CASH_PHYSICAL",
+            "Cash (Physical)"
+          ],
+          [
+            "COMMODITY",
+            "Commodity"
+          ],
+          [
+            "SERVICE",
+            "Service"
+          ],
+          [
+            "COMBINATION",
+            "Combination"
+          ]
+        ],
+        "store": true,
+        "string": "Benefit Type",
+        "type": "selection"
+      },
+      "measurement_unit": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Measurement Unit",
+        "type": "char"
+      },
+      "benefit_description": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Benefit Description",
+        "type": "text"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"Warehouse Program Benefit Codes\">\n                <sheet>\n                    <group>\n                        <field name=\"warehouse_id\" readonly=\"1\"/>\n                        <field name=\"program_id\" options=\"{'no_create': True, 'no_edit': True, 'no_quick_create': True}\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"benefit_codes\" invisible=\"1\"/>\n                        <field name=\"benefit_code_id\" domain=\"[('id', 'in', benefit_codes)]\" options=\"{'no_create': True, 'no_edit': True, 'no_quick_create': True}\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n                        <field name=\"benefit_type\" readonly=\"1\"/>\n                        <field name=\"additional_info\" string=\"Custom Data\"/>\n                    </group>\n                </sheet>\n            </form>",
+      "id": 523,
+      "model": "g2p.warehouse.program.benefit.codes",
+      "models": {
+        "g2p.warehouse.program.benefit.codes": [
+          "write_date",
+          "additional_info",
+          "warehouse_id",
+          "benefit_type",
+          "id",
+          "program_id",
+          "benefit_codes",
+          "benefit_code_id"
+        ]
+      }
+    }
+  },
+  "storage.file": {
+    "fields": {
+      "name": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "File Name",
+        "type": "char"
+      },
+      "backend_id": {
+        "readonly": false,
+        "relation": "storage.backend",
+        "required": true,
+        "store": true,
+        "string": "Storage",
+        "type": "many2one"
+      },
+      "url": {
+        "help": "HTTP accessible path to the file",
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Url",
+        "type": "char"
+      },
+      "internal_url": {
+        "help": "HTTP URL to load the file directly from storage.",
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Internal Url",
+        "type": "char"
+      },
+      "slug": {
+        "help": "Slug-ified name with ID for URL",
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Slug",
+        "type": "char"
+      },
+      "relative_path": {
+        "help": "Relative location for backend",
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Relative Path",
+        "type": "char"
+      },
+      "file_size": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "File Size",
+        "type": "integer"
+      },
+      "human_file_size": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Human File Size",
+        "type": "char"
+      },
+      "checksum": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Checksum/SHA1",
+        "type": "char"
+      },
+      "filename": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Filename without extension",
+        "type": "char"
+      },
+      "extension": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Extension",
+        "type": "char"
+      },
+      "mimetype": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Mime Type",
+        "type": "char"
+      },
+      "data": {
+        "help": "Datas",
+        "readonly": false,
+        "required": false,
+        "store": false,
+        "string": "Data",
+        "type": "binary"
+      },
+      "to_delete": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "To Delete",
+        "type": "boolean"
+      },
+      "active": {
+        "readonly": false,
+        "required": false,
+        "store": true,
+        "string": "Active",
+        "type": "boolean"
+      },
+      "company_id": {
+        "readonly": false,
+        "relation": "res.company",
+        "required": false,
+        "store": true,
+        "string": "Company",
+        "type": "many2one"
+      },
+      "file_type": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "File Type",
+        "type": "char"
+      },
+      "id": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "ID",
+        "type": "integer"
+      },
+      "display_name": {
+        "readonly": true,
+        "required": false,
+        "store": false,
+        "string": "Display Name",
+        "type": "char"
+      },
+      "create_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Created by",
+        "type": "many2one"
+      },
+      "create_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Created on",
+        "type": "datetime"
+      },
+      "write_uid": {
+        "readonly": true,
+        "relation": "res.users",
+        "required": false,
+        "store": true,
+        "string": "Last Updated by",
+        "type": "many2one"
+      },
+      "write_date": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Last Updated on",
+        "type": "datetime"
+      },
+      "tags_ids": {
+        "readonly": false,
+        "relation": "g2p.document.tag",
+        "required": false,
+        "store": true,
+        "string": "Tags",
+        "type": "many2many"
+      },
+      "verified_by": {
+        "readonly": false,
+        "relation": "res.users",
+        "required": true,
+        "store": true,
+        "string": "Verified by",
+        "type": "many2one"
+      },
+      "comment": {
+        "readonly": false,
+        "required": true,
+        "store": true,
+        "string": "Comment",
+        "type": "text"
+      },
+      "verification_timestamp": {
+        "readonly": true,
+        "required": false,
+        "store": true,
+        "string": "Verification Timestamp",
+        "type": "datetime"
+      },
+      "beneficiary_list_id": {
+        "readonly": false,
+        "relation": "g2p.beneficiary.list",
+        "required": true,
+        "store": true,
+        "string": "Beneficiary List",
+        "type": "many2one"
+      }
+    },
+    "view": {
+      "arch": "<form string=\"File\">\n                <div class=\"oe_title\">\n                    <label for=\"tags_ids\" class=\"oe_edit_only\"/>\n            <h1>\n                        <field name=\"tags_ids\" widget=\"many2many_tags\" can_create=\"False\" can_write=\"False\"/>\n            </h1>\n                    <group>\n                <field name=\"name\" readonly=\"1\" invisible=\"1\" on_change=\"1\"/>\n                <field name=\"id\" invisible=\"True\"/>\n                        <field name=\"backend_id\" required=\"0\" readonly=\"id\" on_change=\"1\" can_create=\"True\" can_write=\"True\"/>\n            <field name=\"filename\" invisible=\"True\"/>\n                        <field name=\"data\" readonly=\"id\" filename=\"filename\" on_change=\"1\"/>\n                        <field name=\"url\" widget=\"url\"/>\n                        <field name=\"human_file_size\"/>\n                        <field name=\"checksum\"/>\n                        <field name=\"relative_path\" on_change=\"1\"/>\n                        <field name=\"file_type\"/>\n                        </group>\n                </div>\n            </form>",
+      "id": 433,
+      "model": "storage.file",
+      "models": {
+        "storage.file": [
+          "write_date",
+          "name",
+          "url",
+          "relative_path",
+          "tags_ids",
+          "human_file_size",
+          "id",
+          "filename",
+          "backend_id",
+          "checksum",
+          "data",
+          "file_type",
+          "company_id"
+        ]
+      }
+    }
+  }
+}

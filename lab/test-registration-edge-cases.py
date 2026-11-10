@@ -13,7 +13,7 @@ def signin(s,mode,account,signup=False):
 staff=requests.Session();pw=yaml.safe_load(pathlib.Path('/opt/openg2p-lab/credentials.yaml').read_text())['admin_password'];signin(staff,'staff',{'username':'admin','password':pw})
 first=requests.Session();account=json.loads((ROOT/'test-account.json').read_text());signin(first,'beneficiary',account)
 # Sign into the original beneficiary portal using the very same Keycloak account.
-native='https://beneficiary.nigeriag2p.com/v1/selfservice';providers=first.get(native+'/auth/getLoginProviders',timeout=20).json()['loginProviders'];provider=next(p['id'] for p in providers if p['name']=='Local UX Demo Login')
+native='https://g2p-beneficiary.wverve.in/v1/selfservice';providers=first.get(native+'/auth/getLoginProviders',timeout=20).json()['loginProviders'];provider=next(p['id'] for p in providers if p['name']=='Local UX Demo Login')
 res=first.get(native+'/auth/getLoginProviderRedirect/'+str(provider),params={'redirect_uri':'/selfservice/'},timeout=40);assert res.status_code==200 and 'keycloak.' not in res.url,(res.status_code,res.url)
 res=first.get(native+'/applicationdetails',timeout=30);assert res.status_code==200,(res.status_code,res.text[:400]);assert any('Integrated Demo' in a.get('program_name','') and a.get('application_status')=='active' for a in res.json()),res.text[:600]
 results['existing_beneficiary_portal_accepts_new_account_and_shows_enrollment']='passed'

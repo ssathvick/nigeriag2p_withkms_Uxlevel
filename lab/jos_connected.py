@@ -256,9 +256,9 @@ def minister_stage(row,step):
  dashboard=base+'&panel=1'
  if step==1:
   partner=row['registry_mapping'].get('socialregistrydb',{}).get('household')
-  dashboard='https://registry.nigeriag2p.com/web?_nsipa_records=1'+('#id='+str(partner)+'&model=res.partner&view_type=form' if partner else '#action=188')
+  dashboard='https://g2p-registry.wverve.in/web?_nsipa_records=1'+('#id='+str(partner)+'&model=res.partner&view_type=form' if partner else '#action=188')
  elif step in [2,3]:
   lid=row['enrolment_list_id'] if step==2 else row['list_id']
-  dashboard='https://pbms.nigeriag2p.com/web?_nsipa_records=1#id='+str(lid or row['program_id'])+'&model='+('g2p.beneficiary.list' if lid else 'g2p.program.definition')+'&view_type=form'
- elif step==5:dashboard='https://awe.nigeriag2p.com/requests?_nsipa_records=1'
+  dashboard='https://g2p-pbms.wverve.in/web?_nsipa_records=1#id='+str(lid or row['program_id'])+'&model='+('g2p.beneficiary.list' if lid else 'g2p.program.definition')+'&view_type=form'
+ elif step==5:dashboard='https://g2p-awe.wverve.in/requests?_nsipa_records=1'
  return dict(number=step,title=titles[step-1],service=services[step-1],explanation=explanations[step-1],done=done[step-1],all_done=all(done),prerequisites=all(done[:step-1]),actions=actions,url=base,dashboard=dashboard,native_ui=step in [1,2,3,5])

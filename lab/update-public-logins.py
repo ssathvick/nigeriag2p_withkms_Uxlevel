@@ -1,6 +1,6 @@
 import requests,subprocess,json,pathlib,yaml,time,xmlrpc.client
 R=pathlib.Path('/opt/openg2p-lab'); password=yaml.safe_load((R/'credentials.yaml').read_text())['admin_password']
-def convert(s):return s.replace('beneficiary.openg2p-ux.localhost','beneficiary.nigeriag2p.com').replace('.openg2p.localhost','.nigeriag2p.com').replace('https://openg2p.localhost','https://nigeriag2p.com')
+def convert(s):return s.replace('beneficiary.openg2p-ux.localhost','g2p-beneficiary.wverve.in').replace('.openg2p.localhost','.nigeriag2p.com').replace('https://openg2p.localhost','https://g2p.wverve.in')
 ip=subprocess.check_output(['kubectl','-n','nigeria','get','svc','commons-keycloak','-o','jsonpath={.spec.clusterIP}'],text=True)
 url='http://'+ip
 for attempt in range(90):
@@ -24,7 +24,7 @@ for realm in ['staff','beneficiary']:
   client['attributes']={k:convert(v) if isinstance(v,str) else v for k,v in client.get('attributes',{}).items()}
   if json.dumps(client)!=before:s.put(endpoint+'/clients/'+client['id'],json=client,timeout=20).raise_for_status()
  r=s.get(endpoint,timeout=20);r.raise_for_status();data=r.json()
- attrs=data.get('attributes',{});attrs['frontendUrl']='https://keycloak.nigeriag2p.com';data['attributes']=attrs
+ attrs=data.get('attributes',{});attrs['frontendUrl']='https://g2p-keycloak.wverve.in';data['attributes']=attrs
  s.put(endpoint,json=data,timeout=20).raise_for_status()
  print('Updated public OIDC redirects:',realm)
 for host,db in [('pbms','pbmsdb'),('registry','socialregistrydb'),('portal-admin','portalpbmsdb')]:

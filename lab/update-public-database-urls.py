@@ -12,7 +12,7 @@ for service,db in targets:
  count=0
  for line in cols.splitlines():
   schema,table,col=line.split('|');qualified=quote(schema)+'.'+quote(table);c=quote(col)
-  q=f"UPDATE {qualified} SET {c}=replace(replace({c},'beneficiary.openg2p-ux.localhost','beneficiary.nigeriag2p.com'),'.openg2p.localhost','.nigeriag2p.com') WHERE {c} LIKE '%openg2p.localhost%' OR {c} LIKE '%openg2p-ux.localhost%';"
+  q=f"UPDATE {qualified} SET {c}=replace(replace({c},'beneficiary.openg2p-ux.localhost','g2p-beneficiary.wverve.in'),'.openg2p.localhost','.nigeriag2p.com') WHERE {c} LIKE '%openg2p.localhost%' OR {c} LIKE '%openg2p-ux.localhost%';"
   result=sql(service,db,q)
   if result.strip()!='UPDATE 0':count+=1
  print(db,'updated URL columns',count)

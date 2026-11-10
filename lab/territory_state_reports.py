@@ -101,3 +101,5 @@ def add_state_reports(data,raw):
     data['coverage']['economy']['independent_reports']=len(reports)
     data['coverage']['economy']['independent_report_states']=len(set(x['state_id'] for x in reports))
     data['gaps'].append('Separate economic-report library: NBS 2017 accounts for 22 states/FCT, Jigawa 2023 and Delta 2022. These vintages are not merged into the World Bank 2023 comparisons. NGF 2023 profiles add published GDP for all 36 states, with unspecified price basis; FCT retains its separate historical report. Complete matched-year GDP and per-capita coverage remains unavailable.')
+
+

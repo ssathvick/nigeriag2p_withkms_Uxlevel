@@ -6,12 +6,14 @@ Install the signed debug/demo APK on Android 6.0 (API 23) or newer using `adb in
 
 1. Create a fictional visit and save a draft. Enter consent and complete each section.
 2. On Review, save and open supervisor review. The demonstration PIN is 246810. This PIN is hard-coded and is NOT an authenticated staff identity or a secure approval control.
-3. An approved demo record remains on the device. Sync settings accepts an HTTPS ODK Central App User project URL; the sample form `nsipa_field_household_demo` must be published in that project. Approved sample records are queued for a network-constrained Android background job; use Retry upload to request an additional attempt.
-4. The app reports a successful upload only on HTTP 201. A failed attempt leaves the record for manual retry. The device encrypts the record store and connection URL using Android Keystore, and disables application backup. The app requests an upload when a record is approved, and schedules periodic retry. Android controls timing and may delay background work. The user can refresh the workspace to check the status.
+3. Approved samples remain local until you open a sample and tap **Upload this sample**. Saving connection settings, approval, launch, network reconnection and reboot do not initiate uploads.
+4. Keep the app visible during the single attempt. Leaving it cancels the request and GPS capture. HTTP 201 marks the sample sent; errors require an explicit retry. Cancellation cannot recall bytes already received by the server: check server receipt before retrying an uncertain outcome. Storage and connection URL remain encrypted with Android Keystore; backup is disabled.
+
+Version 0.6 removes the persisted immediate/15-minute jobs, job service and boot/network-state permissions. On first launch it cancels legacy job IDs 10441 and 10442. Historical device results below apply to older versions, not v0.6. OnePlus testing of v0.6 is pending.
 
 The demonstration form is a fixed form implemented in native Java, not a general ODK Collect or XForms interpreter. A sample-only ODK project and OnePlus test App User are configured; the offline-to-online sample upload has been verified on that device. Uploaded `review_confirmation` means demo confirmation only and does not prove the identity of an authorized supervisor. A production release requires server-issued device enrollment, independently authenticated offline supervisors with expiry/revocation and separation of duties, signed auditable approvals, conflict/idempotency handling, production-grade durable retry and conflict handling, full security review, a supported Android build configuration and device/emulator testing.
 
-Build on Ubuntu with the Debian Android SDK build-tools/platform-23 packages, JDK 17 and R8 at `/opt/ng2p-android-tools/r8.jar`: `bash build.sh`. The script uses a locally generated test signing key.
+Build on Ubuntu with the Debian Android SDK build-tools/platform-23 packages, JDK 17 and R8 at `/opt/ng2p-android-tools/r8.jar`: `bash build.sh`. The script requires the existing test key at `$HOME/.android/ng2p-demo.keystore` (or `DEMO_KEYSTORE`). It never generates a replacement key. ZIP ordering and timestamps are normalized; see case 261105-000062 evidence for toolchain hashes and repeated-build results.
 
 ## Location reference and coordinates
 

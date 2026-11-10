@@ -1,5 +1,9 @@
 # Nigeria OpenG2P local UX lab
 
+## Operational and knowledge analytics
+
+Open [Analytics](https://nigeriag2p.com/registration/analytics) with an assigned staff role for current workflow counts, connected OpenG2P summaries, knowledge publishing metrics and library usage. Backend reporting refreshes every 15 minutes through dedicated read-only identities. The [Superset dashboard](https://superset.nigeriag2p.com/superset/dashboard/nigeria-platform-analytics/) uses a separate aggregate reporting database and existing Superset permissions. See [Analytics operations](Analytics-Operations.md) for definitions, scope, retention, verification and recovery. Confirmed settlement and contextual help usage are not included in this release.
+
 Installed on 3 October 2026 in Ubuntu-22.04 under WSL2. Open the [lab launcher](https://openg2p.localhost).
 
 This is a local development environment with synthetic beneficiaries, programme rules, identity records and financial addresses. It provides working services and demo workflows for exploring and building UI/UX. The existing Hyper-V MOSIP-LAB VM was left untouched.
@@ -174,6 +178,8 @@ The launcher was tested against the running lab: all 68 workloads and 18 entry p
 
 Partner Management authentication repair: PARTNER_MANAGER_AUTH_DEFAULT_ISSUERS now matches the staff realm's public HTTPS issuer. Signature verification, administrator role checks and JWKS validation remain enabled. Verified fresh browser login, Requests and Partners pages on 3 October 2026.
 
-## 29 October lab updates
 
-See [the integration snapshot](updates-2026-10-29/README.md) for beneficiary consent, partner session handling and the demo master-data geography import. Review environment-specific scripts in staging before use.
+## Partner simulation
+
+The staff simulation console is available at https://nigeriag2p.com/registration/simulation. See [Partner-Simulation.md](Partner-Simulation.md) for scenarios, schemas, isolation, worker operation and current integration limits.
+

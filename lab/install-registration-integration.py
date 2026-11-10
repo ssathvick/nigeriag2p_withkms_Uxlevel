@@ -6,11 +6,11 @@ pwd=yaml.safe_load(pathlib.Path('/opt/openg2p-lab/credentials.yaml').read_text()
 kc='http://'+run('kubectl','-n','nigeria','get','svc','commons-keycloak','-o','jsonpath={.spec.clusterIP}')
 r=requests.post(kc+'/realms/master/protocol/openid-connect/token',data={'client_id':'admin-cli','grant_type':'password','username':'admin','password':pwd},timeout=20);r.raise_for_status()
 s=requests.Session();s.headers['Authorization']='Bearer '+r.json()['access_token']
-config={'base_url':'https://nigeriag2p.com','keycloak':'https://keycloak.nigeriag2p.com','clients':{}}
+config={'base_url':'https://g2p.wverve.in','keycloak':'https://g2p-keycloak.wverve.in','clients':{}}
 for mode,realm in [('beneficiary','beneficiary'),('staff','staff')]:
  url=kc+'/admin/realms/'+realm;client='iqs-registration-'+mode
  ids=s.get(url+'/clients',params={'clientId':client}).json()
- values={'clientId':client,'name':'IQS Registration '+mode.title(),'enabled':True,'publicClient':False,'standardFlowEnabled':True,'directAccessGrantsEnabled':False,'serviceAccountsEnabled':False,'redirectUris':['https://nigeriag2p.com/registration/callback'],'webOrigins':['https://nigeriag2p.com'],'attributes':{'pkce.code.challenge.method':'S256'}}
+ values={'clientId':client,'name':'IQS Registration '+mode.title(),'enabled':True,'publicClient':False,'standardFlowEnabled':True,'directAccessGrantsEnabled':False,'serviceAccountsEnabled':False,'redirectUris':['https://g2p.wverve.in/registration/callback'],'webOrigins':['https://g2p.wverve.in'],'attributes':{'pkce.code.challenge.method':'S256'}}
  if not ids:s.post(url+'/clients',json=values).raise_for_status();ids=s.get(url+'/clients',params={'clientId':client}).json()
  else:s.put(url+'/clients/'+ids[0]['id'],json=values).raise_for_status()
  secret=s.get(url+'/clients/'+ids[0]['id']+'/client-secret').json()['value'];config['clients'][mode]={'id':client,'secret':secret}
@@ -66,7 +66,7 @@ WantedBy=timers.target
 ''')
 ng=pathlib.Path('/etc/nginx/sites-available/iqs-public');t=ng.read_text()
 location=''' location ^~ /registration/ {
-  if ($host = www.nigeriag2p.com) { return 308 https://nigeriag2p.com$request_uri; }
+  if ($host = g2p-www.wverve.in) { return 308 https://g2p.wverve.in$request_uri; }
   client_max_body_size 64k;
   proxy_pass http://127.0.0.1:18081;
   proxy_set_header Host $host;
@@ -76,12 +76,12 @@ location=''' location ^~ /registration/ {
  location = /registration { return 302 /registration/; }
 '''
 if 'location ^~ /registration/' not in t:t=t.replace(' location / { try_files $uri $uri/ =404; }',location+' location / { try_files $uri $uri/ =404; }')
-if 'if ($host = www.nigeriag2p.com)' not in t:t=t.replace(' location ^~ /registration/ {',' location ^~ /registration/ {\n  if ($host = www.nigeriag2p.com) { return 308 https://nigeriag2p.com$request_uri; }')
+if 'if ($host = g2p-www.wverve.in)' not in t:t=t.replace(' location ^~ /registration/ {',' location ^~ /registration/ {\n  if ($host = g2p-www.wverve.in) { return 308 https://g2p.wverve.in$request_uri; }')
 ng.write_text(t);subprocess.run(['nginx','-t'],check=True);subprocess.run(['systemctl','reload','nginx'],check=True)
 for home in ['/opt/openg2p-lab/public-home/index.html','/opt/openg2p-lab/home/index.html']:
  p=pathlib.Path(home);html=p.read_text()
  if 'Beneficiary &amp; household registration' not in html:
-  cards='<a class="card" href="https://nigeriag2p.com/registration/"><h2>Beneficiary &amp; household registration</h2><p>Create an account, register a household, apply for integrated programmes and track enrollment.</p></a>\n<a class="card" href="https://nigeriag2p.com/registration/login?mode=staff"><h2>Registration &amp; enrollment review</h2><p>Staff: approve registrations, create connected programmes, check eligibility and confirm enrollment.</p></a>\n'
+  cards='<a class="card" href="https://g2p.wverve.in/registration/"><h2>Beneficiary &amp; household registration</h2><p>Create an account, register a household, apply for integrated programmes and track enrollment.</p></a>\n<a class="card" href="https://g2p.wverve.in/registration/login?mode=staff"><h2>Registration &amp; enrollment review</h2><p>Staff: approve registrations, create connected programmes, check eligibility and confirm enrollment.</p></a>\n'
   html=html.replace('<div class="grid">','<div class="grid">\n'+cards);p.write_text(html)
 subprocess.run(['systemctl','daemon-reload'],check=True);subprocess.run(['systemctl','enable','--now','iqs-registration.service','iqs-registration-sync.timer'],check=True)
 print('Registration integration installed. OIDC signup enabled for beneficiary realm only. Reviewer assigned to existing staff administrator.')

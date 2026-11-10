@@ -19,7 +19,7 @@ shutil.copy2(src/'persona-ui/dist/workspace.js',root/'static/workspace.js')
 base=root/'templates/base.html';t=base.read_text()
 if '/workspace' not in t:t=t.replace('<nav>','<nav><a href="{{prefix}}/workspace{% if not user %}?demo=1{% endif %}">Persona workspace</a>')
 base.write_text(t)
-cards='<a class="card" href="https://nigeriag2p.com/registration/workspace?demo=1"><h2>Client persona walkthrough</h2><p>Explore registration, verification, supervision and citizen support with fictional records.</p></a><a class="card" href="https://nigeriag2p.com/registration/workspace"><h2>My persona workspace</h2><p>Sign in to view household registration and staff review in the new workspace.</p></a>'
+cards='<a class="card" href="https://g2p.wverve.in/registration/workspace?demo=1"><h2>Client persona walkthrough</h2><p>Explore registration, verification, supervision and citizen support with fictional records.</p></a><a class="card" href="https://g2p.wverve.in/registration/workspace"><h2>My persona workspace</h2><p>Sign in to view household registration and staff review in the new workspace.</p></a>'
 for home in homes:
  if home.exists():
   html=home.read_text()

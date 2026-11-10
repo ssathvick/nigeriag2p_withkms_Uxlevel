@@ -1,16 +1,20 @@
+#!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
+export LC_ALL=C TZ=UTC
+ANDROID=/usr/lib/android-sdk/platforms/android-23/android.jar
+R8=/opt/ng2p-android-tools/r8.jar
+KEYSTORE=${DEMO_KEYSTORE:-$HOME/.android/ng2p-demo.keystore}
+# Reuse the existing demo key. Never silently generate a different identity.
+test -f "$KEYSTORE"
 rm -rf build/classes build/gen
 mkdir -p build/classes build/gen
-sed -i '1s/^\xEF\xBB\xBF//' src/org/nigeriag2p/field/*.java
-ANDROID=/usr/lib/android-sdk/platforms/android-23/android.jar
 /usr/bin/aapt package -f -m -M AndroidManifest.xml -S res -A assets -I "$ANDROID" -F build/unsigned.apk -J build/gen
 javac -encoding UTF-8 -source 8 -target 8 -classpath "$ANDROID" -d build/classes src/org/nigeriag2p/field/*.java build/gen/org/nigeriag2p/field/R.java
-jar cf build/classes.jar -C build/classes .
-java -cp /opt/ng2p-android-tools/r8.jar com.android.tools.r8.D8 --min-api 23 --lib "$ANDROID" --output build build/classes.jar
-cd build
-zip -q unsigned.apk classes.dex
-zipalign -f 4 unsigned.apk aligned.apk
-if [ ! -f "$HOME/.android/ng2p-demo.keystore" ]; then mkdir -p "$HOME/.android"; keytool -genkeypair -keystore "$HOME/.android/ng2p-demo.keystore" -storepass android -keypass android -alias demo -dname 'CN=Nigeria G2P Emulator Demo' -keyalg RSA -keysize 2048 -validity 3650 >/dev/null 2>&1; fi
-apksigner sign --ks "$HOME/.android/ng2p-demo.keystore" --ks-pass pass:android --key-pass pass:android --out nigeria-g2p-field-demo.apk aligned.apk
-apksigner verify --verbose nigeria-g2p-field-demo.apk
+python3 reproducible_zip.py classes build/classes build/classes.jar
+java -cp "$R8" com.android.tools.r8.D8 --min-api 23 --lib "$ANDROID" --output build build/classes.jar
+python3 reproducible_zip.py apk build/unsigned.apk build/classes.dex
+zipalign -f 4 build/unsigned.apk build/aligned.apk
+apksigner sign --ks "$KEYSTORE" --ks-pass pass:android --key-pass pass:android --out build/nigeria-g2p-field-demo.apk build/aligned.apk
+apksigner verify --verbose --print-certs build/nigeria-g2p-field-demo.apk
+sha256sum build/nigeria-g2p-field-demo.apk

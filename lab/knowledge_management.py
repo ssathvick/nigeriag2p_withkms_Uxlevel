@@ -12,7 +12,7 @@ def reference_metadata(item):
  sources=[]
  for source in item.get('sources',[]):
   url=source.get('url','');parsed=urlparse(url)
-  if parsed.scheme=='https' and (parsed.hostname in ['docs.openg2p.org','nigeriag2p.com'] or parsed.hostname=='github.com' and parsed.path.startswith('/OpenG2P/openg2p-documentation/')):
+  if parsed.scheme=='https' and (parsed.hostname in ['docs.openg2p.org','g2p.wverve.in'] or parsed.hostname=='github.com' and parsed.path.startswith('/OpenG2P/openg2p-documentation/')):
    sources.append({'title':str(source.get('title','Reference'))[:160],'url':url[:1200]})
  result={'sources':sources[:8]} if sources else {}
  if item.get('scope') in ['upstream_reference','local_workflow']:result['scope']=item['scope']
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   if query:articles=[a for a in articles if matches(a,query)]
   response=r.app.make_response({'articles':articles,'modules':SEED['modules'],'audiences':AUDIENCES,'notice':'Public guidance is open; staff-only guidance requires an authorised staff session. Audience filters do not grant permissions.'})
   origin=request.headers.get('Origin','');host=origin.removeprefix('https://')
-  if origin.startswith('https://') and (host=='nigeriag2p.com' or re.fullmatch(r'[a-z0-9-]+\.nigeriag2p\.com',host)):response.headers['Access-Control-Allow-Origin']=origin;response.headers['Vary']='Origin'
+  if origin.startswith('https://') and (host=='g2p.wverve.in' or re.fullmatch(r'g2p-[a-z0-9-]+\.wverve\.in',host)):response.headers['Access-Control-Allow-Origin']=origin;response.headers['Vary']='Origin'
   response.headers['Cache-Control']='private, no-store'
   response.headers['Vary']='Cookie, Origin'
   return response

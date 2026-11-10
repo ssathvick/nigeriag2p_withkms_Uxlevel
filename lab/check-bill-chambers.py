@@ -1,0 +1,6 @@
+from pathlib import Path
+p=Path('territory_representatives.py');s=p.read_text();needle="        matches=index.get((chamber,person(b.get('sponsorName') or '')),[])";s=s.replace(needle,"""        if (b['number'].upper().startswith('SB') and chamber=='House of Representatives') or (b['number'].upper().startswith('HB') and chamber=='Senate'):
+            skips['bill_chamber_conflict']+=1;continue
+"""+needle);s=s.replace('Duplicate chamber/bill-number records are excluded.','Duplicate chamber/bill-number records and bill-prefix/chamber conflicts are excluded.');p.write_text(s)
+p=Path('persona-ui/src/representatives.jsx');s=p.read_text().replace("{dataset.coverage.districts_linked} senatorial", "Bill/chamber conflicts excluded: {dataset.coverage.excluded_bills.bill_chamber_conflict||0}. {dataset.coverage.districts_linked} senatorial");p.write_text(s)
+p=Path('test-territory-data.py');s=p.read_text().replace("self.assertEqual(len(r['bills']),140)","self.assertEqual(len(r['bills']),139)");s=s.replace("    self.assertEqual(person(r['name']),person(b['sponsor']))", "    self.assertEqual(person(r['name']),person(b['sponsor']))\n    if b['number'].upper().startswith('SB'):self.assertEqual(r['chamber'],'Senate')\n    if b['number'].upper().startswith('HB'):self.assertEqual(r['chamber'],'House of Representatives')");p.write_text(s)

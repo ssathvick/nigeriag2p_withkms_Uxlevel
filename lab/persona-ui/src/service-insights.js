@@ -2,7 +2,7 @@ import {modules} from './catalogue';
 import './service-insights.css';
 // Read only the records already rendered by the user's authorized application.
 // No requests, credentials, record persistence, or writes to native workflows.
-const module=modules.find(m=>m.host===location.hostname&&m.host!=='nigeriag2p.com');
+const module=modules.find(m=>m.host===location.hostname&&m.host!=='g2p.wverve.in');
 if(module&&window.self===window.top){
  let panel,opener,observer,timer,signature='',selection='',query='',snapshot=null,opened=false,shownOnce=false;
  const node=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=text;return el};
@@ -39,7 +39,7 @@ if(module&&window.self===window.top){
   observer=new MutationObserver(changes=>{if(changes.every(c=>c.target===panel||panel.contains(c.target)||c.target===opener))return;if(!timer)timer=setTimeout(()=>{timer=null;update()},350)});
   observer.observe(document.documentElement,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','hidden','aria-hidden']});window.addEventListener('popstate',update);window.addEventListener('hashchange',update);document.addEventListener('visibilitychange',()=>{if(!document.hidden)update()});update();
  }
- function update(){if(!panel.isConnected||!opener.isConnected)document.body.append(opener,panel);const next=extract();const nextSignature=JSON.stringify(next);if(nextSignature===signature)return;signature=nextSignature;snapshot=next;selection='';query='';if(!next){opener.hidden=true;panel.hidden=true;opened=false;opener.setAttribute('aria-expanded','false');return}opener.hidden=false;render();if(!shownOnce){shownOnce=true;opened=true;panel.hidden=false;opener.setAttribute('aria-expanded','true')}}
+ function update(){if(!panel.isConnected||!opener.isConnected)document.body.append(opener,panel);const next=extract();const nextSignature=JSON.stringify(next);if(nextSignature===signature)return;signature=nextSignature;snapshot=next;selection='';query='';if(!next){opener.hidden=true;panel.hidden=true;opened=false;opener.setAttribute('aria-expanded','false');return}opener.hidden=false;render();if(!shownOnce){shownOnce=true;opened=false;panel.hidden=true;opener.setAttribute('aria-expanded','false')}}
  function render(){if(!snapshot)return;const focused=document.activeElement?.id;const position=document.activeElement?.selectionStart;panel.replaceChildren();
   const header=node('div','nsi-head');const heading=node('div');heading.append(node('small','','CURRENT VIEW INSIGHTS'),node('h2','',module.title));const closeBtn=node('button','nsi-close','Close ×');closeBtn.type='button';closeBtn.addEventListener('click',close);header.append(heading,closeBtn);panel.append(header,node('p','nsi-scope','Based only on the loaded rows in your current record list. Search, pagination and application filters can change this view.'));
   const records=snapshot.records;const grouped=Object.create(null);if(snapshot.statusIndex>=0)records.forEach(row=>{const status=row[snapshot.statusIndex]||'Not recorded';grouped[status]=(grouped[status]||0)+1});
@@ -48,7 +48,7 @@ if(module&&window.self===window.top){
   const labelEl=node('label','nsi-search','Find a loaded record');const input=node('input');input.id='nsi-record-search';input.type='search';input.placeholder='Filter this overview…';input.value=query;input.addEventListener('input',e=>{query=e.target.value;render()});labelEl.append(input);panel.append(labelEl);
   const filtered=records.filter(r=>(!selection||r[snapshot.statusIndex]===selection)&&r.join(' ').toLowerCase().includes(query.toLowerCase()));const summary=node('p','nsi-scope',`${filtered.length} of ${records.length} loaded rows${selection?' · '+selection:''}. The underlying record list is unchanged.`);summary.setAttribute('role','status');panel.append(summary);
   const list=node('ul','nsi-records');filtered.slice(0,50).forEach((r,i)=>{const item=node('li');item.append(node('span','',r[snapshot.labelIndex]||`Row ${i+1}`));if(snapshot.statusIndex>=0)item.append(node('small','',r[snapshot.statusIndex]||'Not recorded'));list.append(item)});if(!filtered.length)list.append(node('li','','No loaded rows match. Clear the search or selected status.'));panel.append(list);if(filtered.length>50)panel.append(node('small','nsi-scope','Showing the first 50 matching rows. Narrow this overview to find a record.'));
-  const footer=node('div','nsi-foot');const a=node('a','','Open service dashboard ↗');a.href='https://nigeriag2p.com/registration/analytics?service='+encodeURIComponent(module.id);footer.append(a,node('small','','Updates as the application changes.'));panel.append(footer);
+  const footer=node('div','nsi-foot');const a=node('a','','Open service dashboard ↗');a.href='https://g2p.wverve.in/registration/analytics?service='+encodeURIComponent(module.id);footer.append(a,node('small','','Updates as the application changes.'));panel.append(footer);
   if(focused==='nsi-record-search'){input.focus();input.setSelectionRange(position,position)}
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();

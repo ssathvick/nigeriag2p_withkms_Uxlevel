@@ -47,10 +47,10 @@
       }
       let decoded = src; try { decoded = decodeURIComponent(src); } catch (_) {}
       const branded = /(?:openg2p|keycloak|odk|iqs|superset|minio|redpanda|odoo)[^/]*(?:logo|favicon)|(?:logo|favicon)[^/]*(?:openg2p|keycloak|odk|iqs|superset|minio|redpanda|odoo)|company_logo|g2p_theme.*(?:png|svg)|\/(?:keycloak|odk|iqs-logo)\.(?:png|svg)|(?:^|\/)(?:logo(?:[_-](?:bw|horizontal|vertical|1))?(?:@2x)?\.(?:png|svg|webp))(?:\?|$)/i.test(decoded);
-      if (branded || /^(?:(?:registry|NSIPA|IQS|OpenG2P|Keycloak|ODK)\s+)?logo$|^(?:NSIPA|IQS|OpenG2P|Keycloak|ODK)(?:\s*[â€”â€“-].*)?$/i.test(alt)) {
+      if (branded || /^(?:(?:registry|NSIPA|IQS|OpenG2P|Keycloak|ODK)\s+)?logo$|^(?:NSIPA|IQS|OpenG2P|Keycloak|ODK)(?:\s*[—–-].*)?$/i.test(alt)) {
         img.removeAttribute('srcset');
         img.setAttribute('src', root + 'nsipa-wordmark.svg');
-        img.setAttribute('alt','NSIPA â€” National Social Investment Programmes Agency');
+        img.setAttribute('alt','NSIPA — National Social Investment Programmes Agency');
         img.classList.add('iqs-brand-logo');
       }
     });
@@ -68,13 +68,31 @@
       if (link.closest('.powered-by, .powered_by, footer, .footer') && /^https?:\/\/(?:www\.)?(?:keycloak\.org|getodk\.org)(?:\/|$)/i.test(href)) link.setAttribute('href','https://www.nsipa.gov.ng/');
     });
     // Field data product branding; retain collection and authentication behaviour.
-    if (['odk.nigeriag2p.com', 'odk.openg2p.localhost'].includes(location.hostname)) {
+    if (['g2p-odk.wverve.in', 'odk.openg2p.localhost'].includes(location.hostname)) {
       const odkBrand = document.querySelector('#app .navbar-brand');
       if (odkBrand && odkBrand.textContent.trim() !== 'NSIPA Field Data') odkBrand.textContent = 'NSIPA Field Data';
       const brandedTitle = document.title.replace(/ODK Central/g, 'NSIPA Field Data');
       if (document.title !== brandedTitle) document.title = brandedTitle;
     }
+    // Replace only the registry landing illustration, not record or profile images.
+    if (['g2p-register.wverve.in', 'register.openg2p.localhost'].includes(location.hostname) && /^\/(?:en|fr|de|es)?\/?$/.test(location.pathname)) {
+      const hero = document.querySelector('img[alt="Peoples"], img[data-iqs-registry-hero]');
+      if (hero && !hero.hasAttribute('data-iqs-registry-hero')) {
+        hero.setAttribute('data-iqs-registry-hero', 'true');
+        hero.removeAttribute('srcset');
+        hero.setAttribute('src', root + 'nigeria-registry-community.png');
+        hero.setAttribute('alt', 'Nigerian community members using digital public services');
+      }
+    }
     const login = document.querySelector('form.oe_login_form, #kc-form-login, #kc-reset-password-form, #kc-passwd-update-form, #kc-otp-login-form');
+    if (login && !login.querySelector('.iqs-mobile-info-link')) {
+      const link = document.createElement('a');
+      link.className = 'iqs-mobile-info-link';
+      link.href = 'https://g2p.wverve.in/registration/mobile';
+      link.textContent = 'Mobile apps';
+      link.style.cssText = 'display:block;margin:16px 0;color:#155d50;font-weight:600';
+      login.appendChild(link);
+    }
     if (location.hostname === 'beneficiary.openg2p-ux.localhost' && /\/login\/?$/.test(location.pathname)) {
       const demoLink = document.querySelector('a[href*="getLoginProviderRedirect/4"]');
       if (demoLink && !document.querySelector('.iqs-beneficiary-login-note')) {
@@ -92,7 +110,7 @@
       if (!card.querySelector('.iqs-login-heading')) {
         const heading = document.createElement('div');
         heading.className = 'iqs-login-heading';
-        heading.innerHTML = '<div class="iqs-logo-mark" role="img" aria-label="NSIPA â€” National Social Investment Programmes Agency"></div><div class="iqs-login-eyebrow">NATIONAL SOCIAL INVESTMENT PROGRAMMES AGENCY</div><h1>Welcome to NSIPA</h1><p>Sign in to your programme workspace</p>';
+        heading.innerHTML = '<div class="iqs-logo-mark" role="img" aria-label="NSIPA — National Social Investment Programmes Agency"></div><div class="iqs-login-eyebrow">NATIONAL SOCIAL INVESTMENT PROGRAMMES AGENCY</div><h1>Welcome to NSIPA</h1><p>Sign in to your programme workspace</p>';
         card.insertBefore(heading, card.firstChild);
       }
     }
@@ -107,3 +125,4 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',start,{once:true});
   else start();
 })();
+

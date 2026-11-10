@@ -7,11 +7,21 @@ import nigeria_geography
 import knowledge_management
 import local_ai
 from psycopg2 import sql
-from flask import Flask,request,redirect,render_template,abort,g
+from flask import Flask,request,redirect,render_template,abort,g,has_request_context
+from werkzeug.local import LocalProxy
 
 ROOT=Path(os.environ.get('IQS_REGISTRATION_ROOT','/opt/openg2p-lab/registration'))
 ROOT.mkdir(parents=True,exist_ok=True);CONFIG=json.loads((ROOT/'config.json').read_text())
-BASE=CONFIG['base_url'];PREFIX='/registration'
+# Request-scoped public origin: one application/database, host-only cookies.
+# Do not trust forwarded-host headers or construct OAuth callbacks from arbitrary hosts.
+PUBLIC_ORIGINS={'g2p.wverve.in':'https://g2p.wverve.in','nigeriag2p.com':'https://nigeriag2p.com'}
+def public_origin():
+ if not has_request_context():return CONFIG['base_url']
+ host=request.host.split(':',1)[0].lower()
+ if host in PUBLIC_ORIGINS:return PUBLIC_ORIGINS[host]
+ if host in {'localhost','127.0.0.1','openg2p.localhost'}:return CONFIG['base_url']
+ abort(400,'Unrecognized application host')
+BASE=LocalProxy(public_origin);PREFIX='/registration' 
 class IntegrationLock:
  def __init__(self):self.local=threading.RLock();self.depth=0;self.fd=None
  def __enter__(self):
@@ -41,6 +51,7 @@ with db() as c:
  CREATE TABLE IF NOT EXISTS programs(id INTEGER PRIMARY KEY,mnemonic TEXT UNIQUE,name TEXT,amount REAL,max_income REAL,min_members INTEGER,portal_id INTEGER,cycle_id INTEGER,benefit_id INTEGER,status TEXT DEFAULT 'ACTIVE');
  CREATE TABLE IF NOT EXISTS applications(id INTEGER PRIMARY KEY AUTOINCREMENT,sub TEXT,program INTEGER,status TEXT DEFAULT 'pending_review',portal_info INTEGER,portal_membership INTEGER,pbms_list INTEGER,error TEXT,created TEXT,UNIQUE(sub,program));
  CREATE TABLE IF NOT EXISTS audit(id INTEGER PRIMARY KEY,actor TEXT,action TEXT,reference TEXT,at TEXT);
+ CREATE TABLE IF NOT EXISTS profile_reviews(id INTEGER PRIMARY KEY,sub TEXT,actor TEXT,actor_name TEXT,action TEXT,reason TEXT,at TEXT);
  ''')
 def stamp():return datetime.datetime.now(datetime.timezone.utc).isoformat()
 with db() as c:
@@ -71,6 +82,7 @@ def upsert_pg(cur,table,data,key):
 def issuer(mode):return CONFIG['keycloak']+'/realms/'+('staff' if mode=='staff' else 'beneficiary')
 @app.before_request
 def context():
+ if request.host.split(':',1)[0].lower() not in {*PUBLIC_ORIGINS,'localhost','127.0.0.1','openg2p.localhost'}:return 'Unrecognized application host',400
  if request.path.endswith('/health'):return
  sid=request.cookies.get('IQS-INTAKE');s=one('SELECT * FROM sessions WHERE id=? AND expires>?',(sid or '',int(time.time())))
  g.session=json.loads(s['data']) if s else {};g.sid=sid if s else secrets.token_urlsafe(32);g.user=g.session.get('user',{})
@@ -102,6 +114,7 @@ def login():
  g.session['login']['dashboard_service']=request.args.get('service','overview')[:80]
  g.session['login']['records']=request.args.get('_nsipa_records')=='1' or '_nsipa_records=1' in (request.referrer or '')
  g.session['login']['grievances']=request.args.get('grievances')=='1'
+ g.session['login']['beneficiary_profile']=mode=='beneficiary' and request.args.get('profile')=='1'
  client=CONFIG['clients'][mode];params={'client_id':client['id'],'response_type':'code','scope':'openid profile email','redirect_uri':BASE+PREFIX+'/callback','state':state,'nonce':nonce,'code_challenge':base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest()).decode().rstrip('='),'code_challenge_method':'S256'}
  endpoint='registrations' if request.args.get('signup')=='1' and mode=='beneficiary' else 'auth'
  return redirect(issuer(mode)+'/protocol/openid-connect/'+endpoint+'?'+urlencode(params))
@@ -123,6 +136,7 @@ def callback():
  access=jwt.decode(tokens['access_token'],key,algorithms=['RS256'],issuer=iss,options={'verify_aud':False})
  g.session={'csrf':secrets.token_urlsafe(32),'mode':flow['mode'],'user':{'sub':claims['sub'],'name':claims.get('name',claims.get('preferred_username','')),'email':claims.get('email',''),'roles':access.get('realm_access',{}).get('roles',[])}}
  old=g.sid;g.sid=secrets.token_urlsafe(32);execute('DELETE FROM sessions WHERE id=?',(old,))
+ if flow.get('beneficiary_profile'):return redirect(PREFIX+'/profile')
  if flow.get('jos'):return redirect(PREFIX+'/jos-cct'+('/minister' if flow.get('jos_minister') else ''))
  if flow.get('grievances'):return redirect(PREFIX+'/phase1/grievances')
  if flow.get('phase1'):return redirect(PREFIX+'/phase1')
@@ -287,6 +301,7 @@ def staff_profile_decision(sub,action):
    execute("UPDATE profiles SET status='approved',sync_status='pending',error=NULL,updated=? WHERE sub=?",(stamp(),sub))
    try:sync_profile(sub)
    except Exception:logging.exception('Profile synchronization failed');execute("UPDATE profiles SET sync_status='pending',error='A backend is unavailable. The saved registration will retry.' WHERE sub=?",(sub,))
+  execute('INSERT INTO profile_reviews(sub,actor,actor_name,action,reason,at) VALUES(?,?,?,?,?,?)',(sub,g.user['sub'],g.user.get('name',g.user['sub']),action,reason if action=='reject' else '',stamp()))
   audit('registration_'+action,sub)
  return redirect(PREFIX+'/staff')
 @app.post(PREFIX+'/staff/program')

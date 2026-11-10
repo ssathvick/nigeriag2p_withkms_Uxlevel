@@ -1,0 +1,21 @@
+const{chromium}=require('playwright');const fs=require('fs');const assert=require('assert/strict');const{resolve}=require('../knowledge/context.js');
+const plan=JSON.parse(fs.readFileSync('../knowledge/other-module-guidance.json'));
+const samples={beneficiary:['/selfservice/en/myprofile','/selfservice/en/accounts','/selfservice/en/benefits','/selfservice/en/complaints','/selfservice/en/notifications','/selfservice/en/news','/selfservice/en/dashboard'],register:['/en/configuration/registry/details','/en/configuration/data-policies','/en/outgoing-messages','/en/configuration/outgest-configurations/templates','/en/myprofile'],awe:['/policies/test/versions/1/simulate','/delegations','/deliveries','/audit'],odk:['/projects/1/forms/1/submissions','/projects/1'], 'consent-manager':['/partners','/approvals','/decisions','/policies','/requests'],'master-data-ui':['/locations','/attributes'],'partner-management':['/partners','/keys'],'iam-staff-ui':['/roles','/users','/applications'],platform:['/registration/analytics','/registration/simulation','/registration/mobile','/registration/phase1/readiness','/registration/phase1/grievances','/registration/phase1/conditionality','/registration/phase1/field','/registration/phase1/cms','/registration/phase1','/territories','/jos-cct']};
+(async()=>{let b=await chromium.launch({channel:'msedge'}),report={routeChecks:0,articleChecks:0,moduleCounts:{},brandingFailures:[],browserErrors:[]};try{
+ const ctx=await b.newContext();let page=await ctx.newPage();page.on('pageerror',e=>report.browserErrors.push(e.message));
+ await page.goto('https://nigeriag2p.com/registration/knowledge');await page.locator('#ng-km-launcher').click();await page.locator('#ng-km-panel h3').waitFor();
+ const articles=await page.evaluate(async()=>await(await fetch('/iqs-brand/knowledge?audience=all&include_roles=1')).json());
+ for(const family of ['nigeriag2p.com','wverve.in'])for(const [mod,paths]of Object.entries(samples))for(const path of paths){const hostname=family==='wverve.in'?(mod==='platform'?'g2p':'g2p-'+mod)+'.wverve.in':(mod==='platform'?'':mod+'.')+family;const actual=resolve({hostname,path});const expected=plan.routes.find(r=>r.module===mod&&new RegExp(r.pattern,'i').test(path));assert(expected,mod+path);assert.equal(actual.stage,expected.stage);assert(articles.articles.some(a=>a.module===actual.module&&a.stage===actual.stage));report.routeChecks++;}
+ for(const service of ['register','registry','beneficiary','awe','portal-admin','odk','superset','master-data-ui','partner-management','consent-manager','staff-portal','iam-staff-ui'])for(const family of ['nigeriag2p.com','wverve.in']){const hostname=family==='wverve.in'?'g2p-'+service+'.wverve.in':service+'.'+family;assert.equal(resolve({hostname,path:'/login'}).stage,'Sign in');report.routeChecks++;}
+ for(const width of [1440,390]){
+  await page.setViewportSize({width,height:900});await page.locator('select[aria-label="Service"]').evaluate(e=>e.closest('details').open=true);
+  for(const a of articles.articles.filter(a=>a.module!=='pbms')){
+   await page.locator('select[aria-label="Service"]').selectOption(a.module);await page.locator('select[aria-label="Guidance role"]').selectOption(a.audience);await page.locator('select[aria-label="Workflow stage"]').selectOption(String(a.id));
+   const body=await page.locator('#ng-km-panel').innerText();for(const key of ['purpose','steps','requirements','next_step','issues'])for(const line of a[key].split('\n').filter(Boolean))assert(body.includes(line),`${a.id}/${key}: missing complete text`);
+   assert(!/\bNigeria[\s-]*G2P\b(?!\.)/i.test(body));
+   const clipped=await page.locator('#ng-km-panel p,#ng-km-panel li').evaluateAll(es=>es.filter(e=>{const s=getComputedStyle(e);return s.whiteSpace==='nowrap'||s.textOverflow==='ellipsis'||s.webkitLineClamp==='1'||e.scrollWidth>e.clientWidth+2}).length);assert.equal(clipped,0,'Clipped '+a.id);report.articleChecks++;
+   if(width===1440)report.moduleCounts[a.module]=(report.moduleCounts[a.module]||0)+1;
+  }
+ }
+ await page.screenshot({path:'evidence/other-module-help-mobile.png'});assert.deepEqual(report.browserErrors,[]);fs.writeFileSync('../knowledge/other-module-verification.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));
+ }finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});

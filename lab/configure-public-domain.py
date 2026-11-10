@@ -1,7 +1,7 @@
 """Configure the existing synthetic lab for a stable public domain, keeping local routes."""
 import json, subprocess, pathlib, shutil, re, requests, yaml, os
 ROOT=pathlib.Path('/opt/openg2p-lab')
-DOMAIN='nigeriag2p.com'
+DOMAIN='g2p.wverve.in'
 def run(args, **kw): return subprocess.run(args,check=True,**kw)
 def get(kind,ns='nigeria'): return json.loads(subprocess.check_output(['kubectl','-n',ns,'get',kind,'-o','json']))['items']
 def patch(kind,name,body,ns='nigeria'):
@@ -58,18 +58,18 @@ repair=pathlib.Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/repair-local-network
 text=repair.read_text()
 text=text.replace("if name=='commons-services-pm-staff-portal-api': spec['hosts']=['partner-management-api.openg2p.localhost']", "if name=='commons-services-pm-staff-portal-api': spec['hosts']=list(dict.fromkeys(spec['hosts']+['partner-management-api.openg2p.localhost']))")
 text=text.replace("if name=='bridge-bene-portal-api': spec['hosts']=['bridge-beneficiary-api.openg2p.localhost']", "if name=='bridge-bene-portal-api': spec['hosts']=list(dict.fromkeys(spec['hosts']+['bridge-beneficiary-api.openg2p.localhost']))")
-text=text.replace("hostnames={'openg2p.localhost'}","hostnames={'openg2p.localhost','nigeriag2p.com'}")
-text=text.replace("if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line", "if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line and 'nigeriag2p.com' not in line")
+text=text.replace("hostnames={'openg2p.localhost'}","hostnames={'openg2p.localhost','g2p.wverve.in'}")
+text=text.replace("if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line", "if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line and 'g2p.wverve.in' not in line")
 repair.write_text(text)
 # Shared certificate is used only internally; the tunnel connects over loopback HTTP.
 existing=pathlib.Path('/etc/nginx/sites-available/openg2p-lab').read_text()
 existing=existing.replace('server_name *.openg2p.localhost beneficiary.openg2p-ux.localhost;', 'server_name *.openg2p.localhost beneficiary.openg2p-ux.localhost *.nigeriag2p.com;')
-existing=existing.replace('server_name openg2p.localhost;', 'server_name openg2p.localhost nigeriag2p.com;')
+existing=existing.replace('server_name openg2p.localhost;', 'server_name openg2p.localhost g2p.wverve.in;')
 pathlib.Path('/etc/nginx/sites-available/openg2p-lab').write_text(existing)
 public=ROOT/'public-home'; public.mkdir(exist_ok=True)
 html=convert((ROOT/'home/index.html').read_text())
 html=re.sub(r'<a class="card" href="https://minio[^>]+>.*?</a>','',html,flags=re.S)
-html=re.sub(r'<footer>.*?</footer>','<footer><p class="small">IQS Nigeria demonstration sandbox. All people, identities and payments are synthetic. Sign in using the application credentials supplied by the project team.</p><p class="small"><a href="https://portal-admin.nigeriag2p.com/web">Beneficiary programme admin</a></p></footer>',html,flags=re.S)
+html=re.sub(r'<footer>.*?</footer>','<footer><p class="small">IQS Nigeria demonstration sandbox. All people, identities and payments are synthetic. Sign in using the application credentials supplied by the project team.</p><p class="small"><a href="https://g2p-portal-admin.wverve.in/web">Beneficiary programme admin</a></p></footer>',html,flags=re.S)
 html=html.replace('LOCAL DEVELOPMENT ENVIRONMENT','NIGERIA DEMONSTRATION SANDBOX').replace('local synthetic identity login','synthetic identity login')
 (public/'index.html').write_text(html)
 allowed=['pbms','register','registry','staff-portal','beneficiary','awe','master-data-ui','master-data','partner-management','partner-management-api','consent-manager','staff-iam','iam-staff-ui','odk','superset','portal-admin','staff-register','pbms-api','keycloak']
@@ -81,7 +81,7 @@ server {
 }
 server {
  listen 127.0.0.1:18080;
- server_name nigeriag2p.com www.nigeriag2p.com;
+ server_name g2p.wverve.in g2p-www.wverve.in;
  root /opt/openg2p-lab/public-home;
  include /etc/nginx/snippets/iqs-brand.conf;
  location / { try_files $uri $uri/ =404; }
@@ -93,7 +93,7 @@ server {
  large_client_header_buffers 4 32k;
  include /etc/nginx/snippets/iqs-brand.conf;
  # Identity administration remains available through local access only.
- location ~ ^/(admin|realms/master)(/|$) { if ($host = keycloak.nigeriag2p.com) { return 404; } proxy_pass http://127.0.0.1:30080; proxy_set_header Host $host; }
+ location ~ ^/(admin|realms/master)(/|$) { if ($host = g2p-keycloak.wverve.in) { return 404; } proxy_pass http://127.0.0.1:30080; proxy_set_header Host $host; }
  # Odoo's database manager is not part of the public sandbox.
  location ^~ /web/database/ { return 404; }
  location / {

@@ -16,7 +16,8 @@ def install(r):
   return allowed
  def serialize(p):
   d=json.loads(p['data'])
-  return {'sub':p['sub'],'reference':p['household_ref'],'name':d['household_name'],'state':d['state_name'],'community':d['community'],'income':d['monthly_income'],'members':[{k:m[k] for k in ['given','family','birth_date','gender']} for m in d['members']], 'status':p['status'],'sync':p['sync_status'],'reason':p['error'],'version':p['updated'],'editable':p['status']=='rejected','self_made':r.is_maker(p,g.user['sub']),'geography':nigeria_geography.geography(d)}
+  history=r.rows('SELECT actor_name,action,reason,at FROM profile_reviews WHERE sub=? ORDER BY id DESC LIMIT 10',(p['sub'],))
+  return {'sub':p['sub'],'reference':p['household_ref'],'name':d['household_name'],'state':d['state_name'],'community':d['community'],'income':d['monthly_income'],'members':[{k:m[k] for k in ['given','family','birth_date','gender']} for m in d['members']], 'status':p['status'],'sync':p['sync_status'],'reason':p['error'],'review_history':history,'version':p['updated'],'editable':p['status']=='rejected','self_made':r.is_maker(p,g.user['sub']),'geography':nigeria_geography.geography(d)}
  @bp.get(r.PREFIX+'/workspace')
  def workspace():return render_template('workspace.html',prefix=r.PREFIX)
  @bp.get(r.PREFIX+'/api/workspace')

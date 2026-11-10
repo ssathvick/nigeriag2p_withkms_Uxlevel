@@ -14,7 +14,7 @@ try:
  for source,target in targets:shutil.copy2(source,target)
  subprocess.run(['/opt/openg2p-lab/registration-venv/bin/python','-m','py_compile',str(root/'registration_app.py'),str(root/'knowledge_management.py')],check=True)
  s=snippet.read_text()
- if 'location = /iqs-brand/knowledge' not in s:s='location = /iqs-brand/knowledge { proxy_pass http://127.0.0.1:18081/registration/api/knowledge; proxy_set_header Host nigeriag2p.com; proxy_set_header Cookie \"\"; proxy_hide_header Set-Cookie; }\n'+s
+ if 'location = /iqs-brand/knowledge' not in s:s='location = /iqs-brand/knowledge { proxy_pass http://127.0.0.1:18081/registration/api/knowledge; proxy_set_header Host g2p.wverve.in; proxy_set_header Cookie \"\"; proxy_hide_header Set-Cookie; }\n'+s
  if '/knowledge-help.js' not in s:s=s.replace('</head>\';', '<link rel="stylesheet" href="/iqs-brand/knowledge-help.css?v=km5"><script defer src="/iqs-brand/knowledge-help.js?v=km5"></script></head>\';')
  s=s.replace('v=km1','v=km5').replace('v=km2','v=km5').replace('v=km3','v=km5').replace('v=km4','v=km5')
  if '/knowledge-context.js' not in s:s=s.replace('<script defer src="/iqs-brand/knowledge-help.js', '<script defer src="/iqs-brand/knowledge-context.js?v=km6"></script><script defer src="/iqs-brand/knowledge-help.js')

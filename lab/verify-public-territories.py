@@ -1,6 +1,6 @@
 """External anonymous smoke test; no credentials or cookies supplied."""
 import requests,json
-base='https://nigeriag2p.com'
+base='https://g2p.wverve.in'
 s=requests.Session();s.cookies.clear()
 for path in ['/territories/','/territories/data.json','/territories/states.geojson','/territories/lgas.geojson','/territories/measures.csv']:
  r=s.get(base+path,timeout=30,allow_redirects=False)

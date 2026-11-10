@@ -200,7 +200,7 @@
       "steps": "Identify the task and its required permission.\nCheck the assigned application and account role.\nAsk the access administrator to resolve a missing permission.",
       "requirements": "Existing identity and access administration process.",
       "next_step": "Sign in again after an approved role change.",
-      "issues": "Default upstream role names may differ from NigeriaG2P roles. Choosing a persona does not grant access.",
+      "issues": "Default upstream role names may differ from NSIPA roles. Choosing a persona does not grant access.",
       "sources": [
         {
           "title": "OpenG2P documentation: rbac roles and permissions",
@@ -368,7 +368,7 @@
       "steps": "Open programme accounting if available.\nCheck the programme, company, date and amount on the fund record.\nFollow the finance team’s authorised process for any proposed allocation.",
       "requirements": "Finance authority and the relevant accounting feature.",
       "next_step": "Review the allocation using the programme finance workflow.",
-      "issues": "Examples in upstream documentation do not define NigeriaG2P budgets or authorise a transfer. Use fictional amounts in the sandbox.",
+      "issues": "Examples in upstream documentation do not define NSIPA budgets or authorise a transfer. Use fictional amounts in the sandbox.",
       "sources": [
         {
           "title": "OpenG2P documentation: create program fund",
@@ -1014,7 +1014,7 @@
       "module": "platform",
       "stage": "End-to-end service journey",
       "audience": "all",
-      "title": "Follow the NigeriaG2P service journey",
+      "title": "Follow the NSIPA service journey",
       "purpose": "Know which application handles each part of the demonstration.",
       "steps": "Start with the persona workspace or All services.\nRegister the household and submit it for independent review.\nAfter approval, track the programme application, eligibility and enrolment through the relevant service.\nUse reporting to inspect recorded outcomes.",
       "requirements": "An existing account with the required task permissions.",
@@ -1022,7 +1022,7 @@
       "issues": "Household approval does not itself grant a benefit or prove a payment. Demonstration records are fictional.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1043,7 +1043,7 @@
       "issues": "The persona selector and demo walkthrough cannot grant new permissions.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/?persona=all"
         }
       ],
@@ -1064,7 +1064,7 @@
       "issues": "Submission is different from approval. Avoid creating another household merely because review is pending.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/"
         }
       ],
@@ -1085,7 +1085,7 @@
       "issues": "Correct the original record instead of making a duplicate application.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1106,7 +1106,7 @@
       "issues": "A map dot or AI answer is not identity or residence verification.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/staff"
         }
       ],
@@ -1127,7 +1127,7 @@
       "issues": "Screens may show different stages of processing. Do not approve a case just to resolve a display inconsistency.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1148,7 +1148,7 @@
       "issues": "The library does not define government eligibility rules. Use only the programme criteria configured and approved by its owner.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1169,7 +1169,7 @@
       "issues": "Approved registration and enrolled status are not confirmation of a real payment in this sandbox.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1190,7 +1190,7 @@
       "issues": "A darker state indicates more included records, not a higher poverty rate or a verified population estimate.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/geography"
         }
       ],
@@ -1211,7 +1211,7 @@
       "issues": "Demo points are not verified households or LGA positions. Do not infer a new LGA from a synthetic coordinate.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/geography"
         }
       ],
@@ -1232,7 +1232,7 @@
       "issues": "Access to one service does not imply permission for every other service.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/"
         }
       ],
@@ -1253,7 +1253,7 @@
       "issues": "Never put passwords, session cookies or tokens into knowledge articles or AI questions.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/workspace"
         }
       ],
@@ -1274,7 +1274,7 @@
       "issues": "An upstream feature description is not proof that the feature is enabled in NigeriaG2P.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/knowledge"
         }
       ],
@@ -1295,7 +1295,7 @@
       "issues": "Drafts remain separate from published content. Authors cannot review their own drafts.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/knowledge/admin"
         }
       ],
@@ -1316,7 +1316,7 @@
       "issues": "AI may be wrong and cannot verify identities, approve cases, set policy or initiate payments.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/ai"
         }
       ],
@@ -1337,7 +1337,7 @@
       "issues": "Applying replaces the six guidance fields but does not save or publish; never invent eligibility thresholds.",
       "sources": [
         {
-          "title": "NigeriaG2P local application workflow",
+          "title": "NSIPA local application workflow",
           "url": "https://nigeriag2p.com/registration/knowledge/admin/new"
         }
       ],

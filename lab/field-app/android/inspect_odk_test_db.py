@@ -1,0 +1,4 @@
+import sys
+sys.path.insert(0,'/mnt/h/Nigeria_Mosip/codex/openg2p-lab')
+from labdb import query
+print(query('odkdb',"select table_name,column_name,data_type from information_schema.columns where table_name in ('actors','sessions','field_keys') order by table_name,ordinal_position;"))

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}{% block content %}
 <p class="eyebrow">PLATFORM INSIGHTS</p><h1>Analytics</h1>
 <p>Operational performance and knowledge effectiveness, measured from existing sandbox records.</p>
-<p><a href="{{prefix}}/workspace">Persona workspace</a> · <a href="{{prefix}}/knowledge">Knowledge library</a> · <a href="https://superset.nigeriag2p.com/superset/dashboard/nigeria-platform-analytics/" target="_blank" rel="noopener">Superset reporting</a> · <a href="{{prefix}}/api/analytics/export.csv?{{request.query_string.decode()}}">Export aggregate CSV</a></p>
+<p><a href="{{prefix}}/workspace">Persona workspace</a> · <a href="{{prefix}}/knowledge">Knowledge library</a> · <a href="https://g2p-superset.wverve.in/superset/dashboard/nigeria-platform-analytics/" target="_blank" rel="noopener">Superset reporting</a> · <a href="{{prefix}}/api/analytics/export.csv?{{request.query_string.decode()}}">Export aggregate CSV</a></p>
 <p class="muted">{{report.scope}}. Current records read at {{report.generated_at}}. Dates and usage buckets use UTC. Usage collection began {{report.tracking_started_at}}.</p>
 <form class="card" method="get"><div class="grid">
 <label>Programme for operations<select name="programme"><option value="">All programmes</option>{% for p in report.operations.programmes %}<option value="{{p.id}}" {% if report.filters.programme==p.id|string %}selected{% endif %}>{{p.name}}</option>{% endfor %}</select></label>

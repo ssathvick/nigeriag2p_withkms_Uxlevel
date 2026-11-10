@@ -1,0 +1,4 @@
+from pathlib import Path
+p=Path('persona-ui/src/jos-model.mjs');s=p.read_text().replace("n.grievance='Resolved'","n.grievance=r.grievance==='Open'?'Resolved':r.grievance");p.write_text(s)
+p=Path('persona-ui/src/jos-cct.jsx');s=p.read_text().replace("setTour(!tour);go('Households');setSelected", "setTour(true);setScope('Boundary pending');go('Households');setSelected");s=s.replace("onKeyDown={e=>{if(e.key==='Escape')setSelected(null)}}", "onKeyDown={e=>{if(e.key==='Escape')setSelected(null);if(e.key==='Tab'){const nodes=[...e.currentTarget.querySelectorAll('button,a,input,select')].filter(x=>!x.disabled);if(e.shiftKey&&document.activeElement===nodes[0]){e.preventDefault();nodes[nodes.length-1]?.focus()}else if(!e.shiftKey&&document.activeElement===nodes[nodes.length-1]){e.preventDefault();nodes[0]?.focus()}}}}")
+p.write_text(s)

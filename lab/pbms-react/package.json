@@ -1,0 +1,1 @@
+{"name":"nigeria-pbms-react","version":"1.0.0","private":true,"scripts":{"build":"node build.cjs"},"dependencies":{"react":"19.2.7","react-dom":"19.2.7"},"devDependencies":{"esbuild":"0.25.12","playwright":"^1.65.0"}}

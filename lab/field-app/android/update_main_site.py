@@ -1,0 +1,4 @@
+from pathlib import Path
+root=Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/persona-ui/src')
+p=root/'catalogue.js';s=p.read_text();needle=" {id:'jos-cct',";s=s.replace(needle," {id:'field-mobile',title:'Field data mobile apps',group:'People and households',host:'nigeriag2p.com',path:'/field-preview/android/',public:true,description:'Download the Android sample app or open the iPhone and iPad web preview. Fictional data only.',roles:['officer','verifier','supervisor'],task:'Open mobile downloads and instructions'},\n"+needle,1);p.write_text(s)
+p=root/'site.jsx';s=p.read_text();s=s.replace('<a href="/registration/mobile">Mobile apps</a>','<a href="/field-preview/android/">Field mobile apps</a><a href="/registration/mobile">Other mobile apps</a>');s=s.replace('m.id===\'jos-cct\'?"Open pilot demo →":"Open public atlas →"','m.id===\'jos-cct\'?"Open pilot demo →":m.id===\'field-mobile\'?"Open mobile apps →":"Open public atlas →"');p.write_text(s)

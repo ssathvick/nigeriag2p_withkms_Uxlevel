@@ -1,0 +1,65 @@
+const {chromium}=require('playwright');
+const {execFileSync}=require('node:child_process');
+const fs=require('node:fs');
+const assert=require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({headless:true,channel:'msedge'});
+ const context=await browser.newContext({viewport:{width:1440,height:1000}});
+ const page=await context.newPage();
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ fs.mkdirSync('evidence',{recursive:true});
+ try{
+  await page.goto('https://pbms.nigeriag2p.com/');
+  await page.getByRole('heading',{name:'Sign in to PBMS'}).waitFor();
+  await page.screenshot({path:'evidence/login.png',fullPage:true});
+  const raw=execFileSync('wsl',['-d','Ubuntu-22.04','-u','root','--','python3','/mnt/h/Nigeria_Mosip/codex/openg2p-lab/pbms-react/verify-api.py','--browser-session'],{encoding:'utf8',stdio:['ignore','pipe','pipe']});
+  await context.addCookies(JSON.parse(raw));
+  await page.reload();
+  await page.getByRole('heading',{name:'Programmes',exact:true}).waitFor();
+  await page.getByRole('button',{name:'New programme'}).waitFor();
+  await page.getByRole('button',{name:'Open →'}).first().waitFor();
+  assert.equal(await page.locator('[role=alert]').count(),0);
+  await page.screenshot({path:'evidence/programmes-desktop.png',fullPage:true});
+  const native=await context.newPage();
+  await native.goto('https://pbms.nigeriag2p.com/web?native=1#action=193&model=g2p.program.definition&view_type=list');
+  await native.locator('.o_web_client').waitFor();
+  await native.close();
+  const olderDomain=await browser.newContext();
+  const olderPage=await olderDomain.newPage();
+  await olderPage.goto('https://g2p-pbms.wverve.in/');
+  await olderPage.getByRole('heading',{name:'Sign in to PBMS'}).waitFor();
+  await olderDomain.close();
+  await page.getByRole('button',{name:'Open →'}).first().click();
+  await page.getByRole('dialog').waitFor();
+  await page.getByRole('button',{name:'Edit programme',exact:true}).click();
+  await page.getByLabel('Description',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Cancel',exact:true}).click();
+  await page.getByRole('button',{name:'New programme'}).click();
+  await page.getByLabel('Description',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Cancel',exact:true}).click();
+  for(const label of ['Enrollment cycles','Disbursement cycles','Beneficiary lists','Households','Farmers','Students','Eligibility rules','Entitlement rules','Priority rules','Benefit codes','Programme benefits','Agencies','Warehouses & banks']){
+   await page.getByRole('link',{name:label,exact:false}).first().click();
+   await page.getByRole('heading',{name:label,exact:true}).waitFor();
+   await page.locator('.table-wrap[aria-busy="false"]').waitFor();
+   assert.equal(await page.locator('[role=alert]').count(),0,`${label}: no API error`);
+  }
+  await page.getByRole('link',{name:'Programmes',exact:false}).first().click();
+  await page.locator('.table-wrap[aria-busy="false"]').waitFor();
+  await page.getByRole('textbox',{name:'Search programmes'}).fill('NO_SUCH_PROGRAMME_REACT_TEST');
+  await page.getByRole('button',{name:'Search',exact:true}).click();
+  await page.getByText('No matching records.',{exact:true}).waitFor();
+  await page.getByRole('textbox',{name:'Search programmes'}).fill('');
+  await page.getByRole('button',{name:'Search',exact:true}).click();
+  await page.getByRole('button',{name:'Open →'}).first().waitFor();
+  await page.setViewportSize({width:390,height:844});
+  await page.screenshot({path:'evidence/programmes-mobile.png',fullPage:true});
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No page-level horizontal overflow');
+  await page.getByRole('button',{name:'Toggle navigation'}).click();
+  await page.getByRole('link',{name:'Enrollment cycles',exact:false}).click();
+  await page.getByRole('heading',{name:'Enrollment cycles',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Sign out',exact:true}).click();
+  await page.getByRole('heading',{name:'Sign in to PBMS'}).waitFor();
+  assert.deepEqual(errors,[]);
+  console.log('PASS: anonymous login, authenticated session, 14 screens, programme forms, empty search, mobile navigation, responsive layout, logout, no JS errors.');
+ }finally{await context.close();await browser.close();}
+})().catch(e=>{console.error(e.message);process.exitCode=1;});

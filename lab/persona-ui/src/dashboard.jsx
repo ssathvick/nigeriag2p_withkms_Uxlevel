@@ -5,7 +5,7 @@ import './dashboard.css';
 import {recordsUrl,markRecords} from './dashboard-navigation';
 
 const initial=JSON.parse(document.getElementById('dashboard-data').textContent);
-const names={'register':'Modern registry','pbms':'PBMS','awe':'Approval workflows','registry':'Social registry administration','beneficiary':'Beneficiary portal','portal-admin':'Beneficiary programme administration','master-data-ui':'Master data','partner-management':'Partner management','consent-manager':'Consent manager','staff-portal':'Staff portal','iam-staff-ui':'Staff access administration','odk':'Field data collection','geography':'Geographic record data','superset':'Analytics reporting'};
+const names={'register':'Modern registry','pbms':'PBMS','awe':'Approval workflows','registry':'Master Beneficiary Registry administration','beneficiary':'Beneficiary portal','portal-admin':'Beneficiary programme administration','master-data-ui':'Master data','partner-management':'Partner management','consent-manager':'Consent manager','staff-portal':'Staff portal','iam-staff-ui':'Staff access administration','odk':'Field data collection','geography':'Geographic record data','superset':'Analytics reporting'};
 const palette=['#04796b','#56ae91','#e6b85c','#7889bc','#c77866','#8e949e'];
 const label=s=>String(s).replaceAll('_',' ').replace(/\b\w/g,c=>c.toUpperCase());
 const number=n=>n==null?'—':new Intl.NumberFormat('en-NG',{maximumFractionDigits:3}).format(n);

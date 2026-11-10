@@ -13,7 +13,7 @@ try:
  config=Path('/etc/nginx/sites-available/iqs-public');save(config);text=config.read_text()
  if 'location ^~ /jos-cct/' not in text:
   anchor=' root /opt/openg2p-lab/public-home;';assert text.count(anchor)==1
-  text=text.replace(anchor,anchor+'\n location = /jos-cct { return 308 https://nigeriag2p.com/jos-cct/; }\n location ^~ /jos-cct/ {\n  sub_filter \'</head>\' \'</head>\';\n  add_header Cache-Control "no-cache";\n  try_files $uri $uri/ =404;\n }')
+  text=text.replace(anchor,anchor+'\n location = /jos-cct { return 308 https://g2p.wverve.in/jos-cct/; }\n location ^~ /jos-cct/ {\n  sub_filter \'</head>\' \'</head>\';\n  add_header Cache-Control "no-cache";\n  try_files $uri $uri/ =404;\n }')
   config.write_text(text)
  for folder in ['public-home','home']:
   target=base/folder/'jos-cct';target.mkdir(exist_ok=True)
@@ -27,7 +27,7 @@ try:
  subprocess.run(['nginx','-t'],check=True);subprocess.run(['systemctl','reload','nginx'],check=True)
  time.sleep(1)
  for asset in ['','brief.html','jos-cct.js','jos-cct.css']:
-  r=requests.get('http://127.0.0.1:18080/jos-cct/'+asset,headers={'Host':'nigeriag2p.com'},timeout=15);assert r.status_code==200,(asset,r.status_code);assert not r.headers.get('Set-Cookie')
+  r=requests.get('http://127.0.0.1:18080/jos-cct/'+asset,headers={'Host':'g2p.wverve.in'},timeout=15);assert r.status_code==200,(asset,r.status_code);assert not r.headers.get('Set-Cookie')
   if asset=='':assert 'site-shell.js' not in r.text and 'jos-root' in r.text
  assert requests.get('http://127.0.0.1:18081/registration/api/analytics',timeout=5).status_code==401
  print('Jos synthetic pilot published. Rollback:',backup/'manifest.json')

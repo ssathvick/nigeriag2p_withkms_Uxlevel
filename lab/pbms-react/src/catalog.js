@@ -1,0 +1,25 @@
+export const catalog = [
+ ['programmes','Programmes','g2p.program.definition',['program_mnemonic','description','target_registry','program_status'],193,'Design and manage social protection programmes.'],
+ ['enrollment','Enrollment cycles','g2p.enrollment.cycle',['cycle_number','program_id','enrollment_start_date','enrollment_end_date','approved_for_enrollment'],196,'Track enrollment windows and approvals.'],
+ ['disbursement','Disbursement cycles','g2p.disbursement.cycle',['cycle_mnemonic','program_id','approved_for_disbursement','creation_date'],194,'Monitor programme disbursement cycles.'],
+ ['lists','Beneficiary lists','g2p.beneficiary.list',['mnemonic','program_id','list_stage','eligibility_process_status','entitlement_process_status','number_of_registrants'],195,'Follow eligibility, entitlement and processing progress.'],
+ ['households','Households','g2p.household.registry',['display_name'],232,'View household records available to your account.'],
+ ['farmers','Farmers','g2p.farmer.registry',['display_name'],203,'View the programme farmer registry.'],
+ ['students','Students','g2p.student.registry',['display_name'],204,'View the programme student registry.'],
+ ['eligibility','Eligibility rules','g2p.eligibility.rule.definition',['mnemonic','program_id','target_registry','pbms_domain'],197,'Review the rules used to select eligible beneficiaries.'],
+ ['entitlements','Entitlement rules','g2p.entitlement.rule.definition',['mnemonic','program_id','benefit_code_id','quantity'],198,'Review benefit assignments and quantities.'],
+ ['priority','Priority rules','g2p.priority.rule.definition',['mnemonic'],199,'Review disbursement prioritisation.'],
+ ['benefits','Benefit codes','g2p.benefit.codes',['display_name'],187,'Explore the benefit catalogue.'],
+ ['programme-benefits','Programme benefits','g2p.program.benefit.codes',['display_name','program_id','benefit_code_id'],188,'Review benefits configured for each programme.'],
+ ['agencies','Agencies','g2p.agency',['display_name'],184,'View participating service agencies.'],
+ ['warehouses','Warehouses & banks','g2p.warehouse',['display_name','is_sponsor_bank'],185,'View fulfilment locations and sponsor banks.'],
+ ['states','States & regions','g2p.administrative.area.large',['area_mnemonic','area_description'],192,'Manage large administrative areas.'],
+ ['lgas','Local administrative areas','g2p.administrative.area.small',['area_mnemonic','area_description','administrative_area_large_id'],191,'Manage local administrative areas.'],
+ ['agency-benefits','Agency benefit assignments','g2p.agency.program.benefit.codes',['agency_id','program_id','benefit_code_id'],190,'Assign programme benefits to service agencies.'],
+ ['warehouse-benefits','Bank & warehouse assignments','g2p.warehouse.program.benefit.codes',['warehouse_id','program_id','benefit_code_id'],189,'Configure programme fulfilment and sponsor-bank routing.'],
+ ['verification','Verification queue','g2p.beneficiary.list',['mnemonic','program_id','list_stage','eligibility_process_status','list_workflow_status'],195,'Review calculations and record verification evidence.'],
+ ['approvals','Approval queue','g2p.beneficiary.list',['mnemonic','program_id','list_stage','number_of_registrants','list_workflow_status'],195,'Approve enrollment and disbursement after required verification.'],
+ ['payments','Payments','g2p.beneficiary.list',['mnemonic','program_id','entitlement_process_status','envelope_creation_status','disbursement_batch_creation_status'],195,'Follow payment envelopes, batches, dispatch and reconciliation.'],
+].map(([key,label,model,columns,action,description])=>({key,label,model,columns,action,description}));
+for(const c of catalog){if(['verification','approvals'].includes(c.key)){c.domain=[['list_workflow_status','=','initiated']];c.workflowOnly=true;}if(c.key==='payments'){c.domain=[['list_stage','=','disbursement']];c.workflowOnly=true;}}
+export const programmeFields=['program_mnemonic','description','program_status','target_registry','service_providers_required','enrollment_frequency','verifications_for_enrolment','auto_approve_enrolment','disbursement_frequency','verifications_for_disbursement','auto_approve_disbursement'];

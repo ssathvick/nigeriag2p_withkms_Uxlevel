@@ -10,7 +10,7 @@ def localize(value):
         value=value.replace(old,'.openg2p.localhost')
     return value
 
-hostnames={'openg2p.localhost','nigeriag2p.com'}
+hostnames={'openg2p.localhost','g2p.wverve.in'}
 for resource in get('virtualservices'):
     spec=resource['spec']; spec=json.loads(localize(json.dumps(spec)))
     name=resource['metadata']['name']
@@ -40,7 +40,14 @@ for kind in ['deployment','statefulset']:
 
 core=json.loads(subprocess.check_output(['kubectl','get','cm','coredns','-n','kube-system','-o','json']))
 lines=core['data'].get('NodeHosts','').splitlines()
-lines=[line for line in lines if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line and 'nigeriag2p.com' not in line]
+lines=[line for line in lines if 'openg2p.localhost' not in line and 'openg2p-ux.localhost' not in line and 'wverve.in' not in line]
 lines.extend(ip+' '+host for host in sorted(hostnames))
 subprocess.run(['kubectl','patch','cm','coredns','-n','kube-system','--type=merge','-p',json.dumps({'data':{'NodeHosts':'\n'.join(lines)+'\n'}})],check=True)
 print('Local DNS, hostnames and certificate trust repaired for', len(hostnames), 'hosts.')
+
+# Host-side services use the same internal names as pods after WSL IP changes.
+from pathlib import Path
+hosts_path=Path('/etc/hosts')
+host_lines=[line for line in hosts_path.read_text().splitlines() if 'g2p.wverve.in' not in line and not re.search(r'g2p-[\w-]+\.wverve\.in',line)]
+host_lines.append(ip+' '+' '.join(sorted(hostnames)))
+hosts_path.write_text('\n'.join(host_lines)+'\n')

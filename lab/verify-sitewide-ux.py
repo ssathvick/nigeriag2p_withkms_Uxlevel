@@ -7,7 +7,7 @@ def inspect(m):
  try:
   for _ in range(6):
    p=urlparse(u)
-   if not (p.hostname=='nigeriag2p.com' or p.hostname.endswith('.nigeriag2p.com')):return {'module':m['id'],'error':'redirect outside platform'}
+   if not (p.hostname=='g2p.wverve.in' or p.hostname.endswith('.nigeriag2p.com')):return {'module':m['id'],'error':'redirect outside platform'}
    visited.append(p.hostname+p.path)
    r=requests.get('http://127.0.0.1:18080'+p.path+('?' +p.query if p.query else ''),headers={'Host':p.hostname},timeout=20,allow_redirects=False)
    if r.is_redirect:u=urljoin(u,r.headers['Location']);continue
@@ -19,5 +19,5 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:results=list(p
 for item in results:print(json.dumps(item))
 assert all(item.get('status')==200 and item.get('html') and item.get('ux_assets') for item in results),'Some module entry pages need attention'
 for asset in ['site.js','site.css','site-shell.js','site-shell.css']:
- r=requests.get('http://127.0.0.1:18080/iqs-brand/'+asset,headers={'Host':'nigeriag2p.com'},timeout=10);assert r.status_code==200
+ r=requests.get('http://127.0.0.1:18080/iqs-brand/'+asset,headers={'Host':'g2p.wverve.in'},timeout=10);assert r.status_code==200
 print('PASS: module entry pages and four shared assets')

@@ -126,3 +126,4 @@ def add_representatives(data,raw):
     coverage['members_with_activity_evidence']=sum(bool(r['evidence']) for r in reps)
     data['gaps'][0]=f"Governor directory covers all 36 states; FCT minister is appointed. State assembly evidence covers {coverage['assembly_states']} states, including partial rosters, dated reports and unresolved source labels. Remaining assembly members and local council heads are not verified. Boundaries and tenure dates remain incomplete."
     print('Representative coverage:',data['representatives']['coverage'])
+
