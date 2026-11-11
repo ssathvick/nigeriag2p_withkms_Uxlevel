@@ -1,0 +1,7 @@
+const {chromium}=require('playwright'),fs=require('fs');
+const dir='H:/Nigeria_Mosip/NSIPA-Private-Access-20261111/';
+const creds=fs.readFileSync(dir+'Verified-Access-Corrections.txt','utf8').split('VERIFIED PRIVATE MINIO CONSOLE')[1];
+const user=creds.match(/Username: (.*)/)[1].trim(),password=creds.match(/Password: (.*)/)[1].trim();
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});const rows=[];try{for(const host of ['minio.nigeriag2p.com','g2p-minio.wverve.in']){const c=await b.newContext(),p=await c.newPage();let row={host};try{await p.goto('https://'+host,{timeout:25000});await p.getByText('Other Authentication Methods',{exact:true}).click(); await p.getByText('Use Credentials',{exact:true}).click(); await p.locator('input:not([type=hidden])').first().fill(user);await p.locator('input[type=password]').fill(password);await p.getByRole('button',{name:/login|sign in/i}).click();await p.waitForTimeout(2000);await p.reload();await p.waitForTimeout(1000);row.path=new URL(p.url()).pathname;row.passwordFields=await p.locator('input[type=password]').count();row.status=!row.passwordFields&&!row.path.includes('login')?'PASS':'FAIL';}catch(e){row.status='FAIL';row.error=e.message.split('\n')[0].replace(/https?:\/\/\S+/g,'[URL omitted]');}rows.push(row);console.log(JSON.stringify(row));await c.close();}}finally{await b.close();fs.writeFileSync(dir+'MinIO-Public-Login-Verification.json',JSON.stringify(rows,null,2));}})();
+
+

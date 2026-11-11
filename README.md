@@ -1,3 +1,7 @@
+## Current NSIPA project backup — 11 November 2026
+
+See [updated source backup and consolidated report](source-snapshots/2026-11-11-nsipa/README.md). This is a credential-free source/documentation snapshot; older packages below are historical.
+
 ## Current NSIPA project backup — 10 November 2026
 
 See [updated source backup and consolidated report](source-snapshots/2026-11-10-nsipa/README.md). This is a credential-free source/documentation snapshot; older packages below are historical.

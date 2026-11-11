@@ -3,3 +3,5 @@
 *.ai binary
 *.psd binary
 *.zip binary
+
+*.pdf binary

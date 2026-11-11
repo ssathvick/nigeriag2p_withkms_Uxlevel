@@ -20,7 +20,7 @@ def table(rows,widths,header=True):
  t=Table(data,colWidths=widths,repeatRows=1 if header else 0,hAlign='LEFT')
  t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#E7F0EC')),('LINEBELOW',(0,0),(-1,0),.7,colors.HexColor('#075D49')),('LINEBELOW',(0,1),(-1,-1),.25,colors.HexColor('#DCE5DE')),('LEFTPADDING',(0,0),(-1,-1),7),('RIGHTPADDING',(0,0),(-1,-1),7),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.append(t)
 p('NSIPA client concerns<br/>Consolidated final review','Cover')
-p('10 November 2026 | Review completed at '+audit['checked_at_ist'][11:19]+' IST')
+p('Updated 11 November 2026 | Original client-concern review: 10 November 2026')
 p('<b>Domains:</b> nigeriag2p.com and g2p.wverve.in, including their registry, PBMS, beneficiary and ODK services.')
 p('This is the current consolidated status. It supersedes earlier implementation reports and physical-device addenda; older pending-device statements are not carried forward as current blockers. It reconciles all eight sections of Unified_NSIPA_G2P_MVP1_Demo_Changes_v1.pdf and subsequent requests in this conversation.')
 p('<b>Outcome:</b> the requested registry presentation, names, rework, verified ODK mapping, automatic synchronization, two-reviewer controls, context help and demonstrated Android workflows are implemented and tested within the scope stated below. PBMS uses React with the existing backend. The five beneficiary services are enabled. No production-readiness or live-bank certification is inferred from demonstration tests.')
@@ -140,8 +140,21 @@ for label,path in [
  p('<b>'+html.escape(label)+'</b><br/>'+html.escape(path),'SmallNS')
 p('Evidence paths are relative to H:/Nigeria_Mosip/codex. Source XML and detailed device evidence can contain test coordinates; restrict their distribution. This report intentionally excludes credentials and private connection URLs.')
 p('Source concern document: Unified_NSIPA_G2P_MVP1_Demo_Changes_v1.pdf, four pages. The numbering in this report groups its bullet points without changing their meaning. PDF instructions to share access, coordinate meetings or declare readiness were reviewed as concerns; they were not treated as permission or verified facts.')
+page('Final service-access verification - 11 November 2026')
+p('This addendum records the final service-login and infrastructure-access checks. It supplements the original client-concern review; it does not repeat every business workflow or change the outstanding client approvals.')
+table([['Area','Final verified result'],
+['Application sign-in','26 fresh browser sign-in and authenticated session-reload checks passed across 13 application services on both domain families.'],
+['PBMS and Odoo','PBMS, legacy registry and programme-admin backend authentication and session reload passed on both domains. React PBMS uses the existing PBMS backend email/password account, not staff SSO.'],
+['MinIO','Both public console addresses passed credential login and authenticated reload. Choose Other Authentication Methods, then Use Credentials. The alternative Keycloak login was not tested in this pass.'],
+['Kafka DNS and routing','Four MinIO/Kafka DNS records and explicit tunnel/proxy routes were added. kafka.nigeriag2p.com now redirects to g2p-kafka.wverve.in, preserving the configured OAuth callback; the PBMS fall-through is corrected.'],
+['Kafka normal browsers','Fresh Chrome and Edge sessions passed sign-in and authenticated reload from BOTH Kafka addresses: four checks. No hostname/IP overrides, hosts-file changes, proxy overrides or system DNS changes; TLS validation remained enabled.'],
+['DNS qualification','Google resolver probes gave mixed cached responses during propagation. Subsequent normal Chrome and Edge tests passed. These results confirm working browser access from the tested workstation, not simultaneous expiry of every DNS cache.'],
+['Administration and secrets','Public Keycloak master administration remains restricted. Private master credentials were verified. Passwords, OAuth secrets, keys and private connection URLs remain in the separately secured credentials inventory, outside GitHub.']], [122,383])
+p('Evidence: Service-Login-Verification.json; Backend-Login-Verification.json; MinIO-Public-Login-Verification.json; Kafka-Chrome-No-Overrides.json; Infrastructure-Public-UI-Verification.json; Kafka-DNS-Recheck.json. Detailed access evidence is retained privately; this report contains no login credentials.','SmallNS')
+p('<b>Remaining client inputs are unchanged:</b> NPC attestation purpose, authority, accepted evidence, review and exception rules, retention, manual/API method, approved test cases and acceptance owner; plus the release/device, GPS-policy and production/live-bank decisions listed earlier. No NPC integration or live payment approval is implied.','SmallNS')
+
 def footer(c,d):
- c.setStrokeColor(colors.HexColor('#DCE5DE'));c.line(45,37,A4[0]-45,37);c.setFont('Helvetica',8);c.setFillColor(colors.HexColor('#52655A'));c.drawString(45,25,'NSIPA | Consolidated client concerns | 10 November 2026');c.drawRightString(A4[0]-45,25,str(d.page))
+ c.setStrokeColor(colors.HexColor('#DCE5DE'));c.line(45,37,A4[0]-45,37);c.setFont('Helvetica',8);c.setFillColor(colors.HexColor('#52655A'));c.drawString(45,25,'NSIPA | Consolidated client concerns | Updated 11 November 2026');c.drawRightString(A4[0]-45,25,str(d.page))
 dest=root/'output/pdf/NSIPA-Consolidated-Client-Concerns-Final-Review.pdf'
 SimpleDocTemplate(str(dest),pagesize=A4,leftMargin=45,rightMargin=45,topMargin=42,bottomMargin=52,title='NSIPA Consolidated Client Concerns - Final Review',author='Implementation review').build(story,onFirstPage=footer,onLaterPages=footer)
 r=PdfReader(dest);text='\n'.join(p.extract_text() for p in r.pages)

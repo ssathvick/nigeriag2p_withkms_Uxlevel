@@ -1,0 +1,10 @@
+const{chromium}=require('playwright'),{authenticate}=require('./module-auth.cjs'),fs=require('fs');
+const out='H:/Nigeria_Mosip/NSIPA-Private-Access-20261111/Infrastructure-Public-UI-Verification.json';
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true,args:[]});const rows=[];try{
+for(const service of ['kafka']){
+for(const family of ['nigeriag2p.com','wverve.in']){const host=service==='registration'?(family==='wverve.in'?'g2p.wverve.in':'nigeriag2p.com'):(family==='wverve.in'?'g2p-'+service+'.wverve.in':service+'.nigeriag2p.com');const c=await b.newContext({ignoreHTTPSErrors:false}),p=await c.newPage();p.setDefaultTimeout(14000);p.setDefaultNavigationTimeout(25000);const row={service,host,checked_at:new Date().toISOString()};try{await p.goto('https://'+host); await authenticate(p,'g2p-kafka.wverve.in',service); await p.goto('https://'+host);await p.waitForTimeout(800);const r=await p.reload({waitUntil:'domcontentloaded'});await p.waitForTimeout(800);const text=await p.locator('body').innerText();row.path=new URL(p.url()).pathname;row.http=r.status();row.login_form=await p.locator('#password,input[name=password],input[type=password]').count();row.navigation_count=await p.locator('nav a,aside a,.o_main_navbar,.sidebar a').count();row.session_cookie=(await c.cookies()).some(x=>!x.domain.includes('keycloak')&&/session|auth|token/i.test(x.name));row.status=row.http<400&&!row.login_form&&!/\/login|\/callback|\/signin/.test(row.path)&&!/^\s*(Forbidden|Internal Server Error|Bad Gateway)/.test(text)&&(row.session_cookie||row.navigation_count>0)?'PASS':'REVIEW';row.title=await p.title();row.headings=await p.locator('h1,h2').allTextContents();}catch(e){row.status='FAIL';row.error=e.message.split('\n')[0].replace(/https?:\/\/\S+/g,'[URL omitted]');}rows.push(row);fs.writeFileSync(out,JSON.stringify(rows,null,2));console.log(JSON.stringify({service,host,status:row.status,path:row.path,error:row.error}));await c.close();}}
+}finally{await b.close()}})().catch(e=>{console.error(e.message);process.exitCode=1});
+
+
+
+
