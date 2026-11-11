@@ -153,6 +153,19 @@ table([['Area','Final verified result'],
 p('Evidence: Service-Login-Verification.json; Backend-Login-Verification.json; MinIO-Public-Login-Verification.json; Kafka-Chrome-No-Overrides.json; Infrastructure-Public-UI-Verification.json; Kafka-DNS-Recheck.json. Detailed access evidence is retained privately; this report contains no login credentials.','SmallNS')
 p('<b>Remaining client inputs are unchanged:</b> NPC attestation purpose, authority, accepted evidence, review and exception rules, retention, manual/API method, approved test cases and acceptance owner; plus the release/device, GPS-policy and production/live-bank decisions listed earlier. No NPC integration or live payment approval is implied.','SmallNS')
 
+page('PBMS readable labels - 11 November 2026')
+p('Programme codes and other technical record names have been replaced with readable display labels throughout the PBMS staff interface on both domain families. The existing backend identifiers, permissions and business rules are unchanged.')
+table([['Area','Presentation update'],
+['Programmes','All 12 existing programmes have descriptive names. Synthetic demos and acceptance tests remain explicitly identified.'],
+['Enrollment and disbursement cycles','Cycle names identify their programme and cycle/reference number. Automatic-processing test cycles retain a clear test label.'],
+['Beneficiary lists and workflow queues','Lists identify their programme, processing stage and reference number. Role-access and automatic-processing test lists remain distinguishable. Verification, approval and payment dialog headings use the same names.'],
+['Rules and benefits','Eligibility and entitlement rules have programme-specific names. Benefit catalogues, programme benefits and linked assignments use readable labels. Advanced rule expressions are preserved rather than rewritten.'],
+['Other screens and selectors','Shared formatting covers programme/benefit relations, agencies, banks and warehouses, geographic screens, detail headings, statuses and record-selector options. Registry personal names are preserved.'],
+['Search and editing','Known display names are searchable in lists and relation selectors. Form fields that edit stored codes explicitly say system reference; the display change does not silently rename database identifiers.']], [122,383])
+p('<b>Verification:</b> 21 PBMS screens checked on each domain, for 42 screen checks. Non-empty screens were also checked by opening a record or workflow and inspecting its heading. Empty priority-rule, geography and agency-assignment screens were checked for rendering; no synthetic records were created merely to populate them.')
+p('These are presentation and read-only navigation checks, not a new execution of approval or payment transactions. Earlier business-workflow evidence remains applicable. Newly created or changed codes receive readable fallback formatting; curated context labels describe the current demo records.')
+p('Private verification evidence: PBMS-All-Labels-Verification.json. Source: pbms-react/src/labels.js, record-names.json and programme-names.js. NPC attestation and all other pending client inputs remain unchanged.','SmallNS')
+
 def footer(c,d):
  c.setStrokeColor(colors.HexColor('#DCE5DE'));c.line(45,37,A4[0]-45,37);c.setFont('Helvetica',8);c.setFillColor(colors.HexColor('#52655A'));c.drawString(45,25,'NSIPA | Consolidated client concerns | Updated 11 November 2026');c.drawRightString(A4[0]-45,25,str(d.page))
 dest=root/'output/pdf/NSIPA-Consolidated-Client-Concerns-Final-Review.pdf'

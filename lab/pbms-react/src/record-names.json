@@ -1,0 +1,380 @@
+{
+  "g2p.program.definition": {
+    "1": {
+      "raw": "NG_LAB_HOUSEHOLD",
+      "name": "Household Support — Demo"
+    },
+    "2": {
+      "raw": "NG_LAB_FARMER",
+      "name": "Farmer Support — Demo"
+    },
+    "34": {
+      "raw": "IQS-SYN-20261003-HOUSEHOLD",
+      "name": "Household Cash Support — Synthetic Demo"
+    },
+    "35": {
+      "raw": "IQS-SYN-20261003-FARM",
+      "name": "Smallholder Farming Grant — Synthetic Demo"
+    },
+    "36": {
+      "raw": "IQS-SYN-20261003-SCHOOL",
+      "name": "School Materials Support — Synthetic Demo"
+    },
+    "37": {
+      "raw": "IQS-SYN-20261003-LIVELIHOOD",
+      "name": "Livelihood Starter Grant — Synthetic Demo"
+    },
+    "38": {
+      "raw": "IQS-SYN-20261003-RELIEF",
+      "name": "Emergency Relief Assistance — Synthetic Demo"
+    },
+    "39": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT",
+      "name": "Household Support — Integrated Demo"
+    },
+    "40": {
+      "raw": "IQS_INTEGRATED_PORTAL_INGESTION_TEST",
+      "name": "Beneficiary Portal Application — Integration Test"
+    },
+    "41": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo"
+    },
+    "43": {
+      "raw": "REACT_UAT_1794293158_0",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1"
+    },
+    "44": {
+      "raw": "REACT_UAT_1794293158_1",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2"
+    }
+  },
+  "g2p.enrollment.cycle": {
+    "1": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Farmer Support — Demo — Enrollment cycle 1"
+    },
+    "34": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Household Support — Integrated Demo — Enrollment cycle 1"
+    },
+    "35": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Beneficiary Portal Application — Integration Test — Enrollment cycle 1"
+    },
+    "36": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Enrollment cycle 1"
+    },
+    "37": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Enrollment cycle 1"
+    },
+    "38": {
+      "raw": "Enrollment Cycle 1",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Enrollment cycle 1"
+    }
+  },
+  "g2p.disbursement.cycle": {
+    "1": {
+      "raw": "NG_LAB_DISBURSEMENT_001",
+      "name": "Farmer Support — Demo — Disbursement cycle 1"
+    },
+    "2": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_PAYMENT",
+      "name": "Household Support — Integrated Demo — Disbursement cycle 2"
+    },
+    "3": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_PAYMENT_ON_US",
+      "name": "Household Support — Integrated Demo — Disbursement cycle 3"
+    },
+    "4": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_PAYMENT_ON_US_VERIFIED",
+      "name": "Household Support — Integrated Demo — Disbursement cycle 4"
+    },
+    "5": {
+      "raw": "JOS-NATIVE-001-C01",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Disbursement cycle 5"
+    },
+    "6": {
+      "raw": "JOS-NATIVE-003-C01",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Disbursement cycle 6"
+    },
+    "7": {
+      "raw": "REACT_UAT_1794293158_0_PAY",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Disbursement cycle 7"
+    },
+    "8": {
+      "raw": "REACT_UAT_1794293158_1_PAY",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Disbursement cycle 8"
+    },
+    "9": {
+      "raw": "REACT_UAT_1794293158_0_AUTO_1794294029",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Automatic processing test — Disbursement cycle 9"
+    }
+  },
+  "g2p.beneficiary.list": {
+    "1": {
+      "raw": "NG_LAB_ELIGIBILITY_TEST",
+      "name": "Farmer Support — Demo — Beneficiary list — enrollment 1"
+    },
+    "2": {
+      "raw": "NG_LAB_ENTITLEMENT_TEST",
+      "name": "Farmer Support — Demo — Beneficiary list — disbursement 2"
+    },
+    "3": {
+      "raw": "IQS-REG-APP-1",
+      "name": "Household Support — Integrated Demo — Beneficiary list — enrollment 3"
+    },
+    "4": {
+      "raw": "IQS-REG-APP-61",
+      "name": "Beneficiary Portal Application — Integration Test — Beneficiary list — enrollment 4"
+    },
+    "5": {
+      "raw": "IQS-REG-APP-62",
+      "name": "Household Support — Integrated Demo — Beneficiary list — enrollment 5"
+    },
+    "6": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_ENTITLEMENT",
+      "name": "Household Support — Integrated Demo — Beneficiary list — disbursement 6"
+    },
+    "7": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_ENTITLEMENT_ON_US",
+      "name": "Household Support — Integrated Demo — Beneficiary list — disbursement 7"
+    },
+    "8": {
+      "raw": "PHASE1_UAT_HOUSEHOLD_ENTITLEMENT_ON_US_VERIFIED",
+      "name": "Household Support — Integrated Demo — Beneficiary list — disbursement 8"
+    },
+    "9": {
+      "raw": "IQS-REG-APP-64601",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Beneficiary list — enrollment 9"
+    },
+    "10": {
+      "raw": "JOS-NATIVE-001-ENT-C01",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Beneficiary list — disbursement 10"
+    },
+    "11": {
+      "raw": "IQS-REG-APP-64614",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Beneficiary list — enrollment 11"
+    },
+    "12": {
+      "raw": "JOS-NATIVE-003-ENT-C01",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Beneficiary list — disbursement 12"
+    },
+    "13": {
+      "raw": "IQS-REG-APP-JOS-NATIVE-003-ENT-C01",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Beneficiary list — disbursement 13"
+    },
+    "14": {
+      "raw": "REACT_UAT_1794293158_0_ENROLL",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Beneficiary list — enrollment 14"
+    },
+    "15": {
+      "raw": "REACT_UAT_1794293158_1_ENROLL",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Beneficiary list — enrollment 15"
+    },
+    "16": {
+      "raw": "REACT_UAT_1794293158_0_PAYLIST",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Beneficiary list — disbursement 16"
+    },
+    "17": {
+      "raw": "REACT_UAT_1794293158_1_PAYLIST",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Beneficiary list — disbursement 17"
+    },
+    "18": {
+      "raw": "REACT_UAT_1794293158_0_ROLES_cdd944",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Role access test — Beneficiary list — enrollment 18"
+    },
+    "19": {
+      "raw": "REACT_UAT_1794293158_0_ROLES_a0923f",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Role access test — Beneficiary list — enrollment 19"
+    },
+    "20": {
+      "raw": "REACT_UAT_1794293158_1_ROLES_1bb3a2",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Role access test — Beneficiary list — enrollment 20"
+    },
+    "21": {
+      "raw": "REACT_UAT_1794293158_0_AUTO_1794293960",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Automatic processing test — Beneficiary list — enrollment 21"
+    },
+    "22": {
+      "raw": "REACT_UAT_1794293158_0_AUTO_1794294029",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Automatic processing test — Beneficiary list — disbursement 22"
+    }
+  },
+  "g2p.eligibility.rule.definition": {
+    "1": {
+      "raw": "NG_LAB_SYNTHETIC_ONLY",
+      "name": "Farmer Support — Demo — Eligibility rule 1"
+    },
+    "2": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT-ELIG",
+      "name": "Household Support — Integrated Demo — Eligibility rule 1"
+    },
+    "3": {
+      "raw": "IQS_INTEGRATED_PORTAL_INGESTION_TEST-ELIG",
+      "name": "Beneficiary Portal Application — Integration Test — Eligibility rule 1"
+    },
+    "4": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO-ELIG",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Eligibility rule 1"
+    },
+    "5": {
+      "raw": "REACT_UAT_1794293158_0_ELIG",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Eligibility rule 1"
+    },
+    "6": {
+      "raw": "REACT_UAT_1794293158_1_ELIG",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Eligibility rule 1"
+    }
+  },
+  "g2p.entitlement.rule.definition": {
+    "1": {
+      "raw": "NG_LAB_ENTITLEMENT",
+      "name": "Farmer Support — Demo — Benefit entitlement rule 1"
+    },
+    "2": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT-ENT",
+      "name": "Household Support — Integrated Demo — Benefit entitlement rule 2"
+    },
+    "3": {
+      "raw": "IQS_INTEGRATED_PORTAL_INGESTION_TEST-ENT",
+      "name": "Beneficiary Portal Application — Integration Test — Benefit entitlement rule 3"
+    },
+    "4": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO-ENT",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Benefit entitlement rule 4"
+    },
+    "5": {
+      "raw": "REACT_UAT_1794293158_0_BENEFIT",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Benefit entitlement rule 5"
+    },
+    "6": {
+      "raw": "REACT_UAT_1794293158_1_BENEFIT",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Benefit entitlement rule 6"
+    }
+  },
+  "g2p.benefit.codes": {
+    "1": {
+      "raw": "NG_LAB_CASH",
+      "name": "NG LAB CASH — Benefit"
+    },
+    "34": {
+      "raw": "IQS-SYN-20261003-HOUSEHOLD",
+      "name": "Household Cash Support — Synthetic Demo — Benefit"
+    },
+    "35": {
+      "raw": "IQS-SYN-20261003-FARM",
+      "name": "Smallholder Farming Grant — Synthetic Demo — Benefit"
+    },
+    "36": {
+      "raw": "IQS-SYN-20261003-SCHOOL",
+      "name": "School Materials Support — Synthetic Demo — Benefit"
+    },
+    "37": {
+      "raw": "IQS-SYN-20261003-LIVELIHOOD",
+      "name": "Livelihood Starter Grant — Synthetic Demo — Benefit"
+    },
+    "38": {
+      "raw": "IQS-SYN-20261003-RELIEF",
+      "name": "Emergency Relief Assistance — Synthetic Demo — Benefit"
+    },
+    "39": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT",
+      "name": "Household Support — Integrated Demo — Benefit"
+    },
+    "40": {
+      "raw": "IQS_INTEGRATED_PORTAL_INGESTION_TEST",
+      "name": "Beneficiary Portal Application — Integration Test — Benefit"
+    },
+    "41": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Benefit"
+    }
+  },
+  "g2p.program.benefit.codes": {
+    "1": {
+      "raw": "NG_LAB_CASH",
+      "name": "Household Support — Demo — Programme benefit 1"
+    },
+    "2": {
+      "raw": "NG_LAB_CASH",
+      "name": "Farmer Support — Demo — Programme benefit 2"
+    },
+    "34": {
+      "raw": "IQS-SYN-20261003-HOUSEHOLD",
+      "name": "Household Cash Support — Synthetic Demo — Programme benefit 34"
+    },
+    "35": {
+      "raw": "IQS-SYN-20261003-FARM",
+      "name": "Smallholder Farming Grant — Synthetic Demo — Programme benefit 35"
+    },
+    "36": {
+      "raw": "IQS-SYN-20261003-SCHOOL",
+      "name": "School Materials Support — Synthetic Demo — Programme benefit 36"
+    },
+    "37": {
+      "raw": "IQS-SYN-20261003-LIVELIHOOD",
+      "name": "Livelihood Starter Grant — Synthetic Demo — Programme benefit 37"
+    },
+    "38": {
+      "raw": "IQS-SYN-20261003-RELIEF",
+      "name": "Emergency Relief Assistance — Synthetic Demo — Programme benefit 38"
+    },
+    "39": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT",
+      "name": "Household Support — Integrated Demo — Programme benefit 39"
+    },
+    "40": {
+      "raw": "IQS_INTEGRATED_PORTAL_INGESTION_TEST",
+      "name": "Beneficiary Portal Application — Integration Test — Programme benefit 40"
+    },
+    "41": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo — Programme benefit 41"
+    },
+    "42": {
+      "raw": "NG_LAB_CASH",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1 — Programme benefit 42"
+    },
+    "43": {
+      "raw": "NG_LAB_CASH",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2 — Programme benefit 43"
+    }
+  },
+  "g2p.agency": {
+    "1": {
+      "raw": "NIGERIA_UX_LAB",
+      "name": "NIGERIA UX LAB"
+    }
+  },
+  "g2p.warehouse": {
+    "1": {
+      "raw": "EXAMPLE-BANK",
+      "name": "EXAMPLE-BANK"
+    }
+  },
+  "g2p.warehouse.program.benefit.codes": {
+    "1": {
+      "raw": "NG_LAB_FARMER",
+      "name": "Farmer Support — Demo"
+    },
+    "2": {
+      "raw": "IQS_INTEGRATED_HOUSEHOLD_SUPPORT",
+      "name": "Household Support — Integrated Demo"
+    },
+    "3": {
+      "raw": "IQS_INTEGRATED_JOS_CCT_DEMO",
+      "name": "Jos Conditional Cash Transfer — Bank Simulator Demo"
+    },
+    "4": {
+      "raw": "REACT_UAT_1794293158_0",
+      "name": "Farmer Benefit Workflow — Acceptance Test 1"
+    },
+    "5": {
+      "raw": "REACT_UAT_1794293158_1",
+      "name": "Farmer Benefit Workflow — Acceptance Test 2"
+    }
+  }
+}

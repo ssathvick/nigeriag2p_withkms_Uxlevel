@@ -11,3 +11,5 @@ Excluded: runtime databases, credentials, private keys, signing keystores, live 
 NPC attestation, production hosting/live-bank acceptance and agreed release/device coverage remain governed by the report. No new production readiness claim is made.
 
 Historical scripts containing known runtime secret literals are sanitized with `__SET_VIA_SECURE_RUNTIME_CONFIG__`; consult the manifest for affected paths. These placeholders must be provisioned privately before those scripts can run.
+
+Latest refresh: readable PBMS programme, cycle, beneficiary-list, rule and benefit labels, relation selectors and workflow headings. Includes record-names.json required by the frontend build. The updated 16-page report records 42 read-only screen checks across both domains. Stored backend codes and business rules remain unchanged. Private runtime backups and credentials are maintained separately outside GitHub.

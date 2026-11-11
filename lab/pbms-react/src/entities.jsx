@@ -1,3 +1,4 @@
+import {recordName,fieldLabel,matchingIds} from './labels';
 import React,{useEffect,useState}from'react';
 import{call}from'./api';
 
@@ -23,9 +24,9 @@ export async function editGroup(item){return groupMap[item.key]?call('res.users'
 const scalar=(v,f)=>f.type==='many2one'?(Array.isArray(v)?v[0]:v||false):v;
 export function RelationInput({field,value,onChange,disabled,domain=[]}){
  const[q,setQ]=useState(''),[options,setOptions]=useState([]),[error,setError]=useState('');
- useEffect(()=>{let live=true;const timer=setTimeout(()=>{call(field.relation,'name_search',[],{name:q,args:domain,operator:'ilike',limit:50}).then(r=>{if(live){setOptions(r);setError('');}}).catch(e=>{if(live)setError(e.message);});},180);return()=>{live=false;clearTimeout(timer);};},[q,field.relation,JSON.stringify(domain)]);
+ useEffect(()=>{let live=true;const timer=setTimeout(()=>{call(field.relation,'name_search',[],{name:matchingIds(field.relation,q).length&&q?'':q,args:matchingIds(field.relation,q).length&&q?[...domain,['id','in',matchingIds(field.relation,q)]]:domain,operator:'ilike',limit:50}).then(r=>{if(live){setOptions(r);setError('');}}).catch(e=>{if(live)setError(e.message);});},180);return()=>{live=false;clearTimeout(timer);};},[q,field.relation,JSON.stringify(domain)]);
  const multi=field.type==='many2many',id=multi?(value||[]):scalar(value,field);
- return <div className="relation-input"><input aria-label={`Find ${field.string}`} placeholder="Type to find records…" value={q} disabled={disabled} onChange={e=>setQ(e.target.value)}/><select aria-label={field.string} multiple={multi} value={multi?id.map(String):String(id||'')} disabled={disabled} required={field.required} onChange={e=>onChange(multi?[...e.target.selectedOptions].map(o=>Number(o.value)):Number(e.target.value)||false)}>{!multi&&<option value="">Select…</option>}{!multi&&id&&!options.some(([key])=>key===id)&&<option value={id}>{Array.isArray(value)?value[1]:`Record ${id}`}</option>}{multi&&id.filter(key=>!options.some(o=>o[0]===key)).map(key=><option key={key} value={key}>Record {key}</option>)}{options.map(([key,label])=><option key={key} value={key}>{label}</option>)}</select>{error&&<small role="alert">{error}</small>}</div>;
+ return <div className="relation-input"><input aria-label={`Find ${field.string}`} placeholder="Type to find records…" value={q} disabled={disabled} onChange={e=>setQ(e.target.value)}/><select aria-label={field.string} multiple={multi} value={multi?id.map(String):String(id||'')} disabled={disabled} required={field.required} onChange={e=>onChange(multi?[...e.target.selectedOptions].map(o=>Number(o.value)):Number(e.target.value)||false)}>{!multi&&<option value="">Select…</option>}{!multi&&id&&!options.some(([key])=>key===id)&&<option value={id}>{Array.isArray(value)?recordName(field.relation,id,value[1]):`Record ${id}`}</option>}{multi&&id.filter(key=>!options.some(o=>o[0]===key)).map(key=><option key={key} value={key}>Record {key}</option>)}{options.map(([key,label])=><option key={key} value={key}>{recordName(field.relation,key,label)}</option>)}</select>{error&&<small role="alert">{error}</small>}</div>;
 }
 export function EntityForm({item,record,defaults={},onClose,onSaved}){
  const[meta,setMeta]=useState(null),[values,setValues]=useState({}),[initial,setInitial]=useState({}),[busy,setBusy]=useState(false),[error,setError]=useState(''),[benefits,setBenefits]=useState(null),[multipliers,setMultipliers]=useState([]);
@@ -64,7 +65,7 @@ export function EntityForm({item,record,defaults={},onClose,onSaved}){
  else if(f.type==='selection')input=<select aria-label={f.string} required={f.required} disabled={disabled} value={val||''} onChange={e=>change(e.target.value)}><option value="">Select…</option>{f.selection.map(([v,l])=><option key={v} value={v}>{l}</option>)}</select>;
  else if(f.type==='text'||k==='pbms_domain')input=<textarea aria-label={f.string} required={f.required} disabled={disabled} rows={4} value={val||''} onChange={e=>change(e.target.value)}/>;
  else input=<input aria-label={f.string} required={f.required||k==='program_id'} disabled={disabled} type={['integer','float'].includes(f.type)?'number':f.type==='date'?'date':'text'} step={f.type==='float'?'any':undefined} value={val===false||val==null?'':val} onChange={e=>change(e.target.value)}/>;
- return <label key={k}>{f.string}{f.required?' *':''}{input}<small>{f.help||''}</small></label>;})}</div><footer><button type="button" onClick={onClose} disabled={busy}>Cancel</button><button className="primary" disabled={busy}>{busy?'Saving…':'Save record'}</button></footer></form>}</section></div>;
+ return <label key={k}>{fieldLabel(k,f,true)}{f.required?' *':''}{input}<small>{f.help||''}</small></label>;})}</div><footer><button type="button" onClick={onClose} disabled={busy}>Cancel</button><button className="primary" disabled={busy}>{busy?'Saving…':'Save record'}</button></footer></form>}</section></div>;
 }
 
 const links={

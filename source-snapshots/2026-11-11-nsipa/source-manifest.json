@@ -1348,8 +1348,8 @@
     },
     {
       "path": "client-concerns/consolidated-review/build_consolidated.py",
-      "bytes": 28815,
-      "sha256": "5978322123562e37e30a17cb946f2f6b1dec1c1e341425435e29b05a5fc34a44"
+      "bytes": 31279,
+      "sha256": "0ad5ebc479e9ee05398d7ce1763997a8ad4a9f1de5c9b0088f9019e6879b7c99"
     },
     {
       "path": "client-concerns/deploy_odk_sync.py",
@@ -3352,6 +3352,11 @@
       "sha256": "4289a90d0116cc56b78fdb82753822df12c4a2d628e74784132a9fa17ac9f9b4"
     },
     {
+      "path": "pbms-react/generate-record-names.cjs",
+      "bytes": 1592,
+      "sha256": "412620ee22a6c6bbe9b80b338509a21952fd98dcc1712d7677694d1a0d3294c5"
+    },
+    {
       "path": "pbms-react/index.html",
       "bytes": 597,
       "sha256": "0bfb57e067450f653e9c5a0b1686afb66946d5d3df79717c82c4d97bdbff33e7"
@@ -3443,18 +3448,33 @@
     },
     {
       "path": "pbms-react/src/entities.jsx",
-      "bytes": 12962,
-      "sha256": "b7c4f27c3e00606769023da2e24005842629231a6eae413930dba307b2b7886b"
+      "bytes": 13310,
+      "sha256": "ba445a6a40a4bbf5c737cca2fa082b54fc8a7684abc20fcf9f62799c164ef3f2"
+    },
+    {
+      "path": "pbms-react/src/labels.js",
+      "bytes": 2176,
+      "sha256": "7dec783c8deb72f3a7360a42433ab44fbce7c2cc12296f3281a0d2251ec8e119"
     },
     {
       "path": "pbms-react/src/main.jsx",
-      "bytes": 16625,
-      "sha256": "5aca75bf663e65b3f485ca43ff5feed89fb9c9f15ef04041fe278e7dbe59699b"
+      "bytes": 17198,
+      "sha256": "fb5ed3501f56c4c12ece2b1ba5d6e419179f9414b3e2ba7b1b74ee34eb8e3649"
     },
     {
       "path": "pbms-react/src/mobile.css",
       "bytes": 726,
       "sha256": "6c1186e8dbc76278730ae21ac21b4fa5cff4e548a2e0ca95cd131616dc9c17ea"
+    },
+    {
+      "path": "pbms-react/src/programme-names.js",
+      "bytes": 1293,
+      "sha256": "b318cc6f931fb8bd04f3edd724f92649752850cd0c809bd7955826a34a443e08"
+    },
+    {
+      "path": "pbms-react/src/record-names.json",
+      "bytes": 13112,
+      "sha256": "6d23d6226821c4bf2638e4b5ef82979f948ba3176ea924d15d7db1e2d15e6537"
     },
     {
       "path": "pbms-react/src/style.css",
@@ -3468,8 +3488,8 @@
     },
     {
       "path": "pbms-react/src/workflows.jsx",
-      "bytes": 9897,
-      "sha256": "1a66c2a8ac0230a1af3298322e7b9be1465656c71e2cb4eedb0d76fdd456666b"
+      "bytes": 10065,
+      "sha256": "509539d32b45d4e7315cb611729a5ba157241b07e91495c96c1c6afeaef41a07"
     },
     {
       "path": "pbms-react/test-client-native-intake.cjs",
@@ -3485,6 +3505,11 @@
       "path": "pbms-react/test-rule-contract.py",
       "bytes": 584,
       "sha256": "81a4fcd7bf5a773b5b0963f6e32c5049abe24c878f674f27da47198cef38a585"
+    },
+    {
+      "path": "pbms-react/verify-all-labels.cjs",
+      "bytes": 2165,
+      "sha256": "d06671302f0f32033b80d204086928063a0f7c36ba6d2446c2405cdfdaccbf62"
     },
     {
       "path": "pbms-react/verify-api.py",
@@ -3665,6 +3690,11 @@
       "path": "pbms-react/verify-private-infra-20261111.cjs",
       "bytes": 2158,
       "sha256": "e4ba72c2ec0971497642d0a4b77bbdc9aa645a04ab2d344123fd6e2e5bf9b45e"
+    },
+    {
+      "path": "pbms-react/verify-programme-names.cjs",
+      "bytes": 2055,
+      "sha256": "39390d0ad1224c693ffb34e8990332684ce8883d222d1c4763d49a1c1edf483f"
     },
     {
       "path": "pbms-react/verify-public-edge-infra-20261111.cjs",
