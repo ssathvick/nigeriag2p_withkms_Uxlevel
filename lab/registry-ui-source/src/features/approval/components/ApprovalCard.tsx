@@ -116,7 +116,7 @@ export default function ApprovalCard({
 
                     {reasonError && <p role="alert" className="text-red-700 text-sm">{reasonError}</p>}
                     <div className="registry-approval-actions flex flex-wrap items-center gap-3 pt-2">
-                        <button type="button" disabled={isInteractionDisabled} onClick={() => handleAction('return')} className="rounded-full px-4 py-2 text-sm font-medium bg-amber-100 text-amber-900 disabled:opacity-50">{submittingAction === 'return' ? t('loading') : 'Return for correction'}</button>
+                        <button type="button" disabled={isInteractionDisabled} onClick={() => handleAction('return')} className="rounded-full px-4 py-2 text-sm font-medium bg-amber-100 text-amber-900 disabled:opacity-50">{submittingAction === 'return' ? t('loading') : 'Revalidate — return to field agent'}</button>
                         <button
                             type="button"
                             disabled={isInteractionDisabled}

@@ -1,0 +1,278 @@
+{
+  "awe_req_events": {
+    "read": "nsipa_visible_intake(artifact_id::text)",
+    "write": "false"
+  },
+  "dedup_results_intake_forms_vs_intake_forms": {
+    "read": "nsipa_visible_intake(submission_id::text) AND nsipa_visible_intake(candidate_submission_id::text)",
+    "write": "false"
+  },
+  "dedup_results_intake_forms_vs_register": {
+    "read": "nsipa_visible_intake(submission_id::text) AND nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "deduplication_change_request_results": {
+    "read": "false",
+    "write": "false"
+  },
+  "deduplication_register_results": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_change_request_documents": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_completion_score_computation_queue": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_functional_id_generation_queue": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_intake_form_household_assets": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_household_housing_and_services": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_household_programs": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_households": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_disabilities": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_land": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_livelihoods": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_livestock": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_programs": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_shocks": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individual_vulnerability": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_individuals": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text)"
+  },
+  "g2p_intake_form_submissions": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_scope()='field' AND nsipa_visible_intake(submission_id::text)"
+  },
+  "g2p_intake_section_documents": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "nsipa_editable_intake(submission_id::text) AND nsipa_visible_document(document_id::text)"
+  },
+  "g2p_mbr_events": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "false"
+  },
+  "g2p_mbr_master_data": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_mbr_native_map": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "false"
+  },
+  "g2p_mbr_source_archive": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_mbr_submissions": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_native_workflow_legacy_drafts": {
+    "read": "nsipa_visible_intake(submission_id::text)",
+    "write": "false"
+  },
+  "g2p_register_change_request_payloads": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_change_requests": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_document_history": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_household_assets": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_household_housing_and_services": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_household_programs": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_households": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_disabilities": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_land": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_livelihoods": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_livestock": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_programs": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_shocks": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individual_vulnerability": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_history_individuals": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_register_household_assets": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_household_housing_and_services": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_household_programs": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_households": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_disabilities": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_land": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_livelihoods": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_livestock": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_programs": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_shocks": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individual_vulnerability": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_individuals": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_score_history": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_scores": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_section_completion_score": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_section_documents": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_register_verifications": {
+    "read": "false",
+    "write": "false"
+  },
+  "g2p_registrant_authentications": {
+    "read": "nsipa_visible_master(internal_record_id::text)",
+    "write": "false"
+  },
+  "g2p_registry_documents": {
+    "read": "nsipa_visible_document(document_id::text)",
+    "write": "nsipa_editable_document(document_id::text)"
+  },
+  "g2p_registry_return_history": {
+    "read": "nsipa_visible_intake(artifact_id::text)",
+    "write": "false"
+  },
+  "g2p_registry_review_comments": {
+    "read": "EXISTS(SELECT 1 FROM awe_req_events e WHERE e.event_id=g2p_registry_review_comments.event_id AND nsipa_visible_intake(e.artifact_id::text))",
+    "write": "false"
+  },
+  "g2p_score_compute_queue": {
+    "read": "false",
+    "write": "false"
+  },
+  "incoming_classified_data": {
+    "read": "false",
+    "write": "false"
+  },
+  "outgoing_raw_data": {
+    "read": "false",
+    "write": "false"
+  },
+  "outgoing_raw_data_payloads": {
+    "read": "false",
+    "write": "false"
+  },
+  "outgoing_transformed_data_payloads": {
+    "read": "false",
+    "write": "false"
+  }
+}

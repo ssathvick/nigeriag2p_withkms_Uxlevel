@@ -6,6 +6,8 @@ This release contains the updated Master Beneficiary Registry UI, native Registr
 
 The source can be cloned without a GitHub access grant. Signing into the deployed applications still requires destination-specific accounts and permissions. No running database, original account passwords, private keys, tunnel credentials, Camtasia recording or voice sample is included.
 
+Record security update: five isolated field-agent accounts, independent Level 1/Level 2 visibility, revalidation to the creator, Admin-only rejected archive, and read-only approved field records for Officer are now enforced by the native API/database. See [record security setup and access matrix](docs/current/RECORD-SECURITY.md).
+
 ## Start here
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
@@ -122,7 +124,7 @@ Frontend rollback uses the prior release symlink and validated Nginx config. Bac
 
 ## Verification and limits
 
-The Registry frontend source/lockfile now pins Next.js **16.4.6** and React/React DOM **19.2.7**. The observed runtime inventory remains a record of the original installation; build the new image from this source before deploying the updated frontend.
+The Registry frontend source/lockfile now pins Next.js **16.4.6** and React/React DOM **19.2.7**. The original runtime inventory is historical. The record-security update was built and deployed from this frontend source; see the security guide for the corresponding API/database installation.
 
 Release verification covers source integrity, secret-pattern checks, helper plan/configuration behavior, Python syntax, native addon XML, and frontend builds. The original deployed environment exercised native Registry reviews and the five-account PBMS workflow, corrections and binary XLS output. This release has **not** had a complete clean-machine replay. Destination-specific acceptance is required; this README does not claim unattended installation, live-bank settlement, national-identity verification or production acceptance.
 

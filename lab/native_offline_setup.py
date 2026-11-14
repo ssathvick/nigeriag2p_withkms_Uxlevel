@@ -1,11 +1,22 @@
 """Authenticated Collect setup utility for the native Master Registry (no intake engine)."""
-import base64,io,json,subprocess,zlib
+import base64,io,json,subprocess,zlib,fcntl,os
 from pathlib import Path
 from html.parser import HTMLParser
 import requests,yaml,qrcode,qrcode.image.svg
-from flask import request,abort,make_response
+from flask import request,abort,make_response,g,redirect
 def install(module):
  app=module.app;prefix=module.PREFIX
+ @app.before_request
+ def restrict_legacy_registry():
+  if request.path==prefix+'/mbr' or request.path.startswith(prefix+'/mbr/'):
+   if not getattr(g,'user',None):return
+   # Old integrated endpoints run as a service DB owner; do not let them bypass RLS.
+   with module.pg('register') as connection:
+    with connection.cursor() as cursor:
+     cursor.execute('SELECT EXISTS(SELECT 1 FROM nsipa_security.registry_admins WHERE subject=%s)',(g.user['sub'],));allowed=cursor.fetchone()[0]
+   if not allowed:
+    if '/api/' in request.path:abort(403,'Use the scoped Master Registry application.')
+    return redirect('https://g2p-register.wverve.in/en')
  @app.post(prefix+'/api/registry/offline-setup')
  def setup():
   token=request.headers.get('Authorization','')
@@ -33,6 +44,14 @@ def install(module):
   account=next((u for u in response.json() if u.get('displayName')==label and u.get('token')),None)
   if not account:
    response=session.post(origin+'/v1/projects/1/app-users',json={'displayName':label},timeout=30);response.raise_for_status();account=response.json()
+  # Bind Central's authenticated submitter ID to the verified staff identity.
+  # Form metadata_username is editable and is never ownership evidence.
+  config=Path('/opt/openg2p-lab/odk-sync/config.json')
+  with open(str(config)+'.lock','a') as lock:
+   fcntl.flock(lock,fcntl.LOCK_EX)
+   cfg=json.loads(config.read_text())
+   cfg.setdefault('field_actor_owners',{})[str(account['id'])]={'subject':user['sub'],'username':username}
+   temporary=config.with_suffix('.json.owner.tmp');temporary.write_text(json.dumps(cfg,indent=2));temporary.chmod(0o600);os.replace(temporary,config)
   response=session.get(origin+'/v1/roles',timeout=30);response.raise_for_status();role=next(r for r in response.json() if r.get('system')=='app-user')
   forms=['nsipa_registry_household']
   for fid in forms:

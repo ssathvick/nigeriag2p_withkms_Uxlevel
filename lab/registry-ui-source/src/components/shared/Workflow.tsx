@@ -2,6 +2,7 @@
 import {useState} from 'react';
 import {usePathname,useRouter,useSearchParams} from 'next/navigation';
 import {Eye,EyeOff,Copy,Info} from 'lucide-react';
+import {useRegistryScope} from './RegistryScope';
 
 export function InfoHint({text}:{text:string}) {
  return <span className="relative inline-flex group align-middle ml-2"><span tabIndex={0} role="img" aria-label={text} className="rounded-full p-1 focus-visible:outline-2"><Info size={16}/></span><span role="tooltip" className="pointer-events-none absolute z-50 left-0 top-full hidden group-hover:block group-focus-within:block w-64 max-w-[75vw] rounded-lg bg-neutral-first text-white p-3 text-sm font-normal whitespace-normal shadow-lg">{text}</span></span>;
@@ -17,7 +18,8 @@ export function PrivateIdentifier({value}:{value?:string|null}) {
  return <span className="inline-flex flex-wrap items-center gap-2 text-sm break-all"><span>{visible?value:'•••'+value.slice(-3)}</span><button type="button" aria-label={visible?'Hide identifier':'Show full identifier'} onClick={e=>{e.preventDefault();e.stopPropagation();setVisible(!visible)}} className="p-1 rounded-full hover:bg-secondary-second">{visible?<EyeOff size={16}/>:<Eye size={16}/>}</button><button type="button" aria-label="Copy identifier" onClick={async e=>{e.preventDefault();e.stopPropagation();await navigator.clipboard.writeText(value);setCopied(true);setTimeout(()=>setCopied(false),1800)}} className="p-1 rounded-full hover:bg-secondary-second"><Copy size={16}/></button>{copied&&<span role="status">Copied</span>}</span>;
 }
 export function WorkflowFilters({draft=false,tasks=false}:{draft?:boolean;tasks?:boolean}) {
+ const scope=useRegistryScope();
  const router=useRouter(),path=usePathname(),query=useSearchParams();const selected=query.get('status')||'all';
- const items=[['all','All'],...(draft?[['draft','Draft']]:[]),['pending','Pending'],[tasks?'completed':'approved','Completed'],['returned','Returned'],['rejected','Rejected']];
+ const items=[['all','All'],...(draft&&['admin','field'].includes(scope||'')?[['draft','Draft']]:[]),['pending','Pending'],...(!tasks&&scope==='admin'?[['approved','Approved'],['rejected','Rejected archive']]:[]),...(['admin','field'].includes(scope||'')?[['returned','Revalidation']]:[])];
  return <nav aria-label="Filter by status" className="flex flex-wrap gap-2 px-7.5 py-4">{items.map(([value,label])=><button key={value} type="button" aria-pressed={selected===value} onClick={()=>{const p=new URLSearchParams(query.toString());p.set('status',value);p.set('page','1');router.push(path+'?'+p)}} className={`rounded-full px-5 py-2 font-medium text-sm transition-colors ${selected===value?'bg-neutral-first text-white':'bg-white text-neutral-first hover:bg-primary-first'}`}>{label}</button>)}</nav>;
 }

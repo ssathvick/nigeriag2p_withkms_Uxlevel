@@ -6,6 +6,7 @@ import {useRegister} from '@/context/RegisterContext';
 import {useFetch} from '@/shared/hooks/useFetch';
 import {useIntakeForms} from '@/features/intake-form/hooks/useIntakeForms';
 import './registry-workspace.css';
+import RegistryScope,{useRegistryScope} from './RegistryScope';
 
 function WorkspaceIcon({kind}:{kind:string}){
  const path=kind==='register'?'m3 10 9-7 9 7v10H3ZM9 21v-8h6v8':kind==='tasks'?'M5 5h14v16H5ZM9 5V3h6v2M8 13l3 3 5-6':kind==='change-request'?'M20 8A8 8 0 0 0 6 5L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5':'M14 3H5v18h14V8ZM14 3v5h5M8 12h8M8 16h5';
@@ -16,10 +17,11 @@ function QueueTile({href,label,value,loading,error,kind}:{href:string;label:stri
 }
 function Workspace({children,path}:{children:ReactNode;path:string}){
  const {can,canAny,loading}=useRbac(),{registers}=useRegister();
+ const scope=useRegistryScope(),published=['admin','officer'].includes(scope||'');
  const parts=path.split('/').filter(Boolean),kind=parts[0],recordType=kind==='tasks'&&parts[1]==='intake-form'?parts[2]:parts[1],type=recordType==='individual'?'individual':'household';
  const isCollection=['change-request','incoming-messages','outgoing-messages'].includes(kind)?parts.length===1:parts.length===2;
  const isNew=parts.includes('new'),isHistory=parts.includes('version-history');
- const viewRegisters=can('register:view'),viewIntake=can('intakeSubmission:view'),viewChanges=can('changeRequest:view'),review=canAny(['verificationIntakeForm:create','verificationChangeRequest:create']);
+ const viewRegisters=published&&can('register:view'),viewIntake=can('intakeSubmission:view'),viewChanges=scope==='admin'&&can('changeRequest:view'),review=canAny(['verificationIntakeForm:create','verificationChangeRequest:create']);
  const register=registers.find(r=>r.register_mnemonic.toLowerCase()===type),{forms}=useIntakeForms(can('intakeSubmission:edit')&&['register','intake-form'].includes(kind)?register?.register_id:undefined);
  const form=forms.find(f=>f.register_id===register?.register_id)||forms[0];
  const recordStats=useFetch<any>({url:'/api/stats/register',enabled:isCollection&&!loading&&viewRegisters&&kind==='register'});
@@ -49,5 +51,5 @@ function Workspace({children,path}:{children:ReactNode;path:string}){
 export default function RegistryWorkspace({children}:{children:ReactNode}){
  const path=usePathname();
  const active=/^\/(?:register\/(?:household|individual)|intake-form\/(?:household|individual)|tasks\/(?:intake-form|change-request)|change-request|incoming-messages|outgoing-messages)(?:\/|$)/.test(path);
- return active?<Workspace path={path}>{children}</Workspace>:<>{children}</>;
+ return <><RegistryScope/>{active?<Workspace path={path}>{children}</Workspace>:children}</>;
 }

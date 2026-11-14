@@ -6,6 +6,7 @@ import {useRbac} from '@/context/RbacContext';
 import {useFetch} from '@/shared/hooks/useFetch';
 import {useIntakeForms} from '@/features/intake-form/hooks/useIntakeForms';
 import styles from './registry-dashboard.module.css';
+import {useRegistryScope} from '@/components/shared/RegistryScope';
 
 type IconName='home'|'people'|'form'|'change'|'task'|'offline'|'staff'|'arrow'|'refresh'|'search';
 function Icon({name}:{name:IconName}){
@@ -26,7 +27,7 @@ function Action({href,allowed,children,icon,primary=false}:{href:string;allowed:
  return allowed?<Link href={href} className={cls}><Icon name={icon}/>{children}<Icon name="arrow"/></Link>:null;
 }
 function Metric({label,value,href,icon,allowed=true,loading=false,failed=false}:{label:string;value:unknown;href:string;icon:IconName;allowed?:boolean;loading?:boolean;failed?:boolean}){
- const text=!allowed?'—':loading?'…':failed?'Unavailable':new Intl.NumberFormat('en-NG').format(Number(value??0));
+ const text=!allowed?'â€”':loading?'â€¦':failed?'Unavailable':new Intl.NumberFormat('en-NG').format(Number(value??0));
  const content=<><span className={styles.metricIcon}><Icon name={icon}/></span><span className={styles.metricValue}>{text}</span><span className={styles.metricLabel}>{label}</span><span className={styles.metricFoot}>{allowed?'Open records':'Not available for your role'}{allowed&&<Icon name="arrow"/>}</span></>;
  return allowed?<Link href={href} className={styles.metric} aria-label={`${label}: ${text}. Open records.`} aria-busy={loading}>{content}</Link>:null;
 }
@@ -35,7 +36,8 @@ function Panel({id,title,subtitle,icon,tag,tone='',children}:{id:string;title:st
 }
 function Dashboard(){
  const router=useRouter(),{registers}=useRegister(),{can,canAny,loading:permissionsLoading}=useRbac();
- const viewRegisters=can('register:view'),viewIntake=can('intakeSubmission:view'),editIntake=can('intakeSubmission:edit'),viewChanges=can('changeRequest:view'),viewTasks=canAny(['verificationIntakeForm:create','verificationChangeRequest:create']);
+ const scope=useRegistryScope();
+ const viewRegisters=['admin','officer'].includes(scope||'')&&can('register:view'),viewIntake=can('intakeSubmission:view'),editIntake=can('intakeSubmission:edit'),viewChanges=scope==='admin'&&can('changeRequest:view'),viewTasks=canAny(['verificationIntakeForm:create','verificationChangeRequest:create']);
  const [intakeType,setIntakeType]=useState('household'),[searchType,setSearchType]=useState('household'),[query,setQuery]=useState('');
  const household=registers.find(r=>r.register_mnemonic.toLowerCase()==='household'),intakeRegister=registers.find(r=>r.register_mnemonic.toLowerCase()===intakeType);
  const {forms}=useIntakeForms(household?.register_id);const form=forms.find(f=>f.form_id==='c1000000-0000-4000-8000-000000000002')||forms[0];
@@ -51,7 +53,7 @@ function Dashboard(){
  const failure=(result:{data:any;error:string|null})=>!!result.error||!!result.data?.error;
  const value=(result:{data:any})=>result.data?.pagination?.number_of_items;
  return <>
-  <section className={styles.hero} aria-labelledby="registration-title"><div className={styles.heroCopy}><span className={styles.eyebrow}>ONE REGISTRY. EVERY HOUSEHOLD.</span><h1 id="registration-title">Register your household</h1><p>Capture household members, location and living conditions. Follow every registration from first entry to independent approval.</p><div className={styles.actions}><Action href={form?'/intake-form/household/new/'+form.form_id:'/intake-form/household'} allowed={editIntake&&!!form} icon="home" primary>Register your household</Action><Action href="/intake-form/household" allowed={viewIntake} icon="form">View submissions</Action></div></div><div className={styles.heroGraphic} aria-hidden="true"><div className={styles.orbit}/><div className={styles.graphicHome}><Icon name="home"/></div><div className={styles.graphicPeople}><Icon name="people"/></div><div className={styles.graphicCheck}><Icon name="task"/></div><span>Capture → Review → Publish</span></div></section>
+  <section className={styles.hero} aria-labelledby="registration-title"><div className={styles.heroCopy}><span className={styles.eyebrow}>ONE REGISTRY. EVERY HOUSEHOLD.</span><h1 id="registration-title">Register your household</h1><p>Capture household members, location and living conditions. Follow every registration from first entry to independent approval.</p><div className={styles.actions}><Action href={form?'/intake-form/household/new/'+form.form_id:'/intake-form/household'} allowed={editIntake&&!!form} icon="home" primary>Register your household</Action><Action href="/intake-form/household" allowed={viewIntake} icon="form">View submissions</Action></div></div><div className={styles.heroGraphic} aria-hidden="true"><div className={styles.orbit}/><div className={styles.graphicHome}><Icon name="home"/></div><div className={styles.graphicPeople}><Icon name="people"/></div><div className={styles.graphicCheck}><Icon name="task"/></div><span>Capture â†’ Review â†’ Publish</span></div></section>
   <div className={styles.quickActions}><span className={styles.quickLabel}>Your registry tools</span><div><Action href="/configuration/registry/users" allowed={can('registryConfiguration:edit')} icon="staff">Staff and roles</Action><Action href="/offline" allowed={editIntake} icon="offline">Offline field capture</Action></div></div>
   <form className={styles.search} onSubmit={e=>{e.preventDefault();router.push('/register/'+searchType+(query.trim()?'?search='+encodeURIComponent(query.trim())+'&page=1':''))}} role="search" aria-label="Search master registry"><Icon name="search"/><label className={styles.srOnly} htmlFor="dashboard-register">Registry</label><select id="dashboard-register" value={searchType} onChange={e=>setSearchType(e.target.value)}><option value="household">Households</option><option value="individual">Individuals</option></select><label className={styles.srOnly} htmlFor="dashboard-search">Name or record ID</label><input id="dashboard-search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search by name or record ID" disabled={!viewRegisters}/><button type="submit" disabled={!viewRegisters}>Search<Icon name="arrow"/></button></form>
   <div className={styles.grid}>

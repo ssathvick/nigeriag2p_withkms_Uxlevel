@@ -1,0 +1,153 @@
+{
+  "approval_decision": [
+    "id",
+    "request_id",
+    "task_id",
+    "stage_order",
+    "actor",
+    "action",
+    "comment",
+    "attachments_ref",
+    "created_at",
+    "updated_at"
+  ],
+  "approval_event": [
+    "id",
+    "request_id",
+    "event_type",
+    "payload",
+    "created_at"
+  ],
+  "approval_policy": [
+    "id",
+    "policy_key",
+    "version",
+    "name",
+    "description",
+    "status",
+    "artifact_type",
+    "created_by",
+    "forbid_self_approval",
+    "forbid_repeat_approvers",
+    "created_at",
+    "updated_at"
+  ],
+  "approval_request": [
+    "id",
+    "policy_id",
+    "policy_key",
+    "policy_version",
+    "artifact_type",
+    "artifact_id",
+    "source_service",
+    "requester",
+    "context",
+    "status",
+    "current_stage_order",
+    "callback_url",
+    "callback_secret_id",
+    "completed_at",
+    "created_at",
+    "updated_at"
+  ],
+  "approval_stage": [
+    "id",
+    "policy_id",
+    "stage_order",
+    "name",
+    "mode",
+    "mode_value",
+    "sla_hours",
+    "parallel_group",
+    "skip_if",
+    "on_empty",
+    "on_breach",
+    "escalation_rules_json",
+    "created_at",
+    "updated_at"
+  ],
+  "approval_task": [
+    "id",
+    "request_id",
+    "stage_id",
+    "stage_order",
+    "assignee",
+    "assignee_name",
+    "kind",
+    "delegated_from",
+    "reassigned_from",
+    "status",
+    "claimed_at",
+    "completed_at",
+    "due_at",
+    "decision_id",
+    "search_text",
+    "created_at",
+    "updated_at"
+  ],
+  "approver_rule": [
+    "id",
+    "stage_id",
+    "rule_type",
+    "rule_value",
+    "kind",
+    "required",
+    "created_at",
+    "updated_at"
+  ],
+  "audit_action": [
+    "id",
+    "occurred_at",
+    "actor",
+    "actor_email",
+    "action",
+    "resource_type",
+    "resource_id",
+    "before",
+    "after",
+    "metadata",
+    "summary"
+  ],
+  "callback_secret": [
+    "id",
+    "caller_service",
+    "secret_hash",
+    "status",
+    "rotated_at",
+    "created_at",
+    "updated_at"
+  ],
+  "g2p_mbr_owned_requests": [
+    "request_id",
+    "migrated_at"
+  ],
+  "idempotency_key": [
+    "key",
+    "response_payload",
+    "created_at"
+  ],
+  "user_delegation": [
+    "id",
+    "user_id",
+    "delegate_to",
+    "starts_at",
+    "ends_at",
+    "reason",
+    "created_by",
+    "created_at",
+    "updated_at"
+  ],
+  "webhook_delivery": [
+    "id",
+    "event_id",
+    "url",
+    "attempt",
+    "status",
+    "next_attempt_at",
+    "last_attempt_at",
+    "last_status_code",
+    "last_error",
+    "created_at",
+    "updated_at"
+  ]
+}

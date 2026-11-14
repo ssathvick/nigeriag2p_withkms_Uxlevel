@@ -3,6 +3,7 @@ import { useFetch } from '@/shared/hooks/useFetch';
 import { toast } from 'react-toastify';
 import { useTranslations } from 'next-intl';
 import { ApprovalTask } from '@/features/approval/types/approval';
+import { useRouter } from '@/i18n/navigation';
 
 export interface ApprovalArtifactContext {
     artifactId: string;
@@ -16,6 +17,7 @@ export const useApprovals = (
     onRefresh?: () => void | Promise<void>,
 ) => {
     const t = useTranslations();
+    const router = useRouter();
     const [tasks, setTasks] = useState<ApprovalTask[]>([]);
     const [loadingTasks, setLoadingTasks] = useState(true);
 
@@ -102,7 +104,9 @@ export const useApprovals = (
                         position: 'top-right',
                         autoClose: 4000,
                     });
-                    await refreshApprovalState();
+                    if (artifactContext.artifactType === 'registry.intake_form') {
+                        router.replace('/tasks/intake-form?status=pending');
+                    } else await refreshApprovalState();
                     return true;
                 }
 
@@ -119,7 +123,7 @@ export const useApprovals = (
                 return false;
             }
         },
-        [executeDecision, refreshApprovalState, artifactContext, t],
+        [executeDecision, refreshApprovalState, artifactContext, t, router],
     );
 
     return { tasks, loadingTasks, submitDecision };

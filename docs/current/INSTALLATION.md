@@ -239,3 +239,7 @@ PBMS lists move from Pending to Complete through the scheduled Odoo worker, norm
 For a frontend-only rollback, repoint `current` to its prior release, validate Nginx, and reload. For Registry/AWE module rollback, use the matching backed-up deployment/ConfigMap and schema recovery point. For PBMS backend rollback, use the saved deployment and matching database/filestore recovery point with writes stopped and post-backup activity reconciled. Rolling back source alone does not undo schema changes, role grants, approvals or history. Do not delete audit records or replay payment actions as a recovery shortcut.
 
 Both repositories remain public. Fresh-machine replay of this release has not been performed; the release provides current source, tested local builds and a staged installation procedure, not a claim of unattended installation or production acceptance.
+
+## Registry record ownership and authorizers
+
+See the [record-security access matrix, deployment steps and operational guide](RECORD-SECURITY.md). Install the security layer after the native Registry/AWE baseline. Field agents own only their records; Officer reads only field-origin records approved at both levels. Return for revalidation and permanent rejection have distinct visibility rules. Legacy records without trusted subject provenance remain Admin-only.

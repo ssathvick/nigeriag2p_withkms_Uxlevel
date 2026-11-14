@@ -61,6 +61,10 @@ def process(client,c,formid,definition,master,entry):
  if row['source_hash'] and row['source_hash']!=digest:
   put(c,key,state='SOURCE_CHANGED',error='Source changed; manual review required. Existing intake not overwritten.');return
  if row['state'] in ('SUBMITTED','EXISTING','QUARANTINED','SOURCE_CHANGED','EXCLUDED_TEST'):return
+ owner=client.cfg.get('field_actor_owners',{}).get(str(entry.get('submitterId')))
+ if not owner:
+  put(c,key,source_hash=digest,state='QUARANTINED',error='Unmapped authenticated Collect submitter; staff setup verification required');return
+ client.api.headers['X-NSIPA-Field-Owner']=owner['subject']
  try:
   review=getattr(client,'cfg',{}).get('legacy_reviews',{}).get(instance)
   if formid=='nsipa_registry_household':mapped=map_native(xml,definition,master)

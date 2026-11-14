@@ -91,3 +91,7 @@ The final XLS is the endpoint of this approval policy. It **does not invoke Brid
 The current sidebar/login retains the established `branding/nsipa-logo.svg` with its wording. Sections marked for future removal remain available: Households, Farmers, Students, Priority rules, Agencies, Warehouses & banks, States & regions, Local administrative areas, Agency benefit assignments, Bank & warehouse assignments and Verification queue. Do not remove them as an installation cleanup step.
 
 The application includes contextual help and shared knowledge sources. Publish new guidance through the configured knowledge review/publication process. Local Ollama and analytics services are optional integrations with separate setup requirements. The standalone Experience Kit is useful for a quick preview but is not the full connected application described above.
+
+## Registry record ownership and authorizers
+
+See the [record-security access matrix, deployment steps and operational guide](RECORD-SECURITY.md). Install the security layer after the native Registry/AWE baseline. Field agents own only their records; Officer reads only field-origin records approved at both levels. Return for revalidation and permanent rejection have distinct visibility rules. Legacy records without trusted subject provenance remain Admin-only.

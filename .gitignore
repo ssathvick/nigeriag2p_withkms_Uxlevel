@@ -65,3 +65,8 @@ build/
 **/*accounts.local.json
 **/deployment.local.json
 **/service.env
+
+# Reviewed record-security schema source (never database dumps).
+!lab/record-security/schema.sql
+!lab/record-security/policies.sql
+!lab/record-security/awe-schema.sql

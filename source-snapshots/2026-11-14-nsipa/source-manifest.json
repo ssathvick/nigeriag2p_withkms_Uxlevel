@@ -192,6 +192,11 @@
       "sha256": "05200df0ab2b9b4eabda79c37b97ba579822a52de53b0e867e7752cec5c3cba0"
     },
     {
+      "path": "apply_record_security_schema.py",
+      "bytes": 305,
+      "sha256": "f736e61dc65a311cc58757287be0558f34d24382fba9bb410a2e431270f8156c"
+    },
+    {
       "path": "approve-demo-disbursement.py",
       "bytes": 987,
       "sha256": "26847986d08fbee01202d0b1f54e0dd068b42500a350124514a7e1f070bbaa32"
@@ -2688,8 +2693,8 @@
     },
     {
       "path": "client-concerns/odk_sync_worker.py",
-      "bytes": 9616,
-      "sha256": "0d00af836468afafbc4cdc294178ce983a325538983cbc692635a956b4db8721"
+      "bytes": 9916,
+      "sha256": "e803e3ca1a889cc532eeedc6fea555686d2098898d9730ea90d9478f7a02c942"
     },
     {
       "path": "client-concerns/overlay.py",
@@ -3342,6 +3347,11 @@
       "sha256": "19f86062978f6da71eb38b2294e05a492d68aa8af922ecbdcf8e8018d95d3738"
     },
     {
+      "path": "deploy_awe_record_security.py",
+      "bytes": 4815,
+      "sha256": "324262a797633ee207526aaf0812eab576ac6ef4882b542a8984c860cdd48b4f"
+    },
+    {
       "path": "deploy_enumeration_layout.py",
       "bytes": 410,
       "sha256": "31fb8dcdeb0a4cc96d88a080d3ebb1a5a844db8e078880828ac27e6e0541e8de"
@@ -3370,6 +3380,11 @@
       "path": "deploy_native_registry_users.py",
       "bytes": 1073,
       "sha256": "1c52ed12213c144b7e77c4f629d42bb76b1120973a5587b116c44cbb3f1f1334"
+    },
+    {
+      "path": "deploy_record_security.py",
+      "bytes": 3136,
+      "sha256": "09c459c7d3b9ddf4f5f922548bc4098db3552bd37f47e54e7ba07d5e13361120"
     },
     {
       "path": "deploy_simplified_home.py",
@@ -5053,8 +5068,8 @@
     },
     {
       "path": "native_offline_setup.py",
-      "bytes": 3741,
-      "sha256": "479edd830ce2b72e1d9ef07ee144b4577bfd05c89851d1741145459d46f50246"
+      "bytes": 4993,
+      "sha256": "b02be27c10392487f7d4d54cc08baf83537de2fefda405444b6e8bb3633992f8"
     },
     {
       "path": "native_registry_users.py",
@@ -6442,6 +6457,11 @@
       "sha256": "bc945894268b269e01062a1e15a04704c05c69854afa7d5fe1fc8686279fc6fd"
     },
     {
+      "path": "provision_record_security_agents.py",
+      "bytes": 3551,
+      "sha256": "77defc6d193b4181c2289d9ee633d77123d25a5921123c4d227bd2046b8a88c8"
+    },
+    {
       "path": "publish-readiness-evidence.py",
       "bytes": 1203,
       "sha256": "fca02d7053f3fb1f85e8da6d7fd3232aee8b87b6d634792ab4b685dbedcd505d"
@@ -6465,6 +6485,186 @@
       "path": "record-phase1-release.py",
       "bytes": 1910,
       "sha256": "595ffa4183ef18545933878f5175b2ad9aa91319b42877c0fcd4a6d9d034c950"
+    },
+    {
+      "path": "record-security/README.md",
+      "bytes": 7838,
+      "sha256": "820837fde2e87fa73dbcb520451ae202bf436dd12132f2409200214cb3a239a0"
+    },
+    {
+      "path": "record-security/awe-auth.py",
+      "bytes": 7730,
+      "sha256": "279f4f6fe82c6b806ce21a0b6e3183e6b6130c8a4414186c205f1d6268636275"
+    },
+    {
+      "path": "record-security/awe-main.py",
+      "bytes": 7469,
+      "sha256": "4cde59066f6e9cb60a3de7c066b44611f43730d7353e67b3b95aa2aba789fad9"
+    },
+    {
+      "path": "record-security/awe-request.py",
+      "bytes": 8166,
+      "sha256": "69c3910be9624cbc1d943d788151abd412599357e61c49dab8f13fdd6adae83a"
+    },
+    {
+      "path": "record-security/awe-schema.json",
+      "bytes": 2501,
+      "sha256": "bd118d3b6ba3eded4cca8f769318dee7b93354a6f064056cad50acca3505d017"
+    },
+    {
+      "path": "record-security/awe-schema.sql",
+      "bytes": 2815,
+      "sha256": "9ac8b40bb10dbc8f64c932200850a2a0993a13e3d8d8da2701c3de58131fcf04"
+    },
+    {
+      "path": "record-security/awe-task.py",
+      "bytes": 14419,
+      "sha256": "519540a0f175143cfff24c31df61cf0eb97b53f126435a4bbca4fb8f1d8a286d"
+    },
+    {
+      "path": "record-security/awe_helper.py",
+      "bytes": 25373,
+      "sha256": "ef23c29b385ac1814675d4b6cfe3bdcae27860a142888c68f9f220764c7edc2e"
+    },
+    {
+      "path": "record-security/awe_scope.py",
+      "bytes": 4194,
+      "sha256": "1d47da15848726011e384799339018a0566abfbb0c7536044859f84dae3ddfee"
+    },
+    {
+      "path": "record-security/build_policies.py",
+      "bytes": 4300,
+      "sha256": "eed44722dc610a6921a6a01272a91033c1d59a7b20e3d6a58cd338c46d99852d"
+    },
+    {
+      "path": "record-security/capture_awe.py",
+      "bytes": 872,
+      "sha256": "5bd131f57401d17ddc4df488d645d76621b5e7f649d52358bd9cb8940d44179f"
+    },
+    {
+      "path": "record-security/g2p_awe_proxy_controller_service.py",
+      "bytes": 10748,
+      "sha256": "3ca609cca742b30106d8da7b06b4338f6702a36d55cbceeea4c741caa40ee30d"
+    },
+    {
+      "path": "record-security/intake_form_data_controller_service.py",
+      "bytes": 6971,
+      "sha256": "484789648e4472a9b65c79ac825da01328234f5b6c5f5b0aad501ad8fe16901c"
+    },
+    {
+      "path": "record-security/original/awe/controllers/request.py",
+      "bytes": 7366,
+      "sha256": "a504d9ab86fd95b125f5a65e7ead63fb4ca6300e70ed4147c1821acd90808c3a"
+    },
+    {
+      "path": "record-security/original/awe/controllers/task.py",
+      "bytes": 14213,
+      "sha256": "10d31a82af5df9ade9326ce3566338a433cf7b3a6ce03a1b002cca3aa61d13b4"
+    },
+    {
+      "path": "record-security/original/awe/main.py",
+      "bytes": 7390,
+      "sha256": "60f4d85db33532df53b475348b8c99c924c61cdce75718da924358fa5774da82"
+    },
+    {
+      "path": "record-security/original/awe/services/auth.py",
+      "bytes": 7651,
+      "sha256": "1d1ae47484feed69bcbf2f51ef664c6f5a6539770fe14d95bfbf54f89d2428b1"
+    },
+    {
+      "path": "record-security/original/awe_helper.py",
+      "bytes": 25204,
+      "sha256": "d9bf36a8ce134d198d0e517eb74544d75da0881671d3c5c503de59efd726b9f6"
+    },
+    {
+      "path": "record-security/original/iam_core/helpers/data_policy_helper.py",
+      "bytes": 5175,
+      "sha256": "6317b0403402ef960e1e03709efa477e50da49f75ea296a8ae3aa64e2f3b0842"
+    },
+    {
+      "path": "record-security/original/iam_core/user_auth/middleware/resolve_permissions.py",
+      "bytes": 4476,
+      "sha256": "7df12b2bcca8e3e89f1a65ab4d2e88ed963d90b42c6a7da6a9fd4a4076a524a7"
+    },
+    {
+      "path": "record-security/original/iam_core/user_auth/middleware/validate_and_refresh.py",
+      "bytes": 6480,
+      "sha256": "4b9242400df0a839846e2c3c8804215d61388936357ed71126470285b1f04d7a"
+    },
+    {
+      "path": "record-security/original/openg2p_fastapi_common/context.py",
+      "bytes": 1797,
+      "sha256": "24ca78a42d20b92fa190af6dc381f662fb2995b434b5c9731ae63cc5700d7dd4"
+    },
+    {
+      "path": "record-security/original/openg2p_registry_core/__init__.py",
+      "bytes": 22,
+      "sha256": "3259b81af99bffac90c7051bbf62ac73e0491572cf83d1f556dda257bc17ac0e"
+    },
+    {
+      "path": "record-security/original/openg2p_registry_core/controller_services/g2p_awe_proxy_controller_service.py",
+      "bytes": 9996,
+      "sha256": "7c449a285643d00b448e37f58421794415e2daa2a03b0c9a8812e2d5efa61fb8"
+    },
+    {
+      "path": "record-security/original/openg2p_registry_core/controller_services/g2p_register_data_controller_service.py",
+      "bytes": 14073,
+      "sha256": "cef5d7260e22bb2a9f3abdb53583e7936780558c674037f2d40d3782eaf4f2b6"
+    },
+    {
+      "path": "record-security/original/openg2p_registry_core/controller_services/intake_form_data_controller_service.py",
+      "bytes": 6865,
+      "sha256": "6a2f786fcf364068a754215a45ec59443ee7720510604702b3c8a61a126b0a8f"
+    },
+    {
+      "path": "record-security/original/registry-main.py",
+      "bytes": 3057,
+      "sha256": "d7e43f3a4dbd1be66a15cfd2a367f9a0f9db6a3ac855051e517c1bbfffd2fef9"
+    },
+    {
+      "path": "record-security/policies.sql",
+      "bytes": 93065,
+      "sha256": "5633d48940530f91de2e3aaaca0fa5f95c680b7afa0b792cd46e827f616e9897"
+    },
+    {
+      "path": "record-security/policy-inventory.json",
+      "bytes": 8367,
+      "sha256": "cdfc967c2a95ab4d699f0ac9da4f46e28e6cf1434cbda15e5e5b4af619dddb89"
+    },
+    {
+      "path": "record-security/prepare.py",
+      "bytes": 2918,
+      "sha256": "ce6c981290cef55a8c03cd5bc9cd22d8e298a36b1278a895b2ff311883821e19"
+    },
+    {
+      "path": "record-security/prepare_awe.py",
+      "bytes": 2695,
+      "sha256": "dbfd75bfe8d716371eecdbac68a5d2e9083db1267d2cfa5e76b314d8e380120e"
+    },
+    {
+      "path": "record-security/record_scope.py",
+      "bytes": 5885,
+      "sha256": "5cdeb3de8cadc852440596eca95b3df7f066f6e4ff7e447bda7b0fcdab5f417d"
+    },
+    {
+      "path": "record-security/register-schema.json",
+      "bytes": 33910,
+      "sha256": "15533da33efcee7df0b29f6d40fa14de922e568939b4aabbf824277b633bd2f1"
+    },
+    {
+      "path": "record-security/registry-main.py",
+      "bytes": 3169,
+      "sha256": "faffc8b6eaf31634e72b0f8efe39aea86ed196e198ecaae8f568c5438158d5a1"
+    },
+    {
+      "path": "record-security/schema.sql",
+      "bytes": 10146,
+      "sha256": "84a6faacfe989fb8ba1834378034d77d0ab429b6d32da395a5c43ee29bef7fb4"
+    },
+    {
+      "path": "record_security_secret.py",
+      "bytes": 824,
+      "sha256": "eb362fc8395cc7c6572ec7e132a9ae355f14cfdce45c231730a292fb7feae6ea"
     },
     {
       "path": "refine-jos-drilldowns.py",
@@ -7373,8 +7573,8 @@
     },
     {
       "path": "registry-ui-source/src/app/[locale]/page.tsx",
-      "bytes": 11404,
-      "sha256": "066eaa34d97e4ea9f04de84818b4b589684f4bebc70581d7b086565088540c4e"
+      "bytes": 11582,
+      "sha256": "8ee746805e04c5a0fa3a53e6c2224c1f3c131a36a15e8903b26ad6c0092da4f5"
     },
     {
       "path": "registry-ui-source/src/app/[locale]/register/[type]/[id]/change-request/[changeId]/page.tsx",
@@ -8368,8 +8568,8 @@
     },
     {
       "path": "registry-ui-source/src/app/api/me/route.ts",
-      "bytes": 653,
-      "sha256": "b733c8a4033a24d9c85da21e6d26950a6c23c33b35e6a5b91054071a2d5be9a4"
+      "bytes": 1346,
+      "sha256": "1db7fce65ec1735dc66666225d001105d5b52707411ea1fbd5b70b383d048387"
     },
     {
       "path": "registry-ui-source/src/app/api/offline/setup/route.ts",
@@ -8612,14 +8812,19 @@
       "sha256": "565f687e29fb3dc345d84c9c2dbbb0e7ad70e9be0d6b88fe30ed0fbce5d64d7c"
     },
     {
+      "path": "registry-ui-source/src/components/shared/RegistryScope.tsx",
+      "bytes": 1202,
+      "sha256": "70de269f79b3bd8068b9bf105d07e6184ce171d52f847917f2c05b0a1d6165da"
+    },
+    {
       "path": "registry-ui-source/src/components/shared/RegistryTools.tsx",
-      "bytes": 2001,
-      "sha256": "e339d71f68cd07b8b26b1fe942416c6f7cc07e7ed09ee0548b948e20a0423a95"
+      "bytes": 2084,
+      "sha256": "fc4a82f881e37cd35f0fa4cafa82e8dfc42edd1c44fd640b74cd5faae750d596"
     },
     {
       "path": "registry-ui-source/src/components/shared/RegistryWorkspace.tsx",
-      "bytes": 8253,
-      "sha256": "b193c1b46267f75beee4274bedce414455309fb7c150234dddcde619e18f6d0e"
+      "bytes": 8444,
+      "sha256": "0f2c41a74ddbe1e76597e194cbb61ae8fee7468297c8a26950c4b72ae79489d4"
     },
     {
       "path": "registry-ui-source/src/components/shared/RequireAction.tsx",
@@ -8653,8 +8858,8 @@
     },
     {
       "path": "registry-ui-source/src/components/shared/Workflow.tsx",
-      "bytes": 3219,
-      "sha256": "c1366c10cafac5f4b2b1aac350ba66de8ade0e95c9e5faa1ef827205b84b49ac"
+      "bytes": 3416,
+      "sha256": "5bd380eaba176c4bd7fd9063ad8671c49ca054525e536b162c60821176ee1df1"
     },
     {
       "path": "registry-ui-source/src/components/shared/application-consistency.css",
@@ -8758,8 +8963,8 @@
     },
     {
       "path": "registry-ui-source/src/features/approval/components/ApprovalCard.tsx",
-      "bytes": 8216,
-      "sha256": "6ec40a0af75ef19e24fbb9356066eb57a9bd4e9c799e6b7fc6e64fdb5be03c09"
+      "bytes": 8231,
+      "sha256": "d1b72452ec574f49ebdc6a7a977487729a490c51029e683e0515e31dcc19c471"
     },
     {
       "path": "registry-ui-source/src/features/approval/components/ApprovalList.tsx",
@@ -8803,8 +9008,8 @@
     },
     {
       "path": "registry-ui-source/src/features/approval/hooks/useApprovals.ts",
-      "bytes": 4306,
-      "sha256": "a345e4f2b689b9057d638502eb65adca93b66e941bd81cdf8f7f46efba9d0440"
+      "bytes": 4560,
+      "sha256": "598ed8010eb0c81efd52abeb01ef6c27bbef6d1698f039d0be5f24ce27a5e8cd"
     },
     {
       "path": "registry-ui-source/src/features/approval/hooks/useMyTasks.ts",
