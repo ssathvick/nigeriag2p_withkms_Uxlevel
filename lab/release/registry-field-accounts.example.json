@@ -1,0 +1,29 @@
+{
+  "field-agent-01@nsipa.example.invalid": {
+    "role": "mbr-field-agent"
+  },
+  "field-agent-02@nsipa.example.invalid": {
+    "role": "mbr-field-agent"
+  },
+  "field-agent-03@nsipa.example.invalid": {
+    "role": "mbr-field-agent"
+  },
+  "field-agent-04@nsipa.example.invalid": {
+    "role": "mbr-field-agent"
+  },
+  "field-agent-05@nsipa.example.invalid": {
+    "role": "mbr-field-agent"
+  },
+  "reviewer-one@example.invalid": {
+    "role": "mbr-level1"
+  },
+  "reviewer-two@example.invalid": {
+    "role": "mbr-level2"
+  },
+  "officer@example.invalid": {
+    "role": "mbr-officer"
+  },
+  "registry-admin@example.invalid": {
+    "role": "mbr-admin"
+  }
+}

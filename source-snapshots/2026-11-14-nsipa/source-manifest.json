@@ -4348,8 +4348,8 @@
     },
     {
       "path": "integrate_native_registry_accounts.py",
-      "bytes": 8384,
-      "sha256": "1686d4a8ef8ef416b5741b4e3a523c96924b157d03c05ce80b8abd0b1a6292d1"
+      "bytes": 8464,
+      "sha256": "1bd766cf491f07738c4ae3ad57ac5c6b9fd6a4545e93edeb51e3aac9ecc42aa8"
     },
     {
       "path": "isolate-beneficiary-domain.py",
@@ -7558,8 +7558,8 @@
     },
     {
       "path": "registry-ui-source/src/app/[locale]/offline/page.tsx",
-      "bytes": 4912,
-      "sha256": "21f3ab6763fe9104d6c6020e685bcd36f3f169f257bab08589cccfb1b5319bd6"
+      "bytes": 4943,
+      "sha256": "c33c096c3cc9c487ca4c38ba34b9d10c28ba76e4291149dc6bd47b97a8c6b4ca"
     },
     {
       "path": "registry-ui-source/src/app/[locale]/outgoing-messages/layout.tsx",
@@ -10705,6 +10705,11 @@
       "path": "release/registry-accounts.example.json",
       "bytes": 294,
       "sha256": "401a0d33df98c00644c7196643e027d2b968fa7a57b6d35432e526ed39379874"
+    },
+    {
+      "path": "release/registry-field-accounts.example.json",
+      "bytes": 659,
+      "sha256": "efb3954055b70a2da7158929d281fc63aa4215ad9f0e3620646337b2d0d250cb"
     },
     {
       "path": "remove_enumerator_selector.py",

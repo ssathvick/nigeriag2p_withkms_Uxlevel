@@ -157,6 +157,14 @@ kubectl -n nigeria rollout status deployment/register-staff-portal-ui --timeout=
 
 `deploy_meeting_native_ui.py` imports the locally built image into K3s. It assumes a single local Docker/K3s node. For a multi-node cluster, push the image to your registry and configure pull access on every node instead. The container listens on port 3000 and must be served behind the destination gateway. Verify staff sign-in, permission loading, configuration metadata and the API proxies before a workflow test.
 
+### Field assistants, authorizers and record security
+
+The initial role/policy setup above is the baseline. Install the [record-security overlay](RECORD-SECURITY.md) before demonstrating the new ownership rules. Its provisioner creates the five standard demonstration field assistants after the native roles exist; the first and second authorizers remain distinct identities assigned by the integration utility. MBR Officer is a read-only consumer of approved field records and has no capture or approval duty.
+
+For a destination with its own five field identities, `release/registry-field-accounts.example.json` supplies a nine-account role mapping. Create all identities securely first, replace the placeholder reviewer/Officer/Admin logins, inspect `integrate_native_registry_accounts.py --accounts PRIVATE_FILE`, then apply with `--apply`. Skip the standard demo provisioner if those five default logins are not wanted. Refresh the private field/admin directories afterward. Public account examples contain role mappings only, never passwords.
+
+Use [FIELD-ASSISTANT-FLOW.md](FIELD-ASSISTANT-FLOW.md) for the complete browser and review walkthrough, including revalidation/rejection and the mobile QR stopping point. Existing historical records without trusted ownership provenance remain Admin-only. Test the actual security matrix rather than granting Officer extra permissions to make older records appear.
+
 ## 7. Install the PBMS approval backend
 
 Install against the initialized PBMS 3 database, not the separate legacy beneficiary-portal programme model. The image must have `xlwt` for native BIFF XLS output. The installer checks it before changing the deployment; if missing, add it to a reproducible PBMS image build, deploy that image, and retry. Do not rely on a temporary pip install inside a running pod.
@@ -212,7 +220,7 @@ Use the walkthrough in [USAGE.md](USAGE.md). Keep role duties separate and test 
 
 Before treating the new machine as ready:
 
-- Verify five native Registry accounts and five PBMS accounts separately, including unauthorized actions, sign-out/session expiry and correct return destinations.
+- Verify five field-assistant accounts plus distinct Registry Level 1, Level 2, Officer and Admin identities, and five PBMS accounts separately, including unauthorized actions, sign-out/session expiry and correct return destinations.
 - Capture a fictional household and individual, save drafts, submit, review at both stages, return/correct/resubmit, reject, and verify final native master/history records. A creator or first reviewer must not approve the second stage.
 - Check search/filter/pagination, readable labels, member age/date-of-birth handling, consent, duplicate review and mobile layout. Verify the final survey has no enumerator selector.
 - If ODK is enabled, test the full form in airplane mode, reconnect, confirm one native intake and retained device copy, then perform both native reviews. Repeating synchronization must not create duplicates.

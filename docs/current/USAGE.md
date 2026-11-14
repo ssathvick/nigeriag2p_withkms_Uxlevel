@@ -4,34 +4,40 @@ Use the URLs configured for your destination. The original demonstration used `g
 
 ## Registry staff and persona roles
 
+The complete [Field assistant and Level 1/Level 2 walkthrough](FIELD-ASSISTANT-FLOW.md) covers destination setup, five field accounts, browser capture, both authorizers, approved-only Officer access, revalidation, rejection and the ODK Collect QR stopping point. The [security guide](RECORD-SECURITY.md) describes backend/database enforcement.
+
 | Screen responsibility | Native role | What to demonstrate |
 | --- | --- | --- |
-| Registration Officer | Registry Officer | Capture household/individual drafts, submit and correct returned work |
-| Field Agent | Registry Field Agent | Field capture, own authenticated Collect setup and submission |
-| Approver 1 | Registry First Reviewer | First independent native AWE review |
-| Approver 2 | Registry Second Reviewer | Second independent review before native publication |
-| Registry Admin | Registry Administrator | Registry configuration, staff and permissions; no capture/approval duty |
+| Field assistants 01–05 | Registry Field Agent | Capture and submit only their own records; correct their own returned records; use their own Collect setup |
+| Level 1 authorizer | Registry First Reviewer | Review field-origin submissions awaiting Level 1; hand off or return/reject |
+| Level 2 authorizer | Registry Second Reviewer | Review Level 1-approved submissions; approve publication or return/reject |
+| MBR Officer | Registry Officer | Read-only access to published field-origin records approved at both levels |
+| MBR Admin | Registry Administrator | All records, rejected archives, staff/configuration and retained history; no substitute reviewer |
 
-Use separate accounts for the reviews. The older registration workspace also has citizen/officer/verifier/supervisor personas; these are separate application roles, not substitutes for the current Registry or PBMS permissions. The service launcher provides navigation, not an authority to approve records. A screenshot or persona selector is not authentication.
+“Field assistant” and “Field Agent” refer to the same native Registry persona. Use separate accounts for each duty. Older citizen/officer/verifier/supervisor workspaces have separate application roles and do not replace these permissions. The service launcher provides navigation, not authority to approve records.
 
 ### Household and individual journey
 
-1. Sign in as Registration Officer. The new registry overview shows the work queues and links available to that role. Open the native household or individual intake and create a draft.
-2. Complete the reviewed sections. For households, capture sponsor, informed consent, respondent, community, household details, members, dwelling/services and applicable income/health information. The current survey does **not** show an enumerator selector. Previously stored values remain in the database/history.
-3. For members, enter date of birth when known or the estimated age where supported, and relationship to head. Review required fields, readable geography labels and validation feedback. Do not invent missing historical values.
-4. Save the draft, review duplicate indications and submit. Duplicate scores support human review; they do not establish identity or automatically prove eligibility for a benefit.
-5. Sign out and sign in as Approver 1. Open the assigned pending item, review its details and history, and approve, return for correction or reject. Give a clear reason for a return or rejection.
-6. Approver 2 completes the next independent review. The creator cannot approve their own submission, and the first-stage reviewer cannot substitute for the second reviewer.
-7. A returned attempt is retained in history and becomes editable for correction through the supported native process. Correct and resubmit, then follow the newly assigned review stages. A permanent rejection remains a rejection; do not edit database status fields to reopen it.
-8. After final approval and native background processing, verify the resulting master record and version/history in Master Registry. For changes to an existing master, inspect before/after values and the retained earlier attempts. Household and individual journeys must both be tested.
+1. From the service homepage, open **Master Registry** and sign in as a **field assistant**, not MBR Officer. Confirm the displayed identity and **Your records only** notice.
+2. Choose **Register your household** or the supported individual intake. Capture sponsor, actual informed consent, respondent, community, location and required details. The current household survey has no enumerator selector.
+3. Add household members, including relationship to the head and a known date of birth or estimated age. Identification details are self-reported; national ID authentication is not connected. Leave unknown optional values blank.
+4. Save the draft and verify its reference. Resume an existing interview through **View submissions → Draft** rather than creating a duplicate. Review applicable dwelling/services, income/shocks, insurance, asset, crop and retained sections. Check validation and submit for Level 1.
+5. Sign in separately as **Level 1**, open the assigned pending registration task, inspect details/history and approve. The record leaves the creator and Level 1 and becomes available only to Level 2, with Admin retaining oversight.
+6. **Level 2** independently reviews and approves. The record leaves that reviewer's access. After native publication finishes, **MBR Officer** can read the approved master record; Officer cannot capture, edit or approve it. Admin retains access and history.
+7. At either review level, **Revalidate — return to field agent**, with a reason, returns the record only to its creator. The creator corrects and resubmits the same record; review restarts at Level 1 and proceeds through both levels again. Earlier attempts remain in history.
+8. **Reject permanently**, with a reason, archives the record for **MBR Admin only**. The creator, other field assistants, both authorizers and Officer lose access. Admin uses **Form submissions → Rejected archive**.
 
-Native Registry and AWE own these decisions. The retired supplemental `/registration/mbr` write API and import timer must not be enabled to create a parallel approval path.
+The native Registry API, PostgreSQL policies and AWE enforce these rules for direct IDs, lists/counts, histories and task queues. A completed queue or old URL does not restore access. Registration approval is separate from programme eligibility/payment. Test both household and individual journeys on the destination.
 
 ### Staff administration and field capture
 
-Registry Admin opens **Staff and roles** at `/en/configuration/registry/users`. New staff need a name, login/email, a temporary password of at least 12 characters and an assigned role. The native provisioning utility requires a password change at first sign-in; existing account conflicts preserve the original account rather than replacing its password.
+Admin uses **Staff and roles** at `/en/configuration/registry/users`. The normal staff utility creates new staff with a name, login/email, native role and a temporary password of at least 12 characters, requiring a password change at first login. The separate demonstration field-agent provisioner writes generated credentials privately; existing identity passwords are preserved. Follow the destination setup sequence in the detailed field-flow guide, then refresh the private field/admin identity directories.
 
-Field Agent opens **Offline field capture** at `/en/offline`. When ODK has been configured, the service generates that user's private Collect setup QR. Scan it in ODK Collect, download `nsipa_registry_household`, complete a fictional interview offline, then reconnect and send. Verify one native intake arrives and the sent copy remains on the device. The import does not approve a record; the native review sequence still applies. Keep QR codes/App User URLs private. Physical-device acceptance is a separate check from desktop verification.
+The field assistant opens **Offline field capture** at `/en/offline` and chooses **Show my private setup QR**. Install **ODK Collect** on Android, choose **Add project → Scan QR code**, verify the assigned account and scan. Stop there when phone offline/online capture is reserved for a later session.
+
+In that later session, download `nsipa_registry_household` while online, save/finalize an interview offline, reconnect and confirm delivery and retained sent copies. Verify exactly one native intake attributed to the authenticated field owner. The worker uses Central's submitter identity, never editable enumerator text, and never approves records. Both authorizers still review before Officer receives the published record. Physical-device acceptance is separate from desktop verification. Keep QR codes/App User URLs private.
+
+Native Registry/AWE remain the workflow owners. Do not enable the retired supplemental `/registration/mbr` writer/import timer as a parallel approval path.
 
 ## Five-account PBMS approval journey
 

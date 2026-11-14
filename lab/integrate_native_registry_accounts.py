@@ -31,7 +31,7 @@ backup.mkdir(parents=True,mode=0o700)
 client=s.get(base+'/clients',params={'clientId':'register-staff-portal'}).json()[0]['id']
 read={'register:view','registerDefinition:view','registerTab:view','registerSection:view','registerHistory:view','referenceData:view','intakeFormDefinition:view','intakeSubmission:view','changeRequest:view','verificationIntakeForm:view','verificationChangeRequest:view'}
 permissions={
- 'mbr-officer':read|{'intakeSubmission:edit','changeRequest:create','register:authenticate'},
+ 'mbr-officer':{'register:view','registerDefinition:view','registerTab:view','registerSection:view','registerHistory:view','referenceData:view','intakeFormDefinition:view'},
  'mbr-field-agent':read|{'intakeSubmission:edit'},
  'mbr-level1':read|{'intakeSubmission:approve','verificationIntakeForm:view','verificationIntakeForm:create','verificationChangeRequest:view','verificationChangeRequest:create'},
  'mbr-level2':read|{'intakeSubmission:approve','verificationIntakeForm:view','verificationIntakeForm:create','verificationChangeRequest:view','verificationChangeRequest:create'},

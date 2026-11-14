@@ -15,6 +15,8 @@ Implemented in the native Registry API, PostgreSQL and AWE, with matching Regist
 
 Native client roles: `Registry Field Agent`, `Registry First Reviewer`, `Registry Second Reviewer`, `Registry Officer`, `Registry Administrator`. Assign exactly one Registry persona per account. Conflicting personas fail closed. Officer is read-only and has no submission/review/write permissions. Reviewers must use their assigned AWE task; Admin cannot substitute for either independent reviewer.
 
+See [FIELD-ASSISTANT-FLOW.md](FIELD-ASSISTANT-FLOW.md) for five-field-assistant setup and the complete homepage-to-publication walkthrough, including the mobile QR stopping point.
+
 ## Daily use
 
 1. Field agent signs into the Master Registry block, captures a household and members, saves a draft, then submits. The creator sees only their own work.

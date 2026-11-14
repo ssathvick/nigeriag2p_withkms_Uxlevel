@@ -11,7 +11,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 ## Start here
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
-2. Use the [step-by-step application walkthrough](docs/current/USAGE.md) for the five Registry roles and the five PBMS accounts.
+2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
 3. Inspect the [release inventory](source-snapshots/2026-11-14-nsipa/README.md), [source hashes](source-snapshots/2026-11-14-nsipa/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-14-nsipa/runtime-images.json).
 
 ## What changed
