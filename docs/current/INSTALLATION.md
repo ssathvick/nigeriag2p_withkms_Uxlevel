@@ -1,6 +1,6 @@
 # Install the current NSIPA application on another machine
 
-Release: **14 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
+Release: **15 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
 
 ## 1. Choose installation or state migration
 
@@ -33,7 +33,7 @@ unzip -n recovery/iqs-nigeria-g2p/installation/IQS-Nigeria-Installation-Kit.zip 
 
 Compare the printed hash before extracting. Use unused directories. Follow `IQS-Nigeria-OpenG2P-Installation-Guide.docx` for copying `base-kit/IQS-Installation-Kit` to `/opt/openg2p-install`, installing tools and shared services, Registry, IAM, AWE, PBMS, Bridge, portal, Nginx and local CA, in that order. Follow the guide's commands and readiness gates, not alphabetical execution of `lab/*.py`.
 
-The bundle is historical. Before applying the current overlay, reconcile its charts and services with `source-snapshots/2026-11-14-nsipa/runtime-images.json`. Particularly important current runtime versions are:
+The bundle is historical. Before applying the current overlay, reconcile its charts and services with `source-snapshots/2026-11-15-pbms-payments/runtime-images.json`. Particularly important current runtime versions are:
 
 | Service | Version used for the source patches |
 | --- | --- |
@@ -201,6 +201,25 @@ curl -I https://YOUR-PBMS-HOST/pbms-ui/
 
 Only reload after a successful config check. Do not disable TLS verification to bypass trust problems. Configure the service portal's PBMS block to point to this destination PBMS entry.
 
+### 8a. Install the connected payment worker extensions
+
+Install/upgrade the native addon first, then inspect and apply the version-checked worker extension:
+
+```bash
+sudo python3 "$SOURCE/release/install_payment_workers.py"
+sudo python3 "$SOURCE/release/install_payment_workers.py" --apply
+```
+
+The helper checks the installed envelope/batch worker source against the reviewed baseline or this release, saves a private deployment/ConfigMap recovery point, installs persistent mounts, and waits for rollout. It does not submit any list or create a payment. An unsupported worker version stops before mutation. The existing adapter must be updated using the source above, and `PBMS_ALLOWED_ORIGINS` remains configurable. Publish the rebuilt frontend through the documented static release symlink without replacing established Nginx customizations.
+
+See [PBMS-PAYMENTS.md](PBMS-PAYMENTS.md) for sponsor bank routing, whole-NGN requirements, permission checks, simulator acceptance and recovery. Do not use retained fixture/test scripts as installation stages.
+
+### 8b. Existing-host service recovery and Windows startup
+
+For an existing systemd host, inspect `python3 "$SOURCE/release/install_service_recovery.py"`, then run with `sudo` and `--apply` to enable the six existing portal services and a one-minute recovery timer. Use `--services` to match the services actually installed on the destination; the helper checks every unit before changing startup policy. This does not install missing services.
+
+On Windows, WSL must also be launched by a Windows startup/logon task. The original installation already starts WSL at sign-in. `Install-BootStartup-Admin.ps1` prepares a before-sign-in startup task when run in elevated PowerShell as the Windows user who owns `Ubuntu-22.04`; change the distribution if needed. That administrator-only setup and a full machine reboot were **not performed** during this update. Systemd enablement, the timer and the sign-in task were verified; do not claim a before-sign-in cold boot test from this source release.
+
 ## 9. PBMS accounts and programme membership
 
 Copy `release/pbms-accounts.example.json` to a private destination file and replace its five logins. The following utility is for the five PBMS internal accounts, which are distinct from Registry's Keycloak accounts:
@@ -224,7 +243,7 @@ Before treating the new machine as ready:
 - Capture a fictional household and individual, save drafts, submit, review at both stages, return/correct/resubmit, reject, and verify final native master/history records. A creator or first reviewer must not approve the second stage.
 - Check search/filter/pagination, readable labels, member age/date-of-birth handling, consent, duplicate review and mobile layout. Verify the final survey has no enumerator selector.
 - If ODK is enabled, test the full form in airplane mode, reconnect, confirm one native intake and retained device copy, then perform both native reviews. Repeating synchronization must not create duplicates.
-- Run a new PBMS programme through configuration, closed registration dates, scheduled list processing, Payment submission, Finance/Audit/CEO review and native XLS export. Verify actual exported amounts and status after restarting services.
+- Run a new PBMS programme through configuration, closed registration dates, scheduled list processing, Payment submission, Finance/Audit/CEO review and native XLS export. Then configure sponsor routing and use Payment → Proceed to payments → Confirm and proceed on that same verified list. Verify one envelope/batch, exact approved amounts/exclusions, duplicate-request safety and simulator reconciliation. Verify status after restarting services.
 - Reject at each PBMS approval level, make a reasoned correction as Programme Admin, resubmit as Payment, and verify all three approvals restart for the new revision. Test direct export and approval access from the wrong account and before readiness.
 - Verify knowledge publication and contextual help, optional analytics source freshness and the service portal links that you configured. Optional Ollama/analytics/field previews are separate components, not prerequisites for native PBMS approval.
 - Record the destination's charts/images, installed addon, mounts, cron activity, URLs, tests, backup hashes and restore result. Historical test results do not certify this new machine.

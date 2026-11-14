@@ -1,0 +1,32 @@
+Connected CEO approval and payments â€” 15 November 2026
+
+1. Programme Admin creates the programme, rules, monthly enrolment and disbursement list.
+2. Payment submits the beneficiary list for Finance, Audit and CEO review.
+3. Finance, Audit and CEO independently approve the same list revision.
+4. Programme Admin configures sponsor bank routing in the approved list's Payments section,
+   selecting an existing configured bank route. This is required once per programme.
+5. Payment opens that same list, chooses Proceed to payments, reviews the beneficiary count
+   and approved total, and chooses Confirm and proceed.
+6. View payment progress shows native envelopes, batches and Bridge dispatch/reconciliation
+   reports. The same list also remains accessible through the Payments sidebar.
+
+CEO approval alone never sends money. Payment submission is role-checked, logged and
+idempotent. Corrections and exclusions from the approved revision are preserved. Payment
+records are populated from the signed-off snapshot, without rerunning eligibility or
+entitlement rules. Earlier approved lists are not submitted automatically by this update.
+The XLS export and approval/evidence history remain available.
+
+Installed Bridge limitation: declared envelope totals are integer quantities. The connected
+flow requires whole NGN entitlements and rejects fractional values before approval/payment,
+so quantities cannot be silently truncated. Fractional-currency support requires a separate
+Bridge database/model migration; this update does not change monetary units or round money.
+
+Backend: nsipa_approval/models.py. Workers: nsipa_payment_snapshot.py and the two
+nsipa_disbursement_*_worker.py files, persisted through ConfigMap nsipa-payment-workers.
+Generate worker patches with build-payment-workers.py, then ../release/install_payment_workers.py (plan first, then --apply).
+The bridge worker runs approved-snapshot and independent-approval checks before batching.
+Native addon update: ../release/install_pbms.py (plan first, then --apply). Adapter update: install-adapter.py.
+Frontend: npm run build; publish dist via an atomic release symlink. Do not replace the
+current Nginx configuration when publishing only static assets.
+
+Validation: evidence/connected-payments/. Synthetic records and local Example Bank only.

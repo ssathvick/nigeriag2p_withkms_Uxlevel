@@ -1,12 +1,15 @@
-NSIPA PBMS — current release, 14 November 2026
+NSIPA PBMS current release — 15 November 2026
 
-Read the repository README and docs/current/INSTALLATION.md before deployment.
-The current programme-to-disbursement flow uses native Odoo addon nsipa_approval,
-not a browser-only demo. The addon and registry/AWE schema patches are required.
-Build: npm ci; npm run build. Source is under src/ and nsipa_approval/.
-Frontend entry: /pbms-ui/#programme-flow. /web?native=1 is administrative recovery.
-Programme Admin -> Payment submission -> Finance -> Audit -> CEO -> Admin XLS.
-The final export does not dispatch payments. Existing legacy payment flows remain separate.
-Keep existing NSIPA logo with words; sections marked for later removal are retained.
-Install with ../release/install_pbms.py --help after provisioning the base platform.
-Do not execute environment-specific test or fixture scripts as an installation sequence.
+Read docs/current/INSTALLATION.md and docs/current/PBMS-PAYMENTS.md.
+Programme setup -> enrolment -> disbursement -> Payment submits for approval ->
+Finance -> Audit -> CEO -> Payment proceeds -> Bridge dispatch/reconciliation.
+XLS export remains available. CEO approval alone does not send money.
+The eleven red-marked sidebar entries are hidden; supporting routes/data remain.
+Configure a sponsor bank route once per programme before payment submission.
+The installed Bridge requires whole NGN entitlements; fractional values are rejected.
+Existing account usernames/passwords are preserved. No passwords are published.
+Build: npm ci; npm run build. Install the native addon, matching payment worker
+extensions and session adapter in the sequence documented in INSTALLATION.md.
+Tests create synthetic programmes and may send simulator payments. Run them only
+in an isolated lab with verified local Example Bank connectors, never as installation.
+Supply private approval credentials through PBMS_APPROVAL_ACCOUNTS_FILE.

@@ -1,4 +1,4 @@
-import pathlib,time,datetime,json,base64,secrets,xmlrpc.client
+import os,pathlib,time,datetime,json,base64,secrets,xmlrpc.client
 exec(pathlib.Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/inspect-pbms-react.py').read_text().split('models =')[0])
 checks=[]
 def ok(name):checks.append(name);print('PASS',name,flush=True)
@@ -70,7 +70,7 @@ denied(lambda:fin('g2p.beneficiary.list','nsipa_export',[[dl]]),'approver cannot
 denied(lambda:call('g2p.beneficiary.list','nsipa_correct',[[dl],line,1,True,'tamper']),'verified beneficiary list is immutable')
 denied(lambda:call('g2p.beneficiary.list','write',[[dl],{'nsipa_status':'complete'}]),'direct RPC workflow tampering blocked')
 assert not call('g2p.disbursement.cycle','read',[[dc]],{'fields':['approved_for_disbursement']})[0]['approved_for_disbursement']
-ok('export-only final verification does not activate payment dispatch')
+ok('CEO approval alone waits for explicit Payment submission')
 # Pause fixtures and remove temporary test-account access after checks.
 for u in users.values():call('res.users','write',[[u['id']],{'active':False}])
 call('g2p.program.definition','write',[[program],{'program_status':'PAUSED'}])

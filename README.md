@@ -1,8 +1,8 @@
 # Nigeria G2P — Master Registry, personas, PBMS and KMS
 
-**Current application source: 14 November 2026. This repository is public.**
+**Current application source: 15 November 2026. This repository is public.**
 
-This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-disbursement approval flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.
+This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-payment flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.
 
 The source can be cloned without a GitHub access grant. Signing into the deployed applications still requires destination-specific accounts and permissions. No running database, original account passwords, private keys, tunnel credentials, Camtasia recording or voice sample is included.
 
@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-14-nsipa/README.md), [source hashes](source-snapshots/2026-11-14-nsipa/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-14-nsipa/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-15-pbms-payments/README.md), [source hashes](source-snapshots/2026-11-15-pbms-payments/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-15-pbms-payments/runtime-images.json).
 
 ## What changed
 
@@ -24,10 +24,12 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 | Survey and offline | Consent/sponsor/respondent/community and household/member fields; final survey without enumerator selector; authenticated staff and Collect setup utilities |
 | PBMS setup | Cash Benefit Code in NGN, programme mapping, eligibility/entitlement rules, NGN 25,000 maximum, monthly enrolment/disbursement cycles and scheduled list calculation |
 | PBMS approvals | Separate Programme Admin, Payment, Finance, Audit and CEO accounts; programme-scoped access, comments/evidence, sequential decisions, rejection/correction and revision history |
-| Final output | Programme Admin downloads a native `.xls` after all three approvals; export checks the current list content and records its history |
-| Branding | Existing NSIPA logo with words retained; sections designated for later removal remain available |
+| Final output | Native `.xls` export plus explicit Payment submission of the same CEO-approved list; dispatch and reconciliation reports remain linked |
+| Branding | Existing NSIPA logo retained; eleven marked PBMS sidebar entries hidden, with supporting routes/data preserved |
 
-The final PBMS approval/export policy does not send payments. Legacy payment programmes remain separate. Master Registry and PBMS have distinct native models; their synchronization adapter must be configured and verified on the new machine.
+After CEO approval, the Payment user explicitly submits the same approved list to the existing Bridge payment flow. Legacy programmes retain their existing workflow. Master Registry and PBMS have distinct native models; their synchronization adapter must be configured and verified on the new machine.
+
+See [connected PBMS payments and validation](docs/current/PBMS-PAYMENTS.md) for the Payment action, sponsor routing, whole-NGN limitation and simulator results. Existing login credentials are unchanged.
 
 ## Repository layout
 

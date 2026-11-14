@@ -90,11 +90,17 @@ Do not count an old revision's approvals toward the new revision. Do not alter a
 16. Choose **Export Beneficiaries (.xls)**. The backend verifies the three independent approvals against the current list content/hash and creates native binary BIFF XLS, not a renamed CSV. The export event is retained in the history.
 17. Open the downloaded file in Excel or another XLS-compatible application. Verify beneficiary ID, name, state, amount NGN, programme, disbursement cycle and revision. Larger exports can span worksheets. For a two-household example at NGN 25,000 each, the total must be **NGN 50,000**.
 
-The final XLS is the endpoint of this approval policy. It **does not invoke Bridge, bank transfers or reconciliation**. Historical programmes retain their separate legacy payment workflow and are not retroactively converted by installing the addon.
+### F. Continue with payment on the same approved list
+
+18. Programme Admin selects a configured **Sponsor bank routing** and saves it once for the programme. The payment flow requires one NGN digital-cash benefit and whole-NGN amounts; fractional entitlements are blocked before approval/payment because the installed Bridge stores declared totals as integers.
+19. Sign in as **Payment**, open that same CEO-approved list, choose **Proceed to payments**, review its revision/count/total, then choose **Confirm and proceed**. CEO approval alone never sends money. No separate beneficiary list or second approval chain is required.
+20. Choose **View payment progress → Payments → View report** for dispatch and reconciliation. Download the report if required. Submission is retained after refresh; repeating it cannot create another payment request. Corrected amounts and excluded beneficiaries are carried from the approved snapshot, without recalculating eligibility.
+
+Existing usernames/passwords remain unchanged. Historical programmes retain their existing workflow. Earlier approved lists are not automatically dispatched by installing this update. See [payment validation and operational limits](PBMS-PAYMENTS.md).
 
 ## Branding, retained sections and contextual help
 
-The current sidebar/login retains the established `branding/nsipa-logo.svg` with its wording. Sections marked for future removal remain available: Households, Farmers, Students, Priority rules, Agencies, Warehouses & banks, States & regions, Local administrative areas, Agency benefit assignments, Bank & warehouse assignments and Verification queue. Do not remove them as an installation cleanup step.
+The current sidebar/login retains the established `branding/nsipa-logo.svg` with its wording. The following PBMS sidebar entries have been removed: Households, Farmers, Students, Priority rules, Agencies, Warehouses & banks, States & regions, Local administrative areas, Agency benefit assignments, Bank & warehouse assignments and Verification queue. Their supporting routes, records, relationship selectors and workflow logic remain available; this is a navigation change only.
 
 The application includes contextual help and shared knowledge sources. Publish new guidance through the configured knowledge review/publication process. Local Ollama and analytics services are optional integrations with separate setup requirements. The standalone Experience Kit is useful for a quick preview but is not the full connected application described above.
 

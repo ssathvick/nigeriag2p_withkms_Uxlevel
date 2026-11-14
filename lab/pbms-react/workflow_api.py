@@ -45,11 +45,11 @@ class User:
         return self.rpc('/web/dataset/call_kw/'+model+'/'+method,{'model':model,'method':method,'args':args or [],'kwargs':kw})
     def group(self,name):return self.call('res.users','has_group',['g2p_pbms.'+name])
     def listing(self,id):
-        rows=self.call('g2p.beneficiary.list','read',[[id]],{'fields':['mnemonic','brief','program_id','beneficiary_list_id','enrollment_cycle_id','disbursement_cycle_id','list_stage','list_workflow_status','eligibility_process_status','entitlement_process_status','envelope_creation_status','disbursement_batch_creation_status','number_of_registrants','number_of_entitlements_processed','eligibility_latest_error_code','entitlement_latest_error_code','envelope_creation_latest_error_code','dbc_latest_error_code']})
+        rows=self.call('g2p.beneficiary.list','read',[[id]],{'fields':['mnemonic','brief','program_id','beneficiary_list_id','enrollment_cycle_id','disbursement_cycle_id','list_stage','list_workflow_status','eligibility_process_status','entitlement_process_status','envelope_creation_status','disbursement_batch_creation_status','number_of_registrants','number_of_entitlements_processed','nsipa_status','nsipa_payment_hash','eligibility_latest_error_code','entitlement_latest_error_code','envelope_creation_latest_error_code','dbc_latest_error_code']})
         if not rows:raise Problem('The beneficiary list is unavailable.',404)
         row=rows[0]
         if not row['program_id']:raise Problem('This list has no linked programme.')
-        program=self.call('g2p.program.definition','read',[[row['program_id'][0]]],{'fields':['program_mnemonic','target_registry','verifications_for_enrolment','verifications_for_disbursement','auto_approve_enrolment','auto_approve_disbursement']})[0]
+        program=self.call('g2p.program.definition','read',[[row['program_id'][0]]],{'fields':['program_mnemonic','target_registry','verifications_for_enrolment','verifications_for_disbursement','auto_approve_enrolment','auto_approve_disbursement','nsipa_flow']})[0]
         return row,program
     def wizard(self,row,program):
         values={'target_registry':program['target_registry'],'program_id':program['id'],'mnemonic':row['mnemonic'],'brief':row['brief'],'beneficiary_list_id':row['id'],'beneficiary_list_uuid':row['beneficiary_list_id'],'list_stage':row['list_stage'],'list_workflow_status':row['list_workflow_status'],'enrollment_cycle_id':row['enrollment_cycle_id'][0] if row['enrollment_cycle_id'] else False,'disbursement_cycle_id':row['disbursement_cycle_id'][0] if row['disbursement_cycle_id'] else False}
@@ -66,7 +66,7 @@ def readiness(row,program,verifications):
 
 @app.post('/pbms-ui-api/workflow/<int:id>')
 def workflow(id):
-    user=User();row,program=user.listing(id);checks=user.verifications(id)
+    user=User();row,program=user.listing(id);checks=[] if program['nsipa_flow'] else user.verifications(id)
     disbursement=row['list_stage']=='disbursement'
     auto=program['auto_approve_disbursement' if disbursement else 'auto_approve_enrolment']
     state=readiness(row,program,checks)
@@ -81,15 +81,16 @@ def workflow(id):
                 auto_wizard=user.wizard(fresh,program)
                 user.call(WIZARD,'approve_for_disbursement' if disbursement else 'approve_final_enrollment',[[auto_wizard]])
         row,program=user.listing(id)
+    if program['nsipa_flow']:state['can_approve']=False
     wid=user.wizard(row,program)
     data=user.call(WIZARD,'read',[[wid]],{'fields':['summary_line_ids','disbursement_envelope_line_ids','disbursement_batch_line_ids']})[0]
     def read(model,ids,fields):return user.call(model,'read',[ids],{'fields':fields}) if ids else []
-    result={'list':row,'program':program,'verifications':checks,'readiness':readiness(row,program,checks),
-      'permissions':{'verify':user.group('group_beneficiary_list_verifier') and user.call('storage.file','check_access_rights',['create',False]),'approve':user.group('group_disbursement_approver' if row['list_stage']=='disbursement' else 'group_enrolment_approver')},
+    result={'list':row,'program':program,'verifications':checks,'readiness':state,
+      'permissions':{'verify':not program['nsipa_flow'] and user.group('group_beneficiary_list_verifier') and user.call('storage.file','check_access_rights',['create',False]),'approve':not program['nsipa_flow'] and user.group('group_disbursement_approver' if row['list_stage']=='disbursement' else 'group_enrolment_approver')},
       'summary':read('g2p.api.summary.line',data['summary_line_ids'],['key','value','summary_type']),
       'envelopes':read('g2p.api.disbursement.envelope.line',data['disbursement_envelope_line_ids'],['disbursement_envelope_id','benefit_code_mnemonic','number_of_beneficiaries','total_disbursement_quantity','measurement_unit']),
       'batches':read('g2p.api.disbursement.batch.line',data['disbursement_batch_line_ids'],['batch_id','disbursement_envelope_id','benefit_code_mnemonic','number_of_beneficiaries','total_disbursement_quantity','measurement_unit','disbursement_status'])}
-    if row['eligibility_process_status']=='complete' and not result['summary']:raise Problem('PBMS returned no calculation summary. The reporting connection must recover before this workflow can be reviewed.',502)
+    if not program['nsipa_flow'] and row['eligibility_process_status']=='complete' and not result['summary']:raise Problem('PBMS returned no calculation summary. The reporting connection must recover before this workflow can be reviewed.',502)
     return jsonify(result)
 
 @app.post('/pbms-ui-api/verification/<int:id>')
@@ -97,6 +98,7 @@ def verify(id):
     user=User()
     if not user.group('group_beneficiary_list_verifier'):raise Problem('Verification permission is required.',403)
     row,program=user.listing(id)
+    if program['nsipa_flow']:raise Problem('Use the programme approval flow.',403)
     if approved(row):raise Problem('This list has already been approved. Refresh the workflow.',409)
     if row['eligibility_process_status']!='complete':raise Problem('Wait for calculation to finish.',409)
     body=request.get_json();comment=str(body.get('comment','')).strip()
@@ -119,6 +121,7 @@ def approve(id):
     with lock.open('a') as handle:
         fcntl.flock(handle,fcntl.LOCK_EX)
         row,program=user.listing(id)
+        if program['nsipa_flow']:raise Problem('Use Proceed to payments on the CEO-approved list.',403)
         disbursement=row['list_stage']=='disbursement'
         if not user.group('group_disbursement_approver' if disbursement else 'group_enrolment_approver'):raise Problem('Approval permission is required.',403)
         if approved(row):return jsonify(already_approved=True)
@@ -141,7 +144,7 @@ def beneficiaries(id):
 def payment(id):
     user=User();row,program=user.listing(id)
     if row['list_stage']!='disbursement':raise Problem('Select a disbursement list.')
-    if not user.group('group_disbursement_viewer'):raise Problem('Payment viewing permission is required.',403)
+    if not program['nsipa_flow'] and not user.group('group_disbursement_viewer'):raise Problem('Payment viewing permission is required.',403)
     wid=user.wizard(row,program)
     kind=request.json.get('kind');ref=request.json.get('reference')
     if kind not in ['batch','envelope'] or not isinstance(ref,str):raise Problem('Invalid report request.')

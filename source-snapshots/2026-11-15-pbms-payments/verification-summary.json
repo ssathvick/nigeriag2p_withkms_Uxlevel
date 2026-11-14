@@ -1,0 +1,74 @@
+{
+  "release_date": "2026-11-15",
+  "checked_at_utc": "2026-11-14T21:48:03.099655+00:00",
+  "status": "passed",
+  "scope": "Synthetic beneficiaries; local Example Bank simulator only; no live bank transfers",
+  "checks": [
+    "payment blocked before approval",
+    "fractional entitlements blocked before approval to prevent bridge truncation",
+    "payment blocked before CEO approval",
+    "CEO cannot initiate payment",
+    "direct payment-state changes blocked",
+    "CEO approval alone does not dispatch money",
+    "native benefit mapping, eligibility, entitlement and three approval groups saved",
+    "enrolment list created in persistent Pending state",
+    "real Registry criteria, Completed enrolment and automatic approval",
+    "monthly disbursement, persistent entitlement and NOB calculated",
+    "separate staff accounts see shared programme records",
+    "export blocked before final approval",
+    "CEO cannot initiate Payment submission",
+    "CEO cannot approve before Finance",
+    "resubmission restarts Finance review",
+    "independent sequential approval, rejection, correction and revision history",
+    "native binary XLS export after three approvals",
+    "approver cannot perform Programme Admin export",
+    "verified beneficiary list is immutable",
+    "direct RPC workflow tampering blocked",
+    "CEO approval alone waits for explicit Payment submission",
+    "actual Payment login",
+    "CEO-approved list available",
+    "explicit confirmation shows corrected NGN 1",
+    "same list submitted",
+    "duplicate request idempotent",
+    "payment progress view opens",
+    "refresh retains submission",
+    "no JavaScript errors",
+    "Payment user sees linked report",
+    "processed dispatch shown",
+    "report download",
+    "mobile layout"
+  ],
+  "payment": {
+    "status": "passed",
+    "beneficiaries": 1,
+    "ngn": 1.0,
+    "envelopes": 1,
+    "batches": 1,
+    "financial_address_resolution": "PROCESSED",
+    "local_simulator_dispatch": "PROCESSED",
+    "reconciled": 1,
+    "separate_approval_disabled": true,
+    "unrelated_report_blocked": true
+  },
+  "snapshot": {
+    "legacy_registrant_ids": [
+      "NG-LAB-0001"
+    ]
+  },
+  "routing_locked_after_submission": true,
+  "sidebar_items_removed": 11,
+  "existing_credentials_changed": false,
+  "test_programmes_paused": true,
+  "restart_checks": {
+    "systemd_services_enabled": true,
+    "one_minute_recovery_timer_enabled": true,
+    "existing_windows_signin_task_present": true,
+    "administrator_boot_task_installed": false,
+    "full_machine_reboot_tested": false
+  },
+  "limitations": [
+    "Installed Bridge requires whole NGN amounts; fractional values are blocked before approval/payment.",
+    "Real bank rails were not exercised.",
+    "Windows before-sign-in startup requires administrator setup; full reboot validation remains pending."
+  ]
+}

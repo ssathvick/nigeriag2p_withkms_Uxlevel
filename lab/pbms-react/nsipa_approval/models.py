@@ -1,4 +1,4 @@
-"""Persistent, export-only approval flow on native PBMS programmes and lists."""
+"""Persistent approval and payment flow on native PBMS programmes and lists."""
 import base64, calendar, hashlib, io, json, math
 from odoo import api, fields, models
 from odoo.exceptions import AccessError, ValidationError, UserError
@@ -184,6 +184,9 @@ class Event(models.Model):
 class BeneficiaryList(models.Model):
     _inherit='g2p.beneficiary.list'
     nsipa_status=fields.Selection([('pending','Pending'),('processing','Processing'),('complete','Complete'),('finance','Awaiting Finance'),('audit','Awaiting Audit'),('ceo','Awaiting CEO'),('rejected','Returned for correction'),('verified','Fully verified'),('error','Processing failed')],readonly=True,copy=False)
+    nsipa_payment_hash=fields.Char(readonly=True,copy=False)
+    nsipa_payment_requested_by=fields.Many2one('res.users',readonly=True,copy=False)
+    nsipa_payment_requested_at=fields.Datetime(readonly=True,copy=False)
     nsipa_revision=fields.Integer(default=1,readonly=True,copy=False)
     nsipa_error=fields.Text(readonly=True,copy=False)
     nsipa_line_ids=fields.One2many('nsipa.approval.line','list_id')
@@ -208,7 +211,7 @@ class BeneficiaryList(models.Model):
             self.env.cr.execute('SELECT id FROM '+('g2p_enrollment_cycle' if e else 'g2p_disbursement_cycle')+' WHERE id=%s FOR UPDATE',[cycle.id])
             if self.search_count([(cycle_field,'=',cycle.id)]):raise UserError('A list already exists for this cycle. Open it instead.')
             if d and not d.nsipa_enrollment_cycle_id.approved_for_enrollment:raise UserError('Enrolment must be complete first.')
-            blocked=set(vals)&{'nsipa_status','nsipa_line_ids','nsipa_event_ids','nsipa_revision','list_workflow_status','approval_date','number_of_registrants','number_of_entitlements_processed'}
+            blocked=set(vals)&{'nsipa_status','nsipa_line_ids','nsipa_event_ids','nsipa_revision','nsipa_payment_hash','nsipa_payment_requested_by','nsipa_payment_requested_at','list_workflow_status','approval_date','number_of_registrants','number_of_entitlements_processed'}
             if blocked:raise AccessError('Workflow fields are server controlled.')
             vals=dict(vals,nsipa_status='pending',eligibility_process_status='not_applicable',entitlement_process_status='not_applicable',envelope_creation_status='not_applicable',disbursement_batch_creation_status='not_applicable')
         return super().create(vals)
@@ -293,6 +296,8 @@ class BeneficiaryList(models.Model):
         if self.list_stage!='disbursement' or self.nsipa_status not in ['complete','rejected']:raise UserError('Only a complete or corrected disbursement list can be submitted.')
         lines=self.nsipa_line_ids.filtered('included')
         if not lines or any(not math.isfinite(l.amount) or not 0<l.amount<=25000 for l in lines):raise ValidationError('Review the beneficiary list and entitlements before submitting.')
+        if self.program_id.program_benefit_code_ids.mapped('benefit_code_id').filtered(lambda b:b.benefit_type=='CASH_DIGITAL') and any(not l.amount.is_integer() for l in lines):
+            raise ValidationError('The installed payment bridge supports whole NGN amounts. Correct fractional entitlements before submitting for approval.')
         if self.nsipa_status=='rejected':self.sudo().write({'nsipa_revision':self.nsipa_revision+1})
         self._nsipa_event('Payment','Submitted',str(comment).strip() or 'Submitted for sequential approval.')
         self.sudo().write({'nsipa_status':'finance'})
@@ -308,7 +313,7 @@ class BeneficiaryList(models.Model):
         if self.env.uid in current.mapped('approver_id').ids:raise AccessError('Each level requires an independent approver.')
         self._nsipa_event(stage.name,'Approved' if decision=='approve' else 'Rejected',comment,attachment,filename)
         status='rejected' if decision=='reject' else {'finance':'audit','audit':'ceo','ceo':'verified'}[self.nsipa_status]
-        # Do NOT set approved_for_disbursement: that legacy flag starts the Bridge payment pipeline.
+        # CEO approval releases the list for a separate, explicit Payment action.
         self.sudo().write({'nsipa_status':status,'approval_date':fields.Date.context_today(self) if status=='verified' else False})
         return True
 
@@ -334,11 +339,11 @@ class BeneficiaryList(models.Model):
 
     def nsipa_details(self):
         self.ensure_one();access_program(self.program_id)
-        names=['mnemonic','program_id','list_stage','enrollment_cycle_id','disbursement_cycle_id','nsipa_status','nsipa_revision','nsipa_error','number_of_registrants','nsipa_total']
+        names=['mnemonic','program_id','list_stage','enrollment_cycle_id','disbursement_cycle_id','nsipa_status','nsipa_revision','nsipa_error','number_of_registrants','nsipa_total','nsipa_payment_hash','nsipa_payment_requested_by','nsipa_payment_requested_at','envelope_creation_status','disbursement_batch_creation_status','envelope_creation_latest_error_code','dbc_latest_error_code']
         line_fields=['beneficiary_id','name','state','amount','included','registry_id']
         events=self.nsipa_event_ids.read(['revision','stage','decision','comment','approver_id','recorded_at','filename','content_hash'])
         current=self.program_id.nsipa_stage_ids.filtered(lambda s:s.sequence=={'finance':1,'audit':2,'ceo':3}.get(self.nsipa_status,0))
-        return {'list':self.read(names)[0],'lines':self.nsipa_line_ids.read(line_fields),'history':events,'can_decide':bool(current and current.group_id in self.env.user.groups_id),'identity':self.nsipa_identity()}
+        return {'list':self.read(names)[0],'lines':self.nsipa_line_ids.read(line_fields),'history':events,'can_decide':bool(current and current.group_id in self.env.user.groups_id),'identity':self.nsipa_identity(),'payment_amounts_supported':all(l.amount.is_integer() for l in self.nsipa_line_ids.filtered('included')),'payment_ready':bool(self.env['g2p.warehouse.program.benefit.codes'].sudo().search_count([('program_id','=',self.program_id.id),('warehouse_is_sponsor_bank','=',True)]))}
 
     def nsipa_attachment(self,event_id):
         self.ensure_one();access_program(self.program_id)
@@ -346,11 +351,58 @@ class BeneficiaryList(models.Model):
         if not e or not e.attachment:raise UserError('The supporting document is unavailable.')
         return {'filename':e.filename,'data':e.attachment.decode() if isinstance(e.attachment,bytes) else e.attachment}
 
+    def _nsipa_validate_approvals(self):
+        if self.list_stage!='disbursement' or self.nsipa_status!='verified':
+            raise AccessError('CEO approval of this disbursement list is required before payment.')
+        checks=self.nsipa_event_ids.filtered(lambda e:e.revision==self.nsipa_revision and e.decision=='Approved')
+        if set(checks.mapped('stage'))!={'Finance','Audit','CEO'} or len(set(checks.mapped('approver_id').ids))!=3 or any(e.content_hash!=self._nsipa_hash() for e in checks):raise AccessError('The current list does not have three valid independent approvals.')
+
+    def nsipa_set_payment_route(self, route_id):
+        self._nsipa_lock();admin_program(self.program_id)
+        self.env.cr.execute('SELECT id FROM g2p_program_definition WHERE id=%s FOR UPDATE',[self.program_id.id])
+        if self.program_id.beneficiary_list_ids.filtered('nsipa_payment_hash'):
+            raise UserError('Sponsor bank routing is locked after payment submission.')
+        route=self.env['g2p.warehouse.program.benefit.codes'].sudo().browse(int(route_id)).exists()
+        if not route or not route.warehouse_is_sponsor_bank or route.benefit_code_id.measurement_unit.upper()!='NGN':
+            raise ValidationError('Select a configured NGN sponsor bank route.')
+        benefits=self.program_id.program_benefit_code_ids.mapped('benefit_code_id')
+        if len(benefits)!=1 or benefits.benefit_type!='CASH_DIGITAL':
+            raise ValidationError('Electronic payments require one digital cash benefit in NGN.')
+        mappings=self.env['g2p.warehouse.program.benefit.codes'].sudo().search([('program_id','=',self.program_id.id),('warehouse_is_sponsor_bank','=',True)])
+        values={'program_id':self.program_id.id,'benefit_code_id':benefits.id,'warehouse_id':route.warehouse_id.id,'additional_info':route.additional_info}
+        bank_name=route.warehouse_id.display_name
+        mappings.unlink()
+        self.env['g2p.warehouse.program.benefit.codes'].sudo().create(values)
+        self._nsipa_event('Programme Admin','Payment routing configured','Sponsor bank route: '+bank_name)
+        return True
+
+    def nsipa_start_payment(self):
+        self._nsipa_lock()
+        if not self.env.user.has_group(PREFIX+'group_payment'):
+            raise AccessError('Only the programme Payment role can proceed with payments.')
+        self._nsipa_validate_approvals()
+        if self.nsipa_payment_hash:
+            if self.nsipa_payment_hash!=self._nsipa_hash():raise AccessError('The approved payment snapshot has changed.')
+            return {'already_submitted':True,'list_id':self.id}
+        if self.program_id.program_status!='ACTIVE':raise UserError('Activate the programme before submitting payment.')
+        mappings=self.program_id.program_benefit_code_ids
+        routes=self.env['g2p.warehouse.program.benefit.codes'].sudo().search([('program_id','=',self.program_id.id),('warehouse_is_sponsor_bank','=',True)])
+        if len(mappings)!=1 or mappings.benefit_code_id.benefit_type!='CASH_DIGITAL' or mappings.benefit_code_id.measurement_unit.upper()!='NGN':
+            raise ValidationError('Electronic payments require one digital cash benefit in NGN.')
+        if len(routes)!=1 or routes.benefit_code_id!=mappings.benefit_code_id:
+            raise UserError('Programme Admin must configure one sponsor bank route before payment.')
+        lines=self.nsipa_line_ids.filtered('included')
+        if not lines or any(not math.isfinite(l.amount) or not 0<l.amount<=25000 for l in lines):raise ValidationError('Invalid approved payment amounts.')
+        if any(not l.amount.is_integer() for l in lines):raise ValidationError('The installed payment bridge supports whole NGN amounts; fractional payments cannot be submitted.')
+        self._nsipa_event('Payment','Payment requested','CEO-approved revision submitted to the existing payment pipeline.')
+        self.sudo().write({'nsipa_payment_hash':self._nsipa_hash(),'nsipa_payment_requested_by':self.env.uid,'nsipa_payment_requested_at':fields.Datetime.now(),'list_workflow_status':'approved_for_disbursement','envelope_creation_status':'pending','disbursement_batch_creation_status':'not_applicable'})
+        self.disbursement_cycle_id.sudo().write({'approved_for_disbursement':True})
+        return {'submitted':True,'list_id':self.id}
+
     def nsipa_export(self):
         self._nsipa_lock();admin_program(self.program_id)
         if self.nsipa_status!='verified':raise AccessError('Export is available only after all three approvals.')
-        checks=self.nsipa_event_ids.filtered(lambda e:e.revision==self.nsipa_revision and e.decision=='Approved')
-        if set(checks.mapped('stage'))!={'Finance','Audit','CEO'} or len(set(checks.mapped('approver_id').ids))!=3 or any(e.content_hash!=self._nsipa_hash() for e in checks):raise AccessError('The current list does not have three valid independent approvals.')
+        self._nsipa_validate_approvals()
         import xlwt
         book=xlwt.Workbook();headers=['Beneficiary ID','Name','State','Amount NGN','Programme','Disbursement cycle','Revision']
         sheet=None
@@ -366,7 +418,7 @@ class BeneficiaryList(models.Model):
 class Wizard(models.TransientModel):
     _inherit='g2p.bgtask.summary.wizard'
     def approve_for_disbursement(self):
-        if any(w.program_id.nsipa_flow for w in self):raise AccessError('Use the Finance, Audit and CEO approval flow. Payment dispatch is outside this flow.')
+        if any(w.program_id.nsipa_flow for w in self):raise AccessError('Use Proceed to payments on the CEO-approved list.')
         return super().approve_for_disbursement()
 
 # Configuration is mutable only before the programme has any lists.
@@ -451,9 +503,10 @@ class ProgramWorkspace(models.Model):
     _inherit='g2p.program.definition'
     @api.model
     def nsipa_options(self):
-        result={'registries':[(v,n) for v,n in self._fields['target_registry'].selection if v in ['household','farmer','student']],'groups':[],'defaults':{}}
+        result={'registries':[(v,n) for v,n in self._fields['target_registry'].selection if v in ['household','farmer','student']],'groups':[],'defaults':{},'payment_routes':[]}
         if callable(result['registries']):result['registries']=result['registries'](self)
         if is_admin(self.env):
+            result['payment_routes']=[{'id':r.id,'label':r.warehouse_id.display_name+' · '+r.program_id.program_mnemonic} for r in self.env['g2p.warehouse.program.benefit.codes'].sudo().search([('warehouse_is_sponsor_bank','=',True),('benefit_code_id.measurement_unit','=','NGN')])]
             result['groups']=self.env['res.groups'].sudo().search_read([('share','=',False)],['name'],order='name')
             result['defaults']={name:self.env.ref(PREFIX+g).id for _,name,g in STAGES}
         return result
@@ -537,3 +590,22 @@ class CashBenefitGuard(models.Model):
             if ('measurement_unit' in vals and str(vals['measurement_unit']).upper()!='NGN') or ('benefit_type' in vals and vals['benefit_type'] not in ['CASH_DIGITAL','CASH_PHYSICAL']):
                 if self.env['g2p.program.benefit.codes'].sudo().search_count([('benefit_code_id','in',self.ids),('program_id.nsipa_flow','=',True)]):raise ValidationError('Mapped approval-flow benefits must remain cash in NGN.')
         return super().write(vals)
+
+class PaymentRouteGuard(models.Model):
+    _inherit='g2p.warehouse.program.benefit.codes'
+    def _nsipa_route_guard(self,program):
+        if program.nsipa_flow:
+            admin_program(program)
+            self.env.cr.execute('SELECT id FROM g2p_program_definition WHERE id=%s FOR UPDATE',[program.id])
+            if program.beneficiary_list_ids.filtered('nsipa_payment_hash'):raise UserError('Payment routing is locked after submission.')
+    @api.model
+    def create(self,vals):
+        self._nsipa_route_guard(self.env['g2p.program.definition'].browse(vals.get('program_id')))
+        return super().create(vals)
+    def write(self,vals):
+        for p in self.mapped('program_id'):self._nsipa_route_guard(p)
+        if vals.get('program_id'):self._nsipa_route_guard(self.env['g2p.program.definition'].browse(vals['program_id']))
+        return super().write(vals)
+    def unlink(self):
+        for p in self.mapped('program_id'):self._nsipa_route_guard(p)
+        return super().unlink()

@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "c810c59ec950b38415ed8b57145b88389b8efeb47c2364f7fd922f544119b9aa"
+    "sha256": "abbbd650205ffb8ee6646ca885ecf91ee4acac1beba50c1fbfdf986eb82c38a2"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -49,7 +49,7 @@
   },
   {
     "path": "lab/Start-Lab.ps1",
-    "sha256": "b02a7b96f089bc7767c0d76d5681e314050e5258479820eeca9bde6834c838d6"
+    "sha256": "46bd4acf417dd010fa342963d30a022252ffa3c1e9722babab08088067e236b3"
   },
   {
     "path": "lab/Status-Lab.ps1",
@@ -6054,5 +6054,133 @@
   {
     "path": "lab/field-app/splash.png",
     "sha256": "447ea6bd765fc6398419dd4cfb5944fc5aa61f325d003d55391b13540ddc4191"
+  },
+  {
+    "path": "docs/current/INSTALLATION.md",
+    "sha256": "02c095959c61e12aa7fdc71ee71c7b067ac039d8a6d7bbdd35431aa7d71a6082"
+  },
+  {
+    "path": "docs/current/PBMS-PAYMENTS.md",
+    "sha256": "135c416d312c60b192404a8b971823e70803a87170cfaa9ad5a40784b2512957"
+  },
+  {
+    "path": "docs/current/USAGE.md",
+    "sha256": "1a6863d3e6032a44d13b2d69587d708c9fb7f9e03a3f115a598c849487c921b6"
+  },
+  {
+    "path": "lab/Install-BootStartup-Admin.ps1",
+    "sha256": "93cd689610e7bb6c4f097dd1fac523b5010a87bdb238b8d51675f70aef9a18ac"
+  },
+  {
+    "path": "lab/pbms-react/Approval-Flow-Handoff.txt",
+    "sha256": "05f24e6ebbb8cda5b5671972d4db5572dbb94bdbde039bf9c20c241a0c2727fe"
+  },
+  {
+    "path": "lab/pbms-react/Connected-Payments-Operations.txt",
+    "sha256": "13e16a6d0a830b9361ed7bc2f798dfbb9eaa951d7764e40d682c491c945c41d3"
+  },
+  {
+    "path": "lab/pbms-react/README.txt",
+    "sha256": "e2e0493ec30ade85118dad882619466422128282a0092056b0e0f054f87f9359"
+  },
+  {
+    "path": "lab/pbms-react/backend-reference/openg2p_bg_task_celery_workers__tasks__disbursement_batch_creation_worker.py",
+    "sha256": "ad1365d8159576238b75d95d5dea754f7ef04edd1da1dc301919d92183329329"
+  },
+  {
+    "path": "lab/pbms-react/backend-reference/openg2p_bg_task_celery_workers__tasks__disbursement_envelope_creation_worker.py",
+    "sha256": "87dd840d0d81b4da2dac8df6dfa2ea9928faf2913b1871287c37f73ca57fdeea"
+  },
+  {
+    "path": "lab/pbms-react/build-payment-workers.py",
+    "sha256": "3de8f1073db1801405d377daf804ee16bf5d88752f1e5c1892ba3dfcb6f4905e"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_approval/models.py",
+    "sha256": "635b37b728f5d5dde8b289c904b2a68e10494a7f0115abb3f6ba995a124870af"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_disbursement_batch_worker.py",
+    "sha256": "9c8c86ad1f1f6de7e9fa4a8d38778bf55af8f61cb0f3ab510c57522c8d41f72f"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_disbursement_envelope_worker.py",
+    "sha256": "162356e145e55062b6af0b2d507734b92a986002534c6a0e2250fabeeacea41e"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_payment_snapshot.py",
+    "sha256": "55fad99c2535872bed3d3bf3a4a04bcb89d7c16155b4bed6b48993950c02c733"
+  },
+  {
+    "path": "lab/pbms-react/src/catalog.js",
+    "sha256": "c703ab61bd0ba4f860e13011660f6f8ceb498dca37fcdd1b4bdeb8aa2774a892"
+  },
+  {
+    "path": "lab/pbms-react/src/main.jsx",
+    "sha256": "bbae90f4698a7119ca67a69a0f05294fd0b4cc74688fca42a1453379747bb582"
+  },
+  {
+    "path": "lab/pbms-react/src/programme-flow.jsx",
+    "sha256": "2f9bd17f1882b9f19bf19765b0dd7faf9f82d7873dfd0fdb782cbf03c50f8731"
+  },
+  {
+    "path": "lab/pbms-react/test-connected-payments-browser.cjs",
+    "sha256": "3d0f6d2130dbf6e63d937f76e03eb3e076e6067c6e618f5af76a57954f3f41bf"
+  },
+  {
+    "path": "lab/pbms-react/test-connected-payments.py",
+    "sha256": "e64d445f7097f6e96c177880b4fcff628909b930668eeb82e5f8e5779746a5b9"
+  },
+  {
+    "path": "lab/pbms-react/test-native-approval.py",
+    "sha256": "2b065cfc595ed9694c650658ea8c999dfadf04c16069e1a269c1a6f8ea9a5ee2"
+  },
+  {
+    "path": "lab/pbms-react/verify-connected-payment-report.cjs",
+    "sha256": "fc2e30b60e79555d13d6d3054eda9199b3c826dbc982a7bf3387be27e95338de"
+  },
+  {
+    "path": "lab/pbms-react/verify-connected-reconciliation.py",
+    "sha256": "89b9a56d230ff028586a3fc7b033477d3612f5da9f50586d77e62bd11825f391"
+  },
+  {
+    "path": "lab/pbms-react/verify-connected-snapshot.py",
+    "sha256": "1fc127f802fc583ff3cdfb88a2c74971c451987521b1c8e29aac1210739fbe1a"
+  },
+  {
+    "path": "lab/pbms-react/verify-connected-worker-replay.py",
+    "sha256": "fdb54da8f36c7f9c9135fae3a45b0a5f3f98131e2bcd246a785997b5214aa34f"
+  },
+  {
+    "path": "lab/pbms-react/verify-sidebar-removal.cjs",
+    "sha256": "f8bc61002731683b989f17ce206a0da7c1da05e8a48ae391747057dc11a70c28"
+  },
+  {
+    "path": "lab/pbms-react/workflow_api.py",
+    "sha256": "ee1f3ea46d9878ba8b8b2bc94616e74cdd927491034573a4a0f4b9ec6e788d91"
+  },
+  {
+    "path": "lab/release/install_payment_workers.py",
+    "sha256": "d2721a3a3f4786cc7e5ff9645bad1c6c5b555dff74db21503fddcfd9957e074d"
+  },
+  {
+    "path": "lab/release/install_service_recovery.py",
+    "sha256": "cff2d6713d960e65f1fc23448b314b6cbf36d3ad0ab0d73f238ca83bc8b94523"
+  },
+  {
+    "path": "source-snapshots/2026-11-15-pbms-payments/README.md",
+    "sha256": "d7322295c30de321a5b21a2c3dad77e9f11fbb65ea1d67a6e0a4c9838211fafd"
+  },
+  {
+    "path": "source-snapshots/2026-11-15-pbms-payments/runtime-images.json",
+    "sha256": "735f8eeb9f1b29c7974adabe02c493b04ea31e314457e35601b663ff620198ac"
+  },
+  {
+    "path": "source-snapshots/2026-11-15-pbms-payments/source-manifest.json",
+    "sha256": "188dbd77b97ba056add0234e2ed7c59003a6f270b70aba34f145b3a0fb709a7a"
+  },
+  {
+    "path": "source-snapshots/2026-11-15-pbms-payments/verification-summary.json",
+    "sha256": "3e170721e7b161d823795b8c9326d7734e12b6f3a18d7ac315a5170db5fa38ef"
   }
 ]
