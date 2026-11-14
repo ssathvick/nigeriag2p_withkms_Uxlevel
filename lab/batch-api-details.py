@@ -12,4 +12,3 @@ for model in ['g2p.program_membership','g2p.program','formio.form']:
  (root/('batch-'+model+'.json')).write_text(json.dumps(fields))
  print(model,{k:v for k,v in fields.items() if k in ['partner_id','program_id','state','registrant_id','name','builder_id','submission_data','submission_date','title'] or v.get('required') and k not in ['tz']})
 print('Geo',query('master_data',"SELECT column_name FROM information_schema.columns WHERE table_name='g2p_geo_level_values';"))
-

@@ -1,5 +1,9 @@
 # Nigeria OpenG2P local UX lab
 
+## Master Beneficiary Registry workflow
+
+Open the [integrated G2P registry](https://g2p-register.wverve.in/en) for role-based household intake, offline batch simulation, two-stage review, duplicate comparisons, post-approval change requests and registry analytics. The existing registry entry points and historical workflow links now route to the MBR workflow. Thirty native intakes and two native change requests were migrated with all 37 related AWE requests and 283 approval-history entries. Source records, statuses, IDs and existing master data were preserved. See [MBR operations](MBR-Workflow-Operations.md) for scope, demo access, validation and recovery. Run `Show-MBRDemoCredentials.ps1` to view the five pre-seeded accounts' private passwords.
+
 ## Operational and knowledge analytics
 
 Open [Analytics](https://nigeriag2p.com/registration/analytics) with an assigned staff role for current workflow counts, connected OpenG2P summaries, knowledge publishing metrics and library usage. Backend reporting refreshes every 15 minutes through dedicated read-only identities. The [Superset dashboard](https://superset.nigeriag2p.com/superset/dashboard/nigeria-platform-analytics/) uses a separate aggregate reporting database and existing Superset permissions. See [Analytics operations](Analytics-Operations.md) for definitions, scope, retention, verification and recovery. Confirmed settlement and contextual help usage are not included in this release.
@@ -182,4 +186,3 @@ Partner Management authentication repair: PARTNER_MANAGER_AUTH_DEFAULT_ISSUERS n
 ## Partner simulation
 
 The staff simulation console is available at https://nigeriag2p.com/registration/simulation. See [Partner-Simulation.md](Partner-Simulation.md) for scenarios, schemas, isolation, worker operation and current integration limits.
-

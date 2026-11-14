@@ -35,7 +35,7 @@ export const extractFilesFromSection = (files?: unknown[]) => {
 /**
  * Section Change edit_action values:
  * - NO_CHANGE: No changes made (handled here)
- * - ADD: New record added (handled at widget level; 
+ * - ADD: New record added (handled at widget level;
  *   only additional info such as IDs and required fields are added)
  * - DELETE: Record deleted (handled at registry widget level)
  * - UPDATE: Existing record updated (handled at registry widget level)

@@ -28,4 +28,3 @@ with r.db() as c:
   c.execute('UPDATE km_articles SET published=?,draft=?,version=?,published_version=?,updated=? WHERE id=?',(new,clean(draft),version,version,r.stamp(),row['id']))
   c.execute('INSERT INTO km_history(article,version,action,actor,at,content,note) VALUES(?,?,?,?,?,?,?)',(row['id'],version,'maintenance_publication','system:client-concerns',r.stamp(),new,note))
 print('Branding and published guide terminology updated. Private backup:',backup)
-

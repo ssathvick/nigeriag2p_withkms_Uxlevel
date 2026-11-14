@@ -1,7 +1,9 @@
 'use client';
 
 import { TopBar } from '@/components/shared';
-import { useIntakeSubmissions } from '@/features/intake-form/hooks/useIntakeSubmissions';
+import { useFetch } from '@/shared/hooks/useFetch';
+import { ReviewHistory } from '@/components/shared/ReviewHistory';
+import type {IntakeFormSubmission} from '../types/intake-form';
 import { useIntakeFormDetails } from '@/features/intake-form/hooks/useIntakeFormDetails';
 import { useIntakeFormTabs } from '@/features/intake-form/hooks/useIntakeFormTabs';
 import { useIntakeFormTabRecords } from '@/features/intake-form/hooks/useIntakeFormTabRecords';
@@ -40,16 +42,12 @@ export default function IntakeFormSubmissionView({
     const canCreate = can(INTAKE_FORM_ACTIONS.edit);
 
     const registerId = currentRegister?.register_id;
-    const { submissions, loading: loadingSubmissions, refetch: refetchSubmissions } =
-        useIntakeSubmissions(registerId);
+    const detailOptions=useMemo(()=>({method:'POST' as const,body:JSON.stringify({submission_id:submissionId,register_id:registerId})}),[submissionId,registerId]);
+    const {data:submission,loading:loadingSubmissions,execute:refetchSubmissions}=useFetch<IntakeFormSubmission>({url:'/api/intake-form/get-intake-form-submission',options:detailOptions,enabled:!!registerId});
 
     const refreshSubmissionView = useCallback(async () => {
-        await refetchSubmissions();
-    }, [refetchSubmissions]);
-
-    const submission = useMemo(() => {
-        return submissions?.find((s: { submission_id: string }) => s.submission_id === submissionId);
-    }, [submissions, submissionId]);
+        await refetchSubmissions('/api/intake-form/get-intake-form-submission',detailOptions);
+    }, [refetchSubmissions,detailOptions]);
 
     const intakeApprovalArtifactContext = useMemo(() => {
         if (!submission?.submission_id) return null;
@@ -142,6 +140,8 @@ export default function IntakeFormSubmissionView({
                                 />
                             )}
 
+                            {submission?.remarks && <section className="rounded-lg border border-amber-200 bg-amber-50 p-4"><h2 className="font-semibold">Review feedback</h2><p className="whitespace-pre-wrap">{submission.remarks}</p></section>}
+                            <ReviewHistory events={submission?.review_history}/>
                             <MultiSectionAccordionForms
                                 form_name={form_name}
                                 form_description={form_description}

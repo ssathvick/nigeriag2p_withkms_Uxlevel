@@ -138,5 +138,3 @@ def change_account():
   mapper(action,p['household_ref'],fa,p['data'].get('household_name','NSIPA household'))
   with db() as c:c.execute('INSERT INTO audit(actor,action,reference,at) VALUES(?,?,?,?)',(g.sub,'payment_account_'+action,p['household_ref'],now()))
   return account(p)
-
-

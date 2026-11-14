@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "@/commons/globals.css";
+import '@/components/shared/application-consistency.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { GlobalContextProvider } from "@/context/GlobalContext";
 import { NextIntlClientProvider } from 'next-intl';
@@ -8,15 +9,16 @@ import { Header } from "@/components/layout";
 import { RuntimeConfigProvider } from "@/context/RuntimeConfigContext";
 import { RegisterProvider } from "@/context/RegisterContext";
 import { ToastContainer } from "react-toastify";
-import { Roboto } from 'next/font/google'
+import localFont from 'next/font/local'
 import { clientSafeConfig } from '@/app/api/_lib/client-safe-config';
 import { getOrigin } from "@/app/api/_lib/get-origin";
+import RegistryWorkspace from '@/components/shared/RegistryWorkspace';
 
 
-const roboto = Roboto({
-    weight: ['300', '400', '500', '700'],
-    style: ['normal'],
-    subsets: ['latin'],
+const roboto = localFont({
+    src: '../fonts/Roboto-Latin.woff2',
+    weight: '300 700',
+    style: 'normal',
     display: 'swap',
 })
 
@@ -60,12 +62,12 @@ export default async function RootLayout({
 
     const cssVariables = `
         :root {
-            --color-primary-first: ${config.branding?.primary_color_1 ?? "#EABB13"};
-            --color-primary-second: ${config.branding?.primary_color_2 ?? "#ED7C22"};
-            --color-secondary-first: ${config.branding?.secondary_color_1 ?? "#F3F1F4"};
-            --color-secondary-second: ${config.branding?.secondary_color_2 ?? "#E1E1E1"};
-            --color-secondary-third: ${config.branding?.secondary_color_3 ?? "#A1A1A1"};
-            --color-neutral-first: ${config.branding?.neutral_color_1 ?? "#000000"};
+            --color-primary-first: ${config.branding?.primary_color_1 ?? "#d4e7d3"};
+            --color-primary-second: ${config.branding?.primary_color_2 ?? "#205f51"};
+            --color-secondary-first: ${config.branding?.secondary_color_1 ?? "#e9f1e8"};
+            --color-secondary-second: ${config.branding?.secondary_color_2 ?? "#ffffff"};
+            --color-secondary-third: ${config.branding?.secondary_color_3 ?? "#597e72"};
+            --color-neutral-first: ${config.branding?.neutral_color_1 ?? "#155e50"};
             --color-neutral-second: ${config.branding?.neutral_color_2 ?? "#FFFFFF"};
             --toast-info-color: ${config.branding?.toast_color?.toast_info_color ?? "#007BFF"};
             --toast-success-color: ${config.branding?.toast_color?.toast_success_color ?? "#28A745"};
@@ -91,7 +93,7 @@ export default async function RootLayout({
                             <div className="pt-17.5">
                                 <RegisterProvider>
                                     <ToastContainer />
-                                    {children}
+                                    <RegistryWorkspace>{children}</RegistryWorkspace>
                                 </RegisterProvider>
                             </div>
                         </RuntimeConfigProvider>

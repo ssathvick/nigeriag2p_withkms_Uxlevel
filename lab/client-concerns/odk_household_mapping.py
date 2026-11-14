@@ -1,6 +1,7 @@
 """Strict ODK XML -> existing household intake payload. No database writes."""
 import hashlib,json,re,uuid,math,xml.etree.ElementTree as ET
 from pathlib import Path
+from odk_geography import resolve_geography
 
 ALLOWED_FORMS={'nsipa_field_household_demo','nsipa_household_mapping_check'}
 def parse_xml(data):
@@ -40,9 +41,11 @@ def map_submission(xml,definition,master):
  size=int(get('household/household_size'));children=int(get('household/children'))
  if not 1<=size<=40 or not 0<=children<=size:raise ValueError('Invalid household counts')
  payload={'record_name':name,'household_head_name':head,'size_total':size,'country_code':'NGA','record_status':'ACTIVE','internal_record_id':str(uuid.uuid5(uuid.NAMESPACE_URL,'nsipa-odk:'+data.get('id')+':'+instance))}
+ payload.update(sponsor_name='NSIPA',consent_status='YES',respondent_name=head,enumerator_name=get('visit/enumerator_id') or get('visit/enumerator_name'),survey_community=get('location/ward'))
  places=[get('location/'+p) for p in ['ward','lga','state']]
  if not all(places):raise ValueError('Reported ward, LGA and state are required')
  payload['address_line_2']=', '.join(places)+' (reported ODK location)'
+ payload.update(resolve_geography(places[2],places[1],master['GEO_VALUES']))
  coords=get('location/coordinates')
  if coords:
   values=[float(x) for x in coords.split()]
@@ -51,7 +54,7 @@ def map_submission(xml,definition,master):
  for field,attribute in [('roof_material','ROOF_MATERIAL'),('water_source_type','WATER_SOURCE_TYPE')]:
   value=code(get('household/'+field),choices(form,'/data/household/'+field),master[attribute])
   if value is not None:payload[field]=value
- return {'mapping_version':'2026-11-10.1','form_id':data.get('id'),'form_version':data.get('version'),'odk_instance_id':instance,'source_sha256':hashlib.sha256(xml).hexdigest(),'payload':payload,'source_only':{'sample_reference':get('household/sample_reference'),'children_under_18':children,'shelter':get('household/shelter'),'livelihood_type':get('livelihood/livelihood_type'),'priority_needs':get('livelihood/priority_needs'),'gps_accuracy_m':coords.split()[3] if coords else None},'notes':['Reported area names are retained as reported text, not asserted as verified geographic IDs.','Children under 18 are not mapped to an under-five age bucket.','Source-only fields remain in this import receipt and the ODK source.']}
+ return {'mapping_version':'2026-11-12.1','form_id':data.get('id'),'form_version':data.get('version'),'odk_instance_id':instance,'source_sha256':hashlib.sha256(xml).hexdigest(),'payload':payload,'source_only':{'sample_reference':get('household/sample_reference'),'children_under_18':children,'shelter':get('household/shelter'),'livelihood_type':get('livelihood/livelihood_type'),'priority_needs':get('livelihood/priority_needs'),'gps_accuracy_m':coords.split()[3] if coords else None},'notes':['Reported state and LGA are resolved by unique parent-scoped master-data matches; this does not verify residence. Ward remains reported text because no ward reference level is configured.','Children under 18 are not mapped to an under-five age bucket.','Source-only fields remain in this import receipt and the ODK source.']}
 if __name__=='__main__':
  import sys
  xml,definition,master=map(Path,sys.argv[1:4]);print(json.dumps(map_submission(xml.read_bytes(),definition.read_bytes(),json.loads(master.read_text())),ensure_ascii=False))

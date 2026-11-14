@@ -21,15 +21,15 @@ export default function CheckboxField({
                 onClick={() => !disabled && onChange(!checked)}
                 className={`
                     w-5 h-5 rounded border transition-all flex items-center justify-center cursor-pointer
-                    ${checked 
-                        ? 'bg-amber-600 border-amber-600 shadow-sm' 
+                    ${checked
+                        ? 'bg-amber-600 border-amber-600 shadow-sm'
                         : 'bg-white border-secondary-second hover:border-amber-600/50'}
                     ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
                 `}
             >
                 {checked && <Check size={14} className="text-white" strokeWidth={3} />}
             </div>
-            <label 
+            <label
                 onClick={() => !disabled && onChange(!checked)}
                 className={`block truncate text-sm font-semibold cursor-pointer ${disabled ? 'text-neutral-first/30' : 'text-neutral-first/70'}`}
                 title={label}

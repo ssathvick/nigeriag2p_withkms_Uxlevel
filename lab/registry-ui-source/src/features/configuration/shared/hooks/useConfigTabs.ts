@@ -31,4 +31,3 @@ export function useConfigTabs(registerId: string, page: number = 1, pageSize: nu
         refresh: execute
     };
 }
-

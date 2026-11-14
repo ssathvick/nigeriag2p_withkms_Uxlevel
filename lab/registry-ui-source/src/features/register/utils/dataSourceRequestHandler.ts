@@ -85,10 +85,10 @@ const _dataSourceRequestHandler: DataSourceRequestHandler = async (
 
 /**
  * Adapter function that handles both old and new widget library signatures
- * 
+ *
  * Old signature (for backward compatibility): apiAdapter(url, options)
  * New signature: dataSourceRequestHandler(service, endpoint, method, params, options)
- * 
+ *
  * This function detects which signature is being used and routes accordingly.
  */
 export const dataSourceRequestHandler: any = async (

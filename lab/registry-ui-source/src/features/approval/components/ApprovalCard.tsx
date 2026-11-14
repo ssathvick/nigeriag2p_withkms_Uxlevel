@@ -14,7 +14,7 @@ interface Props {
     task: ApprovalTask;
     isPending: boolean;
     approvalDecisionBlocked?: boolean;
-    onSubmit: (taskId: string, action: 'approve' | 'reject', comment: string) => Promise<boolean>;
+    onSubmit: (taskId: string, action: 'approve' | 'reject' | 'return', comment: string) => Promise<boolean>;
     intakeForm?: boolean;
 }
 
@@ -34,20 +34,23 @@ export default function ApprovalCard({
             : VERIFICATION_CHANGE_REQUEST_ACTIONS.create,
     );
     const [comment, setComment] = useState('');
-    const [submittingAction, setSubmittingAction] = useState<'approve' | 'reject' | null>(null);
+    const [reasonError,setReasonError] = useState('');
+    const [submittingAction, setSubmittingAction] = useState<'approve' | 'reject' | 'return' | null>(null);
 
     const isCurrentUser = Boolean(user?.preferred_username && task.assignee === user.preferred_username);
     const assigneeDisplay = isCurrentUser ? user.name : task.assignee;
 
     const isTaskActionable = task.status === 'open' || task.status === 'claimed';
-    const showActionForm = isPending && canAct && isCurrentUser && isTaskActionable;
+    const showActionForm = isPending && canAct && isCurrentUser && isTaskActionable && !approvalDecisionBlocked;
     const isInteractionDisabled = approvalDecisionBlocked || submittingAction !== null;
 
     const hasDecision = Boolean(task.decision_action);
     const decisionApproved = task.decision_action === 'approve';
     const displayDate = task.completed_at || task.created_at;
 
-    const handleAction = async (action: 'approve' | 'reject') => {
+    const handleAction = async (action: 'approve' | 'reject' | 'return') => {
+        if (action !== 'approve' && !comment.trim()) { setReasonError('Enter a reason before returning or rejecting this record.'); return; }
+        setReasonError('');
         setSubmittingAction(action);
         const success = await onSubmit(task.id, action, comment);
         if (success) {
@@ -57,7 +60,7 @@ export default function ApprovalCard({
     };
 
     return (
-        <div className="bg-secondary-second rounded-[10px] p-6 space-y-3">
+        <div className="registry-approval-card bg-secondary-second rounded-[10px] p-6 space-y-3">
             <div className="font-normal text-[14px] text-neutral-first/50">{t('assigned_to')}</div>
 
             <div className="flex items-center gap-3">
@@ -111,14 +114,16 @@ export default function ApprovalCard({
                         />
                     </div>
 
-                    <div className="flex items-center gap-4 pt-2">
+                    {reasonError && <p role="alert" className="text-red-700 text-sm">{reasonError}</p>}
+                    <div className="registry-approval-actions flex flex-wrap items-center gap-3 pt-2">
+                        <button type="button" disabled={isInteractionDisabled} onClick={() => handleAction('return')} className="rounded-full px-4 py-2 text-sm font-medium bg-amber-100 text-amber-900 disabled:opacity-50">{submittingAction === 'return' ? t('loading') : 'Return for correction'}</button>
                         <button
                             type="button"
                             disabled={isInteractionDisabled}
                             onClick={() => handleAction('reject')}
                             className="px-4 py-1.5 text-[14px] font-medium rounded-[10px] bg-neutral-second text-neutral-first/50 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            {submittingAction === 'reject' ? t('loading') : t('reject')}
+                            {submittingAction === 'reject' ? t('loading') : 'Reject permanently'}
                         </button>
                         <button
                             type="button"
@@ -153,7 +158,7 @@ export default function ApprovalCard({
                                     decisionApproved ? 'text-toast-success' : 'text-toast-failed'
                                 }`}
                             >
-                                {decisionApproved ? t('approve') : t('reject')}
+                                {task.decision_action === 'return' ? 'Returned for correction' : decisionApproved ? t('approve') : 'Rejected permanently'}
                             </div>
                         </div>
                     )}

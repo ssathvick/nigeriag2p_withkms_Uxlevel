@@ -45,7 +45,3 @@ ip=subprocess.check_output(['kubectl','-n','nigeria','get','svc','register-staff
 res=requests.post('http://'+ip+'/intake-form-data/get_intake_form_submissions_summary',headers={'Authorization':'Bearer '+token.json()['access_token'],'X-CSRF-Token':'sync-auth-probe'},cookies={'X-CSRF-Token':'sync-auth-probe'},json={'request_header':{'sender_app_mnemonic':'NSIPA_ODK_SYNC','sender_app_url':'https://odk.nigeriag2p.com','request_id':'probe','request_timestamp':'2026-11-10T00:00:00Z'},'request_body':{'request_payload':{'register_id':'a0000000-0000-4000-8000-000000000002','form_id':'c1000000-0000-4000-8000-000000000002'}}},timeout=30)
 print('Registry service identity check',res.status_code,res.text[:400]);res.raise_for_status()
 print('Provisioned dedicated intake-only service client and project-viewer ODK reader; private config saved.')
-
-
-
-

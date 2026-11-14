@@ -5,6 +5,7 @@ import { ApprovalTask } from '@/features/approval/types/approval';
 interface UseMyTasksOptions {
     artifactType?: string;
     searchText?: string;
+    status?: string;
     pageSize?: number;
     initialPage?: number;
 }
@@ -12,6 +13,7 @@ interface UseMyTasksOptions {
 export const useMyTasks = ({
     artifactType,
     searchText = '',
+    status = '',
     pageSize = 25,
     initialPage = 1,
 }: UseMyTasksOptions) => {
@@ -19,19 +21,20 @@ export const useMyTasks = ({
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchText, artifactType]);
+    }, [searchText, artifactType, status]);
 
     const options = useMemo(
         () => ({
             method: 'POST' as const,
             body: JSON.stringify({
                 artifact_type: artifactType,
+                status: status === "all" ? undefined : status || undefined,
                 search_text: searchText || undefined,
                 page: currentPage,
                 page_size: pageSize,
             }),
         }),
-        [artifactType, searchText, currentPage, pageSize],
+        [artifactType, searchText, currentPage, pageSize, status],
     );
 
     const { data, loading } = useFetch<{

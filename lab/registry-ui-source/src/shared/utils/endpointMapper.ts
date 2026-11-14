@@ -1,11 +1,11 @@
 /**
  * Transforms endpoint names from widget format to API route format
- * 
+ *
  * Examples:
  * - "get_g2p_geo_level_values" -> "geo_level_values"
  * - "get_g2p_geo_levels" -> "geo_levels"
  * - "get_all_partners" -> "all_partners"
- * 
+ *
  * Note: Keeps snake_case format to match existing API route naming convention
  */
 export function transformEndpointName(endpoint: string): string {

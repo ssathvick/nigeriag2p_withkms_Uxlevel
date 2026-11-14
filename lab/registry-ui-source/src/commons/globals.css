@@ -2,6 +2,20 @@
 @config "../../tailwind.config.ts";
 @source "../../node_modules/@openg2p/registry-widgets/dist";
 
+.registry-native-form label,
+.registry-native-form .truncate {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    overflow-wrap: anywhere;
+}
+.registry-native-form { min-width: 0; }
+.registry-native-form input, .registry-native-form select { min-width: 0; }
+@media(max-width:640px){
+    header .registry-header-title { display:none !important; }
+    .registry-native-form { max-width:100%; overflow-x:auto; }
+}
+
 @layer base {
     :root {
         --background: var(--color-secondary-first);

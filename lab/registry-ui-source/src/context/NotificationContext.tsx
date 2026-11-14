@@ -1,9 +1,11 @@
 "use client";
 
 import { createContext, useContext, ReactNode } from "react";
+import {useAuth} from '@/context/Authcontext';
 import { useNovuNotifications } from "@/features/notification/utils/useNovuNotifications";
 
 interface NotificationContextType {
+    isAvailable: boolean;
     notifications: any[];
     unreadCount: number;
     loadMore: () => void;
@@ -14,10 +16,12 @@ interface NotificationContextType {
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
 export const NotificationContextProvider = ({ children }: { children: ReactNode }) => {
-    // here, the profile auth has removed 
-    const subscriberId = "123"
+    // Never subscribe different registry users through a shared placeholder identity.
+    const {user}=useAuth();
+    const subscriberId = String(user?.notification_subscriber_id||user?.sub||'');
     const applicationIdentifier = process.env.NEXT_PUBLIC_NOVU_APPLICATION_IDENTIFIER ?? "";
 
+    const isAvailable=Boolean(subscriberId&&applicationIdentifier);
     const { notifications, unreadCount, loadMore, isLoading, markAsRead } = useNovuNotifications(
         subscriberId,
         applicationIdentifier,
@@ -27,6 +31,7 @@ export const NotificationContextProvider = ({ children }: { children: ReactNode 
     return (
         <NotificationContext.Provider
             value={{
+                isAvailable,
                 notifications,
                 unreadCount,
                 loadMore,

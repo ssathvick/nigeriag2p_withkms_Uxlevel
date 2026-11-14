@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import {randomUUID} from 'crypto';
+function csrfHeaders(value?:string){const token=value||randomUUID();return {'X-CSRF-Token':token,'Cookie':'X-CSRF-Token='+token};}
 
 export interface AuthContext {
     accessToken: string;
@@ -51,6 +53,7 @@ export function requireAuth(req: NextRequest): AuthContext | NextResponse {
             'Content-Type': 'application/json',
             accept: 'application/json',
             Authorization: `Bearer ${accessToken}`,
+            ...csrfHeaders(req.cookies.get('X-CSRF-Token')?.value),
         },
     };
 }
@@ -79,6 +82,7 @@ export async function requireAuthFromCookies(): Promise<AuthContext | null> {
             'Content-Type': 'application/json',
             accept: 'application/json',
             Authorization: `Bearer ${accessToken}`,
+            ...csrfHeaders(cookieStore.get('X-CSRF-Token')?.value),
         },
     };
 }

@@ -15,7 +15,7 @@
     document.querySelectorAll('svg[aria-label],svg[role="img"],svg.pf-v5-c-brand,svg.pf-c-brand').forEach(svg => {
       const label=(svg.getAttribute('aria-label')||'')+' '+(svg.querySelector('title')?.textContent||'');
       if (/keycloak|openg2p|\bODK\b|\bIQS\b/i.test(label)) {
-        const img=document.createElement('img');img.src=root+'nsipa-wordmark.svg';img.alt='NSIPA';img.className='iqs-brand-logo';svg.replaceWith(img);
+        const img=document.createElement('img');img.src=root+'nsipa-wordmark.svg?v=supplied-13aaf377de66';img.alt='NSIPA';img.className='iqs-brand-logo';svg.replaceWith(img);
       }
     });
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
@@ -43,13 +43,13 @@
       const alt = img.getAttribute('alt') || '';
       if (/\/nsipa-(?:logo|wordmark|symbol)\.(?:svg|png)/.test(src)) return;
       if (/^staff-portal\./.test(location.hostname) && img.closest('.grid.grid-cols-4')) {
-        img.removeAttribute('srcset'); img.src=root+'nsipa-symbol.svg'; img.alt='NSIPA'; img.classList.add('nsipa-service-logo'); return;
+        img.removeAttribute('srcset'); img.src=root+'nsipa-symbol.svg?v=supplied-13aaf377de66'; img.alt='NSIPA'; img.classList.add('nsipa-service-logo'); return;
       }
       let decoded = src; try { decoded = decodeURIComponent(src); } catch (_) {}
       const branded = /(?:openg2p|keycloak|odk|iqs|superset|minio|redpanda|odoo)[^/]*(?:logo|favicon)|(?:logo|favicon)[^/]*(?:openg2p|keycloak|odk|iqs|superset|minio|redpanda|odoo)|company_logo|g2p_theme.*(?:png|svg)|\/(?:keycloak|odk|iqs-logo)\.(?:png|svg)|(?:^|\/)(?:logo(?:[_-](?:bw|horizontal|vertical|1))?(?:@2x)?\.(?:png|svg|webp))(?:\?|$)/i.test(decoded);
       if (branded || /^(?:(?:registry|NSIPA|IQS|OpenG2P|Keycloak|ODK)\s+)?logo$|^(?:NSIPA|IQS|OpenG2P|Keycloak|ODK)(?:\s*[—–-].*)?$/i.test(alt)) {
         img.removeAttribute('srcset');
-        img.setAttribute('src', root + 'nsipa-wordmark.svg');
+        img.setAttribute('src', root + 'nsipa-wordmark.svg?v=supplied-13aaf377de66');
         img.setAttribute('alt','NSIPA — National Social Investment Programmes Agency');
         img.classList.add('iqs-brand-logo');
       }
@@ -57,8 +57,8 @@
     let icons = document.querySelectorAll('link[rel*="icon"]');
     if (!icons.length) { const icon = document.createElement('link'); icon.rel='icon'; document.head.appendChild(icon); icons=[icon]; }
     icons.forEach(link => {
-      if (link.getAttribute('href') !== root+'nsipa-symbol.svg') {
-        link.setAttribute('href',root+'nsipa-symbol.svg'); link.setAttribute('type','image/svg+xml'); link.removeAttribute('sizes');
+      if (link.getAttribute('href') !== root+'nsipa-symbol.svg?v=supplied-13aaf377de66') {
+        link.setAttribute('href',root+'nsipa-symbol.svg?v=supplied-13aaf377de66'); link.setAttribute('type','image/svg+xml'); link.removeAttribute('sizes');
       }
     });
     document.querySelectorAll('a[href]').forEach(link => {
@@ -125,4 +125,3 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',start,{once:true});
   else start();
 })();
-

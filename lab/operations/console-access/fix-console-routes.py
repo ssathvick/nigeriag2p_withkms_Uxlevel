@@ -31,4 +31,3 @@ for h in hosts:
   r=s.post(url,json={'type':'CNAME','name':h,'content':target,'proxied':True,'ttl':1},timeout=30);r.raise_for_status();assert r.json()['success']
  print('DNS configured:',h)
 (P/'Console-Route-Change.json').write_text(json.dumps({'hosts':hosts,'kafka_canonical':'302 to existing alternate OAuth hostname','backup':str(B),'date':datetime.datetime.now().isoformat()},indent=2))
-

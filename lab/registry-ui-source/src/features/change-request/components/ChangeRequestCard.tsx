@@ -49,10 +49,10 @@ export default function ChangeRequestCard({
                 </h3>
             </div>
 
-            <div className="grid grid-cols-4 items-stretch gap-6 text-[16px] text-neutral-first/50">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-stretch gap-6 text-[16px] text-neutral-first/50">
                 <div className="flex h-full min-h-0 flex-col">
                     <div className="flex flex-1 flex-col space-y-2">
-                        <KeyValue label={t('change_request_id')} value={changeRequest.change_request_id} />
+                        <KeyValue label={t('change_request_id')} value={'•••'+changeRequest.change_request_id.slice(-3)} />
                         <KeyValue
                             label={t('change_date')}
                             value={new Date(changeRequest.created_at).toLocaleDateString()}

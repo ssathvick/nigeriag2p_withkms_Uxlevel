@@ -18,4 +18,3 @@ with r.pg('odkdb') as c:
   cur.execute('SELECT id,"xmlFormId" FROM forms WHERE "deletedAt" IS NULL');out['odk_forms']=cur.fetchall()
 p=Path(__file__).parent/'details.json';p.write_text(json.dumps(out,indent=2,default=str));p.chmod(0o600)
 for key in ['g2p_registry_configuration','g2p_registry_awe_policy_configurations','household_sources','intake_sources','odk_forms','g2p_register_households_codes','g2p_register_household_housing_and_services_codes']:print(key,json.dumps(out[key]))
-

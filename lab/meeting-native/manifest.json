@@ -1,0 +1,25 @@
+{
+  "register-staff-portal-api": {
+    "original/register-staff-portal-api/openg2p_registry_core/schemas/change_request.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/schemas/change_request.py",
+    "original/register-staff-portal-api/openg2p_registry_core/schemas/intake_form.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/schemas/intake_form.py",
+    "original/register-staff-portal-api/openg2p_registry_core/services/intake_form_data_service.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/services/intake_form_data_service.py",
+    "original/register-staff-portal-api/openg2p_registry_core/services/g2p_awe_webhook_service.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/services/g2p_awe_webhook_service.py",
+    "original/register-staff-portal-api/openg2p_registry_core/helpers/awe_helper.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/helpers/awe_helper.py",
+    "original/register-staff-portal-api/openg2p_registry_core/controller_services/g2p_awe_proxy_controller_service.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/controller_services/g2p_awe_proxy_controller_service.py",
+    "original/register-staff-portal-api/openg2p_registry_core/services/g2p_awe_integration_service.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/services/g2p_awe_integration_service.py",
+    "original/register-staff-portal-api/openg2p_registry_core/services/g2p_register_change_request_service.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/services/g2p_register_change_request_service.py",
+    "original/register-staff-portal-api/openg2p_registry_core/services/g2p_awe_status_reconcile.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/services/g2p_awe_status_reconcile.py",
+    "original/register-staff-portal-api/openg2p_registry_core/helpers/awe_status_summary.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_core/helpers/awe_status_summary.py",
+    "original/register-staff-portal-api/reference/models/household.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_reference_extension/register_domain/models/household.py",
+    "original/register-staff-portal-api/reference/schemas/household.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_reference_extension/register_domain/schemas/household.py",
+    "original/register-staff-portal-api/reference/models/individual.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_reference_extension/register_domain/models/individual.py",
+    "original/register-staff-portal-api/reference/schemas/individual.py": "/usr/local/lib/python3.12/site-packages/openg2p_registry_reference_extension/register_domain/schemas/individual.py"
+  },
+  "commons-services-awe": {
+    "original/commons-services-awe/awe/services/engine.py": "/usr/local/lib/python3.13/site-packages/awe/services/engine.py",
+    "original/commons-services-awe/awe/controllers/task.py": "/usr/local/lib/python3.13/site-packages/awe/controllers/task.py",
+    "original/commons-services-awe/awe/schemas/request.py": "/usr/local/lib/python3.13/site-packages/awe/schemas/request.py",
+    "original/commons-services-awe/awe/services/webhook.py": "/usr/local/lib/python3.13/site-packages/awe/services/webhook.py",
+    "original/commons-services-awe/awe/schemas/callback.py": "/usr/local/lib/python3.13/site-packages/awe/schemas/callback.py"
+  }
+}

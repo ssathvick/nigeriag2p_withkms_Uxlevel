@@ -24,4 +24,3 @@ with app.pg('awe') as c:
    q.execute("UPDATE approval_policy SET status='retired',updated_at=now() WHERE id=%s",(pid,))
  c.commit()
 print('Provisioned separate limited demo identities; household intake policy version 2 uses two independent reviewers. Credentials remain private.')
-

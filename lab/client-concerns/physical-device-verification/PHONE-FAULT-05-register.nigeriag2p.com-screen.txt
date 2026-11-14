@@ -1,0 +1,111 @@
+Master Beneficiary Registry
+All services
+My workspace
+Dashboard
+Service guide
+ⓘ Help
+Master Beneficiary Registry
+Nigeria UX Admin
+Households
+Household Info
+Household Members
+Housing & Services
+Programs
+household synthetic fault test
+Functional Record ID :
+TEMP-57efe12bdd764056b48c8cbe8b782c5e
+Record Status
+ACTIVE
+Status Reason :
+-
+Created by :
+NSIPA NSIPA Synchronization
+Created at :
+2026-11-10T13:02:50.925096
+Last Approved by :
+NSIPA Second Reviewer Demo
+Last Approved at :
+2026-11-10T13:03:56.575597
+0
+Edit Details
+Location Detailsⓘ
+State / FCT:
+-
+Local Government Area:
+-
+District / locality (optional):
+-
+Community (optional):
+Locality / EA Code:
+Reported location / address:
+Gangare, Jos North, Plateau (reported NSIPA location)
+GPS Latitude:
+GPS Longitude:
+Altitude (metres):
+Edit Details
+Headshipⓘ
+Household name:
+household synthetic fault test
+Household head:
+synthetic fault test
+Household head reference (optional):
+Headship Type:
+-
+Edit Details
+Rosterⓘ
+Household Size Total:
+4
+Household Size Adults:
+Household Size Children U5:
+Number Of Female Members:
+Number Of Male Members:
+Household Size School Age:
+Elderly Member Present:
+Husband Dead:
+False
+Husband Dead Date:
+-
+Edit Details
+Housing And Servicesⓘ
+Dwelling Type:
+-
+Roof material:
+-
+Wall Material:
+-
+Floor Material:
+-
+Tenure Status:
+-
+Water source:
+-
+Water Distance (Minutes):
+Sanitation Type:
+-
+Lighting Source:
+-
+Cooking Fuel Type:
+-
+Number of Rooms:
+Overcrowding Indicator:
+Edit Details
+Computation Scoresⓘ
+No scores available.
+Change Requestⓘ
+00
+
+No pending change requests
+
+Version Historyⓘ
+01
+
+Last Updated By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+
+Last Approved By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+Know More

@@ -156,7 +156,7 @@ export default function VersionHistoryPage() {
         },
     });
 
-    // Here selectedVersionId is the change request id 
+    // Here selectedVersionId is the change request id
     const changeRequestId = selectedVersionId ?? '';
     const { details: changeRequestData, loading: loadingChangeRequestData } =
         useChangeRequest(changeRequestId);

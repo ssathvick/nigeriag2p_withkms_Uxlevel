@@ -1,69 +1,20 @@
 'use client';
-
-import { X } from 'lucide-react';
-import { useTranslations } from 'next-intl';
-
-interface BaseModalProps {
-    title: string;
-    onClose: () => void;
-    children: React.ReactNode;
-    primaryActionLabel?: string;
-    onPrimaryAction?: () => void;
-    maxWidth?: string;
-    hideCancel?: boolean;
-    secondaryActionLabel?: string;
-}
-
-export default function BaseModal({
-    title,
-    onClose,
-    children,
-    primaryActionLabel,
-    onPrimaryAction,
-    maxWidth = 'max-w-150',
-    hideCancel = false,
-    secondaryActionLabel,
-}: BaseModalProps) {
-    const t = useTranslations();
-    return (
-        <div className="fixed inset-0 bg-neutral-first/80 z-50 flex items-center justify-center">
-            <div className={`relative w-full ${maxWidth} bg-neutral-second rounded-[10px] border-5 border-primary-first px-8 py-6`}>
-                <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-[24px] text-primary-second font-medium">
-                        {title}
-                    </h2>
-
-                    <button
-                        onClick={onClose}
-                        className="opacity-50 hover:opacity-100 transition"
-                    >
-                        <X size={30} />
-                    </button>
-                </div>
-
-                <div className="space-y-4 max-h-[70vh] overflow-y-auto modal-scroll">
-                    {children}
-                    <div className="flex gap-4 pt-2">
-                        {!hideCancel && (
-                            <button
-                                onClick={onClose}
-                                className="px-6 py-2 bg-secondary-second text-neutral-first/50 text-[16px] font-bold rounded-[10px]"
-                            >
-                                {secondaryActionLabel || t('cancel')}
-                            </button>
-                        )}
-
-                        {primaryActionLabel && onPrimaryAction && (
-                            <button
-                                onClick={onPrimaryAction}
-                                className="px-6 py-2 bg-neutral-first text-neutral-second text-[16px] font-bold rounded-[10px]"
-                            >
-                                {primaryActionLabel}
-                            </button>
-                        )}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+import {useEffect,useId,useRef,type ReactNode} from 'react';
+import {createPortal} from 'react-dom';
+import {X} from 'lucide-react';
+import './configuration-workspace.css';
+import {useTranslations} from 'next-intl';
+interface BaseModalProps{title:string;onClose:()=>void;children:ReactNode;primaryActionLabel?:string;onPrimaryAction?:()=>void;maxWidth?:string;hideCancel?:boolean;secondaryActionLabel?:string}
+export default function BaseModal({title,onClose,children,primaryActionLabel,onPrimaryAction,maxWidth='max-w-150',hideCancel=false,secondaryActionLabel}:BaseModalProps){
+ const t=useTranslations(),id=useId(),panel=useRef<HTMLDivElement>(null),close=useRef(onClose);close.current=onClose;
+ useEffect(()=>{const trigger=document.activeElement as HTMLElement|null,overflow=document.body.style.overflow;document.body.style.overflow='hidden';panel.current?.querySelector<HTMLElement>('input,select,textarea,button')?.focus();return()=>{document.body.style.overflow=overflow;trigger?.focus()}},[]);
+ function handleKeyDown(e:React.KeyboardEvent){
+  if(e.key==='Escape'){e.stopPropagation();close.current();return}
+  if(e.key!=='Tab')return;
+  const nodes=panel.current?.querySelectorAll<HTMLElement>('button:not(:disabled),input:not(:disabled),select:not(:disabled),textarea:not(:disabled),a[href],[tabindex="0"]');
+  const all=nodes?[...nodes].filter(n=>n.getBoundingClientRect().width>0):[];
+  if(!all.length)return;const first=all[0],last=all[all.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+ }
+ return createPortal(<div className="configuration-modal-overlay" onKeyDown={handleKeyDown}><div ref={panel} role="dialog" aria-modal="true" aria-labelledby={id} className={`configuration-dialog ${maxWidth}`}><header><h2 id={id}>{title}</h2><button type="button" onClick={onClose} aria-label="Close dialog"><X size={23}/></button></header><div className="configuration-dialog-content modal-scroll">{children}{(!hideCancel||primaryActionLabel&&onPrimaryAction)&&<div className="configuration-dialog-actions">{!hideCancel&&<button type="button" onClick={onClose} className="configuration-secondary-button">{secondaryActionLabel||t('cancel')}</button>}{primaryActionLabel&&onPrimaryAction&&<button type="button" onClick={onPrimaryAction} className="configuration-primary-button">{primaryActionLabel}</button>}</div>}</div></div></div>,document.body);
 }

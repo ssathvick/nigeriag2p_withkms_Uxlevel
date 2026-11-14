@@ -1,4 +1,6 @@
 'use client';
+import {useConfigurationAccess} from './configurationAccess';
+import {useRbac} from '@/context/RbacContext';
 
 import { useTranslations } from "next-intl";
 
@@ -13,7 +15,8 @@ export default function ToggleStatusSwitch({
     onToggle,
     disabled,
 }: Props) {
-    const t = useTranslations();
+    const t = useTranslations();const access=useConfigurationAccess();const {can}=useRbac();
+    if(disabled||(access&&!can(access.edit)))return <span className={'configuration-status'+(isActive?' is-active':'')}>{isActive?'Active':'Inactive'}</span>;
     return (
         <button
             onClick={async (e) => {

@@ -78,7 +78,7 @@ const RegistryConfigurationPage = () => {
 			setLanguageId(newLanguageId);
 			setIsEditing(false);
 			toast.success(t('toast_registry_config_saved'));
-			
+
 			const newLangObj = languages.find(l => l.language_id === newLanguageId);
 			if (newLangObj && newLangObj.language_code) {
 				router.replace(pathname, { locale: newLangObj.language_code });
@@ -173,4 +173,3 @@ const RegistryConfigurationPage = () => {
 };
 
 export default RegistryConfigurationPage;
-

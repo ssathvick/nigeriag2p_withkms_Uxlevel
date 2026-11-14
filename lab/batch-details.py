@@ -8,4 +8,3 @@ for db,tables in [('register',['g2p_register_individuals','g2p_register_househol
  for table in tables:print(db,table,[x for x in d[db] if x['table_name']==table])
 print('Geo',query('master_data',"SELECT table_name FROM information_schema.tables WHERE table_schema='public' AND table_name LIKE '%geo%';"))
 print('Portal models',query('portalpbmsdb',"SELECT model FROM ir_model WHERE model LIKE '%membership%' OR model LIKE '%application%';",'portal-backend-postgresql','portal-backend-postgresql'))
-

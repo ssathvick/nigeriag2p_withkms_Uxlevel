@@ -7,6 +7,7 @@ class MappingTests(unittest.TestCase):
   self.xml=(HERE/'odk-verification/0-numeric-source.xml').read_bytes()
   self.definition=(HERE/'odk-verification/0-numeric-definition.xml').read_bytes()
   self.master=json.loads((HERE/'odk-verification/master-0.json').read_text())
+  self.master['GEO_VALUES']=json.loads((HERE/'geography-reference.json').read_text())
  def test_all_published_numeric_choices(self):
   count=0
   for field,attribute in [('roof_material','ROOF_MATERIAL'),('water_source_type','WATER_SOURCE_TYPE')]:
@@ -37,5 +38,5 @@ class MappingTests(unittest.TestCase):
   root=parse_xml(self.xml);root.set('version','unknown')
   with self.assertRaises(ValueError):map_submission(ET.tostring(root),self.definition,self.master)
  def test_identical_master_lists_on_both_domains(self):
-  self.assertEqual(self.master,json.loads((HERE/'odk-verification/master-1.json').read_text()))
+  self.assertEqual({k:v for k,v in self.master.items() if k!='GEO_VALUES'},json.loads((HERE/'odk-verification/master-1.json').read_text()))
 if __name__=='__main__':unittest.main(verbosity=2)

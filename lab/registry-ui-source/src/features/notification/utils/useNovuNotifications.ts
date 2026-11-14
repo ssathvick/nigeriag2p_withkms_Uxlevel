@@ -18,9 +18,12 @@ export function useNovuNotifications(
     const [isLoading, setIsLoading] = useState(false);
 
     const novuRef = useRef<Novu | null>(null);
+    const identityRef=useRef('');
 
     const initNovu = () => {
-        if (!novuRef.current) {
+        const identity=applicationIdentifier+':'+subscriberId;
+        if (!novuRef.current||identityRef.current!==identity) {
+            identityRef.current=identity;
             novuRef.current = new Novu({ subscriberId, applicationIdentifier, backendUrl, socketUrl });
         }
         return novuRef.current;
@@ -75,6 +78,7 @@ export function useNovuNotifications(
     };
 
     const markAsRead = async (notificationId: string) => {
+        if(!subscriberId||!applicationIdentifier)return;
         const novu = initNovu();
         try {
             await novu.notifications.read({ notificationId });
@@ -119,6 +123,7 @@ export function useNovuNotifications(
 
     useEffect(() => {
         setNotifications([]);
+        setUnreadCount(0);
         setOffset(0);
         loadMore();
         fetchUnreadCount();

@@ -36,4 +36,3 @@ if r.status_code==200:
  pathlib.Path('/opt/openg2p-lab/beneficiary-openapi.json').write_text(r.text)
  print('OAuth routes',[p for p in r.json()['paths'] if 'oauth' in p])
 print('Portal programme and synthetic beneficiary seeded. Login username: fatima')
-

@@ -18,8 +18,3 @@ try:
  button=next(n for n in root.iter('node') if n.get('text')=='Save connection');coords=list(map(int,re.findall(r'\d+',button.get('bounds'))));run('shell','input','tap',str((coords[0]+coords[2])//2),str((coords[1]+coords[3])//2))
  print('Dedicated sample connection validated and saved on phone; credentials omitted.')
 finally:run('shell','rm','-f','/sdcard/nsipa-connection-test.xml')
-
-
-
-
-

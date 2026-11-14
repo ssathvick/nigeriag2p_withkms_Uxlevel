@@ -131,7 +131,7 @@ export default function NewDataPolicyPage() {
                 showFilters={false}
                 showPagination={false}
                 showAddNewButton={false}
-               
+
             />
 
             <div className="mx-7.5 flex flex-col gap-5 pb-10 font-roboto">

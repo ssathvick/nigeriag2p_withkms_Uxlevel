@@ -1,4 +1,7 @@
 'use client';
+import '@/components/shared/NigeriaGeographyWidget';
+import '@/components/shared/HouseholdMembersWidget';
+import '@/components/shared/HouseholdLookupWidget';
 
 import React, {
     createContext,

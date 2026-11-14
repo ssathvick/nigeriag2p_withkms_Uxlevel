@@ -10,13 +10,13 @@ export const readAndValidateJson = (file: File): Promise<any> => {
             try {
                 const content = event.target?.result as string;
                 const json = JSON.parse(content);
-                
+
                 // Basic validation: must be an object
                 if (typeof json !== 'object' || json === null) {
                     reject(new Error('Invalid JSON: Must be an object'));
                     return;
                 }
-                
+
                 resolve(json);
             } catch (error) {
                 reject(new Error('Invalid JSON file'));
@@ -28,4 +28,3 @@ export const readAndValidateJson = (file: File): Promise<any> => {
         reader.readAsText(file);
     });
 };
-

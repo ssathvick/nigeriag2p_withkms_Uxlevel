@@ -13,7 +13,7 @@ export default function TaskChangeRequestDetailPage() {
         () => [
             { label: t('tasks'), href: '/tasks/change-request' },
             { label: t('tasks_cr') },
-            { label: t('change_id_breadcrumb', { id: changeId }) },
+            { label: t('change_id_breadcrumb', { id: '•••'+changeId.slice(-3) }) },
         ],
         [changeId, t],
     );

@@ -55,3 +55,18 @@ body.ng2p-odk #home-news,body.ng2p-odk #navbar-analytics-notice{display:none!imp
 
 .nsipa-service-logo{width:40px!important;height:40px!important;object-fit:contain!important}
 body.ng2p-staff-portal .grid.grid-cols-4 img{content:url('/iqs-brand/nsipa-symbol.svg')}
+
+
+
+/* Supplied user vector logo: complete mark, aspect ratio preserved. */
+.iqs-brand-logo{width:86px!important;height:62px!important;max-width:160px!important;max-height:100px!important;object-fit:contain!important}
+.iqs-logo-mark{width:190px!important;height:145px!important;margin:0 auto 16px}
+.nsipa-nav-logo{width:86px!important;height:62px!important;object-fit:contain!important}
+#ng2p-platform-bar .nsipa-nav-logo{width:58px!important;height:44px!important}
+.wordmark .nsipa-nav-logo{width:100px!important;height:76px!important}
+.brand img[src*="nsipa-"]{width:80px!important;height:60px!important;object-fit:contain!important}
+.dash-brand img,.jc-brand img,.ti-brand img{width:78px!important;height:58px!important;object-fit:contain!important}
+.iqs-login .powered-by .iqs-brand-logo{width:60px!important;height:44px!important}
+.nsipa-service-logo{width:52px!important;height:40px!important;object-fit:contain!important}
+@media(max-width:600px){.nsipa-nav-logo{width:74px!important;height:54px!important}.iqs-logo-mark{height:125px}}
+@media(max-width:600px){#ng2p-platform-bar{gap:8px!important;padding:8px 10px!important;justify-content:space-between!important;flex-wrap:nowrap!important}#ng2p-platform-bar>.ng2p-platform-module,#ng2p-platform-bar>a:nth-of-type(3){display:none!important}#ng2p-platform-bar>a,#ng2p-platform-bar>button{font-size:11px!important;white-space:nowrap!important}#ng2p-platform-bar .ng2p-platform-brand{flex:0 0 58px!important}}

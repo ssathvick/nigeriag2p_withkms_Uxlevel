@@ -138,7 +138,7 @@ async def _process_submission_async(submission_id: str) -> None:
                         )
                 await _fanout_outgest_rows(submission, inserted_records, session)
                 _mark_processed(submission)
-                
+
         # Trigger score computation for approved intake submissions in a separate session
         await _trigger_score_computation_for_submission(submission_id, session_maker)
         await _trigger_completion_score_computation_for_submission(submission_id, session_maker)
@@ -551,12 +551,12 @@ async def _fanout_outgest_rows(
 async def _trigger_score_computation_for_submission(submission_id: str, session_maker) -> None:
     """
     Trigger score computation for an approved intake submission.
-    
+
     This function:
     1. Gets all distinct section_register_id from the submission's form
     2. Iterates through each register definition to check for score definitions
     3. Calls the score compute service to enqueue score computations
-    
+
     Args:
         submission_id: The approved intake submission ID
         session_maker: Session maker for creating new database sessions
@@ -564,35 +564,35 @@ async def _trigger_score_computation_for_submission(submission_id: str, session_
     if G2PScoreComputeService is None:
         _logger.warning("G2PScoreComputeService not available, skipping score computation")
         return
-    
+
     try:
         async with session_maker() as session:
             async with session.begin():
                 # Get the submission details
                 submission = await _get_submission(submission_id, session)
-                
+
                 # Get all distinct section_register_id from the submission's form
                 sections = await _get_unique_form_sections(submission.form_id, session)
                 section_register_ids = [section.section_register_id for section in sections]
-                
+
                 if not section_register_ids:
                     _logger.info(f"No section register IDs found for submission {submission_id}")
                     return
-                
+
                 _logger.info(f"Triggering score computation for submission {submission_id} with registers: {section_register_ids}")
-                
+
                 # Initialize the score compute service
                 score_compute_service = G2PScoreComputeService()
-                
+
                 # Enqueue score computations for all register definitions in the submission
                 await score_compute_service.enqueue_score_computations_for_intake_submission(
                     submission_id=submission_id,
                     section_register_ids=section_register_ids,
                     session=session,
                 )
-                
+
                 _logger.info(f"Successfully enqueued score computations for submission {submission_id}")
-        
+
     except Exception as error:
         _logger.error(f"Failed to trigger score computation for submission {submission_id}: {error}")
 

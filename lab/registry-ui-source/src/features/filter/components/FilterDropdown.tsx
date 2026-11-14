@@ -1,4 +1,5 @@
 "use client";
+import {readableLabel} from '@/shared/utils/readableLabel';
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -44,6 +45,7 @@ export default function FilterDropdown({
     filterConfig = [],
 }: FilterDropdownProps) {
     const t = useTranslations();
+    const label=(key:string)=>t.has(key)?t(key):readableLabel(key);
     const [selectedFieldName, setSelectedFieldName] = useState("");
     const [operator, setOperator] = useState("");
     const [value, setValue] = useState<any>("");
@@ -123,7 +125,7 @@ export default function FilterDropdown({
 
     if (filterConfig.length === 0) {
         return (
-            <div className="flex items-center justify-center p-10 min-w-110">
+            <div role="status" className="application-filter-panel flex items-center justify-center p-10 min-w-110">
                 <p className="text-neutral-first/50">{t("filter_loading")}</p>
             </div>
         );
@@ -136,7 +138,7 @@ export default function FilterDropdown({
             value,
             operator,
             onChange: setValue,
-            placeholder: t("filter_search_placeholder", { field: t(selectedFilter.display_label) }),
+            placeholder: t("filter_search_placeholder", { field: label(selectedFilter.display_label) }),
         };
 
         switch (selectedFilter.filter_type) {
@@ -191,12 +193,12 @@ export default function FilterDropdown({
 
     return (
         <div
-            className="flex bg-neutral-second rounded-[10px] min-w-[500px] w-max min-h-[300px] font-['Roboto'] relative border border-primary-first"
+            role="dialog" aria-label="Filters" className="application-filter-panel flex bg-neutral-second rounded-[10px] min-w-[500px] w-max min-h-[300px] font-['Roboto'] relative border border-primary-first"
             style={{ boxShadow: '0 0 8px 0 rgba(0, 0, 0, 0.25)' }}
         >
             {/* Close Button */}
             <button
-                onClick={onClose}
+                aria-label="Close filters" onClick={onClose}
                 className="absolute top-4 right-4 z-10"
             >
                 <Image
@@ -220,7 +222,7 @@ export default function FilterDropdown({
                                     ? "bg-primary-first text-neutral-first rounded-[20px]"
                                     : "text-neutral-first/50 rounded-[20px]"}`}
                         >
-                            {t(filter.display_label)}
+                            {label(filter.display_label)}
                         </button>
                     );
                 })}
@@ -229,7 +231,7 @@ export default function FilterDropdown({
             {/* Right Side Content */}
             <div className="flex-1 p-6 flex flex-col">
                 <div className="text-[18px] font-medium text-primary-second leading-[20px] mb-6">
-                    {selectedFilter && t("filter_search_by", { field: t(selectedFilter.display_label) })}
+                    {selectedFilter && t("filter_search_by", { field: label(selectedFilter.display_label) })}
                 </div>
 
                 {selectedFilter && (
@@ -267,7 +269,7 @@ export default function FilterDropdown({
                         {/* Name Label/Input */}
                         <div className="flex flex-col gap-1.5">
                             <label className="text-[16px] font-normal text-neutral-first leading-none">
-                                {t(selectedFilter.display_label)}
+                                {label(selectedFilter.display_label)}
                             </label>
                             {renderValueInput()}
                         </div>

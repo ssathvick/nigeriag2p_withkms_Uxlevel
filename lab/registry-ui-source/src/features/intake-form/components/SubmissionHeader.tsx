@@ -1,5 +1,6 @@
 'use client';
 
+import { PrivateIdentifier,WorkflowStatus } from '@/components/shared/Workflow';
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { IntakeFormSubmission } from "../types/intake-form";
@@ -108,12 +109,15 @@ const InfoSection = ({ submission }: { submission?: IntakeFormSubmission | null 
     return (
         <div className="space-y-2 text-[16px] text-neutral-first/50">
             <h3 className="text-[24px] font-medium text-neutral-first truncate" title={t('intake_submission') || 'Intake Submission'}>
-                {t('intake_submission')}
+                {submission?.record_name || t('intake_submission')}
             </h3>
+            <WorkflowStatus approval={submission?.approval_status} draft={submission?.draft_status} summary={submission?.awe_request_status_summary}/>
+            <div className="flex gap-4"><span className="w-1/2">Source:</span><strong>{submission?.submission_source==='ODK_COLLECT' || submission?.created_by?.includes('ODK')?'Offline data collection · ODK Collect':'Online staff intake'}</strong></div>
+            <div className="flex gap-4"><span className="w-1/2">Reference:</span><strong>{submission?.application_reference || "Not recorded"}</strong></div>
             <div className="flex w-full overflow-hidden">
                 <span className="w-1/2 truncate" title={t('submission_id')}>{t('submission')}:</span>
                 <span className="w-1/2 pl-4 text-neutral-first font-medium truncate" title={submission?.submission_id ? String(submission.submission_id) : ''}>
-                    {submission?.submission_id}
+                    <PrivateIdentifier value={submission?.submission_id}/>
                 </span>
             </div>
             <div className="flex w-full overflow-hidden">

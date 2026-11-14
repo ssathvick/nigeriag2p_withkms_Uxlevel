@@ -1,4 +1,6 @@
 'use client';
+import {useConfigurationAccess} from './configurationAccess';
+import {useRbac} from '@/context/RbacContext';
 
 import { Pencil } from 'lucide-react';
 
@@ -8,6 +10,8 @@ interface Props {
 }
 
 export default function EditButton({ label, onClick }: Props) {
+    const access=useConfigurationAccess();const {can}=useRbac();
+    if(access&&!can(access.edit))return null;
     return (
         <button
             onClick={(e) => {

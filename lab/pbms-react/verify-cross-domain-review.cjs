@@ -17,6 +17,3 @@ let row=await current();if(row.approval_status!=='APPROVED'){let t=await task(on
 row=await wait(r=>r.approval_status==='APPROVED'&&r.register_ingest_process_status==='PROCESSED');state.complete=true;state.final=row;save();console.log('PASS separate first and second reviewers; approved household ingested');
 for(const host of ['register.nigeriag2p.com','g2p-register.wverve.in']){const u=host===one.host?one:await login('nsipa-demo-reviewer-one',host);await u.p.goto('https://'+host+'/en/intake-form/household');await u.p.waitForTimeout(1000);assert.equal(await u.p.getByText('Create New Submission',{exact:false}).count(),0);const d=await u.post('intake-form/save-intake-form-submission',section());assert.equal(d.code,403);console.log('PASS',host,'reviewer UI and backend create restriction')}
 }finally{await b.close()}})().catch(e=>{console.error(e.message);process.exitCode=1});
-
-
-

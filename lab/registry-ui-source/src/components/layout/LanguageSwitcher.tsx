@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from '@/i18n/navigation';
+import {routing} from '@/i18n/routing';
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { useRef, useState, useTransition, useMemo } from 'react';
@@ -36,9 +37,9 @@ export default function LanguageSwitcher() {
     // Priotise db available locales over static locales
     const availableLocales = useMemo(() => {
         if (languages && languages.length > 0) {
-            return languages.map(lang => lang.language_code);
+            return languages.map(lang => lang.language_code).filter(code=>routing.locales.includes(code as any));
         }
-        return Object.keys(LANGUAGE_CONFIG);
+        return [locale];
     }, [languages]);
 
     // Create a dynamic config object from db locales
@@ -68,15 +69,16 @@ export default function LanguageSwitcher() {
         return dynamicConfig[availableLocales[0]] || LANGUAGE_CONFIG.en;
     }, [dynamicConfig, locale, languages, availableLocales]);
 
+    if(availableLocales.length<2)return <span aria-label={'Current language: '+currentLanguage.label} className="px-2 text-sm text-neutral-first"><span className="sm:hidden">{locale.toUpperCase()}</span><span className="hidden sm:inline">{currentLanguage.label}</span></span>;
     return (
         <div className="relative inline-block" ref={dropdownRef}>
             <button
-                onClick={() => setOpen((prev) => !prev)}
+                aria-label="Choose language" aria-expanded={open} aria-haspopup="true" onKeyDown={e=>{if(e.key==="Escape")setOpen(false)}} onClick={() => setOpen((prev) => !prev)}
                 disabled={isPending}
-                className="flex items-center justify-between rounded-[10px] gap-2 px-4 py-2 min-w-35 text-[16px] font-medium cursor-pointer transition-all focus:outline-none"
+                className="flex items-center justify-between rounded-[10px] gap-2 px-2 sm:px-4 py-2 min-w-0 sm:min-w-35 text-[16px] font-medium cursor-pointer transition-all focus:outline-none"
             >
                 <div className="flex items-center gap-2">
-                    <div className="w-6 h-4 relative rounded-sm overflow-hidden shrink-0 border">
+                    <div className="hidden sm:block w-6 h-4 relative rounded-sm overflow-hidden shrink-0 border">
                         <Image
                             src={currentLanguage.flag}
                             alt={currentLanguage.label}
@@ -87,7 +89,7 @@ export default function LanguageSwitcher() {
                     </div>
 
                     <span className="text-neutral-first text-[14px] font-normal leading-normal">
-                        {currentLanguage.label}
+                        <span className="sm:hidden">{locale.toUpperCase()}</span><span className="hidden sm:inline">{currentLanguage.label}</span>
                     </span>
                 </div>
 
@@ -102,7 +104,7 @@ export default function LanguageSwitcher() {
 
             {open && (
                 <div
-                    className="absolute top-full left-0 mt-2 min-w-35 ring-1 ring-black/10 rounded-[10px] bg-neutral-second overflow-hidden z-50"
+                    className="application-language-menu absolute top-full right-0 mt-2 min-w-35 ring-1 ring-black/10 rounded-[10px] bg-neutral-second overflow-hidden z-50"
                 >
                     {availableLocales.map((loc, index) => {
                         const lang = dynamicConfig[loc] || { label: loc, flag: LANGUAGE_CONFIG.en.flag };

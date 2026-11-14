@@ -58,6 +58,9 @@ export interface DisplayField {
     order: number;
 }
 export interface IntakeFormSubmission {
+    review_history?: any[];
+    application_reference?: string;
+    remarks?: string|null;
     record_name: string | null;
     submission_id: string;
     form_id: string;

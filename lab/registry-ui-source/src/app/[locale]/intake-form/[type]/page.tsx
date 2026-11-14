@@ -4,7 +4,8 @@ import { TopBar } from '@/components/shared';
 import { useTranslations } from 'next-intl';
 import { useRegister } from '@/context/RegisterContext';
 import { useParams, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import { WorkflowFilters } from '@/components/shared/Workflow';
 
 import IntakeFormSubmissionList from '@/features/intake-form/components/SubmissionList';
 import { usePagination } from '@/shared/hooks';
@@ -25,6 +26,7 @@ export default function IntakeFormPage() {
     const searchParams = useSearchParams();
     const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
     const [currentPage, setCurrentPage] = useState(1);
+    useEffect(()=>setCurrentPage(1),[searchParams.get("status")]);
     const pageSize = config?.pageSize || 10;
 
     const { currentRegister } = useRegister();
@@ -38,6 +40,7 @@ export default function IntakeFormPage() {
     const { submissions, paginationInfo, loading: submissionsLoading } = useIntakeSubmissions(registerId,
         {
             searchText: searchQuery,
+            status: searchParams.get("status") || "all",
             currentPage,
             pageSize,
         });
@@ -85,6 +88,7 @@ export default function IntakeFormPage() {
                 onSearch={handleSearch}
             />
 
+            <WorkflowFilters draft />
             <div className="px-7.5">
                 {submissionsLoading ? (
                     <div className="space-y-4">

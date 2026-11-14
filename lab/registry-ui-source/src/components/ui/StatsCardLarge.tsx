@@ -1,5 +1,7 @@
 "use client";
 
+import {useStatsShortcut} from '@/components/shared/StatsShortcut';
+import {InfoHint} from '@/components/shared/Workflow';
 import { useMemo } from "react";
 import { useFetch } from "@/shared/hooks/useFetch";
 import { useTranslations } from 'next-intl';
@@ -15,6 +17,7 @@ const StatsCardLarge = ({
     active = false,
 }: StatsCardLargeProps) => {
     const t = useTranslations();
+    const navigate=useStatsShortcut(stats_endpoint);
     const { data, loading, error } = useFetch<any>({
         url: stats_endpoint,
     });
@@ -86,7 +89,7 @@ const StatsCardLarge = ({
                 ) : (
                     <>
                         <span className="font-roboto text-[85px] font-bold leading-none">
-                            {(totalCount || 0).toString()}
+                            <button type="button" aria-label={`View ${title}`} onClick={e=>{e.stopPropagation();navigate()}} className="rounded-full px-2 hover:bg-primary-first/30">{(totalCount || 0).toString()}</button>
                         </span>
                         <span className="font-roboto text-[24px] font-bold leading-none">
                             {title}
@@ -117,7 +120,7 @@ const StatsCardLarge = ({
                                 />
                             )}
                             <span className="text-[16px] font-medium leading-7.5">
-                                {(row.value || 0).toString()}
+                                <button type="button" aria-label={`View ${row.value || 0} ${row.label}`} onClick={e=>{e.stopPropagation();navigate(row.id)}} className={`rounded-full px-3 py-1 hover:bg-primary-first ${Number(row.value)>0 && row.id==='pending'?'bg-red-100 text-red-800':'bg-secondary-first text-secondary-third'}`}>{(row.value || 0).toString()}</button>
                             </span>
                             <span className="text-[16px] font-medium leading-7.5 opacity-80">
                                 {row.label}

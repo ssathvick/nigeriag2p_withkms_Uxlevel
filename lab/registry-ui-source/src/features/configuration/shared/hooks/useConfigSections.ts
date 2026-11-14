@@ -31,4 +31,3 @@ export function useConfigSections(tabId: string, page: number = 1, pageSize: num
         refresh: execute
     };
 }
-

@@ -1,0 +1,7 @@
+from pathlib import Path
+root=Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/pbms-react')
+p=root/'update-native-approval.py';s=p.read_text();s=s.replace('import pathlib,json,subprocess,time,hashlib','import pathlib,json,subprocess,time,hashlib,socket\nsocket.setdefaulttimeout(15)');s=s.replace("exec((root/'register-native-approval.py').read_text())","exec((root/'register-native-approval.py').read_text().split(\"call('ir.module.module','update_list',[])\",1)[1].join([\"call('ir.module.module','update_list',[])\",'']))")
+# Keep the established authenticated connection after readiness succeeds.
+s=s.replace("exec((root/'register-native-approval.py').read_text().split(\"call('ir.module.module','update_list',[])\",1)[1].join([\"call('ir.module.module','update_list',[])\",'']))", "code=(root/'register-native-approval.py').read_text()\nexec(code[code.index(\"call('ir.module.module','update_list',[])\"):])")
+p.write_text(s)
+p=root/'install-native-approval.py';s=p.read_text().replace('import datetime,json,pathlib,subprocess,tarfile,io','import datetime,json,pathlib,subprocess,tarfile,io,time,socket\nsocket.setdefaulttimeout(15)');s=s.replace("exec((root.parent/'inspect-pbms-react.py').read_text().split('models =')[0])", "for attempt in range(12):\n    try:\n        exec((root.parent/'inspect-pbms-react.py').read_text().split('models =')[0]);break\n    except (OSError,ConnectionError):\n        if attempt==11:raise\n        time.sleep(2)");p.write_text(s)

@@ -178,10 +178,3 @@ def footer(canvas,doc):
  canvas.setStrokeColor(colors.HexColor('#DCE5DE'));canvas.line(45,40,A4[0]-45,40);canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#52655A'));canvas.drawString(45,27,'NSIPA client feedback | Implementation evidence | 10 November 2026');canvas.drawRightString(A4[0]-45,27,str(doc.page))
 pdf=out/'NSIPA-Client-Feedback-Report-Final-End-to-End.pdf';SimpleDocTemplate(str(pdf),pagesize=A4,rightMargin=45,leftMargin=45,topMargin=45,bottomMargin=55,title='NSIPA Client Feedback Implementation Report',author='Implementation review').build(story,onFirstPage=footer,onLaterPages=footer)
 print(pdf)
-
-
-
-
-
-
-

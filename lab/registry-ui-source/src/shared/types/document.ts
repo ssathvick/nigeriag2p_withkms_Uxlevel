@@ -3,7 +3,7 @@ export type UploadedDocument = {
     document_label: string;
 };
 
-// Helper function to deserialize file 
+// Helper function to deserialize file
 export const deserializeFile = (serialized: any): File => {
     if (!serialized || !serialized.data) {
         throw new Error('Invalid serialized file');

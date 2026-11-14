@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { RegisterRecord } from '../types';
 import { sortedDisplayFields } from '../utils';
+import { registryDisplayText } from '@/shared/utils/registryDisplayText';
 
 interface RegisterRecordCardProps {
     record: RegisterRecord;
@@ -57,7 +58,7 @@ export function RegisterRecordCard({ record, registerType, isEven }: RegisterRec
                                     <span className="font-normal text-neutral-first/70">
                                         {t(firstField.field_name)}:{' '}
                                     </span>
-                                    <span className="font-medium">{firstField.value}</span>
+                                    <span className="font-medium">{registryDisplayText(String(firstField.value ?? ''))}</span>
                                 </p>
                             ) : (
                                 <p className="text-[16px] invisible">&nbsp;</p>
@@ -67,7 +68,7 @@ export function RegisterRecordCard({ record, registerType, isEven }: RegisterRec
                                     <span className="font-normal text-neutral-first/70">
                                         {t(secondField.field_name)}:{' '}
                                     </span>
-                                    <span className="font-medium">{secondField.value}</span>
+                                    <span className="font-medium">{registryDisplayText(String(secondField.value ?? ''))}</span>
                                 </p>
                             ) : (
                                 <p className="text-[16px] invisible">&nbsp;</p>

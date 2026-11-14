@@ -14,4 +14,3 @@ for name in ['Intake Officer','Intake Validator']:
 assert 'intakeSubmission:edit' not in out['role_separation']['Intake Validator']
 assert 'intakeSubmission:approve' not in out['role_separation']['Intake Officer']
 (root/'final-data-verification.json').write_text(json.dumps(out,indent=2,default=str));print(json.dumps(out,default=str))
-

@@ -144,7 +144,7 @@ export default function AddSubscriptionActivityLogModal({ onClose, onSuccess }: 
                     onChange={(value) => setFormData({ ...formData, response: value })}
                     rows={22}
                     textareaClassName="font-mono text-xs"
-                    
+
                 />
             </div>
         </BaseModal>

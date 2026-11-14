@@ -9,6 +9,7 @@ import { dataSourceRequestHandler } from '@/features/register/utils/dataSourceRe
 import { useTranslations } from 'next-intl';
 
 interface Props {
+  confirmation?: React.ReactNode;
   sectionsConfig: any[];
   schemaData: any;
   showActions: boolean;
@@ -19,9 +20,11 @@ interface Props {
   onDraftSave: () => void;
   isSubmitDisabled: boolean;
   widgetStore: any;
+  onDirtyChange?: (sectionId:string,isDirty:boolean)=>void;
 }
 
 export default function IntakeFormSections({
+  confirmation,
   sectionsConfig,
   schemaData,
   showActions,
@@ -32,14 +35,16 @@ export default function IntakeFormSections({
   onDraftSave,
   isSubmitDisabled,
   widgetStore,
+  onDirtyChange,
 }: Props) {
   const t = useTranslations();
 
   return (
     <WidgetProvider
+      theme={{colors:{primary:'#1a6554',primaryDark:'#155447',primaryLight:'#edf5ef',primaryAccent:'#1a6554'},section:{titleColor:'#155447',dividerColor:'#bfd7cb'},button:{primaryBorder:'#1a6554',primaryColor:'#155447'},widget:{inputFocusBorderColor:'#1a6554',tableEditingRowBg:'#edf5ef'}}}
       store={widgetStore}
       schemaData={schemaData}
-      translate={t}
+      translate={(key,values)=>t.has(key)?t(key,values):key}
       dataSourceRequestHandler={dataSourceRequestHandler}
     >
       <div className="flex flex-col gap-1">
@@ -49,8 +54,10 @@ export default function IntakeFormSections({
           isDraft={showActions}
           onSectionSave={onSectionSave}
           onFormReady={onFormReady}
+          onSectionDirtyChange={onDirtyChange}
         />
 
+        {confirmation}
         {showActions && (
           <div className="flex items-center justify-end gap-3 pt-2">
             <button
@@ -59,12 +66,12 @@ export default function IntakeFormSections({
             >
               {t('cancel')}
             </button>
-            {/* <button
+            <button
               onClick={onDraftSave}
               className="px-8 py-2.5 rounded-full bg-secondary-second text-neutral-first font-bold text-[14px] hover:bg-secondary-third transition-colors"
             >
               {t('save_draft')}
-            </button> */}
+            </button>
 
             <button
               onClick={onSubmit}

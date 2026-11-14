@@ -24,4 +24,3 @@ with app.app_context():
    assert all(not result.get('error') for result in payload['queries']), 'Chart query failed'
    print(chart.slice_name,'query successful')
  print('Dashboard and read only reporting connection verified.')
-

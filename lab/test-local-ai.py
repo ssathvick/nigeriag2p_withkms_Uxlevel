@@ -29,4 +29,3 @@ class AI(kt.Knowledge):
   r.execute('DELETE FROM ai_usage')
   with patch.object(local_ai,'generate',return_value={'title':'incomplete'}):self.assertEqual(self.client.post('/registration/api/ai/draft',data=self.data()).status_code,503)
 if __name__=='__main__':unittest.main()
-

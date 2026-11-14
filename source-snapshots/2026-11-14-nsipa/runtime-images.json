@@ -1,0 +1,346 @@
+{
+  "captured": "2026-11-14",
+  "namespace": "nigeria",
+  "deployments": {
+    "bridge-api": [
+      {
+        "container": "api",
+        "image": "openg2p/openg2p-g2p-bridge-partner-api:2.1.0"
+      }
+    ],
+    "bridge-bene-portal-api": [
+      {
+        "container": "bene-portal-api",
+        "image": "openg2p/openg2p-g2p-bridge-bene-portal-api:2.1.0"
+      }
+    ],
+    "bridge-celery-beat-producer": [
+      {
+        "container": "celery-beat-producer",
+        "image": "openg2p/openg2p-g2p-bridge-celery-beat-producers:2.1.0"
+      }
+    ],
+    "bridge-celery-worker": [
+      {
+        "container": "celery-worker",
+        "image": "openg2p/openg2p-g2p-bridge-celery-workers:2.1.0"
+      }
+    ],
+    "commons-kafka-ui": [
+      {
+        "container": "kafka-ui",
+        "image": "openg2p/kafka-ui:v0.7.2"
+      }
+    ],
+    "commons-minio": [
+      {
+        "container": "minio",
+        "image": "docker.io/openg2p/minio:2023.12.23-debian-11-r2"
+      }
+    ],
+    "commons-services-artifactory": [
+      {
+        "container": "artifactory",
+        "image": "mosipid/artifactory-server:1.4.1-ES"
+      }
+    ],
+    "commons-services-auditmanager": [
+      {
+        "container": "auditmanager",
+        "image": "openg2p/openg2p-audit-manager:1.2.0"
+      }
+    ],
+    "commons-services-awe": [
+      {
+        "container": "awe",
+        "image": "openg2p/openg2p-awe:1.2.2"
+      }
+    ],
+    "commons-services-awe-ui": [
+      {
+        "container": "awe-ui",
+        "image": "openg2p/openg2p-awe-ui:1.2.2"
+      }
+    ],
+    "commons-services-cm-api": [
+      {
+        "container": "cm-api",
+        "image": "openg2p/consent-manager-api:1.0.2"
+      }
+    ],
+    "commons-services-cm-partner-api": [
+      {
+        "container": "cm-partner-api",
+        "image": "openg2p/consent-manager-api:1.0.2"
+      }
+    ],
+    "commons-services-cm-ui": [
+      {
+        "container": "cm-ui",
+        "image": "openg2p/consent-manager-ui:1.0.2"
+      }
+    ],
+    "commons-services-esignet": [
+      {
+        "container": "esignet",
+        "image": "mosipid/esignet:1.4.1"
+      }
+    ],
+    "commons-services-esignet-oidc-ui": [
+      {
+        "container": "oidc-ui",
+        "image": "mosipid/oidc-ui:1.4.1"
+      }
+    ],
+    "commons-services-iam-agent-portal-api": [
+      {
+        "container": "iam-agent-portal-api",
+        "image": "openg2p/iam-agent-portal-api:1.4.1"
+      }
+    ],
+    "commons-services-iam-staff-portal-api": [
+      {
+        "container": "iam-staff-portal-api",
+        "image": "openg2p/iam-staff-portal-api:1.4.1"
+      }
+    ],
+    "commons-services-iam-staff-ui": [
+      {
+        "container": "iam-staff-ui",
+        "image": "openg2p/iam-staff-ui:1.4.1"
+      }
+    ],
+    "commons-services-inji-certify": [
+      {
+        "container": "inji-certify",
+        "image": "injistack/inji-certify-with-plugins:0.14.0"
+      },
+      {
+        "container": "p12-backup",
+        "image": "alpine/k8s:1.31.0"
+      }
+    ],
+    "commons-services-keymanager": [
+      {
+        "container": "keymanager",
+        "image": "mosipid/kernel-keymanager-service:1.2.1.0"
+      }
+    ],
+    "commons-services-master-data-api": [
+      {
+        "container": "master-data-api",
+        "image": "openg2p/master-data-api:1.1.1"
+      }
+    ],
+    "commons-services-master-data-ui": [
+      {
+        "container": "master-data-ui",
+        "image": "openg2p/master-data-ui:1.1.1"
+      }
+    ],
+    "commons-services-mock-identity-system": [
+      {
+        "container": "mock-identity-system",
+        "image": "mosipid/mock-identity-system:0.9.3"
+      }
+    ],
+    "commons-services-odk-central-backend": [
+      {
+        "container": "odk-central-backend",
+        "image": "openg2p/odk-central-backend:v2025.2.1"
+      }
+    ],
+    "commons-services-odk-central-enketo": [
+      {
+        "container": "odk-central-enketo",
+        "image": "ghcr.io/enketo/enketo:7.5.1"
+      }
+    ],
+    "commons-services-odk-central-frontend": [
+      {
+        "container": "odk-central-frontend",
+        "image": "ghcr.io/getodk/central-nginx:v2025.2.1"
+      }
+    ],
+    "commons-services-odk-central-pyxform": [
+      {
+        "container": "odk-central-pyxform",
+        "image": "ghcr.io/getodk/pyxform-http:v3.1.0"
+      }
+    ],
+    "commons-services-pm-partner-api": [
+      {
+        "container": "pm-partner-api",
+        "image": "openg2p/partner-management-partner-api:1.0.2"
+      }
+    ],
+    "commons-services-pm-staff-portal-api": [
+      {
+        "container": "pm-staff-portal-api",
+        "image": "openg2p/partner-management-staff-portal-api:1.0.2"
+      }
+    ],
+    "commons-services-pm-staff-portal-ui": [
+      {
+        "container": "pm-staff-portal-ui",
+        "image": "openg2p/partner-management-staff-portal-ui:1.0.2"
+      }
+    ],
+    "commons-services-staff-portal-ui": [
+      {
+        "container": "staff-portal-ui",
+        "image": "openg2p/openg2p-staff-portal-ui:1.2.0"
+      }
+    ],
+    "commons-services-superset": [
+      {
+        "container": "superset",
+        "image": "apachesuperset.docker.scarf.sh/apache/superset:4.0.1"
+      }
+    ],
+    "commons-services-superset-worker": [
+      {
+        "container": "superset",
+        "image": "apachesuperset.docker.scarf.sh/apache/superset:4.0.1"
+      }
+    ],
+    "commons-softhsm": [
+      {
+        "container": "softhsm",
+        "image": "mosipid/softhsm:v2"
+      }
+    ],
+    "nigeria-consent-beneficiary-api": [
+      {
+        "container": "cm-api",
+        "image": "openg2p/consent-manager-api:1.0.2"
+      }
+    ],
+    "nigeria-consent-beneficiary-ui": [
+      {
+        "container": "cm-ui",
+        "image": "openg2p/consent-manager-ui:1.0.2"
+      }
+    ],
+    "openg2p-g2p-bridge-example-bank-api": [
+      {
+        "container": "g2p-bridge-example-bank",
+        "image": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-api:1.1"
+      }
+    ],
+    "openg2p-g2p-bridge-example-bank-celery": [
+      {
+        "container": "g2p-bridge-example-bank",
+        "image": "docker.io/openg2p/openg2p-g2p-bridge-example-bank-celery:1.1"
+      }
+    ],
+    "pbms-api": [
+      {
+        "container": "g2p-pbms-bg-task-api",
+        "image": "openg2p/openg2p-pbms-bg-task-api:3.0.0"
+      }
+    ],
+    "pbms-beneficiary-portal": [
+      {
+        "container": "pbms-beneficiary-portal-api",
+        "image": "docker.io/openg2p/openg2p-beneficiary-portal-api:1.0.0"
+      }
+    ],
+    "pbms-beneficiary-portal-ui": [
+      {
+        "container": "pbms-beneficiary-portal-ui",
+        "image": "docker.io/openg2p/openg2p-beneficiary-portal-ui:1.0.0"
+      }
+    ],
+    "pbms-celery-beat-producer": [
+      {
+        "container": "g2p-pbms-bg-task-celery-beat-producer",
+        "image": "openg2p/openg2p-pbms-bg-task-celery-beat-producers:3.0.0"
+      }
+    ],
+    "pbms-celery-worker": [
+      {
+        "container": "g2p-pbms-bg-task-celery-worker",
+        "image": "openg2p/openg2p-pbms-bg-task-celery-workers:3.0.0"
+      }
+    ],
+    "pbms-odoo": [
+      {
+        "container": "pbms-odoo",
+        "image": "docker.io/openg2p/openg2p-pbms-core:3.0.0"
+      }
+    ],
+    "portal-backend-odoo": [
+      {
+        "container": "portal-backend-odoo",
+        "image": "docker.io/openg2p/openg2p-pbms-core:1.3.0"
+      }
+    ],
+    "register-celery-beat-producer": [
+      {
+        "container": "celery-beat-producer",
+        "image": "openg2p/openg2p-registry-celery:1.2.1"
+      }
+    ],
+    "register-celery-worker": [
+      {
+        "container": "celery-worker",
+        "image": "openg2p/openg2p-registry-celery:1.2.1"
+      }
+    ],
+    "register-id-generator": [
+      {
+        "container": "id-generator",
+        "image": "openg2p/openg2p-id-generator:1.1.2"
+      }
+    ],
+    "register-partner-api": [
+      {
+        "container": "partner-api",
+        "image": "openg2p/openg2p-registry-partner-api:1.2.1"
+      }
+    ],
+    "register-staff-portal-api": [
+      {
+        "container": "staff-portal-api",
+        "image": "openg2p/openg2p-registry-staff-api:1.2.1"
+      }
+    ],
+    "register-staff-portal-ui": [
+      {
+        "container": "staff-portal-ui",
+        "image": "nsipa/master-registry:no-enumerator-20261113-a"
+      }
+    ],
+    "registry-bg-tasks-producer": [
+      {
+        "container": "registry-bg-tasks-producer",
+        "image": "docker.io/openg2p/openg2p-registry-bg-tasks-producer:1.1.1"
+      }
+    ],
+    "registry-bg-tasks-worker": [
+      {
+        "container": "registry-bg-tasks-worker",
+        "image": "docker.io/openg2p/openg2p-registry-bg-tasks-worker:1.1.1"
+      }
+    ],
+    "registry-odoo": [
+      {
+        "container": "registry-odoo",
+        "image": "docker.io/openg2p/openg2p-social-registry-core:1.5.7"
+      }
+    ],
+    "spar-openg2p-spar-bene-portal-api": [
+      {
+        "container": "openg2p-spar-bene-portal-api",
+        "image": "registry.gitlab.com/openg2p/spar/spar/bene-portal-api:1.1.0"
+      }
+    ],
+    "spar-openg2p-spar-mapper-api": [
+      {
+        "container": "spar-mapper-api",
+        "image": "registry.gitlab.com/openg2p/spar/spar/mapper-partner-api:1.1.0"
+      }
+    ]
+  }
+}

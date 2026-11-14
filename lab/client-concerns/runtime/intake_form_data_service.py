@@ -625,7 +625,7 @@ class G2PIntakeFormDataService(BaseService):
 
             # Validate verifications
             if submission.number_of_verifications_required > 0:
-                verification_service = G2PRegisterVerificationService.get_component()   
+                verification_service = G2PRegisterVerificationService.get_component()
                 _, number_of_verifications_done = await verification_service.get_verifications(
                         change_request_id=None,
                         submission_id=submission.submission_id

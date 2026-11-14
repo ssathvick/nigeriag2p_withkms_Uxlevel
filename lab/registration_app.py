@@ -21,7 +21,7 @@ def public_origin():
  if host in PUBLIC_ORIGINS:return PUBLIC_ORIGINS[host]
  if host in {'localhost','127.0.0.1','openg2p.localhost'}:return CONFIG['base_url']
  abort(400,'Unrecognized application host')
-BASE=LocalProxy(public_origin);PREFIX='/registration' 
+BASE=LocalProxy(public_origin);PREFIX='/registration'
 class IntegrationLock:
  def __init__(self):self.local=threading.RLock();self.depth=0;self.fd=None
  def __enter__(self):
@@ -87,7 +87,7 @@ def context():
  sid=request.cookies.get('IQS-INTAKE');s=one('SELECT * FROM sessions WHERE id=? AND expires>?',(sid or '',int(time.time())))
  g.session=json.loads(s['data']) if s else {};g.sid=sid if s else secrets.token_urlsafe(32);g.user=g.session.get('user',{})
  g.session.setdefault('csrf',secrets.token_urlsafe(32));g.staff=g.session.get('mode')=='staff' and 'iqs-intake-reviewer' in g.user.get('roles',[])
- if request.method=='POST' and not secrets.compare_digest(request.form.get('csrf',''),g.session['csrf']):abort(403,'Session expired. Reload the page and try again.')
+ if request.method=='POST' and request.path not in (PREFIX+'/api/registry/offline-setup',PREFIX+'/api/registry/users') and not secrets.compare_digest(request.form.get('csrf',''),g.session['csrf']):abort(403,'Session expired. Reload the page and try again.')
 @app.after_request
 def cookies(res):
  if hasattr(g,'session'):
@@ -107,7 +107,7 @@ def health():return {'status':'ok','service':'IQS registration integration'}
 @app.get(PREFIX+'/login')
 def login():
  mode='staff' if request.args.get('mode')=='staff' else 'beneficiary';state=secrets.token_urlsafe(32);verifier=secrets.token_urlsafe(48);nonce=secrets.token_urlsafe(32)
- g.session['login']={'mode':mode,'state':state,'verifier':verifier,'nonce':nonce,'at':int(time.time()),'workspace':request.args.get('workspace')=='1','geography':request.args.get('geography')=='1','knowledge':request.args.get('knowledge')=='1','analytics':request.args.get('analytics')=='1','simulation':request.args.get('simulation')=='1','ai':request.args.get('ai')=='1','ai_module':request.args.get('module','platform')[:80],'ai_stage':request.args.get('stage','')[:160]}
+ g.session['login']={'mode':mode,'state':state,'verifier':verifier,'nonce':nonce,'at':int(time.time()),'mbr_return':g.session.get('mbr_return'),'mbr':request.args.get('mbr')=='1','workspace':request.args.get('workspace')=='1','geography':request.args.get('geography')=='1','knowledge':request.args.get('knowledge')=='1','analytics':request.args.get('analytics')=='1','simulation':request.args.get('simulation')=='1','ai':request.args.get('ai')=='1','ai_module':request.args.get('module','platform')[:80],'ai_stage':request.args.get('stage','')[:160]}
  g.session['login']['jos']=request.args.get('jos')=='1'
  g.session['login']['jos_minister']=request.args.get('minister')=='1'
  g.session['login']['phase1']=request.args.get('phase1')=='1'
@@ -119,6 +119,7 @@ def login():
  endpoint='registrations' if request.args.get('signup')=='1' and mode=='beneficiary' else 'auth'
  return redirect(issuer(mode)+'/protocol/openid-connect/'+endpoint+'?'+urlencode(params))
 def default_login_destination(mode,roles):
+ if mode=='staff' and any(role.startswith('mbr-') for role in roles):return PREFIX+'/mbr'
  if mode!='staff':return PREFIX+'/analytics?service=beneficiary'
  if {'iqs-intake-reviewer','iqs-programme-supervisor','iqs-registration-officer','iqs-verification-officer'} & set(roles):return PREFIX+'/analytics'
  return PREFIX+'/workspace'
@@ -136,6 +137,7 @@ def callback():
  access=jwt.decode(tokens['access_token'],key,algorithms=['RS256'],issuer=iss,options={'verify_aud':False})
  g.session={'csrf':secrets.token_urlsafe(32),'mode':flow['mode'],'user':{'sub':claims['sub'],'name':claims.get('name',claims.get('preferred_username','')),'email':claims.get('email',''),'roles':access.get('realm_access',{}).get('roles',[])}}
  old=g.sid;g.sid=secrets.token_urlsafe(32);execute('DELETE FROM sessions WHERE id=?',(old,))
+ if flow.get('mbr'):return redirect(flow.get('mbr_return') if str(flow.get('mbr_return') or '').startswith(PREFIX+'/mbr?') else PREFIX+'/mbr')
  if flow.get('beneficiary_profile'):return redirect(PREFIX+'/profile')
  if flow.get('jos'):return redirect(PREFIX+'/jos-cct'+('/minister' if flow.get('jos_minister') else ''))
  if flow.get('grievances'):return redirect(PREFIX+'/phase1/grievances')
@@ -371,10 +373,10 @@ def reconcile():
 def error(e):
  from werkzeug.exceptions import HTTPException
  if isinstance(e,HTTPException):
-  if request.path.startswith(PREFIX+'/api/'):return {'error':e.description},e.code
+  if (request.path.startswith(PREFIX+'/api/') or request.path.startswith(PREFIX+'/mbr/api/')):return {'error':e.description},e.code
   return page('message.html',title='Action needs attention',message=e.description,back=PREFIX+'/'),e.code
  logging.exception('Integration request failed')
- if request.path.startswith(PREFIX+'/api/'):return {'error':'Service temporarily unavailable. Refresh before trying again.'},503
+ if (request.path.startswith(PREFIX+'/api/') or request.path.startswith(PREFIX+'/mbr/api/')):return {'error':'Service temporarily unavailable. Refresh before trying again.'},503
  return page('message.html',title='Service temporarily unavailable',message='Your saved records are retained. Try again shortly; staff can inspect integration logs.',back=PREFIX+'/'),503
 import registration_workspaces
 registration_workspaces.install(os.sys.modules[__name__])
@@ -389,6 +391,21 @@ import phase1_sandbox
 phase1_sandbox.install(os.sys.modules[__name__])
 import jos_connected
 jos_connected.install(os.sys.modules[__name__])
+
+# Native Registry is the sole owner of intake, approvals and master updates.
+@app.before_request
+def native_registry_workflow_owner():
+ if request.path.startswith(PREFIX+'/mbr'):
+  if request.method not in ('GET','HEAD','OPTIONS'):
+   return {'error':'Use the Master Registry for intake, changes and approvals.','registry_url':'https://g2p-register.wverve.in/en'},410
+  return redirect('https://g2p-register.wverve.in/en',code=302)
+
+import native_registry_users
+native_registry_users.install(os.sys.modules[__name__])
+import native_offline_setup
+native_offline_setup.install(os.sys.modules[__name__])
+import mbr_workflow
+mbr_workflow.install(os.sys.modules[__name__])
 if __name__=='__main__':
  if '--reconcile' in os.sys.argv:reconcile()
  else:app.run(host='127.0.0.1',port=18081)

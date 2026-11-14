@@ -87,14 +87,14 @@ export default function TaskCard({ task, index, href, onNavigate }: Props) {
                 {displayName}
             </h3>
 
-            <div className="grid grid-cols-3 gap-6 divide-x divide-secondary-second">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 divide-x divide-secondary-second">
                 <div className="space-y-2 pr-6 text-[16px] text-neutral-first/50">
                     {isIntake && (
-                        <KeyValue label={t('submission_id')} value={artifactId} />
+                        <KeyValue label={t('submission_id')} value={getContextString(context, 'application_reference') || '•••'+artifactId.slice(-3)} />
                     )}
 
                     {isChangeRequest && (
-                        <KeyValue label={t('change_id')} value={artifactId} />
+                        <KeyValue label={t('change_id')} value={getContextString(context, 'application_reference') || '•••'+artifactId.slice(-3)} />
                     )}
 
                     <KeyValue label={t('register_mnemonic')} value={registerMnemonic} />
@@ -166,9 +166,8 @@ export default function TaskCard({ task, index, href, onNavigate }: Props) {
             <div className="my-4 border-t border-secondary-second" />
 
             <div className="flex items-center justify-between">
-                <button
+                {href&&<button
                     type="button"
-                    disabled={!href}
                     onClick={handleViewDetails}
                     className="text-[14px] text-neutral-first font-normal flex items-center gap-2 opacity-60 hover:opacity-100 transition disabled:cursor-default disabled:opacity-40"
                 >
@@ -179,7 +178,7 @@ export default function TaskCard({ task, index, href, onNavigate }: Props) {
                         width={14}
                         height={14}
                     />
-                </button>
+                </button>}
             </div>
         </div>
     );

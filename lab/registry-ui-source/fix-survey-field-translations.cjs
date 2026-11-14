@@ -1,0 +1,1 @@
+const fs=require('fs'),p='locales/en.json',x=JSON.parse(fs.readFileSync(p));for(const spec of JSON.parse(fs.readFileSync('../household-parity/section-specs.json')))x[spec[1]]=spec[1];x['Master Beneficiary Registry']='Master Beneficiary Registry';fs.writeFileSync(p,JSON.stringify(x,null,2)+'\n');

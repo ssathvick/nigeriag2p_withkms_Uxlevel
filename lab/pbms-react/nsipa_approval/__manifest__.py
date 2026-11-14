@@ -1,0 +1,1 @@
+{'name': 'NSIPA Programme Approval Flow', 'version': '17.0.1.0.0', 'depends': ['g2p_pbms', 'g2p_pbms_program_access'], 'data': ['security.xml', 'ir.model.access.csv', 'rules.xml', 'cron.xml'], 'license': 'LGPL-3', 'installable': True}

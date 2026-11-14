@@ -26,5 +26,3 @@ function App(){
  </main></div><footer>NSIPA beneficiary services · <a href={root+'/registration/knowledge'}>Guidance and support</a></footer></>
 }
 createRoot(document.getElementById('root')).render(<App/>);
-
-

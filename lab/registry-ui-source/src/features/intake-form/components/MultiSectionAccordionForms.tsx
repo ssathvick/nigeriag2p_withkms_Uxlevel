@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
-import { useRouter } from 'next/navigation';
+import { useTranslations,useLocale } from 'next-intl';
+import { useRouter } from '@/i18n/navigation';
 import { toast } from 'react-toastify';
 import {
   createWidgetStore,
@@ -9,10 +9,12 @@ import type { SectionChanges } from '@openg2p/registry-widgets';
 import type { SectionsFormHandle } from '@openg2p/registry-widgets';
 import { IntakeFormSection } from '../types/intake-form';
 import FormDetailsCard from './FormDetailsCard';
+import HouseholdLocationCapture from './HouseholdLocationCapture';
 import { useIntakeDeduplication } from '../hooks/useIntakeDeduplication';
 import DeduplicationCardForIntake from './DeduplicationCardForIntake';
 import IntakeFormSections from './IntakeFormSections';
 import IntakeFormDeduplicationTabs from './IntakeFormDeduplicationTabs';
+import {InfoHint} from '@/components/shared/Workflow';
 
 export type SectionStatus = 'Saved' | 'Draft' | null;
 
@@ -22,7 +24,7 @@ export interface AccordionFormsProps {
   form_name?: string;
   form_description?: string;
   schemaData?: any;
-  onAction?: (sectionChanges?: SectionChanges, type?: 'submit' | 'draft', section?: IntakeFormSection) => void;
+  onAction?: (sectionChanges?: SectionChanges, type?: 'submit' | 'draft', section?: IntakeFormSection) => void|Promise<unknown>;
   onCancel?: () => void;
   showActions?: boolean;
   submissionId?: string;
@@ -44,11 +46,15 @@ export default function MultiSectionAccordionForms({
 }: AccordionFormsProps) {
 
   const t = useTranslations();
+  const locale=useLocale();
   const router = useRouter();
   const widgetStore = useMemo(() => createWidgetStore(), []);
 
+  const [householdConfirmed,setHouseholdConfirmed]=useState(false);
   const [formHandle, setFormHandle] = useState<SectionsFormHandle | null>(null);
   const [savedSections, setSavedSections] = useState<string[]>([]);
+  const [dirtySections,setDirtySections]=useState<Record<string,boolean>>({});
+  const hasUnsavedChanges=Object.values(dirtySections).some(Boolean);
   const [activeTab, setActiveTab] = useState<"intake_forms" | "intake_possible_duplicates" | "register_possible_duplicates">("intake_forms");
 
   const { results: intakeResults, loading: intakeLoading } = useIntakeDeduplication(submissionId || "", "intake-form");
@@ -95,6 +101,8 @@ export default function MultiSectionAccordionForms({
   )
 
   const handleSubmit = async () => {
+    if(registerType==='household'&&!householdConfirmed){toast.warn('Confirm the household records are accurate before submitting for review.');return;}
+    if(hasUnsavedChanges){toast.warn('Save each changed section before reviewing and submitting.');return;}
     if (!formHandle) {
       return;
     }
@@ -111,12 +119,29 @@ export default function MultiSectionAccordionForms({
     window.location.reload();
   };
 
-  const handleDraftSave = () => {
-    router.push(`/intake-form/${registerType}`)
+  const handleDraftSave = async () => {
+    let savedId=submissionId;
+    if(hasUnsavedChanges && formHandle){
+      const changes=formHandle.getStructuredData();
+      for(const change of changes){
+        const section=sections.find(s=>s.section_id===change.section_id || s.section_ui_schema?.['section-id']===change.section_id);
+        if(!section || !change.section_id || !dirtySections[change.section_id])continue;
+        const keys=new Set<string>();
+        const collect=(node:any)=>{if(!node||typeof node!=='object')return;if(typeof node['widget-data-path']==='string'){const key=node['widget-data-path'].split('.').pop();if(key&&key!=='records')keys.add(key)};for(const value of Object.values(node)){if(Array.isArray(value))value.forEach(collect);else if(value&&typeof value==='object')collect(value)}};
+        collect(section.section_ui_schema);
+        const hasValues=change.records.some((row:any)=>row?.edit_action==='DELETE'||[...keys].some(key=>row?.[key]!==undefined&&row?.[key]!==null&&row?.[key]!==''));
+        if(!hasValues && !change.files?.length)continue;
+        const result=await onAction?.(change,'draft',section);
+        if(result===false)return;
+        if(result&&typeof result==='object'&&'submission_id' in result)savedId=String(result.submission_id);
+      }
+    }
+    // Reload the saved native draft so refresh and further edits retain its server identity.
+    window.location.assign(`/${locale}/intake-form/${registerType}${savedId?'/submission/'+savedId:''}`);
   }
 
   return (
-    <div className="mx-auto pt-0 pb-6 flex flex-col">
+    <div className="registry-native-form mx-auto pt-0 pb-6 flex flex-col">
       {submissionId && !showActions && (
         <IntakeFormDeduplicationTabs
           activeTab={activeTab}
@@ -144,9 +169,13 @@ export default function MultiSectionAccordionForms({
             </div>
           )}
 
-          <div className="flex gap-10">
-            <div className={`flex-1 flex flex-col gap-4 ${formDetailsCard || showActions ? 'max-w-[calc(100%-380px)]' : ''}`}>
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className={`flex-1 flex flex-col gap-4 ${registerType!=='household'&&(formDetailsCard || showActions) ? 'lg:max-w-[calc(100%-380px)]' : ''}`}>
+              <div className="flex flex-wrap gap-3 text-sm" aria-label="Section guidance">{sections.map(section=><span key={section.section_id}>{section.section_description || section.section_mnemonic.replaceAll('_',' ')}<InfoHint text={section.section_id==='hh_composition_headship'?'Record the sponsor, informed consent and respondent before household details. Save a draft before submitting for independent review.':section.section_id==='hh_members'?'Add each household member and their relationship to the head. Supply either age or date of birth. National ID authentication is not connected.':section.section_id.includes('location')?'Enter known location details. Optional location fields can be left blank; coordinates do not verify residence.':'Review known information in this section. Optional fields may be left blank. Save changes before submitting; approved records require an independently reviewed change request.'}/></span>)}</div>
+
+              {showActions&&registerType==='household'&&<HouseholdLocationCapture store={widgetStore} onCaptured={()=>setDirtySections(previous=>({...previous,hh_survey_consent:true}))}/>}
               <IntakeFormSections
+                confirmation={showActions&&registerType==='household'&&<label className="flex items-start gap-3 rounded-xl border border-primary-second bg-white p-5 text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={householdConfirmed} onChange={e=>setHouseholdConfirmed(e.target.checked)}/><span>I confirm these household records are accurate and understand that registration does not guarantee programme eligibility.</span></label>}
                 sectionsConfig={sectionsConfig}
                 schemaData={schemaData}
                 showActions={showActions}
@@ -155,12 +184,13 @@ export default function MultiSectionAccordionForms({
                 onCancel={handleCancel}
                 onSubmit={handleSubmit}
                 onDraftSave={handleDraftSave}
-                isSubmitDisabled={formHandle === null || !allSectionsSaved}
+                isSubmitDisabled={formHandle === null}
                 widgetStore={widgetStore}
+                onDirtyChange={(id,dirty)=>setDirtySections(previous=>({...previous,[id]:dirty}))}
               />
             </div>
 
-            {(formDetailsCard || showActions) && (
+            {registerType!=='household'&&(formDetailsCard || showActions) && (
               <div className="shrink-0">
                 <FormDetailsCard
                   title={intakeFormHeading}
@@ -187,4 +217,3 @@ export default function MultiSectionAccordionForms({
     </div>
   );
 }
-

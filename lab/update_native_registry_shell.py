@@ -1,0 +1,3 @@
+from pathlib import Path
+import shutil,datetime,re,subprocess
+root=Path('/opt/openg2p-lab/branding');src=Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/persona-ui/dist/site-shell.js');shutil.copy2(root/'site-shell.js',root/('site-shell.js.before-household-'+datetime.datetime.now().strftime('%Y%m%d%H%M%S')));shutil.copy2(src,root/'site-shell.js');p=Path('/etc/nginx/snippets/iqs-brand.conf');s=p.read_text();s=re.sub(r'site-shell\.js\?v=[^" ]+','site-shell.js?v=master-registry-20261113',s);p.write_text(s);subprocess.run(['nginx','-t'],check=True,capture_output=True);subprocess.run(['systemctl','reload','nginx'],check=True);print('Replaced retired workspace navigation with Master Registry')

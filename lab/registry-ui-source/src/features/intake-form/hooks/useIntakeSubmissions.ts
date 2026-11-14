@@ -5,6 +5,7 @@ export const useIntakeSubmissions = (
     registerId?: string,
     params?: {
         searchText?: string;
+        status?: string;
         currentPage?: number;
         pageSize?: number;
     }
@@ -15,11 +16,12 @@ export const useIntakeSubmissions = (
             body: JSON.stringify({
                 register_id: registerId,
                 search_text: params?.searchText,
+                filter_by: params?.status && params.status !== "all" ? JSON.stringify({workflow_status:params.status}) : "",
                 current_page: params?.currentPage,
                 page_size: params?.pageSize,
             }),
         }),
-        [registerId, params?.searchText, params?.currentPage, params?.pageSize],
+        [registerId, params?.searchText, params?.currentPage, params?.pageSize, params?.status],
     );
 
     const { data, loading, execute } = useFetch<any>({

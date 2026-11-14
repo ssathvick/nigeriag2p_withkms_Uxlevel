@@ -4,7 +4,7 @@ import{call}from'./api';
 
 export const editable={
  'g2p.enrollment.cycle':['program_id','cycle_number','enrollment_start_date','enrollment_end_date','disbursement_start_date','disbursement_end_date'],
- 'g2p.disbursement.cycle':['program_id','cycle_mnemonic','disbursement_schedule_date'],
+ 'g2p.disbursement.cycle':['program_id','cycle_mnemonic','disbursement_schedule_date','nsipa_enrollment_cycle_id'],
  'g2p.beneficiary.list':['mnemonic','brief','enrollment_cycle_id','disbursement_cycle_id'],
  'g2p.eligibility.rule.definition':['program_id','rule_number','mnemonic','description','target_registry','set_operator','pbms_domain'],
  'g2p.entitlement.rule.definition':['program_id','mnemonic','description','target_registry','benefit_code_id','quantity','multiplier','pbms_domain'],

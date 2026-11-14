@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { registryDisplayText } from '@/shared/utils/registryDisplayText';
 
 export type KeyValueVariant = 'split' | 'deduplication' | 'message';
 
@@ -26,11 +27,13 @@ export function KeyValue({
     className = '',
 }: KeyValueProps) {
     const root = className.trim();
+    label = registryDisplayText(String(label??''));
+    value = registryDisplayText(String(value??'Not recorded'));
 
     if (variant === 'deduplication') {
         return (
             <div
-                className={`flex w-full overflow-hidden font-normal leading-[26px] text-neutral-first${root ? ` ${root}` : ''}`}
+                className={`application-key-value flex w-full overflow-hidden font-normal leading-[26px] text-neutral-first${root ? ` ${root}` : ''}`}
             >
                 <span className="w-1/2 truncate text-[16px] text-neutral-first/50" title={label}>
                     {label} :{' '}
@@ -47,7 +50,7 @@ export function KeyValue({
 
     if (variant === 'message') {
         return (
-            <div className={`text-neutral-first${root ? ` ${root}` : ''}`}>
+            <div className={`application-key-value text-neutral-first${root ? ` ${root}` : ''}`}>
                 <span className="text-[16px] text-neutral-first/50">{label}: </span>
                 <span className={`text-[14px] font-medium ${valueClassName ?? 'text-neutral-first'}`}>{value}</span>
             </div>
@@ -56,7 +59,7 @@ export function KeyValue({
 
     return (
         <div
-            className={`flex w-full overflow-hidden leading-relaxed text-neutral-first${root ? ` ${root}` : ''}`}
+            className={`application-key-value flex w-full overflow-hidden leading-relaxed text-neutral-first${root ? ` ${root}` : ''}`}
         >
             <span
                 className="w-1/2 min-w-0 truncate text-[16px] font-normal text-neutral-first/50"

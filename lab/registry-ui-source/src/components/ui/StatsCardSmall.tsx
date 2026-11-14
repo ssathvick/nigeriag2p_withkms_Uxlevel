@@ -1,5 +1,7 @@
 "use client";
 
+import {useStatsShortcut} from '@/components/shared/StatsShortcut';
+import {InfoHint} from '@/components/shared/Workflow';
 import { useMemo } from "react";
 import { useFetch } from "@/shared/hooks/useFetch";
 import { useTranslations } from 'next-intl';
@@ -15,6 +17,7 @@ const StatsCardSmall = ({
     active = false,
 }: StatsCardSmallProps) => {
     const t = useTranslations();
+    const navigate=useStatsShortcut(stats_endpoint);
     const { data, loading, error } = useFetch<any>({
         url: stats_endpoint,
     });
@@ -56,7 +59,7 @@ const StatsCardSmall = ({
 
         if (stats_endpoint.includes("intake")) {
             return {
-                title: t('intake_forms'),
+                title: 'Form Submissions',
                 rows: [
                     {
                         id: "pendingSubmissions",
@@ -96,7 +99,7 @@ const StatsCardSmall = ({
 
         if (stats_endpoint.includes("/tasks")) {
             return {
-                title: t('approval_tasks'),
+                title: 'My Tasks',
                 rows: [
                     {
                         id: "change_request",
@@ -149,10 +152,10 @@ const StatsCardSmall = ({
                     ) : (
                         <>
                             <h2 className="font-roboto text-[45px] font-bold leading-none truncate overflow-hidden whitespace-nowrap" title={totalCount}>
-                                {totalCount}
+                                <button type="button" aria-label={`View ${title}`} onClick={e=>{e.stopPropagation();navigate()}} className="rounded-full px-2 hover:bg-primary-first/30 focus-visible:outline-2">{totalCount}</button>
                             </h2>
                             <h3 className="font-roboto text-[22px] font-bold leading-7 truncate overflow-hidden whitespace-nowrap" title={title}>
-                                {title}
+                                {title}<InfoHint text={stats_endpoint.includes('tasks')?'Your pending review tasks. Open the intake or change-request count to view that exact queue.':stats_endpoint.includes('intake')?'Saved intake forms and their current review status. Select a count to open its filtered list.':stats_endpoint.includes('change')?'Changes proposed for existing master records. Open a count to view the corresponding approval status.':'Approved household and individual records. Select a count to open that master register.'}/>
                             </h3>
                         </>
                     )}
@@ -182,9 +185,7 @@ const StatsCardSmall = ({
                                 )}
 
                                 {/* value */}
-                                <span className="font-roboto text-[16px] font-bold leading-7 truncate overflow-hidden whitespace-nowrap" title={row.value}>
-                                    {row.value}
-                                </span>
+                                <button type="button" onClick={e=>{e.stopPropagation();navigate(row.id)}} aria-label={`View ${row.value || 0} ${row.label}`} className={`rounded-full px-3 py-0.5 font-bold transition-colors hover:bg-primary-first hover:text-neutral-first ${Number(row.value)>0 && (stats_endpoint.includes('tasks') || row.id==='pending' || row.id==='pendingSubmissions' || row.id==='draftSubmissions')?'bg-red-100 text-red-800':'bg-secondary-first text-secondary-third'}`}>{row.value || 0}</button>
 
                                 {/* label */}
                                 <span className="font-roboto text-[16px] font-medium leading-7 opacity-80 truncate overflow-hidden whitespace-nowrap" title={row.label}>

@@ -6,10 +6,15 @@ ROOT=Path('/opt/openg2p-lab/odk-sync/legacy-review');WORK=Path(__file__).parent/
 class LegacyTests(unittest.TestCase):
  def setUp(self):
   self.items=json.loads((WORK/'approved-mappings.json').read_text());self.master=json.loads((WORK/'master.json').read_text());self.review=self.items[0]['review'];self.xml=(ROOT/(self.review['instance_id'].replace(':','_')+'.xml')).read_bytes();self.definition=(ROOT/self.review['definition_file']).read_bytes()
+  self.master['GEO_VALUES']=json.loads((Path(__file__).parent/'geography-reference.json').read_text())
  def test_all_five_preserve_original_and_counts(self):
   for item in self.items:
    review=item['review'];xml=(ROOT/(review['instance_id'].replace(':','_')+'.xml')).read_bytes();mapped=map_legacy(xml,self.definition,self.master,review)
-   self.assertEqual(mapped['source_sha256'],hashlib.sha256(xml).hexdigest());self.assertEqual(mapped,item['mapping']);self.assertNotIn('latitude',mapped['payload']);self.assertNotIn('roof_material',mapped['payload']);self.assertIn('Synthetic ',mapped['payload']['record_name'])
+   self.assertEqual(mapped['source_sha256'],hashlib.sha256(xml).hexdigest())
+   for key,value in item['mapping']['payload'].items():self.assertEqual(mapped['payload'][key],value)
+   self.assertEqual(mapped['payload']['geo_lowest_level_value_id'],'OCHA-NG032005')
+   self.assertEqual(mapped['enrichment'],item['mapping']['enrichment'])
+   self.assertNotIn('latitude',mapped['payload']);self.assertNotIn('roof_material',mapped['payload']);self.assertIn('Synthetic ',mapped['payload']['record_name'])
  def test_changed_source_rejected(self):
   with self.assertRaisesRegex(ValueError,'source hash'):map_legacy(self.xml+b' ',self.definition,self.master,self.review)
  def test_changed_definition_rejected(self):

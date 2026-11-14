@@ -1,0 +1,7 @@
+{
+  "officer@example.invalid": {"role": "mbr-officer"},
+  "field-agent@example.invalid": {"role": "mbr-field-agent"},
+  "reviewer-one@example.invalid": {"role": "mbr-level1"},
+  "reviewer-two@example.invalid": {"role": "mbr-level2"},
+  "registry-admin@example.invalid": {"role": "mbr-admin"}
+}

@@ -1,6 +1,9 @@
 "use client";
 
 import { useMemo } from "react";
+import {ReviewHistory} from '@/components/shared/ReviewHistory';
+import Can from '@/components/shared/Can';
+import {Link} from '@/i18n/navigation';
 
 import { TabsLayout, ActionModal } from "@/components/shared";
 import {
@@ -153,6 +156,8 @@ export default function ChangeRequestDetailsView({ changeId, breadcrumb }: Props
                         )
                     )}
 
+                    <ReviewHistory events={details?.review_history}/>
+                    {details?.awe_request_status_summary?.startsWith('returned') && <Can action="changeRequest:create"><div className="my-4 rounded-lg bg-amber-50 p-5"><p>This change request was returned for correction. Open the record, correct the same section and save to resubmit this request for independent review.</p><Link className="inline-block mt-3 rounded-full px-5 py-2 bg-neutral-first text-white" href={`/register/${details.register_mnemonic?.toLowerCase() || (details.register_id.endsWith('002')?'household':'individual')}/${details.internal_record_id}`}>Correct record details</Link></div></Can>}
                     {loadingSchema ? (
                         <SectionSchemaSkeleton />
                     ) : (

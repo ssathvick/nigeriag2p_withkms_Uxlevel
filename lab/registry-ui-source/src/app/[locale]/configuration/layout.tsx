@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { ConfigLayout, type ConfigActiveOption } from '@/features/configuration/shared';
 import RequireAction from '@/components/shared/RequireAction';
-import { CONFIG_VIEW_ACTIONS } from '@/features/configuration/shared/utils/configurationView.actions';
+import {sectionForPath} from '@/features/configuration/shared/components/configurationAccess';
 
 const SIDEBAR_OPTIONS: ConfigActiveOption[] = [
     'registry', 'registry-details', 'registry-themes', 'registry-languages', 'registers',
@@ -53,8 +53,12 @@ export default function ConfigurationLayout({
     const pathname = usePathname();
     const activeOption = getActiveOptionFromPathname(pathname);
 
+    if (pathname?.endsWith('/configuration/registry/users')) {
+        return <RequireAction action="registryConfiguration:edit">{children}</RequireAction>;
+    }
+
     return (
-        <RequireAction anyOf={CONFIG_VIEW_ACTIONS}>
+        <RequireAction action={pathname?.endsWith('/new')||pathname?.endsWith('/create')?sectionForPath(pathname||'').access.create:sectionForPath(pathname||'').access.view}>
             <ConfigLayout activeOption={activeOption}>
                 {children}
             </ConfigLayout>

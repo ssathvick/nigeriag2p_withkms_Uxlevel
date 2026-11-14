@@ -24,7 +24,7 @@ export default function IntakeFormSubmissionPage() {
                     href: `/intake-form/${registerType}`,
                 },
                 {
-                    label: submissionId ? `${t('id')}-${submissionId}` : '',
+                    label: submissionId ? `${t('id')}-•••${submissionId.slice(-3)}` : '',
                 },
             ]}
         />

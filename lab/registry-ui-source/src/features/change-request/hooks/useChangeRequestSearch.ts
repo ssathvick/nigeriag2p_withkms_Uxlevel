@@ -6,6 +6,7 @@ interface UseChangeRequestSearchOptions {
     pageSize?: number;
     initialPage?: number;
     searchText?: string;
+    status?: string;
     enabled?: boolean;
 }
 
@@ -13,13 +14,14 @@ export function useChangeRequestSearch({
     pageSize,
     initialPage = 1,
     searchText = '',
+    status = 'all',
     enabled = true,
 }: UseChangeRequestSearchOptions) {
     const [currentPage, setCurrentPage] = useState(initialPage);
 
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchText]);
+    }, [searchText,status]);
 
     const { data, loading } = useFetch<any>({
         url: '/api/change-request/search',
@@ -30,6 +32,7 @@ export function useChangeRequestSearch({
                 current_page: currentPage,
                 page_size: pageSize,
                 search_text: searchText,
+                filter_by: status === "all" ? "" : JSON.stringify({workflow_status:status}),
             }),
         },
     });

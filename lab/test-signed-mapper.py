@@ -38,6 +38,3 @@ signed_call('/mapper/link',link_payload)
 resolved=signed_call('/mapper/resolve',payload)
 assert resolved['response_body']['response_payload']['resolve_response'][0]['fa']
 print('Signed link and account resolution succeeded with synthetic financial address.')
-
-
-

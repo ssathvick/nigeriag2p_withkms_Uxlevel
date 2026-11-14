@@ -11,10 +11,3 @@ try:
    root=ET.fromstring(raw); matches.append({'instance':entry['instanceId'],'reference':root.findtext('.//sample_reference')}); (work/'fault-submission.xml').write_bytes(raw)
 finally:client.close()
 out={'checked_at_ist':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5,minutes=30))).isoformat(),'reference':'PHONE-FAULT-05','odk_matches':matches};(work/'fault-receipt-check.json').write_text(json.dumps(out,indent=2));print(json.dumps(out))
-
-
-
-
-
-
-

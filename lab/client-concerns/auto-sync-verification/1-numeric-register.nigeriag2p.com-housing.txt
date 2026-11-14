@@ -1,0 +1,65 @@
+Master Beneficiary Registry
+All services
+My workspace
+Dashboard
+Service guide
+ⓘ Help
+Master Beneficiary Registry
+Nigeria UX Admin
+Households
+Household Info
+Household Members
+Housing & Services
+Programs
+Housing And Servicesⓘ
+Dwelling Type:
+-
+Roof material:
+Corrugated iron
+Wall Material:
+-
+Floor Material:
+-
+Tenure Status:
+-
+Water source:
+Piped
+Water Distance (Minutes):
+Sanitation Type:
+-
+Lighting Source:
+-
+Cooking Fuel Type:
+-
+Number of Rooms:
+Overcrowding Indicator:
+Edit Details
+Assetsⓘ
+Asset Type
+
+Asset Category
+
+Quantity
+
+Size Band
+
+No records available.
+Edit Details
+Change Requestⓘ
+00
+
+No pending change requests
+
+Version Historyⓘ
+01
+
+Last Updated By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+
+Last Approved By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+Know More

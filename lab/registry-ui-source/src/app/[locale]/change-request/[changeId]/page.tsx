@@ -19,7 +19,7 @@ export default function ChangeRequestDetailsPage() {
                 href: "/change-request",
             },
             {
-                label: t("change_id_breadcrumb", { id: changeId }),
+                label: t("change_id_breadcrumb", { id: '•••'+changeId.slice(-3) }),
             },
         ],
         [changeId, t]

@@ -145,4 +145,3 @@ with (out/'individuals.csv').open('w',newline='') as f:
 (root/'synthetic-platform-batch.json').write_text(json.dumps(bundle,indent=2,ensure_ascii=False))
 (out/'summary.json').write_text(json.dumps(report,indent=2))
 print(json.dumps(report,indent=2),flush=True)
-

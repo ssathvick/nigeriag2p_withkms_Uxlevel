@@ -63,4 +63,3 @@ assert sum(x['state']=='Oyo' and x['chamber']=='State House of Assembly' for x i
 (P/'expanded-officials.json').write_text(json.dumps(rows,indent=2,ensure_ascii=False))
 from collections import Counter
 print(Counter((x['state'],x['chamber']) for x in rows));print('total',len(rows))
-

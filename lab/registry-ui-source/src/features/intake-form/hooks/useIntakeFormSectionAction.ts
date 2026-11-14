@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect,useRef } from 'react';
+import { useRouter } from '@/i18n/navigation';
 import { useFetch } from '@/shared/hooks/useFetch';
 import { toast } from 'react-toastify';
 import { IntakeFormSection } from '../types/intake-form';
@@ -32,10 +32,13 @@ export const useIntakeFormSectionAction = ({
     const { execute: uploadDocumentRequest } = useFetch();
 
     const [activeSubmissionId, setActiveSubmissionId] = useState<string | null>(submissionId);
+    const activeSubmissionIdRef=useRef<string|null>(submissionId);
     const [sectionInternalIds, setSectionInternalIds] = useState<Record<string, string>>({});
+    const sectionInternalIdsRef=useRef<Record<string,string>>({});
 
     useEffect(() => {
         setActiveSubmissionId(submissionId);
+        activeSubmissionIdRef.current=submissionId;
     }, [submissionId]);
 
     const [modalConfig, setModalConfig] = useState<{
@@ -55,10 +58,18 @@ export const useIntakeFormSectionAction = ({
     };
 
     const performFinalize = async () => {
-        const targetSubmissionId = activeSubmissionId || submissionId;
+        const targetSubmissionId = activeSubmissionIdRef.current || submissionId;
         if (!targetSubmissionId || !registerId) return;
 
         try {
+            if(registerType==='household'){
+              const details=await executeSave('/api/intake-form/get-intake-form-submission',{method:'POST',body:JSON.stringify({submission_id:targetSubmissionId,register_id:registerId})});
+              const section=details?.section_payloads?.find((s:any)=>s.section_register_id===registerId&&s.records?.length);
+              const record=section?.records?.[0];
+              if(!record){toast.error('Save household details before submitting.');return;}
+              const confirmation=await executeSave('/api/intake-form/save-intake-form-submission',{method:'POST',body:JSON.stringify({submission_id:targetSubmissionId,register_id:registerId,form_id:formId,section_id:'hh_survey_consent',section_register_id:registerId,section_payload:[{...record,registration_confirmed:'YES',edit_action:'UPDATE'}]})});
+              if(!confirmation||confirmation.error){toast.error('Could not save the household confirmation.');return;}
+            }
             const saveResult = await executeSave('/api/intake-form/finalize-intake-form-submission', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -142,9 +153,9 @@ export const useIntakeFormSectionAction = ({
         documentsResponse = [...existingDocuments as UploadedDocument[], ...documentsResponse];
 
         const savePayload = {
-            submission_id: activeSubmissionId || submissionId,
+            submission_id: activeSubmissionIdRef.current || submissionId,
             section_id: activeSection.section_id,
-            section_payload: intakeNormalisedRecords(change?.records, sectionInternalIds[activeSection.section_register_id]),
+            section_payload: intakeNormalisedRecords(change?.records, sectionInternalIdsRef.current[activeSection.section_register_id]),
             section_register_id: activeSection.section_register_id,
             form_id: formId,
             register_id: registerId,
@@ -158,13 +169,14 @@ export const useIntakeFormSectionAction = ({
                 body: JSON.stringify(savePayload)
             });
 
-            if (!saveResult) {
+            if (!saveResult || saveResult.error) {
                 toast.error(t('toast_operation_failed'));
-                return;
+                return false;
             }
 
             if (saveResult && saveResult.submission_id) {
                 setActiveSubmissionId(saveResult.submission_id);
+                activeSubmissionIdRef.current=saveResult.submission_id;
             }
 
             // Extract and cache the internal_record_id for non-list sections from the response.
@@ -176,6 +188,7 @@ export const useIntakeFormSectionAction = ({
                 );
 
                 if (currentSectionPayload && !currentSectionPayload.is_list && currentSectionPayload.records?.length > 0) {
+                    sectionInternalIdsRef.current[activeSection.section_register_id]=currentSectionPayload.records[0].internal_record_id;
                     setSectionInternalIds(prev => ({
                         ...prev,
                         [activeSection.section_register_id]: currentSectionPayload.records[0].internal_record_id
@@ -186,7 +199,7 @@ export const useIntakeFormSectionAction = ({
             if (action === 'draft') {
                 toast.success(t('draft_updated_successfully'));
                 if (onSuccess) onSuccess();
-                return;
+                return {saved:true,submission_id:activeSubmissionIdRef.current};
             }
 
             const handleSuccessClose = () => {
@@ -209,7 +222,9 @@ export const useIntakeFormSectionAction = ({
             });
 
         } catch (error) {
+            console.error('Native draft save failed',error);
             toast.error(t('toast_form_save_error'));
+            return false;
         }
     };
 
@@ -235,7 +250,7 @@ export const useIntakeFormSectionAction = ({
                 }
             });
         } else if (sectionChanges && activeSection) {
-            await performSave(sectionChanges, 'draft', activeSection);
+            return await performSave(sectionChanges, 'draft', activeSection);
         }
     };
 

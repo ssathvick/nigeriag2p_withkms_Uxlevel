@@ -505,7 +505,7 @@ class G2PRegisterService(BaseService):
             await self.validate_register_definition(register_id, session)
             search_results_list, total_items = await self._search_in_register(register_id, search_text, current_page, page_size, sort_by, filter_by, session, data_policies)
             return search_results_list, total_items
-    
+
     async def deep_search_in_a_register(
         self, register_id: str, search_text: str, current_page: int = 1, page_size: int = 10, sort_by: str = None, filter_by: dict = None
     ) -> tuple[list[DeepSearchResultData], int]:
@@ -538,15 +538,15 @@ class G2PRegisterService(BaseService):
         history_dict["created_by"] = change_request.created_by
         history_dict["approved_at"] = change_request.approved_at
         history_dict["approved_by"] = change_request.approved_by
-        
+
         # Convert date strings to date objects before creating the instance
         history_dict = self._convert_date_strings_to_objects(history_dict, history_class)
-        
+
         history_instance = history_class(**history_dict)
         session.add(history_instance)
 
 
-                
+
     async def validate_register_definition(self, register_id: str, session) -> G2PRegisterDefinition:
         g2p_register_definition: G2PRegisterDefinition = (
             await session.execute(
@@ -929,10 +929,10 @@ class G2PRegisterService(BaseService):
         ]
 
         return register_tabs_list, total_count
-    
+
     async def _deep_search_in_register(self, register_id: str, search_text: str, current_page: int, page_size: int, sort_by: str, filter_by: dict, session) -> tuple[list[DeepSearchResultData], int]:
         g2p_register_definition: G2PRegisterDefinition = await self.validate_register_definition(register_id, session)
-        
+
         # Get the implementation class for this register
         try:
             module = importlib.import_module("openg2p_registry_extensions.register_domain.models")
@@ -945,7 +945,7 @@ class G2PRegisterService(BaseService):
                 code=G2PRegistryErrorCodes.REGISTER_DATA_NOT_FOUND.value[1],
                 message=f"Register implementation not found for {g2p_register_definition.register_mnemonic}"
             )
-        
+
         # Build search query
         search_query: str = f"%{search_text}%"
 
@@ -983,7 +983,7 @@ class G2PRegisterService(BaseService):
 
         # Build DeepSearchResultData list
         deep_search_results_list: list[DeepSearchResultData] = []
-        
+
         hierarchical_service = G2PRegisterHierarchicalService.get_component()
         if not hierarchical_service:
             hierarchical_service = G2PRegisterHierarchicalService()
@@ -1246,7 +1246,7 @@ class G2PRegisterService(BaseService):
                         )
                     )
                 ).scalar()
-                
+
                 if not section_register_def:
                     continue
 
@@ -1472,7 +1472,7 @@ class G2PRegisterService(BaseService):
                         )
                     )
                 ).scalar()
-                
+
                 if not section_register_def:
                     continue
 
@@ -1554,7 +1554,7 @@ class G2PRegisterService(BaseService):
                         )
                     )
                 ).scalar()
-                
+
                 if not section_register_def:
                     continue
 
@@ -1614,7 +1614,7 @@ class G2PRegisterService(BaseService):
                         if version.change_request_id in request_ids:
                             version.request_id = request_ids[version.change_request_id]
                 section_changes = list(seen_versions.values())
-                
+
                 # Only add section if it has changes
                 if section_changes:
                     results.append(VersionsForDateData(
@@ -1959,8 +1959,8 @@ class G2PRegisterService(BaseService):
                 )
             )
         ).scalar()
-        
-       
+
+
         for section in sections:
             section_register_definition: G2PRegisterDefinition = (
                 await session.execute(
@@ -2000,14 +2000,14 @@ class G2PRegisterService(BaseService):
     ) -> RegisterRelationEnum:
         """
         Determine the relationship between section's register and the queried register.
-        
+
         Args:
             register_id: The register_id from the API request
             section_register_id: The section's register_id
             register_definition: The G2PRegisterDefinition for register_id
             section_register_definition: The G2PRegisterDefinition for section_register_id
             session: Database session for async operations
-        
+
         Returns:
             RegisterRelationEnum: SELF, DESCENDANT, DESCENDANT_OF_A_REGISTER, ANCESTOR, or PEER
         """
@@ -2016,11 +2016,11 @@ class G2PRegisterService(BaseService):
 
         if section_register_definition is None or register_definition is None:
             return RegisterRelationEnum.SELF
-        
+
         # Direct child: section's register has this register as its master
         if section_register_definition.master_register_id == register_id:
             return RegisterRelationEnum.DESCENDANT
-        
+
         # Check for indirect descendant (through TABLE-only or with REGISTER in between)
         path_exists, has_register_in_between = await self._has_register_in_path(
             section_register_id, register_id, session
@@ -2029,16 +2029,16 @@ class G2PRegisterService(BaseService):
             return RegisterRelationEnum.DESCENDANT_OF_A_REGISTER
         if path_exists:
             return RegisterRelationEnum.DESCENDANT
-        
+
         # Direct parent: this register has section's register as its master
         if register_definition.master_register_id == section_register_id:
             return RegisterRelationEnum.ANCESTOR
-        
+
         # Peer: both share the same master_register_id
-        if (register_definition.master_register_id and 
+        if (register_definition.master_register_id and
             register_definition.master_register_id == section_register_definition.master_register_id):
             return RegisterRelationEnum.PEER
-        
+
         # Default fallback (shouldn't happen in normal cases)
         return RegisterRelationEnum.SELF
 
@@ -2051,7 +2051,7 @@ class G2PRegisterService(BaseService):
     ) -> tuple[bool, bool]:
         """
         Check if there's a path from start to target via master_register_id.
-        
+
         Traverses from start_register_id up via master_register_id.
         Returns:
             tuple[bool, bool]: (path_exists, has_register_in_between)
@@ -2075,27 +2075,27 @@ class G2PRegisterService(BaseService):
 
             if not register_definition:
                 return False, False
-            
+
             # Move to parent
             current_id = register_definition.master_register_id
-            
+
             if is_first:
                 is_first = False
                 depth += 1
                 continue
-            
+
             # Check if we reached the target
             if register_definition.register_id == target_register_id:
                 return True, found_register_in_between
-            
+
             # Check if current intermediate node is a REGISTER
             if register_definition.register_purpose == RegisterPurposeEnum.REGISTER.value:
                 found_register_in_between = True
-            
+
             # Check if parent is the target
             if current_id == target_register_id:
                 return True, found_register_in_between
-                
+
             depth += 1
 
         return False, False
@@ -2280,7 +2280,7 @@ class G2PRegisterService(BaseService):
                 code=G2PRegistryErrorCodes.DATA_NOT_FOUND.value[1],
                 message=f"Section not found for register_id: {register_id}, section_id: {section_id}"
             )
-        
+
         # Fetch the main register definition once (for register_relation computation)
         register_definition: G2PRegisterDefinition = (
             await session.execute(
@@ -2289,7 +2289,7 @@ class G2PRegisterService(BaseService):
                 )
             )
         ).scalar()
-        
+
         section_register_definition: G2PRegisterDefinition = (
             await session.execute(
                 select(G2PRegisterDefinition).where(
@@ -2297,7 +2297,7 @@ class G2PRegisterService(BaseService):
                 )
             )
         ).scalar()
-        
+
         register_relation = await self._get_register_relation(
                 register_id=register_id,
                 section_register_id=section.section_register_id,
@@ -2457,7 +2457,7 @@ class G2PRegisterService(BaseService):
 
                 if register_rank is not None:
                     register_definition.register_rank = register_rank
-                
+
                 if dedup_is_enabled is not None:
                     register_definition.dedup_is_enabled = dedup_is_enabled
 
@@ -2768,7 +2768,7 @@ class G2PRegisterService(BaseService):
                 search_result_schema=existing_schema.search_result_schema,
                 filter_schema=existing_schema.filter_schema
             )
-    
+
     async def get_primary_register_section(self, register_id: str) -> RegisterSectionData | None:
         """
         Get the primary section for a register.
@@ -3383,13 +3383,13 @@ class G2PRegisterService(BaseService):
     ) -> list[G2PRegisterDefinition] | None:
         """
         Find path from start_register up to target_register via master_register_id.
-        
+
         Args:
             start_register_id: Starting register (child/descendant)
             target_register_id: Target ancestor register
             session: Database session
             max_depth: Maximum hierarchy depth to prevent infinite loops
-            
+
         Returns:
             List of register definitions from start to target, or None if not found
         """
@@ -3422,34 +3422,34 @@ class G2PRegisterService(BaseService):
     def _get_register_implementation_class(self, register_mnemonic: str, register_purpose: str = None):
         """
         Get implementation class for a register based on its mnemonic.
-        
+
         Args:
             register_mnemonic: The register mnemonic (e.g., "Farmer", "Score")
             register_purpose: The register purpose (e.g., "CORE_TABLE", "REGISTER")
                           If None, will try extensions first, then core
-            
+
         Returns:
             The SQLAlchemy model class for the register
         """
         _logger.info(f"Looking for implementation class for register_mnemonic='{register_mnemonic}' with purpose={register_purpose}")
-        
+
         # If register_purpose is CORE_TABLE, look in core models first
         if register_purpose == RegisterPurposeEnum.CORE_TABLE.value:
             try:
                 module = importlib.import_module("openg2p_registry_core.models")
                 implementation_class_name = f"G2PRegister{register_mnemonic}"
-                
+
                 if hasattr(module, implementation_class_name):
                     implementation_class = getattr(module, implementation_class_name)
                     _logger.info(f"Found core implementation class {implementation_class_name} for {register_mnemonic}")
                     return implementation_class
                 else:
                     raise AttributeError(f"Core class {implementation_class_name} not found")
-                    
+
             except (AttributeError, ModuleNotFoundError) as error:
                 _logger.error(f"Could not load core class for {register_mnemonic}: {str(error)}")
                 raise
-        
+
         # Try extensions for regular registers
         try:
             module = importlib.import_module("openg2p_registry_extensions.register_domain.models")
@@ -3549,22 +3549,22 @@ class G2PRegisterService(BaseService):
         session
     ) -> list[str]:
         """
-        Get the internal_record_ids to query for history records by traversing 
+        Get the internal_record_ids to query for history records by traversing
         down the register hierarchy from subject to section.
-        
+
         Example: For Farmer (subject) → Lands → Crops (section)
         - Given farmer's internal_record_id
         - Returns all crop internal_record_ids belonging to that farmer
-        
+
         Kept as transitional fallback for history rows that predate
         subject_internal_record_id stamping.
-        
+
         Args:
             section_register_id: The register ID of the section (e.g., Crops)
             subject_internal_record_id: The subject record's internal_record_id (e.g., Farmer's ID)
             subject_register_id: The subject register ID (e.g., Farmer register)
             session: Database session
-            
+
         Returns:
             List of internal_record_ids to query in history table
         """
@@ -3573,35 +3573,35 @@ class G2PRegisterService(BaseService):
         if not section_register:
             _logger.warning(f"Section register {section_register_id} not found")
             return [subject_internal_record_id]
-        
+
         # If same register, no traversal needed
         if section_register_id == subject_register_id:
             return [subject_internal_record_id]
-        
+
         # Build path from section to subject (section is child, subject is ancestor)
         path: list[G2PRegisterDefinition] | None = await self._find_path_to_ancestor(
             section_register_id, subject_register_id, session
         )
-        
+
         if not path:
             # No hierarchy path found, fall back to single ID
             _logger.warning(
                 f"No hierarchy path found from section {section_register_id} to subject {subject_register_id}"
             )
             return [subject_internal_record_id]
-        
+
         # Reverse path to traverse from subject (top) to section (bottom)
         # path is [section, ..., subject], we need [subject, ..., section]
         path_reversed: list[G2PRegisterDefinition] = list(reversed(path))
-        
+
         # Start with subject's internal_record_id
         current_ids: list[str] = [subject_internal_record_id]
-        
+
         # Traverse down the hierarchy (skip first register which is subject)
         for i in range(1, len(path_reversed)):
             register_def: G2PRegisterDefinition = path_reversed[i]
             impl_class = self._get_register_implementation_class(register_def.register_mnemonic, register_def.register_purpose)
-            
+
             # Find all records where link_internal_record_id is in current_ids
             result = await session.execute(
                 select(impl_class.internal_record_id).where(
@@ -3609,13 +3609,13 @@ class G2PRegisterService(BaseService):
                 )
             )
             child_ids = [row[0] for row in result.fetchall()]
-            
+
             if not child_ids:
                 # No records found at this level
                 return []
-            
+
             current_ids = child_ids
-        
+
         return current_ids
 
 

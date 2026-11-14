@@ -1,4 +1,6 @@
 'use client';
+import {useConfigurationAccess} from './configurationAccess';
+import {useRbac} from '@/context/RbacContext';
 
 import Image from 'next/image';
 
@@ -8,6 +10,8 @@ interface Props {
 }
 
 export default function DeleteButton({ label, onClick }: Props) {
+    const access=useConfigurationAccess();const {can}=useRbac();
+    if(access&&!can(access.delete))return null;
     return (
         <button
             onClick={async (e) => {

@@ -59,8 +59,3 @@ for source in [add,out/'NSIPA-Client-Feedback-Report-Final-End-to-End.pdf']:
 dest=out/'NSIPA-Client-Feedback-Report-Transfer-Faults-Verified.pdf'
 with dest.open('wb') as f:w.write(f)
 print(dest)
-
-
-
-
-

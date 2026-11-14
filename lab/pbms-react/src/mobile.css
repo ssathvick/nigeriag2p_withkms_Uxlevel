@@ -9,3 +9,5 @@
  .table-wrap td:last-child{justify-content:flex-end}
  .table-wrap td.empty{justify-content:center;text-align:center;padding:25px}
 }
+
+.nsipa-product-logo{display:block;width:86px;height:64px;object-fit:contain;flex-shrink:0;background:#fff;border-radius:7px;padding:4px}

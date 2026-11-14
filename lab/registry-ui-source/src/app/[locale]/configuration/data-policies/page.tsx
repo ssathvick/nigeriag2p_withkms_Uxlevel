@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import {useRbac} from '@/context/RbacContext';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/navigation';
 import { TopBar } from '@/components/shared';
@@ -24,7 +25,7 @@ import ConfirmRemovePopup from '@/features/configuration/shared/components/Confi
 import { ViewPolicyModal } from '@/features/configuration/data-policies';
 
 const DataPoliciesPage = () => {
-    const t = useTranslations();
+    const t = useTranslations();const {can}=useRbac();
     const router = useRouter();
     const searchParams = useSearchParams();
     const [currentPage, setCurrentPage] = useState(1);
@@ -128,7 +129,7 @@ const DataPoliciesPage = () => {
                 breadcrumb={[{ label: t('data_policies') }]}
                 showFilters={false}
                 showPagination={!!selectedRegisterId}
-                showAddNewButton={!!selectedRegisterId}
+                showAddNewButton={!!selectedRegisterId&&can('registryConfiguration:edit')}
                 addNewButtonText={t('add_new_policy')}
                 onAddNewButton={() =>
                     router.push(

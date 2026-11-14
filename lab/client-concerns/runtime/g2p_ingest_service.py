@@ -161,7 +161,7 @@ class G2PIngestService(BaseService):
 
         message_id: str = pattern_matcher.get_message_id_pattern_match(incoming_model_key_path, ingest_data)
         return message_id
-    
+
     def _match_data_model_pattern(
         self, data_model: DataModel, ingest_data: Dict
     ) -> str:
@@ -179,7 +179,7 @@ class G2PIngestService(BaseService):
         session: Session,
     ) -> Tuple[RegisteredPartner, str, Dict, IncomingModelKeyPath]:
         pattern_matcher = PatternMatcher().get_component()
-        
+
         incoming_model_key_path: IncomingModelKeyPath | None = (
             await session.execute(
                 select(IncomingModelKeyPath).where(

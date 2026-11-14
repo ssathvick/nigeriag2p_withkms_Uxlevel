@@ -1,6 +1,6 @@
 NigeriaG2P SITE-WIDE UX HANDOVER
 
-Client entry: https://nigeriag2p.com/
+Client entry: https://g2p.wverve.in/
 
 WHAT IS DEPLOYED
 A React service hub organizes 15 working service entry points by the four core personas. Search finds module links. All services exposes the full catalogue, including specialist tools.

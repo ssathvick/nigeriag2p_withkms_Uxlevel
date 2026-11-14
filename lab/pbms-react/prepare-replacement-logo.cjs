@@ -1,0 +1,11 @@
+const {chromium}=require('playwright');const fs=require('fs');const path=require('path');const crypto=require('crypto');
+const input='H:/Nigeria_Mosip/logo/NSIPA-Logo-Vector.svg';const out=path.resolve(__dirname,'../branding');
+(async()=>{let raw=fs.readFileSync(input,'latin1');if(/<script|<foreignObject|\bonload\s*=|(?:href|xlink:href)\s*=\s*["']https?:/i.test(raw))throw Error('Unexpected active or remote SVG content');
+ raw=raw.replace(/<\?xml[^>]*\?>/,'');const browser=await chromium.launch({channel:'msedge',headless:true});try{const page=await browser.newPage();await page.setContent('<html><body style="margin:0">'+raw+'</body></html>');
+ const box=await page.locator('svg').evaluate(svg=>{const b=svg.getBBox();return {x:b.x,y:b.y,width:b.width,height:b.height}});const pad=Math.max(box.width,box.height)*.035;
+ const normalized=await page.locator('svg').evaluate((svg,{box,pad})=>{svg.setAttribute('viewBox',[box.x-pad,box.y-pad,box.width+2*pad,box.height+2*pad].join(' '));svg.setAttribute('width',String(Math.ceil(box.width+2*pad)));svg.setAttribute('height',String(Math.ceil(box.height+2*pad)));svg.setAttribute('role','img');svg.setAttribute('aria-label','NSIPA');return svg.outerHTML},{box,pad});
+ fs.copyFileSync(input,path.join(out,'nsipa-original-supplied.svg'));
+ for(const name of ['nsipa-logo.svg','nsipa-wordmark.svg','nsipa-symbol.svg'])fs.writeFileSync(path.join(out,name),normalized);
+ await page.setContent('<html><body style="margin:0;background:transparent">'+normalized+'</body></html>');await page.locator('svg').screenshot({path:path.join(out,'nsipa-logo.png'),omitBackground:true});fs.copyFileSync(path.join(out,'nsipa-logo.png'),path.join(out,'iqs-logo.png'));
+ const result={source:input,sourceSha256:crypto.createHash('sha256').update(fs.readFileSync(input)).digest('hex'),artworkBounds:box,viewportPadding:pad,paths:await page.locator('svg path').count(),embeddedImages:await page.locator('svg image').count()};fs.writeFileSync(path.join(out,'replacement-logo-source.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result));
+ }finally{await browser.close()}})().catch(e=>{console.error(e.message);process.exitCode=1});

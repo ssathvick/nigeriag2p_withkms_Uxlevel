@@ -96,5 +96,3 @@ finally:
  save('resume-report.json',{'errors':errors,'resumed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()});print('Recorded application state restored; errors:',len(errors),flush=True)
  if errors:raise RuntimeError('Some services require restart recovery')
 print('Private capture ready: '+str(root),flush=True)
-
-

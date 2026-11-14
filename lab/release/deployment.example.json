@@ -1,0 +1,15 @@
+{
+  "hostnames": {
+    "g2p.wverve.in": "g2p.demo.example.org",
+    "g2p-register.wverve.in": "registry.demo.example.org",
+    "g2p-pbms.wverve.in": "pbms.demo.example.org",
+    "g2p-iam.wverve.in": "iam.demo.example.org",
+    "g2p-keycloak.wverve.in": "keycloak.demo.example.org",
+    "g2p-odk.wverve.in": "odk.demo.example.org",
+    "g2p-bridge.wverve.in": "bridge.demo.example.org",
+    "g2p-awe.wverve.in": "awe.demo.example.org",
+    "nigeriag2p.com": "g2p.demo.example.org",
+    "pbms.nigeriag2p.com": "pbms.demo.example.org",
+    "registry.nigeriag2p.com": "registry.demo.example.org"
+  }
+}

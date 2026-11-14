@@ -133,7 +133,7 @@ export default function RegisterImportFileConfigView({
                 rowKey={(item: ImportFileConfiguration) => item.import_file_configuration_id}
                 actions={(item) => (
                     <div className="flex gap-4">
-                
+
                         <Can action={CONFIGURATION_TABS_ACTIONS.edit}>
                             <EditButton
                                 label={t('common.edit')}
@@ -159,7 +159,7 @@ export default function RegisterImportFileConfigView({
                 onSuccess={refresh}
             />
 
-         
+
             <EditImportFileConfigModal
                 isOpen={editModalOpen}
                 onClose={() => {

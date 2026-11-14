@@ -19,6 +19,7 @@ class SyncTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.old=w.ROOT;w.ROOT=Path(self.tmp.name);self.c=w.db()
   self.xml=(HERE/'odk-verification/0-numeric-source.xml').read_bytes();self.definition=(HERE/'odk-verification/0-numeric-definition.xml').read_bytes();self.master=json.loads((HERE/'odk-verification/master-0.json').read_text());self.client=Client(self.xml)
+  self.master['GEO_VALUES']=json.loads((HERE/'geography-reference.json').read_text())
   self.mapped=w.map_submission(self.xml,self.definition,self.master);self.instance=self.mapped['odk_instance_id'];self.entry={'instanceId':self.instance}
  def tearDown(self):self.c.close();w.ROOT=self.old;self.tmp.cleanup()
  def run_case(self,found=None):

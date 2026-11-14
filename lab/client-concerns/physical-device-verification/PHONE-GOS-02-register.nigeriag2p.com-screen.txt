@@ -1,0 +1,114 @@
+Master Beneficiary Registry
+All services
+My workspace
+Dashboard
+Service guide
+ⓘ Help
+Master Beneficiary Registry
+Nigeria UX Admin
+Households
+Household Info
+Household Members
+Housing & Services
+Programs
+synthetic gps test household
+Functional Record ID :
+HH-9030216836
+Record Status
+ACTIVE
+Status Reason :
+-
+Created by :
+NSIPA NSIPA Synchronization
+Created at :
+2026-11-10T12:37:15.027741
+Last Approved by :
+NSIPA Second Reviewer Demo
+Last Approved at :
+2026-11-10T12:37:58.579189
+0
+Edit Details
+Location Detailsⓘ
+State / FCT:
+-
+Local Government Area:
+-
+District / locality (optional):
+-
+Community (optional):
+Locality / EA Code:
+Reported location / address:
+Gangare, Jos North, Plateau (reported NSIPA location)
+GPS Latitude:
+12.977861
+GPS Longitude:
+77.531397
+Altitude (metres):
+0.000000
+Edit Details
+Headshipⓘ
+Household name:
+synthetic gps test household
+Household head:
+synthetic head
+Household head reference (optional):
+Headship Type:
+-
+Edit Details
+Rosterⓘ
+Household Size Total:
+4
+Household Size Adults:
+Household Size Children U5:
+Number Of Female Members:
+Number Of Male Members:
+Household Size School Age:
+Elderly Member Present:
+Husband Dead:
+False
+Husband Dead Date:
+-
+Edit Details
+Housing And Servicesⓘ
+Dwelling Type:
+-
+Roof material:
+-
+Wall Material:
+-
+Floor Material:
+-
+Tenure Status:
+-
+Water source:
+-
+Water Distance (Minutes):
+Sanitation Type:
+-
+Lighting Source:
+-
+Cooking Fuel Type:
+-
+Number of Rooms:
+Overcrowding Indicator:
+Edit Details
+Computation Scoresⓘ
+No scores available.
+Change Requestⓘ
+00
+
+No pending change requests
+
+Version Historyⓘ
+01
+
+Last Updated By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+
+Last Approved By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+Know More

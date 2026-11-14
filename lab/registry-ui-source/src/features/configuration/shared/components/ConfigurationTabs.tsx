@@ -51,9 +51,9 @@ const TabsDropdown = ({
             </div>
 
             {isOpen && (
-                <div className="origin-top-left outline-none absolute left-0 mt-0 min-w-30 
+                <div className="origin-top-left outline-none absolute left-0 mt-0 min-w-30
                 rounded-b-[10px] rounded-r-[10px] bg-neutral-second border border-primary-first drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)]
-                z-50 
+                z-50
                 ">
                     <div className="py-1">
                         {options.map((option) => (

@@ -30,4 +30,3 @@ for realm,label in [('staff','NSIPA — Staff'),('beneficiary','NSIPA — Benefi
  if not path.exists(): path.write_text(json.dumps({k:data.get(k) for k in ['displayName','displayNameHtml']}));path.chmod(0o600)
  r=s.put(endpoint,json={'displayName':label,'displayNameHtml':label},timeout=20);r.raise_for_status()
  print('Keycloak',realm,'display name updated')
-

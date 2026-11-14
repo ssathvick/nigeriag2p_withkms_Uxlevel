@@ -2,7 +2,7 @@ import { PaginationRequest } from '@/app/api/_lib/backend-types';
 
 /**
  * Extracts pagination request from params
- * 
+ *
  * @param params - Parameters object that may contain pagination_request or pagination fields
  * @returns PaginationRequest if found, undefined otherwise
  */
@@ -47,7 +47,7 @@ export function extractPagination(params: Record<string, any>): PaginationReques
 
 /**
  * Separates pagination from request payload
- * 
+ *
  * @param params - Combined parameters object
  * @returns Object with pagination and payload separated
  */

@@ -1,0 +1,85 @@
+NSIPA automatic ODK-to-registry synchronization
+
+Scope
+One shared worker serves both domain families because they use one Central project
+and one native registry. It runs about 60 seconds after the previous pass completes,
+while the lab host and its services are running. It is enabled at host startup.
+Project 1: nsipa_field_household_demo and nsipa_household_mapping_check only.
+Published XML definitions are SHA-256 pinned to the verified versions.
+
+Approval
+The dedicated service client has the Intake Officer role, not a reviewer role.
+The worker creates and finalizes an intake into the existing two-reviewer policy.
+It never calls an approval endpoint. Returned/rejected submissions are not
+automatically resubmitted. Registry ingestion still depends on both reviewers.
+Device-to-ODK upload remains deliberate/manual; this service starts after Central
+receives a submission. It does not enable background uploads on Android.
+
+Duplicate and change handling
+Ledger key = shared backend + project + form ID + ODK instance ID, independent
+of the hostname used to upload. A filesystem lock permits one worker at a time.
+The ledger commits a reservation BEFORE creating the native intake, and commits
+the native submission ID before finalizing it. Replays reuse that intake.
+A lost create response is reconciled read-only by deterministic record ID and
+matching saved fields. If no committed intake is found, CREATE_UNCERTAIN is held
+for investigation rather than blindly issuing a second create. Do not delete the
+ledger or clear reservations to retry; first reconcile native intake records.
+This prevents repeat imports of an ODK instance; distinct instances for the same
+person still require the existing duplicate assessment and human review.
+
+Invalid codes, incomplete sources, changed source XML or an altered published form
+are held for review. They are never silently coerced or used to overwrite records.
+Resolve with an approved source/mapping correction; preserve the original receipt.
+
+Operations (Ubuntu-22.04 host)
+systemctl status nsipa-odk-sync.timer
+systemctl list-timers nsipa-odk-sync.timer
+journalctl -u nsipa-odk-sync.service -n 50 --no-pager
+cat /opt/openg2p-lab/odk-sync/status.json
+
+An inactive oneshot service with exit status 0 between timer ticks is normal.
+Investigate a stale last_completed_at (over five minutes while the host is online),
+nonzero transient_failures, QUARANTINED, SOURCE_CHANGED or CREATE_UNCERTAIN rows.
+Held rows are not successful imports. The private ledger has the reason and IDs.
+No external notification channel has been configured.
+
+Pause: systemctl stop nsipa-odk-sync.timer
+Resume: systemctl start nsipa-odk-sync.timer
+Disable on boot: systemctl disable --now nsipa-odk-sync.timer
+These commands do not delete pending reviews, receipts or registry records.
+
+Files
+/opt/openg2p-lab/odk-sync/config.json: private service credentials and definition pins
+/opt/openg2p-lab/odk-sync/ledger.sqlite: durable import state (SQLite WAL mode)
+/opt/openg2p-lab/odk-sync/receipts/: immutable source XML, definition and mapping receipt
+/etc/systemd/system/nsipa-odk-sync.service and .timer: scheduling
+Back up the directory privately using SQLite's backup API for the live ledger;
+do not copy only ledger.sqlite while the WAL is active. Never publish config.json.
+
+New forms/versions require mapping and dictionary verification before updating the
+allowlist/pin. Do not remove the pin merely to make a changed form import.
+
+Reviewed legacy exception (10 November 2026)
+Five exact source instances of version 2026110401 have user-authorized synthetic
+household/head names. Each is matched by original XML SHA-256, instance, form ID,
+version and archived definition SHA-256 in config.json legacy_reviews. The original
+source stays unchanged. Receipts identify the added synthetic fields. This is not
+general permission to import old forms or invent identities for other records.
+Archive/restore legacy-review together with the config and ledger.
+
+Application reference collision fix
+The staff API now uses the supported REGISTRY_STAFF_PORTAL_API_APPLICATION_REFERENCE_FORMAT
+value {DATE:%Y%b%d|upper}-{RAND_ALNUM:12}; existing references are unchanged.
+The prior seconds-plus-one-random-digit default collided during the five-record
+batch. One rolled-back request was reconciled before release; uniqueness constraints
+and CREATE_UNCERTAIN protection remain enabled. Preserve this setting on redeploy.
+
+Resolved negative-code fixtures (10 November 2026)
+The two documented roof-code-999 negative tests are classified EXCLUDED_TEST.
+Their stored XML exactly matches the test script's mutation of an already imported
+synthetic source. They are not additional households and must not be corrected to
+code 2 and imported as duplicates. Original XML, previous ledger rows and the review
+decision are preserved in invalid-code-review/. Validation still rejects 999.
+An unchanged excluded source is skipped; a changed source becomes SOURCE_CHANGED
+for fresh review. EXCLUDED_TEST is a closed test disposition, not a successful import
+or an unresolved quarantine. Preserve this review folder with the synchronization backup.

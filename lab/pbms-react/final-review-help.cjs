@@ -19,4 +19,3 @@ const samples={beneficiary:['/selfservice/en/myprofile','/selfservice/en/account
  }
  await page.screenshot({path:'evidence/other-module-help-mobile.png'});assert.deepEqual(report.browserErrors,[]);fs.writeFileSync('../knowledge/other-module-verification.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report));
  }finally{await b.close()}})().catch(e=>{console.error(e);process.exitCode=1});
-

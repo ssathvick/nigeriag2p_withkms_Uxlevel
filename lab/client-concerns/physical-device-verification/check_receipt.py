@@ -11,5 +11,3 @@ try:
    root=ET.fromstring(raw); matches.append({'instance':entry['instanceId'],'reference':root.findtext('.//sample_reference')}); (work/'phone-submission.xml').write_bytes(raw)
 finally:client.close()
 out={'checked_at_ist':datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5,minutes=30))).isoformat(),'reference':'PHONE-20261110-01','odk_matches':matches};(work/'server-receipt-check.json').write_text(json.dumps(out,indent=2));print(json.dumps(out))
-
-

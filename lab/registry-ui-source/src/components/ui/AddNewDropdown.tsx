@@ -173,7 +173,7 @@ export default function AddNewDropdown({
 
     return (
         <>
-            <div ref={ref} className="relative mt-2 w-100 z-10">
+            <div ref={ref} className="relative mt-2 w-full sm:w-100 max-w-full z-10">
                 <button
                     onClick={() => {
                         setOpen(prev => {

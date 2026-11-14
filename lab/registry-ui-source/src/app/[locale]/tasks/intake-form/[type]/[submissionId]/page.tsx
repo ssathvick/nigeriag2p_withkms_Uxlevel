@@ -21,7 +21,7 @@ export default function TaskIntakeFormDetailPage() {
                 }),
             },
             {
-                label: submissionId ? `${t('id')}-${submissionId}` : '',
+                label: submissionId ? `${t('id')}-•••${submissionId.slice(-3)}` : '',
             },
         ],
         [currentRegister?.register_subject, submissionId, t],

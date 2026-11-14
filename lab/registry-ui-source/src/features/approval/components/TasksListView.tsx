@@ -1,5 +1,6 @@
 'use client';
 
+import { WorkflowFilters } from '@/components/shared/Workflow';
 import { useCallback, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -48,6 +49,7 @@ export default function TasksListView({
 
     const { tasks, loading, total, currentPage, pages, setCurrentPage } = useMyTasks({
         artifactType,
+        status: searchParams.get('status') || 'all',
         searchText: searchQuery,
         pageSize,
     });
@@ -91,6 +93,7 @@ export default function TasksListView({
                 onNext={() => setCurrentPage((p) => Math.min(pages, p + 1))}
             />
 
+            <WorkflowFilters tasks />
             <div className="px-7.5 pb-10">
                 {loading ? (
                     <div className="space-y-4">

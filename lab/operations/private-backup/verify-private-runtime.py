@@ -87,6 +87,3 @@ finally:
     kubectl('delete','namespace',namespace,'--wait=true','--timeout=180s')
     (root/'verification.json').write_text(json.dumps(report,indent=2))
 print('Logical backup verification passed',flush=True)
-
-
-

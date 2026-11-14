@@ -106,7 +106,7 @@ export default function ScoreContributingAttributesView({
             key: 'attribute_name',
             label: t('attribute_name'),
         },
-       
+
         {
             key: 'attribute_computation_required',
             label: t('attribute_computation_required'),

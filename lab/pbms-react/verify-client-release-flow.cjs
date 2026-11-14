@@ -13,5 +13,3 @@ const{chromium}=require('playwright');const{authenticate}=require('./module-auth
  for(let i=0;i<20;i++){const row=await current();if(row.approval_status==='APPROVED'){state.approved=true;state.ingest=row.register_ingest_process_status;save();if(state.ingest==='PROCESSED')break}await p.waitForTimeout(700)}assert(state.approved);console.log('PASS corrected submission approved through both existing stages');
  for(const host of ['register.nigeriag2p.com','g2p-register.wverve.in']){await authenticate(p,host,'register');await p.goto('https://'+host+'/en/intake-form/household/submission/'+state.submission_id);await p.waitForTimeout(1400);assert.equal(await p.locator('#nsipa-return-details').count(),1);console.log('PASS',host,'review provenance panel');await p.screenshot({path:'../client-concerns/rework-'+(host.startsWith('g2p')?'legacy':'canonical')+'.png',fullPage:false})}
 }finally{await b.close()}})().catch(e=>{console.error(e.stack);process.exitCode=1});
-
-

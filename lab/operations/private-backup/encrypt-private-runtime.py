@@ -26,4 +26,3 @@ print('Encrypted archive decrypted successfully and matched the verified plainte
 assert root.parent==pathlib.Path('/opt/openg2p-private-backups') and root.name==stamp and archive.parent==root.parent
 shutil.rmtree(root);archive.unlink();summary['plaintext_cleanup']='completed';(dest/'Verification-Summary.json').write_text(json.dumps(summary,indent=2))
 print(json.dumps({'encrypted_bytes':summary['encrypted_bytes'],'postgresql_services':len(v['postgresql']),'sqlite_databases':len(v['sqlite']),'redis_snapshots':len(v.get('redis',{})),'plaintext_cleanup':'completed'}),flush=True)
-

@@ -1,5 +1,6 @@
 'use client';
 
+import { WorkflowFilters } from '@/components/shared/Workflow';
 import { useCallback } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useSearchParams } from 'next/navigation';
@@ -31,6 +32,7 @@ export default function ChangeRequestPage() {
     } = useChangeRequestSearch({
         pageSize,
         searchText: searchQuery,
+        status: searchParams.get("status") || "all",
     });
 
     const { pageStart, pageEnd, total } = usePagination({
@@ -69,6 +71,7 @@ export default function ChangeRequestPage() {
                 onNext={onNext}
             />
 
+            <WorkflowFilters />
             <div className="px-7.5">
                 {loading ? (
                     <div className="space-y-4">

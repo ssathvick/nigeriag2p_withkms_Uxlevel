@@ -9,6 +9,7 @@ import { extractFilesFromSection, normalizeEditActions } from "../utils";
 import { toast } from "react-toastify";
 import { useTranslations } from "next-intl";
 import { useDocumentUpload } from "./useDocumentUpload";
+import { sectionChangePayload } from '../utils/sectionChangePayload';
 
 import { TabSection } from "@/features/register/types";
 
@@ -111,7 +112,7 @@ export const useSectionSave = (
                     }
                 }
 
-                const records = normalizeEditActions(
+                const normalizedRecords = normalizeEditActions(
                     sectionChangeRecords,
                     internalRecordId,
                     document_store_id
@@ -120,6 +121,7 @@ export const useSectionSave = (
                 const section = tabSections?.find(
                     (section) => section.section_id === section_id
                 );
+                const records = sectionChangePayload(section?.section_ui_schema ?? section?.section_data?.section_ui_schema, normalizedRecords);
 
                 const endpoint = section?.is_core_section ? `/api/change-request/core-section/create` : `/api/change-request/create`;
 
@@ -134,7 +136,7 @@ export const useSectionSave = (
                         tab_id: activeTabId,
                         section_id: section_id,
                         section_records: records,
-                        // While creating change request 
+                        // While creating change request
                         // via register always treated as
                         // Update action at chage request lavel
                         edit_action: "UPDATE",

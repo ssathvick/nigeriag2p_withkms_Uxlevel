@@ -1,9 +1,5 @@
-import { CONFIGURATION_REGISTERS_ACTIONS } from "./configurationRegisters.actions";
-import { CONFIGURATION_REGISTRY_ACTIONS } from "./configurationRegistry.actions";
-
-// TODO add for ingest, outgest, data model once the config pages are done
-export const CONFIG_VIEW_ACTIONS = [
-    CONFIGURATION_REGISTRY_ACTIONS.view,
-    CONFIGURATION_REGISTERS_ACTIONS.view,
+export const CONFIG_VIEW_ACTIONS=[
+ 'registryConfiguration:view','registerDefinition:view','intakeFormDefinition:view','dataModel:view',
+ 'ingestKeyPath:view','ingestExpression:view','ingestSubscription:view','ingestTemplate:view',
+ 'outgestTopic:view','outgestTemplate:view',
 ] as const;
-

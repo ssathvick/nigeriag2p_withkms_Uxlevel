@@ -1,4 +1,5 @@
 "use client";
+import {readableLabel} from '@/shared/utils/readableLabel';
 
 import Image from "next/image";
 import { FilterConfig, FilterRule } from "@/features/filter/types";
@@ -44,6 +45,7 @@ export default function SelectedFilters({
     pxClass
 }: SelectedFiltersProps) {
     const t = useTranslations();
+    const label=(key:string)=>t.has(key)?t(key):readableLabel(key);
     const resolvedSearchPlaceholder = searchPlaceholder || t('search');
 
     const getFilterLabel = (rule: FilterRule) => {
@@ -58,11 +60,11 @@ export default function SelectedFilters({
             valueLabel = rule.value ? t('true') : t('false');
         }
 
-        return `${t(config?.display_label || '')}: ${t(OPERATOR_KEYS[rule.operator] ?? rule.operator)} ${valueLabel || ''}`;
+        return `${label(config?.display_label || rule.field_name)}: ${t(OPERATOR_KEYS[rule.operator] ?? rule.operator)} ${valueLabel || ''}`;
     };
 
     return (
-        <div className="bg-neutral-second px-4 py-4 mb-2 flex items-center rounded-[10px] gap-4">
+        <div className="application-selected-filters bg-neutral-second px-4 py-4 mb-2 flex items-center rounded-[10px] gap-4">
             <div className="flex flex-wrap items-center gap-4 flex-1">
                 <span className="w-27.5 font-normal text-[16px] text-neutral-first pl-1 truncate" title={t('selected_filters')}>
                     {t('selected_filters')}
@@ -76,7 +78,7 @@ export default function SelectedFilters({
                     appliedFilters.map((filter, index) => (
                         <div
                             key={index}
-                            className="h-8.5 flex items-center bg-primary-first/25 rounded-[10px] px-3 gap-2 text-neutral-first/50 text-[14px] font-normal leading-normal"
+                            className="application-filter-chip h-8.5 flex items-center bg-primary-first/25 rounded-[10px] px-3 gap-2 text-neutral-first/50 text-[14px] font-normal leading-normal"
                         >
                             <span>{getFilterLabel(filter)}</span>
                             <button

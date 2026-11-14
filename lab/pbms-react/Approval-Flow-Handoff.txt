@@ -1,0 +1,103 @@
+NSIPA programme to disbursement approval flow
+Implemented and verified 14 November 2026
+
+Open https://pbms.nigeriag2p.com/pbms-ui/#programme-flow
+Prepared presentation programme:
+https://pbms.nigeriag2p.com/pbms-ui/#programme-flow?program_id=48
+Name: NSIPA_PRESENTATION. Two fictional households are present in the actual PBMS Registry.
+
+Actual staff accounts
+Five separate accounts exist for Programme Admin, Payment, Finance, Audit and CEO.
+Their login details are stored in a private destination credential file (never committed).
+Passwords are not embedded in frontend assets or source code.
+An existing staff access administrator can assign additional internal users using Staff access.
+A Programme Admin can configure programmes without receiving general staff-access privileges.
+
+Walkthrough
+1. Sign in as Programme Admin. Open Programme approval flow.
+2. Create a programme with name, description and base registry. Its status is Active.
+3. Create/select a cash Benefit Code in NGN.
+4. Select the Finance, Audit and CEO approval user groups, enter Registry eligibility
+   criteria and an entitlement up to NGN 25,000, then Save programme configuration.
+5. Create a monthly enrolment cycle with registration and disbursement windows.
+   For the November presentation use registration 1–12 November 2026 and
+   disbursement 20–28 November 2026.
+6. After registration closes, Create enrolment list. Pending becomes Completed
+   through the scheduled PBMS worker (runs once a minute). Refresh updates the screen.
+   Enrolment automatically approves with zero verifications.
+7. Create a disbursement cycle linked to that approved enrolment cycle, then create
+   its disbursement list. Pending becomes Complete after eligibility and entitlement calculation.
+8. Open Beneficiary lists and inspect NOB and calculated entitlements.
+9. Sign out and sign in as Payment. Open the same programme/list and Initiate approval.
+10. Sign in separately as Finance, then Audit, then CEO. Review the beneficiaries,
+    enter comments, attach supporting evidence if needed, and Approve and save.
+11. Rejection at any level returns the list for correction. Programme Admin can adjust
+    an entitlement or exclude/reinclude an existing beneficiary, providing a reason.
+    Payment resubmits; Finance, Audit and CEO review a new revision from the beginning.
+12. Programme Admin opens the Fully verified list and Export Beneficiaries (.xls).
+    Verification history preserves authenticated approvers, comments, UTC timestamps,
+    evidence, corrections, revisions, content hashes and export records.
+
+Document requirements and evidence
+A1: Native g2p.benefit.codes cash code with measurement unit NGN.
+A2: Native g2p.program.definition with three persistent approval-stage records,
+    each mapped to an actual res.groups record. Disbursement auto-approve OFF.
+A3: Enrolment verifications 0, auto-approve ON.
+A4: Native g2p.program.benefit.codes mapping, Maximum Quantity NGN 25,000.
+A5: Native g2p.eligibility.rule.definition uses criteria in Programme Master.
+A6: Native g2p.entitlement.rule.definition; server validates every calculated amount
+    and the total per person per cycle against NGN 25,000.
+A7: Configuration must be saved before creating cycles; rules lock once lists exist.
+B1: Native monthly enrolment cycles with validated dates and duplicate-month prevention.
+B2: Registration closure enforced by server date. Actual g2p household/farmer/student
+    Registry records are selected using programme rules. Persistent Pending/Complete
+    processing is handled by the scheduled Odoo worker, with error and retry support.
+B3: Native disbursement cycle linked to an approved enrolment cycle.
+B4: Native disbursement list with persistent beneficiary entries and calculated entitlements.
+B5: Beneficiary count and details available; only Payment can initiate approval.
+C1–C3: Sequential Finance, Audit, CEO. Authenticated group checks, independent approvers,
+    comments, optional documents, rejection and retained verification history.
+C4: Fully verified only after all three approvals. No client-side status authority.
+D1–D2: Programme Admin opens the verified beneficiary list and downloads native binary
+    BIFF XLS. Export verifies three independent approvals against the current list hash.
+
+Additional parameters
+Monthly cycles persist alongside prior cycles. The same beneficiary may participate
+in multiple programmes. XLS files can use multiple worksheets for large lists.
+Records and attachments are stored in the PBMS PostgreSQL database and shared across
+sessions and browsers. The frontend stores no programme/list/approval data in localStorage.
+
+Application integration
+Programme approval flow is the operational entry for programmes using this policy.
+The records also appear in the existing Programmes, Benefit codes, Programme benefits,
+Eligibility rules, Entitlement rules, Enrollment cycles, Disbursement cycles and
+Beneficiary lists sections. Opening a managed list routes to its role-checked review.
+Approval/verification queues include lists waiting for the three approval levels.
+Historical programmes and their payment workflows have not been converted retroactively.
+For this export-only policy, final verification is stored separately from the legacy
+payment-dispatch flag. The flow never invokes Bridge, bank transfers or reconciliation.
+
+Branding and retained sections
+The previous /iqs-brand/nsipa-logo.svg with wording remains in the login and sidebar.
+Households, Farmers, Students, Priority rules, Agencies, Warehouses & banks, States &
+regions, Local administrative areas, Agency benefit assignments, Bank & warehouse
+assignments and Verification queue remain available for later removal.
+
+Validation
+Native backend role tests: evidence/native-approval-results.json
+Boundary tests: evidence/native-boundary-results.json
+Actual login/browser workflow: evidence/native-browser-results.json
+Actual correction/resubmission UI: evidence/native-correction-browser-results.json
+Binary XLS download: evidence/native-browser-approved.xls
+Screenshots: evidence/native-flow-verified.png and evidence/native-correction-mobile.png
+Synthetic verification programmes are paused and temporary UAT accounts deactivated.
+The separate NSIPA_PRESENTATION programme and its five staff accounts remain available.
+
+Maintenance
+Backend addon: nsipa_approval/ (native Odoo 17 addon).
+Frontend: src/programme-flow.jsx; shared catalog, forms and routing integration.
+Initial install: install-native-approval.py (backs up PBMS DB and deployment).
+Updates: update-native-approval.py; builds: npm run build.
+Frontend deployment: ../deploy-pbms-react.py (atomic release and nginx check).
+Backend source is persisted as a declared Kubernetes ConfigMap mount, not a pod-only edit.
+Database/deployment backups: /opt/openg2p-lab/pbms-react/backups/native-*.

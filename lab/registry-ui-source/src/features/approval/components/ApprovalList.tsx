@@ -8,7 +8,7 @@ interface Props {
     tasks: ApprovalTask[];
     isPending: boolean;
     approvalDecisionBlocked?: boolean;
-    onSubmitDecision: (taskId: string, action: 'approve' | 'reject', comment: string) => Promise<boolean>;
+    onSubmitDecision: (taskId: string, action: 'approve' | 'reject' | 'return', comment: string) => Promise<boolean>;
 }
 
 export default function ApprovalList({ tasks, isPending, approvalDecisionBlocked = false, onSubmitDecision }: Props) {

@@ -12,7 +12,7 @@ app=Flask(__name__)
 app.config['MAX_CONTENT_LENGTH']=16*1024*1024
 ODOO=os.environ['PBMS_ODOO_URL']
 BRIDGE=os.environ['PBMS_BRIDGE_URL']
-ALLOWED={'https://pbms.nigeriag2p.com','https://g2p-pbms.wverve.in','https://pbms.openg2p.localhost'}
+ALLOWED=set(filter(None,os.environ.get('PBMS_ALLOWED_ORIGINS','https://pbms.nigeriag2p.com,https://g2p-pbms.wverve.in,https://pbms.openg2p.localhost').split(',')))
 WIZARD='g2p.bgtask.summary.wizard'
 
 class Problem(Exception):

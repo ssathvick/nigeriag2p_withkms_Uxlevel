@@ -20,7 +20,7 @@ import { VersionHistoryCard } from '@/features/register/components';
 export default function RegisterDetailPage() {
     const t = useTranslations();
 
-    // state to update the count of pending change requests 
+    // state to update the count of pending change requests
     const [changeRequestCount, setChangeRequestCount] = useState<number | undefined>(undefined);
 
     const {

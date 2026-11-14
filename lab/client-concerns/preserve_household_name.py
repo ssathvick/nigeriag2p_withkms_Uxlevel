@@ -8,4 +8,3 @@ for message in ['Constructing intake record name for household','Constructing re
 (root/'patched'/name).write_text(s)
 for app in ['register-staff-portal-api','register-celery-worker']:
  deploy(app,'nsipa-household-name',{'/usr/local/lib/python3.12/site-packages/openg2p_registry_reference_extension/register_domain/services/'+name:s})
-

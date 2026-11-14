@@ -34,10 +34,11 @@ export default function FilterBar({
         if (onApplyFilters) onApplyFilters(filters);
     };
 
+    if(!filterLoading&&!filterConfig.length)return null;
     return (
-        <div className="relative inline-block items-center" ref={dropdownRef}>
+        <div className="relative inline-block items-center" onKeyDown={e=>{if(e.key==="Escape")setOpen(false)}} ref={dropdownRef}>
             <button
-                onClick={() => setOpen((prev) => !prev)}
+                aria-label="Filters" aria-expanded={open} aria-haspopup="dialog" aria-busy={filterLoading} onClick={() => setOpen((prev) => !prev)}
                 className="w-[130px] h-[34px] flex items-center justify-between px-4 rounded-[10px] bg-primary-first"
                 disabled={filterLoading}
             >   <span className=" text-[16px] font-medium leading-normal text-neutral-first">
@@ -48,7 +49,7 @@ export default function FilterBar({
             </button>
 
             {open && !filterLoading && (
-                <div className="absolute -right-8 top-12 z-50">
+                <div className="application-filter-popover absolute right-0 top-12 z-50">
                     <div
                         className="absolute -top-[9px] right-[45px] z-20 bg-neutral-second border-t border-r border-primary-first w-[20px] h-[20px] -rotate-45 rounded-[2px] shadow-[0_0_4px_0_rgba(0,0,0,0.25)] [clip-path:polygon(-20px_-20px,_40px_-20px,_40px_40px)]"
                     />

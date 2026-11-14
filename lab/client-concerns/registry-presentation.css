@@ -1,2 +1,95 @@
 .nsipa-record-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 20px;color:#154d38;font:600 16px/1.5 system-ui}.nsipa-record-toolbar button{border:1px solid #377457;border-radius:6px;padding:8px 14px;background:#fff;color:#164d37;cursor:pointer}.nsipa-record-cards{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;padding:18px!important;align-items:start}.nsipa-record-row,.nsipa-record-cards>a.nsipa-record-card{border:1px solid #c8d9cd!important;border-radius:12px!important;padding:20px!important;background:#fff!important;box-shadow:0 2px 6px #1238220a;min-width:0;align-items:start!important}.nsipa-record-cards .nsipa-record-card{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;height:auto!important}.nsipa-record-card>div{flex:initial!important;width:100%!important;min-height:0!important}.nsipa-record-card>div:first-child:empty{display:none}.nsipa-record-card .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}.nsipa-record-card p{overflow-wrap:anywhere}.nsipa-record-origin{font:13px/1.6 system-ui;color:#466753;padding-top:12px;margin-top:12px;border-top:1px solid #dde7df;width:100%}.nsipa-record-cards.nsipa-record-list{display:block!important}.nsipa-record-list>.nsipa-record-row{margin-bottom:12px}.nsipa-return-details{margin:20px 30px;padding:22px;border-left:5px solid #bd8620;background:#fff7df;color:#483d22;border-radius:7px;font:16px/1.6 system-ui}.nsipa-return-details h2{font-size:24px;font-weight:700}.nsipa-return-details p{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:10px}@media(max-width:700px){.nsipa-record-cards{grid-template-columns:1fr}.nsipa-record-toolbar{flex-wrap:wrap}.nsipa-return-details{margin:12px}}
 .nsipa-intake-detail .nsipa-return-details{margin-top:90px}.nsipa-intake-detail main .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+/* Household survey: keep consent and enumeration labels readable at every width. */
+[data-panel-id="panel_headship_main"]>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px!important}
+[data-panel-id="panel_headship_main"]>div>div{padding:0!important;min-width:0!important}
+[data-panel-id="panel_headship_main"]>div>div:last-child{grid-column:1/-1}
+[data-panel-id="panel_headship_main"] .widget-container label{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:none!important;width:auto!important;min-width:0!important;line-height:1.5!important}
+[data-panel-id="panel_headship_main"] .widget-container>div>div{flex-direction:column!important;align-items:stretch!important;gap:6px!important}
+[data-panel-id="panel_headship_main"] .widget-container input,[data-panel-id="panel_headship_main"] .widget-container select{width:100%!important;max-width:100%!important;min-height:40px!important}
+[data-panel-id="panel_headship_main"] .widget-container{margin-bottom:12px!important}
+@media(max-width:700px){[data-panel-id="panel_headship_main"]>div{grid-template-columns:minmax(0,1fr)!important}}
+[data-panel-id="panel_headship_main"] .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:100%!important}
+/* Native survey layout follows the registry's green, responsive form design. */
+.registry-native-form [data-panel-id^="survey_hh_"]>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px 28px!important}
+.registry-native-form [data-panel-id^="survey_hh_"] .widget-container>div>div{flex-direction:column!important;align-items:stretch!important;gap:6px!important}
+.registry-native-form [data-panel-id^="survey_hh_"] .widget-container label,.registry-native-form [data-panel-id^="survey_hh_"] .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:100%!important}
+.registry-native-form [data-panel-id^="survey_hh_"] input:not([type="radio"]):not([type="checkbox"]),.registry-native-form [data-panel-id^="survey_hh_"] select{width:100%!important;max-width:100%!important;min-height:40px!important}
+.registry-native-form [data-widget-id="household_geography"]{grid-column:1/-1!important}
+.registry-native-form .table-widget-container,.registry-native-form [data-widget-id="members_table"]{min-width:0!important;max-width:100%!important}
+@media(max-width:700px){.registry-native-form [data-panel-id^="survey_hh_"]>div{grid-template-columns:minmax(0,1fr)!important}}
+.registry-native-form [data-panel-id^="survey_hh_"] .widget-container label{width:100%!important;max-width:none!important}
+body:has([role="dialog"][aria-label$="Household Member"]) #ng2p-platform-bar,body:has([role="dialog"][aria-label$="Household Member"]) #ng-km-launcher{visibility:hidden!important}
+
+/* Workflow collections share a readable, container-sized card/list layout. */
+.nsipa-record-detail [data-section-id$="-edit"]{--owt-color-primary:#155e50;--owt-btn-primary-border:#155e50;--owt-color-bg:#fff;--owt-color-text:#173e34;--owt-color-text-muted:#496e64;min-width:0;max-width:100%}
+.nsipa-record-detail [data-section-id$="-edit"] label,.nsipa-record-detail [data-section-id$="-edit"] .text-gray-600{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere;line-height:1.5!important}
+.nsipa-record-detail [data-section-id$="-edit"] .flex-1{min-width:0}
+html.nsipa-record-detail body [data-section-id$="-edit"] label.text-gray-700,html.nsipa-record-detail body [data-section-id$="-edit"] .text-gray-600{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere;line-height:1.5!important}
+html.nsipa-record-detail body [data-section-id$="-edit"]{background:#f2f7f1!important;border:1px solid #5b8372!important;color:#173e34!important;--owt-color-primary:#155e50!important;--owt-btn-primary-border:#155e50!important;--owt-section-divider-color:#c8d9cd!important}
+@media(max-width:639px){.nsipa-record-detail [data-section-id$="-edit"] label,.nsipa-record-detail [data-section-id$="-edit"] .text-gray-600{width:100%!important;min-width:0!important;max-width:100%!important}.nsipa-record-detail [data-section-id$="-edit"] [class~="flex"]:has(>label){flex-direction:column!important;align-items:stretch!important;gap:8px}}
+.nsipa-record-detail .nsipa-record-content .table-widget-container{width:100%!important;min-width:0!important;max-width:100%!important;overflow-x:auto}
+.nsipa-record-detail .nsipa-record-content .table-widget-container>.overflow-x-auto{max-width:100%!important;min-width:0!important}
+.nsipa-record-detail .nsipa-record-content .table-widget-container table{table-layout:auto!important;min-width:100%}
+.nsipa-record-detail .nsipa-record-content .table-widget-container th{min-width:120px;white-space:normal!important;word-break:normal!important;overflow-wrap:normal!important}
+.nsipa-record-page .nsipa-record-content{padding-bottom:110px}
+.nsipa-workflow-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:18px;align-items:start}
+.nsipa-workflow-cards.nsipa-record-list{display:block}
+.nsipa-workflow-cards>.nsipa-workflow-card{container-type:inline-size;min-width:0;margin:0!important;padding:20px;border:1px solid #c8d9cd;border-radius:12px;background:white}
+.nsipa-workflow-cards.nsipa-record-list>.nsipa-workflow-card{margin-bottom:16px!important}
+.nsipa-workflow-card h3{white-space:normal!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important;overflow-wrap:anywhere;line-height:1.4!important}
+.nsipa-workflow-card .grid{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}
+.nsipa-workflow-card .grid>div{padding:0!important;border:0!important;min-width:0}
+.nsipa-workflow-card div.flex.w-full{display:flex!important;flex-direction:column!important;overflow:visible!important;gap:3px}
+.nsipa-workflow-card div.flex.w-full>span{width:100%!important;padding-left:0!important;white-space:normal!important;overflow:visible!important;overflow-wrap:anywhere;line-height:1.5!important}
+.nsipa-workflow-card .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.nsipa-workflow-card .invisible{display:none!important}
+.nsipa-workflow-card>div.flex{flex-wrap:wrap;gap:12px}
+@container(min-width:700px){.nsipa-workflow-card .grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+.nsipa-record-page .nsipa-record-content h3,.nsipa-record-detail .nsipa-record-content p,.nsipa-record-detail .nsipa-record-content span{overflow-wrap:anywhere}
+.nsipa-record-detail .nsipa-record-content .grid>div{min-width:0}
+.nsipa-record-detail .nsipa-record-content .truncate{white-space:normal!important;overflow:visible!important;text-overflow:clip!important}
+.nsipa-record-detail .nsipa-record-content textarea{min-height:96px}
+@media(max-width:700px){.nsipa-record-detail .nsipa-record-content .flex.justify-between{flex-wrap:wrap;gap:12px}.nsipa-record-detail .nsipa-record-content div.flex.w-full:has(>span.w-1\/2){flex-direction:column;gap:4px;overflow:visible}.nsipa-record-detail .nsipa-record-content div.flex.w-full>span.w-1\/2{width:100%;padding-left:0}.nsipa-record-page .nsipa-record-content .nsipa-record-toolbar{padding:12px 0}.nsipa-record-detail .nsipa-record-content [class~="px-10"]{padding-left:16px;padding-right:16px}}
+/* Submission fields must respond to card width, rather than the browser width. */
+.nsipa-record-card [class~="text-neutral-first/50"],.nsipa-workflow-card [class~="text-neutral-first/50"],.nsipa-record-detail .nsipa-record-content [class~="text-neutral-first/50"]{color:#496e64!important}
+.nsipa-submission-cards.nsipa-record-list .nsipa-record-card .grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))!important}
+.nsipa-record-detail .cr-view-container{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:24px!important;align-items:start!important}
+.nsipa-record-detail .cr-view-container .created-by-section,.nsipa-record-detail .cr-view-container .approved-by-section{display:grid!important;grid-template-columns:16px minmax(0,1fr);justify-content:start!important;align-items:start!important;gap:8px!important;min-width:0}
+.nsipa-record-detail .cr-view-container>div>span:first-child{grid-column:1/-1;font-weight:600!important}
+.nsipa-record-detail .cr-view-container img{flex-shrink:0;margin:0!important}
+.nsipa-record-detail .cr-view-container span{min-width:0;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.5}
+.nsipa-record-detail .nsipa-record-content [data-widget-id] .text-gray-900{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.nsipa-record-detail .nsipa-record-content :is(.TextDisplayWidget,.SelectDisplayWidget,.PhoneDisplayWidget,.NumberDisplayWidget,.CurrencyDisplayWidget,.RadioDisplayWidget,.DateDisplayWidget,.DateTimeDisplayWidget,.CheckboxDisplayWidget,.BooleanDisplayWidget,.DisplayFieldWidget)>.flex-1>.text-gray-900{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.nsipa-record-detail .nsipa-record-content .section-panels .text-gray-600,.nsipa-record-detail .nsipa-record-content .section-panels label.text-gray-700{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere;line-height:1.5!important}
+@media(max-width:639px){.nsipa-record-detail .nsipa-record-content .section-panels .text-gray-600,.nsipa-record-detail .nsipa-record-content .section-panels label.text-gray-700{width:100%!important;min-width:0!important;max-width:100%!important}}
+.nsipa-record-detail .nsipa-record-content h3{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere}
+.nsipa-record-detail .nsipa-record-content .invisible[aria-hidden]{display:none!important}
+.nsipa-record-detail .nsipa-record-content div.flex.w-full:has(>span[class~="w-1/2"]){flex-direction:column;gap:4px;overflow:visible}
+.nsipa-record-detail .nsipa-record-content div.flex.w-full>span[class~="w-1/2"]{width:100%;padding-left:0}
+@media(max-width:1023px){.nsipa-record-detail .nsipa-record-content [class~="flex"][class~="gap-7.5"]{flex-direction:column}.nsipa-record-detail .nsipa-record-content [class~="flex"][class~="gap-7.5"]>div{width:100%!important;min-width:0}}
+@media(max-width:1023px){.nsipa-record-detail .nsipa-record-content .flex:has(>[class~="w-[75%]"]){flex-direction:column}.nsipa-record-detail .nsipa-record-content .flex>[class~="w-[75%]"],.nsipa-record-detail .nsipa-record-content .flex>[class~="w-[25%]"]{width:100%!important;min-width:0}.nsipa-record-detail .nsipa-record-content .flex.items-center.gap-6{flex-wrap:wrap}}
+.nsipa-submission-cards>a.nsipa-record-card>div:first-child{padding:0!important;box-shadow:none!important}
+.nsipa-submission-cards .nsipa-record-card>div>div:first-child{display:flex!important;flex-direction:column!important;gap:8px!important;width:100%!important}
+.nsipa-submission-cards .nsipa-record-card h3{display:block!important;overflow:visible!important;white-space:normal!important;overflow-wrap:anywhere;-webkit-line-clamp:unset!important;margin:0!important}
+.nsipa-submission-cards .nsipa-record-card .grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:14px!important;width:100%}
+.nsipa-submission-cards .nsipa-record-card .border-l-2{border-left:0!important;padding-left:0!important}
+.nsipa-submission-cards .nsipa-record-card div.flex.w-full{display:flex!important;flex-direction:column!important;gap:2px!important;overflow:visible!important;min-width:0}
+.nsipa-submission-cards .nsipa-record-card div.flex.w-full>span{width:100%!important;white-space:normal!important;overflow:visible!important;overflow-wrap:anywhere;line-height:1.5}
+.nsipa-submission-cards .nsipa-record-card span.truncate{white-space:normal!important;overflow:visible!important;overflow-wrap:anywhere}
+/* Keep search above the record grid; native record links are direct siblings. */
+/* Native profile headers share the workspace palette and never truncate metadata. */
+.registry-workspace button:disabled:has(img[alt="prev"]),.registry-workspace button:disabled:has(img[alt="next"]){display:none!important}
+.registry-workspace .registry-native-form .widget-container label,.registry-workspace .registry-native-form .widget-container .text-gray-600{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;max-width:100%!important;width:100%!important;min-width:0!important;line-height:1.5!important}
+.registry-workspace .registry-native-form .widget-container>div>div{flex-direction:column!important;align-items:stretch!important;gap:6px!important}
+.registry-workspace .registry-native-form .widget-container input:not([type=radio]):not([type=checkbox]),.registry-workspace .registry-native-form .widget-container select{width:100%!important;min-width:0!important;max-width:100%!important}
+.registry-workspace [class^="header-section-widget-"]{padding-top:8px!important;--owt-color-primary-dark:#155d4d;--owt-widget-input-focus-border:#155d4d}
+.registry-workspace .hdr-name{color:#193f36!important;font-weight:650!important}
+.registry-workspace .hdr-field-label,.registry-workspace .hdr-field-value,.registry-workspace .hdr-meta-label,.registry-workspace .hdr-meta-value{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;overflow-wrap:anywhere;min-width:0;font-size:13px!important}
+.registry-workspace .hdr-field-label,.registry-workspace .hdr-meta-label{color:#49695d!important}
+.registry-workspace .hdr-status-badge{border-radius:20px!important}
+@media(max-width:700px){.registry-workspace .hdr-left{flex-direction:column!important}.registry-workspace .hdr-info{width:100%}.registry-workspace .hdr-field-row,.registry-workspace .hdr-meta-row{flex-direction:column!important;gap:2px}.registry-workspace .hdr-field-label,.registry-workspace .hdr-field-value,.registry-workspace .hdr-meta-label,.registry-workspace .hdr-meta-value{width:100%!important;flex:auto!important}.registry-workspace .hdr-avatar-wrapper,.registry-workspace .hdr-avatar,.registry-workspace .hdr-avatar-placeholder{width:70px!important;height:70px!important}.registry-workspace .hdr-right-top{align-items:flex-start!important}}
+.registry-native-form .intake-form-accordion-header>div{flex-wrap:wrap}
+.registry-native-form .intake-form-accordion-header>div>span{flex-shrink:0;max-width:100%;word-break:normal;overflow-wrap:normal}
+@media(max-width:639px){.registry-native-form .intake-form-accordion-header>div>h2{flex:1 1 100%}}
+.nsipa-record-cards>a.nsipa-record-card>div:first-child{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:12px!important}.nsipa-record-cards>a.nsipa-record-card>div:first-child>div{min-width:0;width:100%}.nsipa-record-cards>a.nsipa-record-card>div:first-child>div:first-child{width:64px}.nsipa-record-cards>a.nsipa-record-card img{object-fit:cover}.nsipa-record-list>a.nsipa-record-card{margin-bottom:12px}

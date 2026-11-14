@@ -52,6 +52,7 @@ export default function ColorPicker({ value, onChange, label, id, disabled = fal
         onChange(color);
     };
 
+    if(disabled)return <div className="configuration-readonly-color"><span>{label}</span><output><span style={{backgroundColor:hex}} aria-hidden="true"/>{hex}</output></div>;
     return (
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">
@@ -62,6 +63,8 @@ export default function ColorPicker({ value, onChange, label, id, disabled = fal
                 {/* Swatch trigger */}
                 <div
                     id={id}
+                    role="button" tabIndex={0} aria-label={label} aria-expanded={isOpen}
+                    onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setIsOpen(!isOpen)}if(e.key==='Escape')setIsOpen(false)}}
                     onClick={() => !disabled && setIsOpen(!isOpen)}
                     className={`flex items-center gap-2.5 px-4 py-2 bg-neutral-second border border-primary-second rounded-[10px] cursor-pointer truncate ${isOpen ? 'border-b-transparent rounded-b-none' : ''} ${disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
                 >

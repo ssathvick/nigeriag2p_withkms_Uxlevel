@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { IncomingMessage } from '@/features/messages/types';
 import { useState } from 'react';
+import {useRbac} from '@/context/RbacContext';
 import MessagePopup from './MessagePopup';
 import { KeyValue } from '@/components/ui/KeyValue';
 import { useTranslations, useLocale } from 'next-intl';
@@ -16,7 +17,7 @@ interface Props {
 export default function IncomingMessageCard({ message }: Props) {
     const [openPopup, setOpenPopup] = useState(false);
     const locale = useLocale();
-    const t = useTranslations();
+    const t = useTranslations();const {can}=useRbac();
 
     const {
         fetchAll,
@@ -28,7 +29,7 @@ export default function IncomingMessageCard({ message }: Props) {
 
 
     return (
-        <div className="rounded-[10px] bg-neutral-second px-10 py-8">
+        <div className="application-message-card rounded-[10px] bg-neutral-second px-10 py-8">
             <div className="grid gap-6 grid-cols-1 md:grid-cols-4 text-[16px] text-neutral-first/50">
                 {/* Column 1: Raw */}
                 <div className="space-y-4">
@@ -43,7 +44,7 @@ export default function IncomingMessageCard({ message }: Props) {
                                 fetchAll(message.ingest_id);
                                 setOpenPopup(true);
                             }}
-                            className="cursor-pointer"
+                            className="cursor-pointer" role="button" tabIndex={0} aria-label="View message details" onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fetchAll(message.ingest_id);setOpenPopup(true)}}}
                         />
                     </h3>
 
@@ -80,7 +81,7 @@ export default function IncomingMessageCard({ message }: Props) {
                                 fetchAll(message.ingest_id);
                                 setOpenPopup(true);
                             }}
-                            className="cursor-pointer"
+                            className="cursor-pointer" role="button" tabIndex={0} aria-label="View message details" onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fetchAll(message.ingest_id);setOpenPopup(true)}}}
                         />
                     </h3>
 
@@ -102,15 +103,15 @@ export default function IncomingMessageCard({ message }: Props) {
                             label={t('form_submission_id') || 'Form Submission ID'}
                             value={message.intake_form_submission_id ?? t('n_a') ?? 'N/A'}
                             href={
-                                message.intake_form_submission_id && message.register_mnemonic
-                                    ? `/${locale}/intake-form/${message.register_mnemonic}/submission/${message.intake_form_submission_id}`
+                                message.intake_form_submission_id && message.register_mnemonic && can("intakeSubmission:view")
+                                    ? `/${locale}/intake-form/${message.register_mnemonic.toLowerCase()}/submission/${message.intake_form_submission_id}`
                                     : undefined
                             }
                         />
                         <KeyValue
                             label={t('cr') || 'CR'}
                             value={message.change_request_id ?? t('n_a') ?? 'N/A'}
-                            href={message.change_request_id ? `/${locale}/incoming-messages/change-request/${message.change_request_id}` : undefined}
+                            href={message.change_request_id && can("changeRequest:view") ? `/${locale}/incoming-messages/change-request/${message.change_request_id}` : undefined}
                         />
                     </div>
                 </div>

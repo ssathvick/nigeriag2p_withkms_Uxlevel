@@ -30,6 +30,7 @@ export default function FileLink({
         }
     };
 
+    if(!documentId)return null;
     return (
         <button
             onClick={handleClick}

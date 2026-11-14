@@ -43,3 +43,25 @@ startup-logs/
 !/downloads/v3/NigeriaG2P-UX-UI-Design-Package-v3.zip
 !/downloads/v3/NigeriaG2P-NSIPA-Complete-Handoff-v3.zip
 !/downloads/v3/OpenG2P-Experience-Kit-v3.zip
+
+# Current release: local runtime state and recorded media stay outside source control.
+node_modules/
+.next/
+dist/
+build/
+*.tsbuildinfo
+*.trec
+*.tscproj
+*.mp3
+*.wav
+*.flac
+*.mp4
+*.apk
+*.jks
+*.keystore
+**/evidence/
+**/screenshots/
+**/release-preparation.json
+**/*accounts.local.json
+**/deployment.local.json
+**/service.env

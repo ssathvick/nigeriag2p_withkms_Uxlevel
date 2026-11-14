@@ -55,4 +55,3 @@ awe[path]=old.replace(needle,'''        rejected_decisions = [d for d in await _
         await emit_event(session, request, "request_rejected", {"actor": actor, "comment": latest_rejection.comment if latest_rejection else None})''',1)
 for code in [*registry.values(),*awe.values()]:ast.parse(code)
 mount('register-staff-portal-api',registry);mount('commons-services-awe',awe)
-

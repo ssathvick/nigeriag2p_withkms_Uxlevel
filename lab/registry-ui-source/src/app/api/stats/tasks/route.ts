@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
         req,
         targetEndpoint: '/awe/my_task_stats',
         buildPayload: () => ({
-            request_payload: {},
+            request_payload: {status:'pending'},
         }),
         transformResponse: (responseBody) => responseBody?.response_payload?.data,
     });

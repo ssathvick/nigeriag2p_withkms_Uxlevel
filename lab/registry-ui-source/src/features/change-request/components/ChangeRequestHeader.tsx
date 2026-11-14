@@ -1,4 +1,5 @@
 import Image from "next/image";
+import {PrivateIdentifier,WorkflowStatus} from '@/components/shared/Workflow';
 import { ChangeRequest } from "../types/change-request";
 import { useTranslations } from "next-intl";
 import { CHANGE_REQUEST_ACTIONS } from "../utils/changeRequest.actions";
@@ -34,13 +35,13 @@ export default function ChangeRequestHeader({
     loadingAction,
 }: Props) {
     const t = useTranslations();
-    const rawTitle = details?.section_mnemonic?.trim();
+    const rawTitle = details?.record_name?.trim() || details?.section_mnemonic?.trim();
 
     const title = rawTitle
         ? t(rawTitle, { default: rawTitle })
         : t('change_request');
     return (
-        <div className="rounded-[10px] bg-primary-first/20 px-10 pt-5 pb-4 flex flex-col border border-dashed border-primary-second">
+        <div className="registry-change-header rounded-[10px] bg-primary-first/20 px-10 pt-5 pb-4 flex flex-col border border-dashed border-primary-second">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <InfoSection
                     title={title}
@@ -97,13 +98,13 @@ const InfoSection = ({
             <div className="flex w-full overflow-hidden">
                 <span className="w-1/2 truncate" title={t('change_id')}>{t('change_id')}:</span>
                 <span className="w-1/2 pl-4 text-neutral-first font-medium truncate" title={details.change_request_id}>
-                    {details.change_request_id}
+                    <PrivateIdentifier value={details.change_request_id}/>
                 </span>
             </div>
             <div className="flex w-full overflow-hidden">
                 <span className="w-1/2 truncate" title={t("status")}>{t("status")}:</span>
                 <span className={`w-1/2 pl-4 font-medium truncate ${statusClassMap[details.approval_status] ?? "text-neutral-first/50"}`} title={details.approval_status}>
-                    {details.approval_status}
+                    <WorkflowStatus approval={details.approval_status} summary={details.awe_request_status_summary}/>
                 </span>
             </div>
             <div className="flex w-full overflow-hidden">

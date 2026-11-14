@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+stage_internal,Approval stages,model_nsipa_approval_stage,base.group_user,1,0,0,0
+line_internal,Approval beneficiaries,model_nsipa_approval_line,base.group_user,1,0,0,0
+event_internal,Approval history,model_nsipa_approval_event,base.group_user,1,0,0,0

@@ -15,7 +15,7 @@ try:
  with sqlite3.connect(root/'intake.sqlite') as source,sqlite3.connect(backup/'intake.sqlite') as target:source.backup(target)
  for name in ['registration_app.py','registration_workspaces.py','nigeria_geography.py','nigeria-geography.json']:shutil.copy2(src/name,root/name)
  for name in ['profile.html','geography.html']:shutil.copy2(src/'registration-ui'/name,root/'templates'/name)
- 
+
  for asset in ['geography-map.js','geography-map.css','nigeria-states.geojson']:shutil.copy2(src/'registration-ui'/asset,root/'static'/asset)
  shutil.copy2(src/'registration-ui/geo-form.js',root/'static/geo-form.js');shutil.copy2(src/'persona-ui/dist/workspace.js',root/'static/workspace.js')
  # Preserve case states, maker identity and coordinate absence. Derive only known administrative attributes.

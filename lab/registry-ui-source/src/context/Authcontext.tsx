@@ -38,26 +38,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 const res = await fetch("/api/me");
 
                 if (res.status === 401) {
-                    let error: any = {};
-                    try {
-                        error = await res.json();
-                    } catch { }
-
-                    const errorObj = error?.errors?.[0] || {};
-                    const code = errorObj.code;
-                    const message = (errorObj.message || "").toLowerCase();
-
-                    if (
-                        message.includes("expired") ||
-                        message.includes("invalid jwt") ||
-                        message.includes("inactive token") ||
-                        code === 'G2P-AUT-LOGIN-REQUIRED'
-                    ) {
-                        handleUnauthorized();
-                        return;
-                    }
-
-                    setErrorCode("AUTH_GENERIC_ERROR");
+                    // HTTP status is authoritative: IAM error wording and codes vary.
+                    handleUnauthorized();
                     return;
                 }
 
@@ -77,11 +59,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     setUser(data);
                     setIsLoggedIn(true);
                 } else {
-                    console.log(data);
+                    setErrorCode('AUTH_GENERIC_ERROR');
                 }
 
             } catch (err) {
-                console.error("Request failed:", err);
+                setErrorCode('AUTH_GENERIC_ERROR');
             } finally {
                 setIsLoading(false);
             }
@@ -119,6 +101,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     <p className="text-neutral-first mt-4 text-lg leading-relaxed">
                         {t('generic_error_description')}
                     </p>
+                    <button type="button" onClick={() => window.location.reload()}
+                        className="mt-6 rounded-full bg-primary-first text-white px-6 py-3 font-semibold">
+                        {t('try_again')}
+                    </button>
                 </div>
             </div>
         );

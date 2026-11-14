@@ -69,7 +69,7 @@ export const useApprovals = (
     }, [aweRequestId, refetchTasks, fetchOptions, onRefresh]);
 
     const submitDecision = useCallback(
-        async (taskId: string, action: 'approve' | 'reject', comment: string) => {
+        async (taskId: string, action: 'approve' | 'reject' | 'return', comment: string) => {
             if (!artifactContext) {
                 toast.error(t('toast_approval_submit_failed'), { autoClose: 5000 });
                 return false;

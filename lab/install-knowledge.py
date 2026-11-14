@@ -34,4 +34,3 @@ except Exception:
  for entry in manifest:
   if entry['saved']:shutil.copy2(entry['saved'],entry['target'])
  shutil.copy2(backup/'nginx-snippet',snippet);subprocess.run(['systemctl','start','iqs-registration.service']);raise
-

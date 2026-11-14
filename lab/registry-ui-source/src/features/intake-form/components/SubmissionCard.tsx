@@ -1,5 +1,6 @@
 'use client';
 
+import { WorkflowStatus } from '@/components/shared/Workflow';
 import { Link } from '@/i18n/navigation';
 import { KeyValue } from '@/components/ui/KeyValue';
 import { IntakeFormSubmission } from '../types/intake-form';
@@ -26,17 +27,17 @@ export function IntakeFormSubmissionCard({ submission, registerType }: IntakeFor
             className="group block w-full"
         >
             <div className="rounded-[10px] bg-neutral-second px-10 py-8 shadow-sm transition-shadow duration-200 group-hover:shadow-md">
-                <h3
+                <div className="flex justify-between items-start gap-4"><h3
                     className="text-[20px] font-semibold leading-snug tracking-tight text-primary-second line-clamp-2 md:text-[22px] mb-4"
                     title={submission.record_name ?? undefined}
                 >
                     {submission.record_name ?? '—'}
-                </h3>
-                <div className="grid grid-cols-4 items-stretch gap-6 text-[14px] text-neutral-first/50">
+                </h3><WorkflowStatus approval={submission.approval_status} draft={submission.draft_status} summary={submission.awe_request_status_summary}/></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 items-stretch gap-6 text-[14px] text-neutral-first/50">
                     <div className="flex h-full min-h-0 flex-col">
                         <div className="flex flex-1 flex-col space-y-1">
-                            <KeyValue label={t('submission_id')} value={submission.submission_id} />
-                            <KeyValue label={t('form_id')} value={submission.form_id} />
+                            <KeyValue label="Reference" value={submission.application_reference || 'Not recorded'} />
+
                             <KeyValue label={t('draft_status')} value={submission.draft_status} />
                             <KeyValue label={t('approval_status')} value={submission.approval_status} />
                         </div>

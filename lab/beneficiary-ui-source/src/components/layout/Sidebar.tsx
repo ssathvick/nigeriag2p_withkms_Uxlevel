@@ -84,7 +84,7 @@ export default function Sidebar({ onItemClick }: SidebarProps) {
                         <Link
                             key={idx}
                             href={item.href}
-                            className={`flex items-center text-black text-[16px] font-[500] cursor-pointer transition-all duration-200 pl-1.5 mb-5 
+                            className={`flex items-center text-black text-[16px] font-[500] cursor-pointer transition-all duration-200 pl-1.5 mb-5
                                 ${isActive ? "bg-white/40" : "hover:bg-white/20"}
                             `}
                             onClick={() => handleItemClick(idx, item.href)}

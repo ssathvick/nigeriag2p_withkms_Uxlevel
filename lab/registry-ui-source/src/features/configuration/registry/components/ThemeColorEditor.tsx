@@ -9,6 +9,7 @@ import ConfirmRemovePopup from '@/features/configuration/shared/components/Confi
 import { Theme, COLOR_ATTRIBUTES, IMAGE_ATTRIBUTES } from '../types';
 import { CONFIGURATION_REGISTRY_ACTIONS } from '../../shared/utils/configurationRegistry.actions';
 import Can from '@/components/shared/Can';
+import {useRbac} from '@/context/RbacContext';
 
 interface ThemeColorEditorProps {
     selectedThemeId: string | null;
@@ -37,7 +38,7 @@ export default function ThemeColorEditor({
     onReset,
     isFactoryTheme,
 }: ThemeColorEditorProps) {
-    const t = useTranslations();
+    const t = useTranslations();const {can}=useRbac();
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     const handleFileChange = (key: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,13 +69,13 @@ export default function ThemeColorEditor({
                     </div>
                 </div>
 
-                {selectedThemeId !== 'NEW' && (
+                {selectedThemeId !== 'NEW' && can(CONFIGURATION_REGISTRY_ACTIONS.edit) && !isFactoryTheme && (
                     <div className="flex items-center gap-3">
                         <Can action={CONFIGURATION_REGISTRY_ACTIONS.edit}>
                             <button
                                 id="reset-theme-btn"
                                 onClick={onReset}
-                                disabled={isFactoryTheme}
+                                disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 className="h-8.5 px-4 rounded-[10px] bg-neutral-first text-neutral-second text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                             >
                                 {t("reset")}
@@ -83,7 +84,7 @@ export default function ThemeColorEditor({
                             <button
                                 id="delete-theme-btn"
                                 onClick={() => setShowDeleteConfirm(true)}
-                                disabled={isFactoryTheme}
+                                disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 className="h-8.5 px-4 rounded-[10px] bg-neutral-first text-neutral-second text-sm font-semibold transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
                             >
                                 {t("remove")}
@@ -148,7 +149,7 @@ export default function ThemeColorEditor({
                                     label={t(`theme_attr_${attr.key}_label`)}
                                     value={getColor(attr.key)}
                                     onChange={v => onColorChange(attr.key, v)}
-                                    disabled={isFactoryTheme}
+                                    disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 />
                             ))}
                         </div>
@@ -164,7 +165,7 @@ export default function ThemeColorEditor({
                                     label={t(`theme_attr_${attr.key}_label`)}
                                     value={getColor(attr.key)}
                                     onChange={v => onColorChange(attr.key, v)}
-                                    disabled={isFactoryTheme}
+                                    disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 />
                             ))}
                         </div>
@@ -180,7 +181,7 @@ export default function ThemeColorEditor({
                                     label={t(`theme_attr_${attr.key}_label`)}
                                     value={getColor(attr.key)}
                                     onChange={v => onColorChange(attr.key, v)}
-                                    disabled={isFactoryTheme}
+                                    disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 />
                             ))}
                         </div>
@@ -206,7 +207,7 @@ export default function ThemeColorEditor({
                                                 className="hidden"
                                                 accept="image/*"
                                                 onChange={e => handleFileChange(attr.key, e)}
-                                                disabled={isFactoryTheme}
+                                                disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                             />
                                             {val && val !== '/images/config/blank_image.png' ? (
                                                 <Image
@@ -223,7 +224,7 @@ export default function ThemeColorEditor({
                                                 </div>
                                             )}
 
-                                            {!isFactoryTheme && (
+                                            {!isFactoryTheme && can(CONFIGURATION_REGISTRY_ACTIONS.edit) && (
                                                 <div className="absolute inset-0 bg-neutral-first/40 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                                                     <button
                                                         onClick={() => document.getElementById(`image-upload-${attr.key}`)?.click()}
@@ -250,7 +251,7 @@ export default function ThemeColorEditor({
                         </div>
                     </div>
 
-                    {selectedThemeId !== 'NEW' && (
+                    {selectedThemeId !== 'NEW' && can(CONFIGURATION_REGISTRY_ACTIONS.edit) && !isFactoryTheme && (
                         <div className="mt-8 flex justify-end gap-3 pt-6 border-t border-secondary-second">
                             <button
                                 id="discard-theme-btn"
@@ -262,7 +263,7 @@ export default function ThemeColorEditor({
                             <button
                                 id="save-theme-btn"
                                 onClick={onSave}
-                                disabled={isFactoryTheme}
+                                disabled={isFactoryTheme||!can(CONFIGURATION_REGISTRY_ACTIONS.edit)}
                                 className="px-6 h-10 rounded-[10px] bg-neutral-first text-neutral-second text-sm font-semibold hover:bg-neutral-first/90 transition-colors shadow-lg active:scale-95 transform disabled:opacity-40 disabled:cursor-not-allowed"
                             >
                                 {t('theme_config_save_changes')}

@@ -3,6 +3,7 @@
 export const origins={register:'register',registry:'registry',pbms:'pbms',awe:'awe',beneficiary:'beneficiary','portal-admin':'portal-admin',odk:'odk','master-data-ui':'master-data-ui','partner-management':'partner-management','consent-manager':'consent-manager','staff-portal':'staff-portal','iam-staff-ui':'iam-staff-ui',superset:'superset'};
 export const defaults={register:'/en/register/household',registry:'/web#action=188',pbms:'/web#action=193',awe:'/requests',beneficiary:'/selfservice', 'portal-admin':'/web#action=393',odk:'/',geography:'/registration/geography',superset:'/superset/dashboard/nigeria-platform-analytics/','master-data-ui':'/en/geo-locations','partner-management':'/partners','consent-manager':'/approvals','staff-portal':'/en','iam-staff-ui':'/en/applications',knowledge:'/registration/knowledge',intake:'/registration/',review:'/registration/workspace',overview:'/registration/workspace'};
 export function recordsUrl(service,metric='',category='',personal=false){
+ if(service==='register')return markRecords('https://g2p.wverve.in/registration/mbr?view='+(metric==='change_request_status'?'changes':category.toLowerCase().includes('individual')?'individuals':'registers'));
  let path=defaults[service]||defaults.overview;
  const value=category.toLowerCase();
  if(service==='register')path=metric==='change_request_status'?'/en/change-request':value.includes('individual')?'/en/register/individual':defaults.register;

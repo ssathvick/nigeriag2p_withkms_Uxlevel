@@ -27,7 +27,7 @@ export default function Header() {
     return (
         <header className={`w-full bg-neutral-second fixed top-0 left-0 right-0 z-20 flex justify-center ${isScrolled ? "shadow-[0px_4px_10px_0px_rgba(0,0,0,0.15)]" : ""}`}>
             <div className="w-full h-17.5 flex items-center justify-between px-3">
-                <Link href={`/${locale}`} className="flex items-center gap-2">
+                <Link href={`/${locale}`} className="flex shrink-0 min-w-20 items-center gap-2">
                     <Image
                         src={config?.registryLogo || "/images/common/openg2p_logo.png"}
                         alt="Registry Logo"
@@ -36,7 +36,7 @@ export default function Header() {
                         className="w-10 h-10 shrink-0 object-contain"
                         unoptimized
                     />
-                    <div className="flex items-center gap-3">
+                    <div className="registry-header-title hidden sm:flex items-center gap-3">
                         <span
                             className="text-neutral-first text-[20px] font-medium not-italic leading-normal"
                             style={{ fontFamily: 'Roboto' }}
@@ -58,7 +58,7 @@ export default function Header() {
                 </Link>
 
                 {/* Desktop Navigation */}
-                <div className="flex items-center gap-8">
+                <div className="flex min-w-0 items-center gap-2 sm:gap-8">
                     <Can anyOf={CONFIG_VIEW_ACTIONS}>
                         <ConfigurationButton />
                     </Can>

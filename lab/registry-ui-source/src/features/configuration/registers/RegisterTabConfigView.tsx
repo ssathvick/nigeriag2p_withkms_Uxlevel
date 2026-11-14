@@ -118,7 +118,7 @@ export default function RegisterTabConfigView({
 					onSuccess={refresh}
 				/>
 			)}
-			
+
 			{showDeletePopup && (
 				<ConfirmRemovePopup
 					onClose={() => {
@@ -132,4 +132,3 @@ export default function RegisterTabConfigView({
 		</>
 	);
 }
-

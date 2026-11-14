@@ -5,7 +5,9 @@ from html.parser import HTMLParser
 from urllib.parse import quote
 import requests
 from odk_household_mapping import map_submission
+from odk_native_registry_mapping import map_native
 from odk_legacy_mapping import map_legacy
+from odk_geography import load_geography
 ROOT=Path(os.environ.get('NSIPA_ODK_SYNC_HOME','/opt/openg2p-lab/odk-sync'))
 REG='a0000000-0000-4000-8000-000000000002';FORM='c1000000-0000-4000-8000-000000000002'
 logging.basicConfig(level=logging.INFO,format='%(asctime)s %(levelname)s %(message)s')
@@ -61,7 +63,8 @@ def process(client,c,formid,definition,master,entry):
  if row['state'] in ('SUBMITTED','EXISTING','QUARANTINED','SOURCE_CHANGED','EXCLUDED_TEST'):return
  try:
   review=getattr(client,'cfg',{}).get('legacy_reviews',{}).get(instance)
-  if review:
+  if formid=='nsipa_registry_household':mapped=map_native(xml,definition,master)
+  elif review:
    definition=(ROOT/'legacy-review'/review['definition_file']).read_bytes()
    mapped=map_legacy(xml,definition,master,review)
   else:mapped=map_submission(xml,definition,master)
@@ -91,6 +94,8 @@ def process(client,c,formid,definition,master,entry):
  if current.get('awe_request_id'):
   # Includes rejected/returned items: never automatically resubmit review decisions.
   put(c,key,state='SUBMITTED',error=None);return
+ for section in mapped.get('section_payloads',[]):
+  client.post('/intake-form-data/save_intake_form_submission',{'submission_id':sid,'register_id':REG,'form_id':FORM,**section})
  client.post('/intake-form-data/finalize_intake_form_submission',{'submission_id':sid,'register_id':REG,'form_id':FORM})
  put(c,key,state='SUBMITTED',error=None);logging.info('Submitted %s for independent review',key)
 def run():
@@ -100,7 +105,7 @@ def run():
   except BlockingIOError:logging.info('Another worker holds the lock; skipping');return
   cfg=json.loads((ROOT/'config.json').read_text());c=db();client=Client(cfg)
   try:
-   master={}
+   master={'GEO_VALUES':load_geography()}
    for attr in ['ROOF_MATERIAL','WATER_SOURCE_TYPE']:
     value=client.post('/attributes/get_attribute_values',{'attribute_id':attr},client.master)
     master[attr]=value if isinstance(value,list) else value.get('attribute_values',value.get('values'))
@@ -124,4 +129,3 @@ def run():
    if failures:raise RuntimeError('Some submissions need retry; inspect ledger and journal')
   finally:client.close();c.close()
 if __name__=='__main__':run()
-

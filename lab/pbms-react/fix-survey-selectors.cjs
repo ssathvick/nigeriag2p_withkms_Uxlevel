@@ -1,0 +1,1 @@
+const fs=require('fs'),p='test-household-survey-ui.cjs';let s=fs.readFileSync(p,'utf8');for(const[name,key]of [['State / FCT','state'],['Local Government Area','lga'],['Ward','ward']])s=s.replaceAll("p.getByLabel('"+name+"',{exact:true})","p.locator('select[id$=\"-"+key+"\"]')");fs.writeFileSync(p,s);

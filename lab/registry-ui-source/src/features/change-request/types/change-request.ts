@@ -5,6 +5,7 @@ export interface ChangeDocument {
 }
 
 export interface ChangeRequest {
+    review_history?: any[];
     change_request_id: string;
     record_name?: string | null;
     register_id: string;

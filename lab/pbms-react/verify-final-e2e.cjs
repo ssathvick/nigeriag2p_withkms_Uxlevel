@@ -25,6 +25,3 @@ function submission(id,formid,name,numeric){const tag=(k,v)=>`<${k}>${v}</${k}>`
  }
  state.finished=true;save();console.log('PASS four fresh ODK imports verified across both domain families');
 }finally{await b.close()}})().catch(e=>{console.error(e.message);process.exitCode=1}).finally(()=>{fs.closeSync(fd);fs.unlinkSync(lock)});
-
-
-

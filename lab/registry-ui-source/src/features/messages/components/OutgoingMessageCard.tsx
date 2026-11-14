@@ -20,20 +20,12 @@ export default function OutgoingMessageCard({ message }: Props) {
     const topicsToShow = showAllTopics ? message.topic_names : message.topic_names.slice(0, 4);
 
     return (
-        <div className="rounded-[10px] bg-neutral-second px-10 py-8">
+        <div className="application-message-card rounded-[10px] bg-neutral-second px-10 py-8">
             <div className="grid gap-6 grid-cols-1 md:grid-cols-3 text-[16px] text-neutral-first/50">
 
                 <div className="space-y-2">
                     <h3 className="text-[16px] font-medium text-primary-second flex justify-between items-center">
                         <span>{t('source') || 'Source'}</span>
-                        <Image
-                            src="/images/messages/chat.png"
-                            alt="Raw Icon"
-                            width={19}
-                            height={20}
-                            // onClick={() => setOpenPopup(true)}
-                            className="cursor-pointer"
-                        />
                     </h3>
                     <KeyValue variant="message" label={t('outgest_id') || 'Outgest ID'} value={message.outgest_id} />
                     <KeyValue variant="message" label={t('queued_date_time') || 'Queued Date & Time'} value={formatDateTime(message.queued_datetime)} />
@@ -61,8 +53,7 @@ export default function OutgoingMessageCard({ message }: Props) {
                         <KeyValue variant="message" key={idx} label={`${t('topic') || 'Topic'} ${idx + 1}`} value={topic} />
                     ))}
                     {message.topic_names.length > 4 && !showAllTopics && (
-                        <Link
-                            href={`/outgoing-messages}`}
+                        <button type="button" onClick={()=>setShowAllTopics(true)}
                             className="text-neutral-first/50 inline-flex items-center gap-1"
                         >
                             {t('view_more') || "View More"}
@@ -73,7 +64,7 @@ export default function OutgoingMessageCard({ message }: Props) {
                                 height={14}
                                 className="inline-block"
                             />
-                        </Link>
+                        </button>
                     )}
                 </div>
             </div>

@@ -183,9 +183,11 @@ export default function StatsCardsCarousel<T extends string>({
                     }}
                 >
                     {cards.map((type) => (
-                        <button
+                        <div
                             key={type}
-                            type="button"
+                            role="group"
+                            tabIndex={0}
+                            onKeyDown={e=>{if(e.target===e.currentTarget && (e.key==='Enter'||e.key===' ')){e.preventDefault();onSelectCard(type)}}}
                             onClick={() => onSelectCard(type)}
                             className="bg-transparent p-0 text-left shrink-0 min-w-0"
                             style={cardWidth > 0 ? { width: cardWidth } : undefined}
@@ -194,7 +196,7 @@ export default function StatsCardsCarousel<T extends string>({
                                 stats_endpoint={statsEndpointFor(type)}
                                 active={activeCard === type}
                             />
-                        </button>
+                        </div>
                     ))}
                 </div>
             </div>

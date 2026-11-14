@@ -1,7 +1,7 @@
 export const catalog = [
  ['programmes','Programmes','g2p.program.definition',['program_mnemonic','description','target_registry','program_status'],193,'Design and manage social protection programmes.'],
  ['enrollment','Enrollment cycles','g2p.enrollment.cycle',['cycle_number','program_id','enrollment_start_date','enrollment_end_date','approved_for_enrollment'],196,'Track enrollment windows and approvals.'],
- ['disbursement','Disbursement cycles','g2p.disbursement.cycle',['cycle_mnemonic','program_id','approved_for_disbursement','creation_date'],194,'Monitor programme disbursement cycles.'],
+ ['disbursement','Disbursement cycles','g2p.disbursement.cycle',['cycle_mnemonic','program_id','nsipa_approval_status','creation_date'],194,'Monitor programme disbursement cycles.'],
  ['lists','Beneficiary lists','g2p.beneficiary.list',['mnemonic','program_id','list_stage','eligibility_process_status','entitlement_process_status','number_of_registrants'],195,'Follow eligibility, entitlement and processing progress.'],
  ['households','Households','g2p.household.registry',['display_name'],232,'View household records available to your account.'],
  ['farmers','Farmers','g2p.farmer.registry',['display_name'],203,'View the programme farmer registry.'],
@@ -23,3 +23,5 @@ export const catalog = [
 ].map(([key,label,model,columns,action,description])=>({key,label,model,columns,action,description}));
 for(const c of catalog){if(['verification','approvals'].includes(c.key)){c.domain=[['list_workflow_status','=','initiated']];c.workflowOnly=true;}if(c.key==='payments'){c.domain=[['list_stage','=','disbursement']];c.workflowOnly=true;}}
 export const programmeFields=['program_mnemonic','description','program_status','target_registry','service_providers_required','enrollment_frequency','verifications_for_enrolment','auto_approve_enrolment','disbursement_frequency','verifications_for_disbursement','auto_approve_disbursement'];
+
+for(const c of catalog){if(c.key==='approvals'||c.key==='verification')c.domain=['|',['nsipa_status','in',['finance','audit','ceo']],'&',['nsipa_status','=',false],['list_workflow_status','=','initiated']];if(c.key==='payments')c.domain=[['list_stage','=','disbursement'],['nsipa_status','=',false]];if(c.model==='g2p.beneficiary.list'&&!c.columns.includes('nsipa_status'))c.columns.push('nsipa_status');}

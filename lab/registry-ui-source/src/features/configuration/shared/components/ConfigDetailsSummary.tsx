@@ -1,3 +1,6 @@
+'use client';
+import {useConfigurationAccess} from './configurationAccess';
+import {useRbac} from '@/context/RbacContext';
 import React from 'react';
 import { Pencil, Eye } from 'lucide-react';
 import { useTranslations } from 'next-intl';
@@ -19,10 +22,10 @@ export default function ConfigDetailsSummary({
     onEdit,
     onView
 }: ConfigDetailsSummaryProps) {
-    const t = useTranslations();
+    const t = useTranslations();const access=useConfigurationAccess();const {can}=useRbac();
 
     return (
-        <div className="mx-8 mb-0">
+        <div className="config-details-summary mx-8 mb-0">
             <div
                 className="bg-primary-first/20 border-primary-second border-dashed border rounded-[10px] px-12 h-15 flex items-center justify-between shadow-sm"
                 style={{ borderStyle: 'dashed', borderWidth: '1px' }}
@@ -58,7 +61,7 @@ export default function ConfigDetailsSummary({
                             <Eye size={16} className="text-neutral-first" />
                         </button>
                     )}
-                    {onEdit && (
+                    {onEdit && (!access||can(access.edit)) && (
                         <button
                             onClick={onEdit}
                             className="bg-neutral-second p-2 rounded-[10px] hover:bg-secondary-first transition-colors shadow-sm flex items-center justify-center shrink-0"
@@ -72,5 +75,3 @@ export default function ConfigDetailsSummary({
         </div>
     );
 }
-
-

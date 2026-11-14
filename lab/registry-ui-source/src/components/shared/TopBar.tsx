@@ -80,9 +80,9 @@ export default function TopBar({
     filterLoading = false,
 }: TopBarProps) {
     return (
-        <div className="w-full h-17.5 flex justify-center items-center">
-            <div className="w-full px-7.5 flex justify-between items-center">
-                <div className="flex items-center gap-4">
+        <div className="w-full min-h-17.5 py-3 flex justify-center items-center">
+            <div className="w-full min-w-0 px-4 sm:px-7.5 flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-center">
+                <div className="flex min-w-0 flex-wrap items-center gap-3">
                     {breadcrumb && breadcrumb.length > 0 && (
                         <BreadcrumbBar breadcrumb={breadcrumb} />
                     )}
@@ -95,7 +95,7 @@ export default function TopBar({
                         </div>
                     )}
                 </div>
-                <div className="flex items-center gap-2 sm:gap-4">
+                <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-4">
                     {showSearch && onSearch && (
                         <div className="ml-auto shrink-0 border border-primary-second rounded-[10px] h-8.5 flex items-center bg-neutral-second">
                             <SearchBar

@@ -1,4 +1,4 @@
-﻿Service,Guidance title,Guidance stage,Associated application stages,Visible topic recognition,Scope
+Service,Guidance title,Guidance stage,Associated application stages,Visible topic recognition,Scope
 register,Understand registries and registers,Registry and register concepts,Find a record; Service overview,registry and register|register concepts,upstream_reference
 register,Understand proposed and approved record changes,Proposed and approved changes,Submit for approval; Individual details; Household details,proposed.*approved|change request|edit details,upstream_reference
 register,Read the record workflow audit,Workflow audit,Submit for approval; Individual details; Household details,workflow audit|audit trail,upstream_reference
@@ -47,7 +47,7 @@ consent-manager,Understand effective consent scope,Consent decision enforcement,
 consent-manager,Understand consent policies for partners,Partner policy scope,Review consent; Service overview,partner policy|policy binding|data.share policy,upstream_reference
 consent-manager,Understand consent lifecycle and withdrawal,Consent withdrawal and expiry,Consent withdrawal; Review consent,revocation|withdrawal|expiry|consent lifecycle,upstream_reference
 superset,Prepare a dashboard import,Dashboard import preparation,Choose dashboard; Service overview,import dashboard|dashboard import,upstream_reference
-platform,Follow the NigeriaG2P service journey,End-to-end service journey,Find your service; Service overview,service journey|registration.*review.*application,local_workflow
+platform,Follow the NSIPA service journey,End-to-end service journey,Find your service; Service overview,service journey|registration.*review.*application,local_workflow
 platform,Understand personas and account permissions,Persona and permission,Find your service; Service overview,persona.*permission|persona selector,local_workflow
 intake,Prepare a household registration,Registration readiness,Household details; Household members; Submit registration,registration readiness|prepare.*registration,local_workflow
 intake,Respond to a returned registration,Returned registration corrections,Correct returned details,returned registration|reviewer feedback,local_workflow

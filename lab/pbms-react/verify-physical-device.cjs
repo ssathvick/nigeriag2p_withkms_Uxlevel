@@ -16,10 +16,3 @@ for(const target of readers){const rows=await target.post('register/section-data
 console.log('PASS',key,'two reviewers; exactly one registry record; saved data and synthetic names verified on both domains');}
 state.finished=true;save();console.log('PASS physical-device import');
 }finally{await browser.close()}})().catch(e=>{console.error(e.message);process.exitCode=1});
-
-
-
-
-
-
-

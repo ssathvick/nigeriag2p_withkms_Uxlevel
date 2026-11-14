@@ -9,7 +9,7 @@ export default function FormDetailsCard({
     description,
 }: FormDetailsCardProps) {
     return (
-        <div className="bg-secondary-second p-10 rounded-[10px] sticky top-6 w-[350px] h-[260px]">
+        <div className="bg-secondary-second p-6 rounded-[10px] lg:sticky top-6 w-full lg:w-[350px] min-h-[200px]">
 
             <h3 className="text-[20px] font-bold text-neutral-first mb-4">{title}</h3>
 

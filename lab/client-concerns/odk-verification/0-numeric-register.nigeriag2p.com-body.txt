@@ -1,0 +1,111 @@
+Master Beneficiary Registry
+All services
+My workspace
+Dashboard
+Service guide
+ⓘ Help
+Master Beneficiary Registry
+Nigeria UX Admin
+Households
+Household Info
+Household Members
+Housing & Services
+Programs
+Emeka Nwosu Household (NSIPA verification)
+Functional Record ID :
+TEMP-98f6d0b5b33b4b92af5716285ca375d7
+Record Status
+ACTIVE
+Status Reason :
+-
+Created by :
+NSIPA Intake Officer Demo
+Created at :
+2026-11-10T10:59:09.321641
+Last Approved by :
+NSIPA Second Reviewer Demo
+Last Approved at :
+2026-11-10T10:59:13.681961
+0
+Edit Details
+Location Detailsⓘ
+State / FCT:
+-
+Local Government Area:
+-
+District / locality (optional):
+-
+Community (optional):
+Locality / EA Code:
+Address Descriptor:
+-
+GPS Latitude:
+GPS Longitude:
+GPS Accuracy:
+Edit Details
+Headshipⓘ
+Household name:
+Emeka Nwosu Household (NSIPA verification)
+Household head:
+Emeka Nwosu
+Household head reference (optional):
+Headship Type:
+-
+Edit Details
+Rosterⓘ
+Household Size Total:
+4
+Household Size Adults:
+Household Size Children U5:
+Number Of Female Members:
+Number Of Male Members:
+Household Size School Age:
+Elderly Member Present:
+Husband Dead:
+False
+Husband Dead Date:
+-
+Edit Details
+Housing And Servicesⓘ
+Dwelling Type:
+-
+Roof material:
+Corrugated iron
+Wall Material:
+-
+Floor Material:
+-
+Tenure Status:
+-
+Water source:
+Piped
+Water Distance (Minutes):
+Sanitation Type:
+-
+Lighting Source:
+-
+Cooking Fuel Type:
+-
+Number of Rooms:
+Overcrowding Indicator:
+Edit Details
+Computation Scoresⓘ
+No scores available.
+Change Requestⓘ
+00
+
+No pending change requests
+
+Version Historyⓘ
+01
+
+Last Updated By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+
+Last Approved By
+
+NSIPA Second Reviewer Demo
+10/11/2026
+Know More
