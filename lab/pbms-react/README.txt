@@ -1,4 +1,4 @@
-NSIPA PBMS — current release, 14 November 2026
+NSIPA PBMS â€” current release, 14 November 2026
 
 Read the repository README and docs/current/INSTALLATION.md before deployment.
 The current programme-to-disbursement flow uses native Odoo addon nsipa_approval,

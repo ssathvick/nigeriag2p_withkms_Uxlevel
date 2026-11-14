@@ -1,4 +1,4 @@
-# Current Master Registry authority — 14 November 2026
+# Current Master Registry authority â€” 14 November 2026
 
 Native Registry and AWE own capture, review, resubmission and publication. The current UI is registry-ui-source/; household and individual records remain in native PostgreSQL tables. The supplemental /registration/mbr write API and its importer are retired. Do not run deploy-mbr-workflow.py, deploy-mbr-integration.py or enable iqs-mbr-native-import.timer for a new installation.
 

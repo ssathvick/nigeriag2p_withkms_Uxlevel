@@ -1,4 +1,4 @@
-# Nigeria G2P â€” Master Registry, personas, PBMS and KMS
+# Nigeria G2P — Master Registry, personas, PBMS and KMS
 
 **Current application source: 14 November 2026. This repository is public.**
 
@@ -51,7 +51,7 @@ cd nigeriag2p_withkms_Uxlevel
 LAB_SOURCE="$PWD/lab"
 ```
 
-For the complete platform, use Ubuntu 22.04 with systemd, K3s/Kubernetes, Helm, ingress/TLS, Docker, Python/venv and Node.js 22. On Windows use WSL2. The full-lab planning baseline is 12Ã¢â‚¬â€œ16 logical processors, 64 GB host RAM and 150 GB free SSD; see the detailed guide for qualifications and WSL settings. A standalone frontend build needs fewer resources but does not replace its backend.
+For the complete platform, use Ubuntu 22.04 with systemd, K3s/Kubernetes, Helm, ingress/TLS, Docker, Python/venv and Node.js 22. On Windows use WSL2. The full-lab planning baseline is 12–16 logical processors, 64 GB host RAM and 150 GB free SSD; see the detailed guide for qualifications and WSL settings. A standalone frontend build needs fewer resources but does not replace its backend.
 
 The [IQS installation repository](https://github.com/ssathvick/iqs-nigeria-g2p) includes the historical pinned base kit, Windows preparation launchers and installation/operations Word guides. Install the base in its documented stages first, then reconcile Registry staff API 1.2.1, AWE 1.2.2 and PBMS 3/Odoo 17 with the current release inventory. The older kit alone does not automatically install this new overlay.
 
