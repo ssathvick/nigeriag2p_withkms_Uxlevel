@@ -1,0 +1,6 @@
+Nigeria state boundary asset
+Source: existing registration-ui/nigeria-states.geojson; geoBoundaries NGA ADM1 / GRID3 2022.
+License: Creative Commons Attribution 4.0 (CC BY 4.0).
+Pinned upstream source commit: 9469f09.
+All 36 states plus Federal Capital Territory; local boundary crosswalk codes NG01-NG37.
+No household points or personal records are present in this asset.

@@ -1,0 +1,145 @@
+{
+  "release_date": "2026-11-16",
+  "status": "passed",
+  "backend": {
+    "status": "passed",
+    "roles": [
+      "admin",
+      "payment",
+      "finance",
+      "audit",
+      "ceo"
+    ],
+    "programmes": 15,
+    "checks": [
+      "all programme/cycle totals reconcile; API contains aggregates only",
+      "approved NGN 1 snapshot and exclusion match payment flow exactly",
+      "all five roles can access assigned programmes; unassigned programmes denied",
+      "cycle from another programme rejected",
+      "stored PL state alias maps to Plateau",
+      "list approvals, revisions and payment states unchanged by analytics reads"
+    ]
+  },
+  "browser": {
+    "status": "passed",
+    "roles": [
+      {
+        "role": "admin",
+        "status": "passed",
+        "checks": [
+          "analytics navigation",
+          "37 state/FCT shapes",
+          "programme filter",
+          "enrolment/disbursement cycle filter",
+          "exact snapshot counts",
+          "state selection",
+          "entitlement measure",
+          "no JavaScript errors"
+        ]
+      },
+      {
+        "role": "payment",
+        "status": "passed",
+        "checks": [
+          "analytics navigation",
+          "37 state/FCT shapes",
+          "programme filter",
+          "enrolment/disbursement cycle filter",
+          "exact snapshot counts",
+          "state selection",
+          "entitlement measure",
+          "no JavaScript errors"
+        ]
+      },
+      {
+        "role": "finance",
+        "status": "passed",
+        "checks": [
+          "analytics navigation",
+          "37 state/FCT shapes",
+          "programme filter",
+          "enrolment/disbursement cycle filter",
+          "exact snapshot counts",
+          "state selection",
+          "entitlement measure",
+          "no JavaScript errors"
+        ]
+      },
+      {
+        "role": "audit",
+        "status": "passed",
+        "checks": [
+          "analytics navigation",
+          "37 state/FCT shapes",
+          "programme filter",
+          "enrolment/disbursement cycle filter",
+          "exact snapshot counts",
+          "state selection",
+          "entitlement measure",
+          "no JavaScript errors"
+        ]
+      },
+      {
+        "role": "ceo",
+        "status": "passed",
+        "checks": [
+          "analytics navigation",
+          "37 state/FCT shapes",
+          "programme filter",
+          "enrolment/disbursement cycle filter",
+          "exact snapshot counts",
+          "state selection",
+          "entitlement measure",
+          "no JavaScript errors"
+        ]
+      }
+    ]
+  },
+  "workflow_regression": {
+    "status": "passed",
+    "checks": [
+      "actual staff logins",
+      "programme and rules creation",
+      "monthly cycles",
+      "Registry selection",
+      "shared lists",
+      "Payment initiation",
+      "three authenticated approvals",
+      "evidence retention",
+      "native XLS download",
+      "mobile layout",
+      "old logo retained",
+      "marked sections absent"
+    ]
+  },
+  "existing_payment_regression": {
+    "status": "passed",
+    "beneficiaries": 1,
+    "ngn": 1.0,
+    "envelopes": 1,
+    "batches": 1,
+    "financial_address_resolution": "PROCESSED",
+    "local_simulator_dispatch": "PROCESSED",
+    "reconciled": 1,
+    "separate_approval_disabled": true,
+    "unrelated_report_blocked": true
+  },
+  "existing_payment_browser": {
+    "status": "passed",
+    "checks": [
+      "Payment user sees linked report",
+      "processed dispatch shown",
+      "report download",
+      "mobile layout"
+    ]
+  },
+  "map_features": 37,
+  "access": "Programme Admin, Payment, Finance, Audit, CEO within existing programme permissions",
+  "data_scope": "State-level aggregates of included enrolment/disbursement list snapshots; approval-flow programmes only",
+  "normalized_state_catalogue_checked": true,
+  "unknown_states_remain_unmapped": true,
+  "credentials_changed": false,
+  "financial_actions_added_by_analytics": false,
+  "main_panel_map_changed": false,
+  "note": "Original-lab checks; private identities, original record IDs and screenshots excluded. No fresh-install or real-bank certification."
+}

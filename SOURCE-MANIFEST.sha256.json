@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "abbbd650205ffb8ee6646ca885ecf91ee4acac1beba50c1fbfdf986eb82c38a2"
+    "sha256": "099af4ff98dea1123152d5752a49bd99f8be327ecaec394569b17e162cf9543b"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -6057,7 +6057,7 @@
   },
   {
     "path": "docs/current/INSTALLATION.md",
-    "sha256": "02c095959c61e12aa7fdc71ee71c7b067ac039d8a6d7bbdd35431aa7d71a6082"
+    "sha256": "8d54da1906c39ccfb74e5d25f5031ac0a1672eef077a96ecc200011bcd590da3"
   },
   {
     "path": "docs/current/PBMS-PAYMENTS.md",
@@ -6065,7 +6065,7 @@
   },
   {
     "path": "docs/current/USAGE.md",
-    "sha256": "1a6863d3e6032a44d13b2d69587d708c9fb7f9e03a3f115a598c849487c921b6"
+    "sha256": "cbaaa8df21fb799f317ca71e9601f05fe2ab4e04eea6cbc7e38fef5247f43aed"
   },
   {
     "path": "lab/Install-BootStartup-Admin.ps1",
@@ -6081,7 +6081,7 @@
   },
   {
     "path": "lab/pbms-react/README.txt",
-    "sha256": "e2e0493ec30ade85118dad882619466422128282a0092056b0e0f054f87f9359"
+    "sha256": "5d2f27202afef5a2edd68ad877dfd8cd1759b29fab1e768beea771a92355ef71"
   },
   {
     "path": "lab/pbms-react/backend-reference/openg2p_bg_task_celery_workers__tasks__disbursement_batch_creation_worker.py",
@@ -6117,11 +6117,11 @@
   },
   {
     "path": "lab/pbms-react/src/main.jsx",
-    "sha256": "bbae90f4698a7119ca67a69a0f05294fd0b4cc74688fca42a1453379747bb582"
+    "sha256": "2f7cba8b63a11f0ac071190f591fe2fe61bc7195d0e3b556665fa57e9af0023e"
   },
   {
     "path": "lab/pbms-react/src/programme-flow.jsx",
-    "sha256": "2f9bd17f1882b9f19bf19765b0dd7faf9f82d7873dfd0fdb782cbf03c50f8731"
+    "sha256": "be3223d5f39675f78adf5e7a258a9a7c0a0e533063c75eda5d06e99220e4495f"
   },
   {
     "path": "lab/pbms-react/test-connected-payments-browser.cjs",
@@ -6182,5 +6182,61 @@
   {
     "path": "source-snapshots/2026-11-15-pbms-payments/verification-summary.json",
     "sha256": "3e170721e7b161d823795b8c9326d7734e12b6f3a18d7ac315a5170db5fa38ef"
+  },
+  {
+    "path": "docs/current/PROGRAMME-ANALYTICS.md",
+    "sha256": "f86e3ca6e73c2e6fb094eee0df1191175795eb83abad1b1f3a5b4d07b2c5d4ac"
+  },
+  {
+    "path": "lab/pbms-react/Geographic-Analytics-Operations.txt",
+    "sha256": "05db13376748f388b6beec74116e825d25fd56806e323fa309bce2c0e30a8c63"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_approval/__init__.py",
+    "sha256": "f9aa217603090f9bbe8c05ae9534e06f9d1d3d909ffa82949ac3b3cacf5de7f6"
+  },
+  {
+    "path": "lab/pbms-react/nsipa_approval/analytics.py",
+    "sha256": "007c36be5bb11ca51b89bc5bf7f1060526f812bbb1cf76992916ad0d0a2205a6"
+  },
+  {
+    "path": "lab/pbms-react/src/nigeria-states.LICENSE.txt",
+    "sha256": "52fb6b0f652b16c998558f64917bbdc17d6856b7d4243ffcf7bedf1ed5b2911d"
+  },
+  {
+    "path": "lab/pbms-react/src/nigeria-states.json",
+    "sha256": "0993f267db3c039f637f4b7dd7aac4f4999ff2a27d8d11a55c2da92b7661ff89"
+  },
+  {
+    "path": "lab/pbms-react/src/programme-analytics.css",
+    "sha256": "4360b86a84a749e0667b8192857db12207bc8d3b087c3de88d8e111c32f7c31b"
+  },
+  {
+    "path": "lab/pbms-react/src/programme-analytics.jsx",
+    "sha256": "19919614508420ebb691067066c5bf45c454bd52dac9b077376b5f7596a9a50a"
+  },
+  {
+    "path": "lab/pbms-react/test-geographic-analytics-browser.cjs",
+    "sha256": "0f763ad4414570103fdccc554f704f4b383224d8ecbe99027d9f2b74475ad9a4"
+  },
+  {
+    "path": "lab/pbms-react/test-geographic-analytics.py",
+    "sha256": "f186c2c8607e161160bfa711a4ca7715f0a76cdb93f1da862c341c4ce7dc80a2"
+  },
+  {
+    "path": "source-snapshots/2026-11-16-programme-analytics/README.md",
+    "sha256": "70872ae91d0b7b074789ee14e28af975e461a68343c7493eecceaca1d9b4eada"
+  },
+  {
+    "path": "source-snapshots/2026-11-16-programme-analytics/runtime-images.json",
+    "sha256": "71d555913af841c1ab606883dca83eb00e98f38385caceb5bb9272cfbaebc708"
+  },
+  {
+    "path": "source-snapshots/2026-11-16-programme-analytics/source-manifest.json",
+    "sha256": "9bcfa0209e5b80823dc05b528089a9279eacf6995d9f6cf83d75bea02a4eb3d7"
+  },
+  {
+    "path": "source-snapshots/2026-11-16-programme-analytics/verification-summary.json",
+    "sha256": "710d99393e1ccd5e243b29db6d0b2768f338921f226e97100793759aadcb929d"
   }
 ]

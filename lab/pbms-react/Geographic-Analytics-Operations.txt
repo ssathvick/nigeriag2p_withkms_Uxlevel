@@ -1,0 +1,37 @@
+Programme geographic analytics — 16 November 2026
+
+Open PBMS -> Programme analytics, or follow Programme analytics from Programme approval flow.
+Select an accessible programme and one enrolment/disbursement cycle. Select a state by
+map, dropdown or state table. Disbursement cycles also support the calculated-NGN measure.
+
+Access: Programme Admin, Payment, Finance, Audit and CEO, within their existing programme
+permissions. No role or password changes were needed. The API checks programme scope and
+rejects a cycle from another programme. Only aggregate state counts/amounts are returned.
+
+Data: included native approval-flow beneficiary list snapshots for the selected cycle.
+Corrected amounts and exclusions are preserved. Known state names, local NG01-NG37 codes,
+ISO-style state abbreviations and PL are normalized to the shared main-panel boundaries.
+Unknown/missing state values remain in an Unmapped location total and are not assigned a
+location. Pending/failed list calculations are not presented as completed coverage.
+
+Scope: approval-flow programmes; state/FCT level only. No LGA boundary connection or GPS
+point connection is claimed. Counts are registry entries, not household members. Submitted
+for payment means submission, not confirmed settlement. Legacy payment programmes without
+these native list snapshots are not included in the programme selector.
+
+Boundaries: reused existing geoBoundaries / GRID3 2022 data, CC BY 4.0, source commit 9469f09.
+The main-panel map and its data are unchanged. The copied boundary file is bundled locally.
+
+Implementation: nsipa_approval/analytics.py is a read-only Odoo extension imported from
+nsipa_approval/__init__.py and persisted in the existing addon ConfigMap mount. No new
+fields/tables, workflow transitions, payment actions or credentials are introduced.
+Frontend: src/programme-analytics.jsx, .css, nigeria-states.json; navigation in main.jsx
+and the existing approval-flow heading. Rebuild with npm run build and publish dist as an
+atomic static release; retain current Nginx configuration.
+
+Validation: evidence/geographic-analytics/complete-results.json. Five actual staff-role
+browser sessions, programme/cycle filters, 37 boundaries, keyboard/state selection, data
+reconciliation, permission denials and mobile layout passed. Existing browser programme
+creation -> enrolment -> disbursement -> Payment review submission -> Finance/Audit/CEO ->
+XLS export passed. Existing reconciled payment API and linked report/download tests passed.
+The synthetic regression programme was paused after testing. No new payment was dispatched.

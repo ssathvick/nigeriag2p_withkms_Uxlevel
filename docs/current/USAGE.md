@@ -98,6 +98,12 @@ Do not count an old revision's approvals toward the new revision. Do not alter a
 
 Existing usernames/passwords remain unchanged. Historical programmes retain their existing workflow. Earlier approved lists are not automatically dispatched by installing this update. See [payment validation and operational limits](PBMS-PAYMENTS.md).
 
+## Programme geographic analytics
+
+Open **Programme analytics** from the PBMS sidebar or the approval-flow heading. Choose a programme and enrolment/disbursement cycle. Use the map or state dropdown for its included-beneficiary counts; disbursement cycles can also show calculated NGN. State/FCT totals are derived from the selected list snapshot, preserving corrections/exclusions. Missing or unrecognized state values are shown as **Unmapped location**.
+
+Programme Admin, Payment, Finance, Audit and CEO can view assigned programmes. Submitted-for-payment counts do not confirm settlement. The feature does not modify a list, approve a programme or initiate payment. See [coverage, access and limits](PROGRAMME-ANALYTICS.md).
+
 ## Branding, retained sections and contextual help
 
 The current sidebar/login retains the established `branding/nsipa-logo.svg` with its wording. The following PBMS sidebar entries have been removed: Households, Farmers, Students, Priority rules, Agencies, Warehouses & banks, States & regions, Local administrative areas, Agency benefit assignments, Bank & warehouse assignments and Verification queue. Their supporting routes, records, relationship selectors and workflow logic remain available; this is a navigation change only.

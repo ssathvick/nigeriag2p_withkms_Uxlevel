@@ -1,6 +1,6 @@
 # Nigeria G2P — Master Registry, personas, PBMS and KMS
 
-**Current application source: 15 November 2026. This repository is public.**
+**Current application source: 16 November 2026. This repository is public.**
 
 This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-payment flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.
 
@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-15-pbms-payments/README.md), [source hashes](source-snapshots/2026-11-15-pbms-payments/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-15-pbms-payments/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-16-programme-analytics/README.md), [source hashes](source-snapshots/2026-11-16-programme-analytics/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-16-programme-analytics/runtime-images.json).
 
 ## What changed
 
@@ -25,11 +25,14 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 | PBMS setup | Cash Benefit Code in NGN, programme mapping, eligibility/entitlement rules, NGN 25,000 maximum, monthly enrolment/disbursement cycles and scheduled list calculation |
 | PBMS approvals | Separate Programme Admin, Payment, Finance, Audit and CEO accounts; programme-scoped access, comments/evidence, sequential decisions, rejection/correction and revision history |
 | Final output | Native `.xls` export plus explicit Payment submission of the same CEO-approved list; dispatch and reconciliation reports remain linked |
+| Programme analytics | State/FCT map with programme and cycle filters; available to all five PBMS roles within existing programme permissions; aggregate list snapshots only |
 | Branding | Existing NSIPA logo retained; eleven marked PBMS sidebar entries hidden, with supporting routes/data preserved |
 
 After CEO approval, the Payment user explicitly submits the same approved list to the existing Bridge payment flow. Legacy programmes retain their existing workflow. Master Registry and PBMS have distinct native models; their synchronization adapter must be configured and verified on the new machine.
 
 See [connected PBMS payments and validation](docs/current/PBMS-PAYMENTS.md) for the Payment action, sponsor routing, whole-NGN limitation and simulator results. Existing login credentials are unchanged.
+
+See [programme geographic analytics](docs/current/PROGRAMME-ANALYTICS.md) for role access, state coverage, missing-location handling and deployment. The existing main-panel map and approval/payment flow are unchanged.
 
 ## Repository layout
 

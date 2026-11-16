@@ -1,4 +1,4 @@
-NSIPA PBMS current release — 15 November 2026
+NSIPA PBMS current release — 16 November 2026
 
 Read docs/current/INSTALLATION.md and docs/current/PBMS-PAYMENTS.md.
 Programme setup -> enrolment -> disbursement -> Payment submits for approval ->
@@ -13,3 +13,6 @@ extensions and session adapter in the sequence documented in INSTALLATION.md.
 Tests create synthetic programmes and may send simulator payments. Run them only
 in an isolated lab with verified local Example Bank connectors, never as installation.
 Supply private approval credentials through PBMS_APPROVAL_ACCOUNTS_FILE.
+
+Programme analytics: state/FCT map with programme/cycle filters and aggregate snapshot counts.
+All five PBMS roles can view their assigned programmes. See docs/current/PROGRAMME-ANALYTICS.md.
