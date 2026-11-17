@@ -33,3 +33,5 @@ On the original lab, all three geography metrics reconcile to the protected sour
 PBMS programme-map permissions/totals and the existing reconciled simulator payment report passed read-only regression checks. No new payment was dispatched. The helper plan is validated in both source repositories; destination apply and acceptance remain operator steps. See the [sanitized verification summary](../../source-snapshots/2026-11-17-geographic-reporting-fix/verification-summary.json).
 
 For recovery, use the private pre-change reporting-schema definitions with an authorized database administrator, retaining existing owners/ACLs. Restore reporting objects only after reviewing the failed migration; do not roll back registry data, weaken row security or clear payment state. An unsuccessful transaction leaves the previous reporting objects intact.
+
+The follow-up [startup/timer update](STARTUP-AND-REPORTING.md) also enables `iqs-analytics.timer` at boot; a running but disabled timer is insufficient for reboot persistence.

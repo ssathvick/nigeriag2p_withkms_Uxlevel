@@ -224,9 +224,13 @@ Existing sites with SQLSTATE 42501 on the geography reporting views should use t
 
 ### 8d. Existing-host service recovery and Windows startup
 
-For an existing systemd host, inspect `python3 "$SOURCE/release/install_service_recovery.py"`, then run with `sudo` and `--apply` to enable the six existing portal services and a one-minute recovery timer. Use `--services` to match the services actually installed on the destination; the helper checks every unit before changing startup policy. This does not install missing services.
+Inspect `python3 "$SOURCE/release/install_service_recovery.py"`, then apply with `sudo` and `--apply` to enable the six existing Nigeria portal services, `iqs-analytics.timer` and the one-minute service recovery timer. Use `--services` and `--timers` for the units actually installed; the helper validates every requested unit before changing startup policy. It installs no missing application services. The reporting timer is enabled at boot but excluded from the repeated recovery loop, preserving explicit Portal Control stop/start behavior.
 
-On Windows, WSL must also be launched by a Windows startup/logon task. The original installation already starts WSL at sign-in. `Install-BootStartup-Admin.ps1` prepares a before-sign-in startup task when run in elevated PowerShell as the Windows user who owns `Ubuntu-22.04`; change the distribution if needed. That administrator-only setup and a full machine reboot were **not performed** during this update. Systemd enablement, the timer and the sign-in task were verified; do not claim a before-sign-in cold boot test from this source release.
+The reference reporting timer is `release/units/iqs-analytics.timer`: about two minutes after WSL/systemd starts and every 15 minutes thereafter. Verify both timer enablement/activity and the collector's last successful Result; failed source refreshes preserve their prior valid cache and retry on the next timer activation.
+
+On Windows, `Install-BootStartup-Admin.ps1` registers a boot-triggered WSL keep-alive task when run in elevated PowerShell as the Windows account that owns the distribution. It checks reporting timer activity and startup enablement. `Start-Lab.ps1` also starts that timer.
+
+On the original host, a full Windows restart was observed on 17 November, the boot task was running afterward, and all three public portals were healthy. The reporting timer was subsequently startup-enabled and verified. A second full reboot **after** enabling that timer was not performed. Follow [STARTUP-AND-REPORTING.md](STARTUP-AND-REPORTING.md) for the exact sequence, explicit-stop behavior, no-cluster installer tests and destination reboot acceptance.
 
 ## 9. PBMS accounts and programme membership
 

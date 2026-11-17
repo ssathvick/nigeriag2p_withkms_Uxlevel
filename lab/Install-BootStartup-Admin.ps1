@@ -14,6 +14,8 @@ Start-Sleep -Seconds 8
 $task = Get-ScheduledTask -TaskName 'Nigeria-G2P-Boot'
 $info = Get-ScheduledTaskInfo -TaskName 'Nigeria-G2P-Boot'
 if ($task.State -ne 'Running') { throw "Boot task did not remain running. Last result: $($info.LastTaskResult)" }
-wsl.exe -d Ubuntu-22.04 -u root -- systemctl is-active k3s nginx cloudflared iqs-registration pbms-react-api iqs-beneficiary-extra nigeria-portals-recovery.timer
+wsl.exe -d Ubuntu-22.04 -u root -- systemctl is-active k3s nginx cloudflared iqs-registration pbms-react-api iqs-beneficiary-extra nigeria-portals-recovery.timer iqs-analytics.timer
 if ($LASTEXITCODE -ne 0) { throw 'One or more portal services are not active.' }
+wsl.exe -d Ubuntu-22.04 -u root -- systemctl is-enabled --quiet iqs-analytics.timer
+if ($LASTEXITCODE -ne 0) { throw 'Enable iqs-analytics.timer with the Linux startup helper before relying on boot refresh.' }
 Write-Host 'Nigeria G2P boot task installed and verified running. A full reboot test remains to be done.'

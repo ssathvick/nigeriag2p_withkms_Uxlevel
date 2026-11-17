@@ -92,3 +92,15 @@ payment report passed read-only regression checks. No new payment was dispatched
 Private pre-change view/source and security metadata backups are under
 `registration/analytics-backups/geographic-refresh-*`; never publish those backups.
 Sanitized local verification is in `outputs/geographic-reporting-repair/verification.json`.
+
+
+## Reporting timer startup persistence — 17 November 2026
+
+The existing iqs-analytics.timer is now startup-enabled as well as active on the original
+host. Its schedule remains OnBootSec=2min and OnUnitActiveSec=15min, with Persistent=true.
+The startup source helper enables this existing timer and the Windows boot helper checks
+its activity/enablement. The one-minute service recovery loop excludes reporting timers
+so explicit Portal Control stop actions remain respected. See docs/current/STARTUP-AND-REPORTING.md.
+The Windows boot task was observed running after today's restart. No second full Windows
+reboot was performed after the reporting timer enablement change; verify this final step
+on a destination before claiming its own cold-boot acceptance.

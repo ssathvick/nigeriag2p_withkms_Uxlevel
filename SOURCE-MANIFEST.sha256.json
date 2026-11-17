@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "1e26a758bac07096c0a7eed8029e392c5b2bac591d12f44a85c2880f152a7a75"
+    "sha256": "0dc65a85eafd5c53f4e7007bf07840fe5399d4d97598a85f650a353dd770e493"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -49,7 +49,7 @@
   },
   {
     "path": "lab/Start-Lab.ps1",
-    "sha256": "46bd4acf417dd010fa342963d30a022252ffa3c1e9722babab08088067e236b3"
+    "sha256": "1c26b0d071089f2f3af7d4688a3e30fcabaa9414bd6b97e375b6391f91901c8a"
   },
   {
     "path": "lab/Status-Lab.ps1",
@@ -6057,7 +6057,7 @@
   },
   {
     "path": "docs/current/INSTALLATION.md",
-    "sha256": "4d819ad82da48ca2ef3c0a94c37e8bb3cce0c2f495cb6071930b04f453af0150"
+    "sha256": "6def0186914953fcb949b068bd65125ffe068820b2758dc63098fea9fcd9437a"
   },
   {
     "path": "docs/current/PBMS-PAYMENTS.md",
@@ -6069,7 +6069,7 @@
   },
   {
     "path": "lab/Install-BootStartup-Admin.ps1",
-    "sha256": "93cd689610e7bb6c4f097dd1fac523b5010a87bdb238b8d51675f70aef9a18ac"
+    "sha256": "248fd2ca37e445445e4bc21745d7518f0997b948dae0180c7f02ac8a1e7cb421"
   },
   {
     "path": "lab/pbms-react/Approval-Flow-Handoff.txt",
@@ -6165,7 +6165,7 @@
   },
   {
     "path": "lab/release/install_service_recovery.py",
-    "sha256": "cff2d6713d960e65f1fc23448b314b6cbf36d3ad0ab0d73f238ca83bc8b94523"
+    "sha256": "610fe9226ce352b39dce6f0a4ce0629910efe594265b3b1dd0cb6ae7fb27dd22"
   },
   {
     "path": "source-snapshots/2026-11-15-pbms-payments/README.md",
@@ -6241,11 +6241,11 @@
   },
   {
     "path": "docs/current/GEOGRAPHIC-REPORTING-FIX.md",
-    "sha256": "1786faa0d3da7b7f671239b2569cf4a32fdd21192e950a7a6d39700d818607e1"
+    "sha256": "9b6345377b1e4fde5e49fa125bdc384103291b99be32304e2daa423b135b1ad8"
   },
   {
     "path": "lab/Analytics-Operations.md",
-    "sha256": "b2343904d6ae0eb78651e18ee9c3c69a9b7649c8a417cd314772c02dd4928d23"
+    "sha256": "4cb4ce0df7adc3302b15246d3df7510c179c4b63867c075147eb65b5ca5579aa"
   },
   {
     "path": "lab/geographic_reporting.py",
@@ -6270,5 +6270,33 @@
   {
     "path": "source-snapshots/2026-11-17-geographic-reporting-fix/verification-summary.json",
     "sha256": "acd55c557b7c4c5cee27939286f34f195f68503fef6584ddb62c0dcc4d6e3727"
+  },
+  {
+    "path": "docs/current/STARTUP-AND-REPORTING.md",
+    "sha256": "e99725587624cf378fa6102c36137772ca2d96935bf94d349e2bf2277ae2492c"
+  },
+  {
+    "path": "lab/release/test_service_recovery.py",
+    "sha256": "8437f89427a436db67a4fd5d5520ee20146eca5fa92796c45d62644ed420b401"
+  },
+  {
+    "path": "lab/release/units/iqs-analytics.timer",
+    "sha256": "2222b95be83c240053818889e03e4658d260e4867bf7a713c43ba0076a2765af"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-startup-timer/README.md",
+    "sha256": "05979c024217f86ff5b2ea7b37161330a3b7ed954e38d3fe1e8c48b80520a8a7"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-startup-timer/runtime-images.json",
+    "sha256": "fe4d14c7d2b93726fe2b8ddf25ffbcfec97d6ea0618d8b75d5bbecb1bf01502f"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-startup-timer/source-manifest.json",
+    "sha256": "bfc04bcc9a99d8409430af592ca7934968a6fe294a1f9f6d6c2592495dcb322d"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-startup-timer/verification-summary.json",
+    "sha256": "645023a3406ea5836c5f77b401f7640350023a7902034f83e80c18b961e432c6"
   }
 ]

@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-17-geographic-reporting-fix/README.md), [source hashes](source-snapshots/2026-11-17-geographic-reporting-fix/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-geographic-reporting-fix/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-17-startup-timer/README.md), [source hashes](source-snapshots/2026-11-17-startup-timer/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-startup-timer/runtime-images.json).
 
 ## What changed
 
@@ -35,6 +35,8 @@ See [connected PBMS payments and validation](docs/current/PBMS-PAYMENTS.md) for 
 See [programme geographic analytics](docs/current/PROGRAMME-ANALYTICS.md) for role access, state coverage, missing-location handling and deployment. The existing main-panel map and approval/payment flow are unchanged.
 
 The [geographic reporting refresh repair](docs/current/GEOGRAPHIC-REPORTING-FIX.md) restores the scheduled source using fixed aggregate-only reporting access while preserving native registry security and all application workflows.
+
+The [startup and reporting timer guide](docs/current/STARTUP-AND-REPORTING.md) covers the Windows boot task, startup-enabled reporting timer, two-minute boot trigger, 15-minute refresh schedule and the remaining destination reboot acceptance step.
 
 ## Repository layout
 

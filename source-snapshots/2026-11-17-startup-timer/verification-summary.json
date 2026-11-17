@@ -1,0 +1,32 @@
+{
+  "release_date": "2026-11-17",
+  "status": "passed",
+  "portal_http_status": {
+    "NigeriaG2P": 200,
+    "KarnatakaDBT": 200,
+    "Shaalavatsa": 200
+  },
+  "enabled_units": {
+    "k3s": "enabled",
+    "nginx": "enabled",
+    "cloudflared": "enabled",
+    "iqs-registration": "enabled",
+    "pbms-react-api": "enabled",
+    "iqs-beneficiary-extra": "enabled",
+    "iqs-analytics.timer": "enabled",
+    "nigeria-portals-recovery.timer": "enabled"
+  },
+  "reporting_timer_active": true,
+  "reporting_collector_last_result": "success",
+  "reporting_boot_delay": "2min after WSL/systemd starts",
+  "reporting_interval": "15min",
+  "windows_boot_task": {
+    "state": "Running",
+    "triggers": "MSFT_TaskBootTrigger",
+    "logon_type": "S4U"
+  },
+  "windows_reboot_observed": "2026-11-17",
+  "additional_reboot_after_timer_enable_tested": false,
+  "credentials_changed": false,
+  "note": "Boot task was observed running after the Windows restart. Reporting timer was subsequently startup-enabled and verified; no second machine reboot was performed after enabling it."
+}
