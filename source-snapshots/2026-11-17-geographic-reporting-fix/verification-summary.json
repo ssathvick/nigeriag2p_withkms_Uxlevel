@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "source": "Geographic record data",
+  "source_totals": {
+    "individual": 219,
+    "household": 90
+  },
+  "refreshed_at": "2026-11-17T07:32:16.287265+00:00",
+  "checks": [
+    "source counts reconciled",
+    "three fixed aggregate metrics healthy",
+    "reporter read-only/non-superuser",
+    "no new raw-table access",
+    "function not public",
+    "native invoker and policy count unchanged",
+    "cache refreshed without error",
+    "anonymous endpoints remain blocked"
+  ],
+  "release_date": "2026-11-17",
+  "collector_sources_healthy": 15,
+  "refresh_timer_active": true,
+  "pbms_geographic_role_and_total_regression": "passed",
+  "existing_reconciled_simulator_payment_report": "passed",
+  "new_payment_dispatched": false,
+  "credentials_changed": false,
+  "scope": "Original-lab aggregate reporting repair; private account/configuration and backup data excluded."
+}

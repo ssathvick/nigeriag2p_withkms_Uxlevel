@@ -1,6 +1,6 @@
 # Install the current NSIPA application on another machine
 
-Release: **16 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
+Release: **17 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
 
 ## 1. Choose installation or state migration
 
@@ -218,7 +218,11 @@ See [PBMS-PAYMENTS.md](PBMS-PAYMENTS.md) for sponsor bank routing, whole-NGN req
 
 The addon installer includes `nsipa_approval/analytics.py` through its updated `__init__.py`. Install/upgrade that native addon and publish the rebuilt PBMS frontend; no schema changes, new dependencies or permission grants are needed for analytics. See [PROGRAMME-ANALYTICS.md](PROGRAMME-ANALYTICS.md). All five roles retain their programme scopes. Verify both enrolment/disbursement filters, exact included/excluded totals, state alias normalization, unknown-location counts and foreign-programme/cycle denials. Coverage is state/FCT level for approval-flow list snapshots, not GPS points or LGA detail.
 
-### 8c. Existing-host service recovery and Windows startup
+### 8c. Geographic aggregate reporting refresh
+
+Existing sites with SQLSTATE 42501 on the geography reporting views should use the narrow [GEOGRAPHIC-REPORTING-FIX.md](GEOGRAPHIC-REPORTING-FIX.md) plan/apply helper. It preserves native invoker security and row policies and creates no base-table grants. The canonical full reporting provisioner now creates the fixed aggregate function before its three views. Do not rerun unrelated fixture/provisioning stages as a repair. After apply, run the collector once and check that all sources, fresh geographic totals and the existing timer are healthy.
+
+### 8d. Existing-host service recovery and Windows startup
 
 For an existing systemd host, inspect `python3 "$SOURCE/release/install_service_recovery.py"`, then run with `sudo` and `--apply` to enable the six existing portal services and a one-minute recovery timer. Use `--services` to match the services actually installed on the destination; the helper checks every unit before changing startup policy. This does not install missing services.
 

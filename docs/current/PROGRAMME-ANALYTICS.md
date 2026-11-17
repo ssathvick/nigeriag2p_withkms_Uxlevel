@@ -39,3 +39,5 @@ The browser programme creation → enrolment → disbursement → Payment review
 The included backend/browser test sources depend on the existing synthetic connected-payment fixture. Run fixture-based checks only in a verified isolated lab. Supply browser/backend role credentials using the private `PBMS_APPROVAL_ACCOUNTS_FILE` environment path; never commit its contents. `PBMS_EMPTY_ANALYTICS_PROGRAMME` optionally identifies a destination empty-cycle fixture for its browser empty-state check.
 
 For rollback, restore the prior static release and matching addon ConfigMap/deployment from the private recovery point. Do not edit beneficiary IDs, approvals or payment records to remove analytics. The addition creates no analytics data store requiring a database rollback.
+
+The separate [main-panel geographic reporting refresh repair](GEOGRAPHIC-REPORTING-FIX.md) fixes its scheduled aggregate collector. Programme-list map scopes, snapshots, filters and payment actions are unchanged by that repair.

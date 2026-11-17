@@ -4,6 +4,7 @@ import base64,datetime,json,subprocess,shutil,sqlite3
 import psycopg2
 from psycopg2 import sql
 from service_reporting import SPECS,view_name
+from geographic_reporting import provision_geography_aggregates
 root=Path('/opt/openg2p-lab/registration')
 backup=root/'dashboard-backups'/('connections-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'))
 backup.mkdir(parents=True,mode=0o700)
@@ -29,6 +30,7 @@ for service,spec in SPECS.items():
   cur.execute('CREATE SCHEMA IF NOT EXISTS nsipa_reporting')
   cur.execute('REVOKE ALL ON SCHEMA nsipa_reporting FROM PUBLIC')
   cur.execute('GRANT USAGE ON SCHEMA nsipa_reporting TO g2p_analytics_reader')
+  if service=='geography':provision_geography_aggregates(cur)
   for name,(query,_,_) in spec['metrics'].items():
    view=sql.Identifier('nsipa_reporting',view_name(service,name))
    cur.execute(sql.SQL('CREATE OR REPLACE VIEW {} WITH (security_barrier=true) AS SELECT label::text,value::double precision FROM ({}) AS aggregate_rows(label,value)').format(view,sql.SQL(query)))

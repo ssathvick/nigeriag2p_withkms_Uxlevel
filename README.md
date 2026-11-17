@@ -1,6 +1,6 @@
 # Nigeria G2P — Master Registry, personas, PBMS and KMS
 
-**Current application source: 16 November 2026. This repository is public.**
+**Current application source: 17 November 2026. This repository is public.**
 
 This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-payment flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.
 
@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-16-programme-analytics/README.md), [source hashes](source-snapshots/2026-11-16-programme-analytics/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-16-programme-analytics/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-17-geographic-reporting-fix/README.md), [source hashes](source-snapshots/2026-11-17-geographic-reporting-fix/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-geographic-reporting-fix/runtime-images.json).
 
 ## What changed
 
@@ -33,6 +33,8 @@ After CEO approval, the Payment user explicitly submits the same approved list t
 See [connected PBMS payments and validation](docs/current/PBMS-PAYMENTS.md) for the Payment action, sponsor routing, whole-NGN limitation and simulator results. Existing login credentials are unchanged.
 
 See [programme geographic analytics](docs/current/PROGRAMME-ANALYTICS.md) for role access, state coverage, missing-location handling and deployment. The existing main-panel map and approval/payment flow are unchanged.
+
+The [geographic reporting refresh repair](docs/current/GEOGRAPHIC-REPORTING-FIX.md) restores the scheduled source using fixed aggregate-only reporting access while preserving native registry security and all application workflows.
 
 ## Repository layout
 

@@ -62,3 +62,33 @@ For application rollback, stop `iqs-analytics.timer` and `iqs-registration.servi
 Isolated tests cover anonymous and beneficiary denial, assigned staff access, supervisor-only export, published guidance while a revision is drafted, CSRF, stale versions, UUID retries, search text exclusion, duplicate daily feedback, zero-result and helpfulness rates, privacy of output, snapshots, invalid filters and review episode duration. Existing knowledge and staff workspace tests also pass.
 
 Live verification reconciles native totals with the installed database, confirms all four backend refreshes succeeded, verifies source identities are non-superuser and read-only, checks the Superset reader cannot insert into the reporting tables, and confirms the live API rejects anonymous analytics access. All three Superset chart queries were executed successfully. Browser verification checks the rendered dashboard and the live library feedback confirmation.
+
+
+## Geographic reporting refresh repair — 17 November 2026
+
+The scheduled collector failed because its geography aggregate views depended on the
+native `ng2p_record_geography` invoker-security view. The read-only reporting identity
+could not read the underlying geography catalogue through that invoker boundary.
+
+`geographic_reporting.py` now provisions a no-argument, fixed-SQL aggregate function,
+`nsipa_reporting.geography_record_counts()`, used by the three geography reporting views.
+It returns only record type, zone/state names and counts, with a locked `pg_catalog`
+search path. PUBLIC execution is revoked; only the existing reporting reader receives
+execution permission. Native invoker view settings, row policies, record identifiers,
+transactional data and application roles are unchanged. No base-table grants were added.
+
+`provision-service-reporting.py` creates this function before geography reporting views,
+and the canonical/live `service_reporting.py` geography queries use it. Existing source
+and Superset readers remain read-only and non-superuser. Geography stays restricted to
+the existing supervisor/intake-reviewer reporting scope; it is still excluded from the
+broader Superset aggregate export. Counts are registry records, not benefit recipients.
+
+Verification: all three geography metrics reconcile with the source views, cached
+geography data refreshed without error, all 15 collector sources report healthy, and
+the existing 15-minute timer remains active. Anonymous analytics/geography requests
+remain denied. Programme map permissions/totals and the existing reconciled simulator
+payment report passed read-only regression checks. No new payment was dispatched.
+
+Private pre-change view/source and security metadata backups are under
+`registration/analytics-backups/geographic-refresh-*`; never publish those backups.
+Sanitized local verification is in `outputs/geographic-reporting-repair/verification.json`.

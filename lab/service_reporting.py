@@ -44,9 +44,9 @@ SPECS = {
   'submission_review_status':('SELECT COALESCE("reviewState",\'Not reviewed\'),COUNT(*) FROM submissions WHERE "deletedAt" IS NULL AND NOT draft GROUP BY 1','donut','submissions'),
   'submission_daily_volume':('SELECT "createdAt"::date::text,COUNT(*) FROM submissions WHERE "deletedAt" IS NULL AND NOT draft AND "createdAt">=CURRENT_DATE-INTERVAL \'30 days\' GROUP BY 1 ORDER BY 1','bars','submissions')}},
  'geography': {'source':'Geographic record data','database':'register','server':'commons-postgresql','restricted':True,'metrics':{
-  'households_by_state':("SELECT COALESCE(state_name,'Unknown'),SUM(record_count) FROM ng2p_geography_record_counts WHERE record_type='household' GROUP BY 1 ORDER BY 2 DESC",'bars','households'),
-  'individuals_by_zone':("SELECT COALESCE(zone_name,'Unknown'),SUM(record_count) FROM ng2p_geography_record_counts WHERE record_type='individual' GROUP BY 1 ORDER BY 2 DESC",'bars','individuals'),
-  'household_coordinate_coverage':("SELECT 'Coordinates recorded',COALESCE(SUM(coordinates_present),0) FROM ng2p_geography_record_counts WHERE record_type='household' UNION ALL SELECT 'Coordinates missing',COALESCE(SUM(record_count-coordinates_present),0) FROM ng2p_geography_record_counts WHERE record_type='household'",'donut','households')}},
+  'households_by_state':("SELECT COALESCE(state_name,'Unknown'),SUM(record_count) FROM nsipa_reporting.geography_record_counts() WHERE record_type='household' GROUP BY 1 ORDER BY 2 DESC",'bars','households'),
+  'individuals_by_zone':("SELECT COALESCE(zone_name,'Unknown'),SUM(record_count) FROM nsipa_reporting.geography_record_counts() WHERE record_type='individual' GROUP BY 1 ORDER BY 2 DESC",'bars','individuals'),
+  'household_coordinate_coverage':("SELECT 'Coordinates recorded',COALESCE(SUM(coordinates_present),0) FROM nsipa_reporting.geography_record_counts() WHERE record_type='household' UNION ALL SELECT 'Coordinates missing',COALESCE(SUM(record_count-coordinates_present),0) FROM nsipa_reporting.geography_record_counts() WHERE record_type='household'",'donut','households')}},
  'superset': {'source':'Analytics reporting','database':'superset','server':'commons-postgresql','metrics':{
   'dashboard_publication':("SELECT CASE WHEN published THEN 'Published' ELSE 'Draft' END,COUNT(*) FROM dashboards GROUP BY 1",'donut','dashboards'),
   'chart_types':("SELECT COALESCE(viz_type,'Unknown'),COUNT(*) FROM slices GROUP BY 1",'bars','charts'),

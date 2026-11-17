@@ -9,7 +9,7 @@
   },
   {
     "path": "README.md",
-    "sha256": "099af4ff98dea1123152d5752a49bd99f8be327ecaec394569b17e162cf9543b"
+    "sha256": "1e26a758bac07096c0a7eed8029e392c5b2bac591d12f44a85c2880f152a7a75"
   },
   {
     "path": "UPSTREAM-SOURCES.json",
@@ -5849,7 +5849,7 @@
   },
   {
     "path": "lab/provision-service-reporting.py",
-    "sha256": "bc945894268b269e01062a1e15a04704c05c69854afa7d5fe1fc8686279fc6fd"
+    "sha256": "861865fe14279cd847effdb7fe288b188029f6d84dbbc3b416e0d025037dd98d"
   },
   {
     "path": "lab/registration-ui/analytics.html",
@@ -5925,7 +5925,7 @@
   },
   {
     "path": "lab/service_reporting.py",
-    "sha256": "639eebe1a369592526ef6be271b1b11475a7d00d932b0af86a8fd5b1cf4b27b2"
+    "sha256": "189119dff1002dea0b84610129f1c6b95f777b5cc14d7411296e2460ab8edb03"
   },
   {
     "path": "lab/sitewide-ui/Sitewide-UX-Preview.png",
@@ -6057,7 +6057,7 @@
   },
   {
     "path": "docs/current/INSTALLATION.md",
-    "sha256": "8d54da1906c39ccfb74e5d25f5031ac0a1672eef077a96ecc200011bcd590da3"
+    "sha256": "4d819ad82da48ca2ef3c0a94c37e8bb3cce0c2f495cb6071930b04f453af0150"
   },
   {
     "path": "docs/current/PBMS-PAYMENTS.md",
@@ -6185,7 +6185,7 @@
   },
   {
     "path": "docs/current/PROGRAMME-ANALYTICS.md",
-    "sha256": "f86e3ca6e73c2e6fb094eee0df1191175795eb83abad1b1f3a5b4d07b2c5d4ac"
+    "sha256": "d950d6938efd0884bf890bd513348f8be4c42d118b9129675d743608f8d35d16"
   },
   {
     "path": "lab/pbms-react/Geographic-Analytics-Operations.txt",
@@ -6238,5 +6238,37 @@
   {
     "path": "source-snapshots/2026-11-16-programme-analytics/verification-summary.json",
     "sha256": "710d99393e1ccd5e243b29db6d0b2768f338921f226e97100793759aadcb929d"
+  },
+  {
+    "path": "docs/current/GEOGRAPHIC-REPORTING-FIX.md",
+    "sha256": "1786faa0d3da7b7f671239b2569cf4a32fdd21192e950a7a6d39700d818607e1"
+  },
+  {
+    "path": "lab/Analytics-Operations.md",
+    "sha256": "b2343904d6ae0eb78651e18ee9c3c69a9b7649c8a417cd314772c02dd4928d23"
+  },
+  {
+    "path": "lab/geographic_reporting.py",
+    "sha256": "8a077c5baec4a35523db49fae18677de992559a641b42831f5d18b63555aea08"
+  },
+  {
+    "path": "lab/release/repair_geographic_reporting.py",
+    "sha256": "8a9c8e3b6f893e27ec2470d829c7849470c79a7b3a1d339ddfae9c859f130796"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-geographic-reporting-fix/README.md",
+    "sha256": "0635b81239a67543d9ead94f2c3b0782f9b686792af398bfb78b137f6a37f3d6"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-geographic-reporting-fix/runtime-images.json",
+    "sha256": "fe4d14c7d2b93726fe2b8ddf25ffbcfec97d6ea0618d8b75d5bbecb1bf01502f"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-geographic-reporting-fix/source-manifest.json",
+    "sha256": "2990ceb89e6806d4a8d0ae124f973bb91daacb8db2acdbbe58fc3ccf4c021b26"
+  },
+  {
+    "path": "source-snapshots/2026-11-17-geographic-reporting-fix/verification-summary.json",
+    "sha256": "acd55c557b7c4c5cee27939286f34f195f68503fef6584ddb62c0dcc4d6e3727"
   }
 ]
