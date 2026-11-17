@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-17-startup-timer/README.md), [source hashes](source-snapshots/2026-11-17-startup-timer/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-startup-timer/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-17-mobile-downloads/README.md), [source hashes](source-snapshots/2026-11-17-mobile-downloads/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-mobile-downloads/runtime-images.json).
 
 ## What changed
 
@@ -138,3 +138,11 @@ The Registry frontend source/lockfile now pins Next.js **16.4.6** and React/Reac
 Release verification covers source integrity, secret-pattern checks, helper plan/configuration behavior, Python syntax, native addon XML, and frontend builds. The original deployed environment exercised native Registry reviews and the five-account PBMS workflow, corrections and binary XLS output. This release has **not** had a complete clean-machine replay. Destination-specific acceptance is required; this README does not claim unattended installation, live-bank settlement, national-identity verification or production acceptance.
 
 Runtime records/secrets and recording media remain outside Git. Third-party components keep their own licenses/notices, including the LGPL-3 declaration of the native addon. Public repository visibility does not grant a new blanket license over every project document or asset. Historical packages are retained with their earlier contents and limits.
+
+## Mobile downloads and current client demo — 17 November 2026
+
+Enumerators can now find **Mobile app downloads & setup** after login, with our NSIPA Android v0.7 demo app and ODK Collect displayed together. See [mobile downloads and validation](docs/current/MOBILE-APP-DOWNLOADS.md).
+
+The PBMS video demonstration uses **Lydia Ndam, HH-300002**. See [demo preparation and current status](docs/current/PBMS-LYDIA-DEMO.md). Disbursement approval and payment remain unsubmitted.
+
+Pending knowledge-help content, current portal destinations and the November 10 mobile demo form are also synchronized. Credentials, private QR codes and runtime database records are excluded.

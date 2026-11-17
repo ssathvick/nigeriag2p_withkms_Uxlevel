@@ -4,111 +4,111 @@
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "nigeriag2p.com/registration/"
+    "destination": "g2p.wverve.in/registration/"
   },
   {
     "module": "review",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "nigeriag2p.com/registration/workspace"
+    "destination": "g2p.wverve.in/registration/workspace"
   },
   {
     "module": "register",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "register.nigeriag2p.com/en"
+    "destination": "g2p-register.wverve.in/en"
   },
   {
     "module": "registry",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "registry.nigeriag2p.com/web/login"
+    "destination": "g2p-registry.wverve.in/web/login"
   },
   {
     "module": "beneficiary",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "beneficiary.nigeriag2p.com/selfservice/en"
+    "destination": "g2p-beneficiary.wverve.in/selfservice/en"
   },
   {
     "module": "pbms",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "pbms.nigeriag2p.com/web/login"
+    "destination": "g2p-pbms.wverve.in/web/login"
   },
   {
     "module": "awe",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "awe.nigeriag2p.com/"
+    "destination": "g2p-awe.wverve.in/"
   },
   {
     "module": "portal-admin",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "portal-admin.nigeriag2p.com/web/login"
+    "destination": "g2p-portal-admin.wverve.in/web/login"
   },
   {
     "module": "odk",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "odk.nigeriag2p.com/"
+    "destination": "g2p-odk.wverve.in/"
   },
   {
     "module": "geography",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "keycloak.nigeriag2p.com/realms/staff/protocol/openid-connect/auth"
+    "destination": "g2p-keycloak.wverve.in/realms/staff/protocol/openid-connect/auth"
   },
   {
     "module": "superset",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "superset.nigeriag2p.com/login/"
+    "destination": "g2p-superset.wverve.in/login/"
   },
   {
     "module": "master-data-ui",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "master-data-ui.nigeriag2p.com/en"
+    "destination": "g2p-master-data-ui.wverve.in/en"
   },
   {
     "module": "partner-management",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "partner-management.nigeriag2p.com/"
+    "destination": "g2p-partner-management.wverve.in/"
   },
   {
     "module": "consent-manager",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "consent-manager.nigeriag2p.com/"
+    "destination": "g2p-consent-manager.wverve.in/"
   },
   {
     "module": "staff-portal",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "staff-portal.nigeriag2p.com/en"
+    "destination": "g2p-staff-portal.wverve.in/en"
   },
   {
     "module": "iam-staff-ui",
     "status": 200,
     "html": true,
     "ux_assets": true,
-    "destination": "iam-staff-ui.nigeriag2p.com/en"
+    "destination": "g2p-iam-staff-ui.wverve.in/en"
   }
 ]

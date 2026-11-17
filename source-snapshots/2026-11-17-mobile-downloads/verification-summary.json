@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-17",
+  "registry_build": "passed including TypeScript",
+  "registry_rollout": "passed",
+  "enumerator_login": "passed",
+  "download_cards": [
+    "NSIPA Household Intake v0.7",
+    "ODK Collect"
+  ],
+  "private_qr_control": "retained; not generated during verification",
+  "responsive_width": 390,
+  "horizontal_overflow": false,
+  "nsipa_apk_http_status": 200,
+  "lydia": {
+    "reference": "HH-300002",
+    "name": "Lydia Ndam",
+    "enrolment_beneficiaries": 1,
+    "disbursement_beneficiaries": 1,
+    "demo_amount_ngn": 25000,
+    "manual_approval_decisions": 0,
+    "payment_submitted": false
+  },
+  "physical_device_acceptance": "not performed",
+  "fresh_machine_installation": "not performed",
+  "credentials_included": false
+}

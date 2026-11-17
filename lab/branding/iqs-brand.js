@@ -1,7 +1,7 @@
 /* NSIPA presentation theme. API payloads, URLs, identifiers and form values remain intact. */
 (() => {
   'use strict';
-  const brand = /open\s*g2p(?![._-])|keycloak|\bSuperset\b|\bMinIO\b|\bOdoo\b|\bRedpanda\b|\bODK(?: Central)?\b|IQ Systems Solutions|\bIQS\b(?![-_])|Nigeria\s*G2P|iqs-solutions\.com/gi;
+  const brand = /open\s*g2p(?![._-])|keycloak|\bSuperset\b|\bMinIO\b|\bOdoo\b|\bRedpanda\b|\bODK(?!\s+Collect\b)(?: Central)?\b|IQ Systems Solutions|\bIQS\b(?![-_])|Nigeria\s*G2P|iqs-solutions\.com/gi;
   const root = '/iqs-brand/';
   const replace = text => text.split(/(https?:\/\/\S+|[A-Z]:\\[^\s]+|\/opt\/[^\s]+|[\w.+-]+@[\w.-]+\.[\w.-]+)/i).map((part,index) => index % 2 ? part : part.replace(/openg2p\.org/gi, 'NSIPA').replace(/\bSuperset\b/gi, 'NSIPA Analytics').replace(brand, 'NSIPA')).join('');
   let queued = false;

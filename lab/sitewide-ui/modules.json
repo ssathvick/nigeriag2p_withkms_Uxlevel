@@ -3,7 +3,7 @@
     "id": "knowledge",
     "title": "Knowledge library",
     "group": "Shared services",
-    "host": "nigeriag2p.com",
+    "host": "g2p.wverve.in",
     "path": "/registration/knowledge",
     "description": "Find stage guidance, common issues and instructions for your role.",
     "roles": [
@@ -18,7 +18,7 @@
     "id": "intake",
     "title": "Household registration",
     "group": "People and households",
-    "host": "nigeriag2p.com",
+    "host": "g2p.wverve.in",
     "path": "/registration/",
     "description": "Register a household, correct returned details and follow enrollment.",
     "roles": [
@@ -31,7 +31,7 @@
     "id": "review",
     "title": "Registration review",
     "group": "People and households",
-    "host": "nigeriag2p.com",
+    "host": "g2p.wverve.in",
     "path": "/registration/workspace",
     "description": "Review household details and record an independent registration decision.",
     "roles": [
@@ -45,7 +45,7 @@
     "id": "register",
     "title": "Modern social registry",
     "group": "People and households",
-    "host": "register.nigeriag2p.com",
+    "host": "g2p-register.wverve.in",
     "path": "/",
     "description": "Work with individual records, household intake and registry approvals.",
     "roles": [
@@ -58,7 +58,7 @@
     "id": "registry",
     "title": "Social registry administration",
     "group": "People and households",
-    "host": "registry.nigeriag2p.com",
+    "host": "g2p-registry.wverve.in",
     "path": "/web",
     "description": "Manage household membership and existing registry records.",
     "roles": [
@@ -72,7 +72,7 @@
     "id": "beneficiary",
     "title": "Beneficiary portal",
     "group": "People and households",
-    "host": "beneficiary.nigeriag2p.com",
+    "host": "g2p-beneficiary.wverve.in",
     "path": "/selfservice",
     "description": "Use existing self-service forms and follow programme applications.",
     "roles": [
@@ -84,7 +84,7 @@
     "id": "pbms",
     "title": "Programme management",
     "group": "Programmes and approvals",
-    "host": "pbms.nigeriag2p.com",
+    "host": "g2p-pbms.wverve.in",
     "path": "/web",
     "description": "Manage programmes, enrollment, benefits and disbursement workflows.",
     "roles": [
@@ -96,7 +96,7 @@
     "id": "awe",
     "title": "Approval workflows",
     "group": "Programmes and approvals",
-    "host": "awe.nigeriag2p.com",
+    "host": "g2p-awe.wverve.in",
     "path": "/",
     "description": "Review assigned approval tasks and existing workflow policies.",
     "roles": [
@@ -109,7 +109,7 @@
     "id": "portal-admin",
     "title": "Beneficiary programme administration",
     "group": "Programmes and approvals",
-    "host": "portal-admin.nigeriag2p.com",
+    "host": "g2p-portal-admin.wverve.in",
     "path": "/web",
     "description": "Administer the programmes connected to the beneficiary portal.",
     "roles": [
@@ -121,7 +121,7 @@
     "id": "odk",
     "title": "Field data collection",
     "group": "Field work and insights",
-    "host": "odk.nigeriag2p.com",
+    "host": "g2p-odk.wverve.in",
     "path": "/",
     "description": "Manage field collection projects and forms in NSIPA Field Data.",
     "roles": [
@@ -134,7 +134,7 @@
     "id": "geography",
     "title": "Geographic record data",
     "group": "Field work and insights",
-    "host": "nigeriag2p.com",
+    "host": "g2p.wverve.in",
     "path": "/registration/geography",
     "description": "Inspect record counts by zone, state and known LGA for the future Nigeria map.",
     "roles": [
@@ -146,7 +146,7 @@
     "id": "superset",
     "title": "Analytics",
     "group": "Field work and insights",
-    "host": "nigeriag2p.com",
+    "host": "g2p.wverve.in",
     "path": "/registration/analytics",
     "description": "Inspect operational status, knowledge publishing and guidance usage with connected Superset reporting.",
     "roles": [
@@ -160,7 +160,7 @@
     "id": "master-data-ui",
     "title": "Master data",
     "group": "Shared services",
-    "host": "master-data-ui.nigeriag2p.com",
+    "host": "g2p-master-data-ui.wverve.in",
     "path": "/",
     "description": "Maintain shared locations and attributes used by the applications.",
     "roles": [],
@@ -170,7 +170,7 @@
     "id": "partner-management",
     "title": "Partner management",
     "group": "Shared services",
-    "host": "partner-management.nigeriag2p.com",
+    "host": "g2p-partner-management.wverve.in",
     "path": "/",
     "description": "Review partner onboarding and existing integration access workflows.",
     "roles": [],
@@ -180,7 +180,7 @@
     "id": "consent-manager",
     "title": "Consent manager",
     "group": "Shared services",
-    "host": "consent-manager.nigeriag2p.com",
+    "host": "g2p-consent-manager.wverve.in",
     "path": "/",
     "description": "Manage existing consent records and access policies.",
     "roles": [],
@@ -190,7 +190,7 @@
     "id": "staff-portal",
     "title": "Staff portal",
     "group": "Shared services",
-    "host": "staff-portal.nigeriag2p.com",
+    "host": "g2p-staff-portal.wverve.in",
     "path": "/",
     "description": "Use the existing staff application launcher and sign-on journey.",
     "roles": [
@@ -204,7 +204,7 @@
     "id": "iam-staff-ui",
     "title": "Staff access administration",
     "group": "Shared services",
-    "host": "iam-staff-ui.nigeriag2p.com",
+    "host": "g2p-iam-staff-ui.wverve.in",
     "path": "/",
     "description": "Use existing account administration tools with an authorized staff account.",
     "roles": [],

@@ -1,10 +1,16 @@
 NSIPA programme to disbursement approval and payment flow
-Updated and verified 15 November 2026 · Connected approval and payments
+Updated 17 November 2026 · Lydia Ndam video demonstration
 
 Open https://pbms.nigeriag2p.com/pbms-ui/#programme-flow
 Prepared presentation programme:
 https://pbms.nigeriag2p.com/pbms-ui/#programme-flow?program_id=48
-Name: NSIPA_PRESENTATION. Two fictional households are present in the actual PBMS Registry.
+Name: NSIPA_PRESENTATION. The current video demo selects Lydia Ndam, HH-300002 only.
+
+Current video demo — 17 November 2026
+Lydia Ndam | HH-300002. One enrolment beneficiary and one disbursement beneficiary.
+Demo entitlement NGN 25,000. No manual approvals or payments performed.
+Only name and household ID were supplied; other fields are unverified defaults.
+See docs/current/PBMS-LYDIA-DEMO.md for status, scope and recreation guidance.
 
 Actual staff accounts
 Five separate accounts exist for Programme Admin, Payment, Finance, Audit and CEO.
@@ -20,7 +26,7 @@ Walkthrough
 4. Select the Finance, Audit and CEO approval user groups, enter Registry eligibility
    criteria and an entitlement up to NGN 25,000, then Save programme configuration.
 5. Create a monthly enrolment cycle with registration and disbursement windows.
-   For the November presentation use registration 1–12 November 2026 and
+   For the November presentation use registration 1–16 November 2026 and
    disbursement 20–28 November 2026.
 6. After registration closes, Create enrolment list. Pending becomes Completed
    through the scheduled PBMS worker (runs once a minute). Refresh updates the screen.
