@@ -1,5 +1,8 @@
 # Nigeria OpenG2P local UX lab
 
+See [Registry middleware review](MIDDLEWARE-REVIEW.md) for the locally tested request,
+cache, trace and safe error-handling source update. It is not deployed to the live portals.
+
 ## Master Beneficiary Registry workflow
 
 Open the [integrated G2P registry](https://g2p-register.wverve.in/en) for role-based household intake, offline batch simulation, two-stage review, duplicate comparisons, post-approval change requests and registry analytics. The existing registry entry points and historical workflow links now route to the MBR workflow. Thirty native intakes and two native change requests were migrated with all 37 related AWE requests and 283 approval-history entries. Source records, statuses, IDs and existing master data were preserved. See [MBR operations](MBR-Workflow-Operations.md) for scope, demo access, validation and recovery. Run `Show-MBRDemoCredentials.ps1` to view the five pre-seeded accounts' private passwords.

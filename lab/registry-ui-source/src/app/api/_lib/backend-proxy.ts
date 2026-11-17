@@ -34,10 +34,14 @@ export async function proxyToBackend({
 	caching,
 	responseHeaders
 }: BackendProxyOptions) {
-
+	const privateHeaders = new Headers(responseHeaders);
+	privateHeaders.set('Cache-Control', 'no-store, private');
 	const backendConfig = getBackendConfig()
 	const auth = requireAuth(req);
-	if (auth instanceof NextResponse) return auth;
+	if (auth instanceof NextResponse) {
+		auth.headers.set('Cache-Control', 'no-store, private');
+		return auth;
+	}
 
 	try {
 		const contentType = req.headers.get("content-type") || "";
@@ -63,9 +67,12 @@ export async function proxyToBackend({
 
 		const backendUrl = `${baseUrl}${targetEndpoint}`;
 
+		const {next: _revalidation, ...uncachedOptions} = (caching || {}) as RequestInit & {next?: unknown};
 		const fetchOptions: RequestInit = {
 			method: "POST",
-			...caching,
+			...uncachedOptions,
+			// Authenticated responses must not be shared between staff identities.
+			cache: "no-store",
 		};
 
 		if (isFormData) {
@@ -105,7 +112,14 @@ export async function proxyToBackend({
 
 		const response = await fetch(backendUrl, fetchOptions);
 
-		const backendResponse: BackendResponse = await response.json();
+		let backendResponse: BackendResponse;
+		try {
+			backendResponse = await response.json();
+		} catch {
+			const status = [401, 403].includes(response.status) ? response.status : 502;
+			return NextResponse.json({error: status === 401 ? 'Please sign in again.' :
+				status === 403 ? 'Your role cannot perform this action.' : 'The service returned an unreadable response. Please retry.'}, {status, headers: privateHeaders});
+		}
 
 		if (backendResponse.response_header?.response_status === 'ERROR') {
 			const errorCode = backendResponse.response_header.response_error_code;
@@ -119,9 +133,14 @@ export async function proxyToBackend({
 				},
 				{
 					status,
-					headers: responseHeaders,
+					headers: privateHeaders,
 				}
 			);
+		}
+		if (!response.ok) {
+			const status = response.status >= 400 && response.status < 500 ? response.status : 502;
+			return NextResponse.json({error: status === 401 ? 'Please sign in again.' :
+				status === 403 ? 'Your role cannot perform this action.' : 'The service could not complete this request.'}, {status, headers: privateHeaders});
 		}
 
 		const responseBody = backendResponse.response_body;
@@ -129,12 +148,12 @@ export async function proxyToBackend({
 			? transformResponse(responseBody)
 			: responseBody?.response_payload;
 
-		return NextResponse.json(data, { headers: responseHeaders });
+		return NextResponse.json(data, { headers: privateHeaders });
 
 	} catch (e) {
 		return NextResponse.json(
-			{ error: e instanceof Error ? e.message : 'Internal Server Error' },
-			{ status: 500 }
+			{ error: 'The service is temporarily unavailable. Please retry.' },
+			{ status: 502, headers: privateHeaders }
 		);
 	}
 }

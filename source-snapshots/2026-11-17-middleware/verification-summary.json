@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-17",
+  "production_build": "passed",
+  "typescript": "passed",
+  "request_policy_tests": 10,
+  "isolated_production_checks": 27,
+  "test_network": "none",
+  "backend": "local mock only",
+  "real_credentials_used": false,
+  "deployed": false,
+  "live_registry_image": "nsipa/master-registry:mobile-downloads-20261117",
+  "local_test_image": "nsipa/master-registry:middleware-review-local-20261117",
+  "coverage": [
+    "session 401 and ID-token-only 413",
+    "malformed IAM responses",
+    "field-role presentation",
+    "SSO and locale redirects",
+    "successful native list request",
+    "cross-site rejection",
+    "trace forwarding",
+    "private cache override",
+    "upstream 401/403/502",
+    "native approval denial",
+    "administration denial",
+    "private Collect setup proxy"
+  ]
+}

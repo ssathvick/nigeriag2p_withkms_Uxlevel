@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:security": "node --test tests/request-policy.test.cjs"
   },
   "dependencies": {
     "@novu/js": "^3.11.0",

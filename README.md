@@ -12,7 +12,7 @@ Record security update: five isolated field-agent accounts, independent Level 1/
 
 1. Read the installation path below and the detailed [current installation guide](docs/current/INSTALLATION.md).
 2. Use the [complete field assistant and authorizer flow](docs/current/FIELD-ASSISTANT-FLOW.md) for the five field assistants, Level 1/Level 2, Officer and Admin. The [application walkthrough](docs/current/USAGE.md) also covers the five PBMS accounts.
-3. Inspect the [release inventory](source-snapshots/2026-11-17-mobile-downloads/README.md), [source hashes](source-snapshots/2026-11-17-mobile-downloads/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-mobile-downloads/runtime-images.json).
+3. Inspect the [release inventory](source-snapshots/2026-11-17-middleware/README.md), [source hashes](source-snapshots/2026-11-17-middleware/source-manifest.json) and [observed runtime images](source-snapshots/2026-11-17-middleware/runtime-images.json).
 
 ## What changed
 
@@ -146,3 +146,7 @@ Enumerators can now find **Mobile app downloads & setup** after login, with our 
 The PBMS video demonstration uses **Lydia Ndam, HH-300002**. See [demo preparation and current status](docs/current/PBMS-LYDIA-DEMO.md). Disbursement approval and payment remain unsubmitted.
 
 Pending knowledge-help content, current portal destinations and the November 10 mobile demo form are also synchronized. Credentials, private QR codes and runtime database records are excluded.
+
+## Registry middleware — source update
+
+[Middleware review and validation](docs/current/MIDDLEWARE-REVIEW.md): same-origin write checks, private caching, request tracing, preserved IAM/native access decisions and safe upstream failures. Production build, 10 policy tests and 27 isolated smoke checks passed. Source publication only; live portals remain on the existing mobile-downloads release.

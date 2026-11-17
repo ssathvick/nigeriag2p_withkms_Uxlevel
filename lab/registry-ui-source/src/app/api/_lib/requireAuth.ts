@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import {randomUUID} from 'crypto';
+import {isAllowedBrowserRequest} from '@/shared/security/request-policy';
 function csrfHeaders(value?:string){const token=value||randomUUID();return {'X-CSRF-Token':token,'Cookie':'X-CSRF-Token='+token};}
 
 export interface AuthContext {
@@ -9,6 +10,12 @@ export interface AuthContext {
 }
 
 export function requireAuth(req: NextRequest): AuthContext | NextResponse {
+    // Repeat the browser boundary here so protected handlers do not rely only
+    // on the Proxy matcher. This is not a substitute for native authorization.
+    if (!isAllowedBrowserRequest(req, process.env.APP_ORIGIN)) {
+        return NextResponse.json({error: 'A same-origin request is required.'},
+            {status: 403, headers: {'Cache-Control': 'no-store, private'}});
+    }
     const accessToken = req.cookies.get('X-Access-Token')?.value;
     const idToken = req.cookies.get('X-ID-Token')?.value;
 
@@ -53,6 +60,7 @@ export function requireAuth(req: NextRequest): AuthContext | NextResponse {
             'Content-Type': 'application/json',
             accept: 'application/json',
             Authorization: `Bearer ${accessToken}`,
+            'X-Request-ID': req.headers.get('X-Request-ID') || randomUUID(),
             ...csrfHeaders(req.cookies.get('X-CSRF-Token')?.value),
         },
     };
