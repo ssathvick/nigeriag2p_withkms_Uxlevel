@@ -6,7 +6,7 @@ import {useRegister} from '@/context/RegisterContext';
 import {useFetch} from '@/shared/hooks/useFetch';
 import {useIntakeForms} from '@/features/intake-form/hooks/useIntakeForms';
 import './registry-workspace.css';
-import RegistryScope,{useRegistryScope} from './RegistryScope';
+import RegistryScope,{useDataImportsAccess,useRegistryScope} from './RegistryScope';
 
 function WorkspaceIcon({kind}:{kind:string}){
  const path=kind==='register'?'m3 10 9-7 9 7v10H3ZM9 21v-8h6v8':kind==='tasks'?'M5 5h14v16H5ZM9 5V3h6v2M8 13l3 3 5-6':kind==='change-request'?'M20 8A8 8 0 0 0 6 5L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5':'M14 3H5v18h14V8ZM14 3v5h5M8 12h8M8 16h5';
@@ -17,6 +17,7 @@ function QueueTile({href,label,value,loading,error,kind}:{href:string;label:stri
 }
 function Workspace({children,path}:{children:ReactNode;path:string}){
  const {can,canAny,loading}=useRbac(),{registers}=useRegister();
+ const dataImports=useDataImportsAccess();
  const scope=useRegistryScope(),published=['admin','officer'].includes(scope||'');
  const parts=path.split('/').filter(Boolean),kind=parts[0],recordType=kind==='tasks'&&parts[1]==='intake-form'?parts[2]:parts[1],type=recordType==='individual'?'individual':'household';
  const isCollection=['change-request','incoming-messages','outgoing-messages'].includes(kind)?parts.length===1:parts.length===2;
@@ -31,10 +32,10 @@ function Workspace({children,path}:{children:ReactNode;path:string}){
  const intakeReady=isCollection&&!loading&&viewIntake&&!!register&&['register','intake-form'].includes(kind);
  const pending=useFetch<any>({url:'/api/intake-form/search-in-intake-form-submission',enabled:intakeReady,options:intake('pending')});
  const drafts=useFetch<any>({url:'/api/intake-form/search-in-intake-form-submission',enabled:intakeReady,options:intake('draft')});
- const labels:Record<string,string>={register:type==='household'?'Household registry':'Individual registry','intake-form':'Registration review',tasks:'Approval workspace','change-request':'Change requests','incoming-messages':'Incoming messages','outgoing-messages':'Outgoing messages'};
+ const labels:Record<string,string>={register:type==='household'?'Household registry':'Individual registry','intake-form':'Registration review',tasks:'Approval workspace','change-request':'Change requests','incoming-messages':'Incoming messages','outgoing-messages':'Outgoing messages','data-imports':'Data Imports'};
  const title=isHistory?'Record version history':isNew?`Register ${type==='household'?'your household':'an individual'}`:labels[kind];
- const descriptions:Record<string,string>={register:'Explore published records and manage approved updates in one place.','intake-form':'Track drafts, review registrations and follow every correction through to publication.',tasks:'Review your assigned records with clear decisions and a complete approval history.','change-request':'Compare proposed updates, follow their review and protect the published master record.','incoming-messages':'Follow received records through validation, transformation and registry processing.','outgoing-messages':'Track records shared from the registry and the topics resolved for delivery.'};
- const nav=[{href:'/register/household',label:'Households',allowed:viewRegisters},{href:'/register/individual',label:'Individuals',allowed:viewRegisters},{href:'/intake-form/'+type,label:'Registration review',allowed:viewIntake},{href:'/tasks/intake-form',label:'Approvals',allowed:review},{href:'/change-request',label:'Change requests',allowed:viewChanges},{href:'/incoming-messages',label:'Incoming messages',allowed:can('incomingMessage:view')},{href:'/outgoing-messages',label:'Outgoing messages',allowed:can('outgoingMessage:view')}];
+ const descriptions:Record<string,string>={register:'Explore published records and manage approved updates in one place.','intake-form':'Track drafts, review registrations and follow every correction through to publication.',tasks:'Review your assigned records with clear decisions and a complete approval history.','change-request':'Compare proposed updates, follow their review and protect the published master record.','incoming-messages':'Follow received records through validation, transformation and registry processing.','outgoing-messages':'Track records shared from the registry and the topics resolved for delivery.','data-imports':'Validate beneficiary files, review batches and track receipt by the Registry.'};
+ const nav=[{href:'/register/household',label:'Households',allowed:viewRegisters},{href:'/register/individual',label:'Individuals',allowed:viewRegisters},{href:'/intake-form/'+type,label:'Registration review',allowed:viewIntake},{href:'/tasks/intake-form',label:'Approvals',allowed:review},{href:'/change-request',label:'Change requests',allowed:viewChanges},{href:'/incoming-messages',label:'Incoming messages',allowed:can('incomingMessage:view')},{href:'/outgoing-messages',label:'Outgoing messages',allowed:can('outgoingMessage:view')},{href:'/data-imports',label:'Data Imports',allowed:dataImports}];
  const failed=(r:{data:any;error:string|null})=>!!r.error||!!r.data?.error;
  return <div className="registry-workspace" data-workspace-kind={kind} data-workspace-type={type}>
   <div className="workspace-shell"><header className="workspace-header"><div className="workspace-heading"><span className="workspace-icon"><WorkspaceIcon kind={kind}/></span><div><span className="workspace-eyebrow">MASTER BENEFICIARY REGISTRY</span><h1>{title}</h1><p>{descriptions[kind]}</p></div></div><div className="workspace-actions"><Link href="/" className="workspace-button workspace-back">← Dashboard</Link>{!isNew&&can('intakeSubmission:edit')&&form&&['register','intake-form'].includes(kind)&&<Link className="workspace-button workspace-primary" href={`/intake-form/${type}/new/${form.form_id}`}>+ Register {type==='household'?'household':'individual'}</Link>}</div></header>
@@ -50,6 +51,6 @@ function Workspace({children,path}:{children:ReactNode;path:string}){
 }
 export default function RegistryWorkspace({children}:{children:ReactNode}){
  const path=usePathname();
- const active=/^\/(?:register\/(?:household|individual)|intake-form\/(?:household|individual)|tasks\/(?:intake-form|change-request)|change-request|incoming-messages|outgoing-messages)(?:\/|$)/.test(path);
- return <><RegistryScope/>{active?<Workspace path={path}>{children}</Workspace>:children}</>;
+ const active=/^\/(?:register\/(?:household|individual)|intake-form\/(?:household|individual)|tasks\/(?:intake-form|change-request)|change-request|incoming-messages|outgoing-messages|data-imports)(?:\/|$)/.test(path);
+ return <>{path !== '/data-imports' && <RegistryScope/>}{active?<Workspace path={path}>{children}</Workspace>:children}</>;
 }

@@ -32,6 +32,8 @@ export async function GET(req: NextRequest) {
         const scopes: Record<string,string> = {'Registry Field Agent':'field','Registry First Reviewer':'level1','Registry Second Reviewer':'level2','Registry Officer':'officer','Registry Administrator':'admin'};
         const matches = [...new Set(roles.filter(r=>scopes[r]).map(r=>scopes[r]))];
         data.registry_scope = matches.length===1 ? matches[0] : 'denied';
+        data.registry_actor_id = typeof claims.sub === 'string' ? claims.sub : undefined;
+        data.data_imports_enabled = Boolean(process.env.DATA_IMPORTS_DB);
     }
     return NextResponse.json(data, { status: res.status, headers: {'Cache-Control': 'no-store, private'} });
 }

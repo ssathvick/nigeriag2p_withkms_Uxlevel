@@ -1,6 +1,11 @@
 'use client';
+import {importRoles} from '@/features/data-imports/model';
 import {useAuth} from '@/context/Authcontext';
 export function useRegistryScope(){return useAuth().user?.registry_scope as string|undefined;}
+export function useDataImportsAccess(){
+ const {user}=useAuth();
+ return Boolean(user?.data_imports_enabled && importRoles.some(role=>role===user.registry_scope));
+}
 export default function RegistryScope(){
  const scope=useRegistryScope();
  const descriptions:Record<string,string>={
