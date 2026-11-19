@@ -1,6 +1,8 @@
 # Install the current NSIPA application on another machine
 
-Release: **17 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
+Release: **19 November 2026**. Read the repository README first. Commands below run in Ubuntu 22.04, including Ubuntu under WSL2. They assume the current source has been staged as `/opt/nsipa-current/lab`. Each stage has its own checkpoint; this is a guided installation of the actual applications, not an unattended installer.
+
+For an existing Master Registry, go directly to the [Data Imports upgrade guide](DATA-IMPORTS-UPGRADE.md). For a new installation, complete the native Registry and staff-role setup in section 6, then enable imports as described below.
 
 ## 1. Choose installation or state migration
 
@@ -164,6 +166,10 @@ The initial role/policy setup above is the baseline. Install the [record-securit
 For a destination with its own five field identities, `release/registry-field-accounts.example.json` supplies a nine-account role mapping. Create all identities securely first, replace the placeholder reviewer/Officer/Admin logins, inspect `integrate_native_registry_accounts.py --accounts PRIVATE_FILE`, then apply with `--apply`. Skip the standard demo provisioner if those five default logins are not wanted. Refresh the private field/admin directories afterward. Public account examples contain role mappings only, never passwords.
 
 Use [FIELD-ASSISTANT-FLOW.md](FIELD-ASSISTANT-FLOW.md) for the complete browser and review walkthrough, including revalidation/rejection and the mobile QR stopping point. Existing historical records without trusted ownership provenance remain Admin-only. Test the actual security matrix rather than granting Officer extra permissions to make older records appear.
+
+### Enable Data Imports and verify native ingestion
+
+Use the [Data Imports configuration and acceptance procedure](DATA-IMPORTS-UPGRADE.md) after staff sign-in, the native API, object storage and import worker are operational. It covers the persistent volume, receipt reader, native template, field mapping and the operator/approver handoff. Run the [three-row test file](examples/data-imports-acceptance.csv) against the synthetic source. Record the batch ID and a receipt showing two rows ingested after excluding the duplicate.
 
 ## 7. Install the PBMS approval backend
 

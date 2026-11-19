@@ -1,6 +1,8 @@
 # Nigeria G2P — Master Registry, personas, PBMS and KMS
 
-**Current application source: 17 November 2026. This repository is public.**
+**Current application source: 19 November 2026. This repository is public.**
+
+**Registry Data Imports.** To enable file upload, independent approval and Registry receipt tracking on an existing installation, follow the [Data Imports upgrade and test procedure](docs/current/DATA-IMPORTS-UPGRADE.md). It includes a three-row synthetic [acceptance CSV](docs/current/examples/data-imports-acceptance.csv).
 
 This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-payment flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.
 
