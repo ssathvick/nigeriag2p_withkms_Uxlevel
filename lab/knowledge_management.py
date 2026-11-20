@@ -17,6 +17,10 @@ def reference_metadata(item):
  result={'sources':sources[:8]} if sources else {}
  if item.get('scope') in ['upstream_reference','local_workflow']:result['scope']=item['scope']
  if re.fullmatch(r'\d{4}-\d{2}-\d{2}',item.get('sources_checked_on','')):result['sources_checked_on']=item['sources_checked_on']
+ if item.get('help_level') in ('field','screen','workflow'):result['help_level']=item['help_level']
+ if re.fullmatch(r'context-[a-z0-9-]+',item.get('context_key','')):result['context_key']=item['context_key']
+ if item.get('provisional') is True:result['provisional']=True
+ if item.get('source_note'):result['source_note']=str(item['source_note'])[:400]
  return result
 def install(r):
  bp=Blueprint('knowledge',__name__)
@@ -26,8 +30,9 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   for table,column in [('km_articles','review_note'),('km_history','note')]:
    if column not in {row[1] for row in c.execute('PRAGMA table_info('+table+')')}:c.execute('ALTER TABLE '+table+' ADD COLUMN '+column+" TEXT DEFAULT ''")
   for item in SEED['articles']:
-   content=json.dumps({**{k:item[k] for k in FIELDS},**reference_metadata(item)});now=r.stamp();actor='system:documentation-import' if item.get('origin')=='system:documentation-import' else 'system:initial-guidance'
-   cur=c.execute("INSERT OR IGNORE INTO km_articles(slug,module,stage,audience,draft,version,status,author,reviewer,published,published_version,updated) VALUES(?,?,?,?,?,1,'published',?,?,?,1,?)",(item['slug'],item['module'],item['stage'],item['audience'],content,actor,actor,content,now))
+   content=json.dumps({**{k:item[k] for k in FIELDS},**reference_metadata(item),'visibility':item.get('visibility','public')});now=r.stamp();actor='system:documentation-import' if item.get('origin')=='system:documentation-import' else 'system:initial-guidance'
+   reviewer=None if item.get('provisional') else actor
+   cur=c.execute("INSERT OR IGNORE INTO km_articles(slug,module,stage,audience,draft,version,status,author,reviewer,published,published_version,updated) VALUES(?,?,?,?,?,1,'published',?,?,?,1,?)",(item['slug'],item['module'],item['stage'],item['audience'],content,actor,reviewer,content,now))
    if cur.rowcount:c.execute("INSERT INTO km_history(article,version,action,actor,at,content) VALUES(?,1,?,?,?,?)",(cur.lastrowid,'documentation_import' if actor=='system:documentation-import' else 'initial_guidance',actor,now,content))
  def permissions():
   roles=g.user.get('roles',[]) if g.user else [];staff=g.session.get('mode')=='staff'
@@ -110,7 +115,8 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
  def export(aid):
   item=next((a for a in published() if a['id']==aid),None)
   if not item:abort(404)
-  body=item['title']+'\nPublished version '+str(item['version'])+'\n\n'+'\n\n'.join(k.replace('_',' ').title()+'\n'+item[k] for k in FIELDS if k not in ('title','module','audience','stage'))
+  status=' · Provisional guidance' if item.get('provisional') else ''
+  body=item['title']+'\nPublished version '+str(item['version'])+status+'\n\n'+'\n\n'.join(k.replace('_',' ').title()+'\n'+item[k] for k in FIELDS if k not in ('title','module','audience','stage') and item[k])
   response=r.app.make_response(body);response.headers['Content-Type']='text/plain; charset=utf-8';response.headers['Content-Disposition']='attachment; filename="knowledge-'+str(aid)+'-v'+str(item['version'])+'.txt"';response.headers['Cache-Control']='private, no-store';return response
  @bp.get(r.PREFIX+'/knowledge/admin')
  def admin():
@@ -128,7 +134,7 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
  def save():
   require('edit');aid=request.form.get('id');data={k:request.form.get(k,'').strip() for k in FIELDS}
   if data['module'] not in MODULES or data['audience'] not in AUDIENCES:abort(400,'Choose a valid module and audience.')
-  if any(not data[k] for k in FIELDS) or any(len(v)>6000 for v in data.values()) or len(data['title'])>160 or len(data['stage'])>160:abort(400,'Complete every field; keep guidance concise (maximum 6000 characters per field).')
+  if any(not data[k] for k in ['title','purpose','stage']) or any(len(v)>6000 for v in data.values()) or len(data['title'])>160 or len(data['stage'])>160:abort(400,'Complete the title, stage and purpose; keep guidance concise.')
   actor=g.user['sub'];now=r.stamp();content=json.dumps({**data,**governance(request.form)})
   with r.db() as c:
    c.execute('BEGIN IMMEDIATE')
@@ -136,8 +142,12 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
     a=c.execute('SELECT * FROM km_articles WHERE id=?',(aid,)).fetchone()
     if not a:abort(404)
     if request.form.get('version')!=str(a['version']):abort(409,'Guidance changed. Reload before saving.')
-    previous=json.loads(a['draft']);content=json.dumps({**data,**reference_metadata(previous),**governance(request.form,previous)});version=a['version']+1;c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=?,status='draft',author=?,reviewer=NULL,review_note='',updated=? WHERE id=?",(data['module'],data['stage'],data['audience'],content,version,actor,now,aid))
+    previous=json.loads(a['draft'])
+    if not previous.get('context_key') and any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
+    if previous.get('context_key') and any(data[k]!=previous[k] for k in ('module','audience')):abort(400,'This guide is mapped to an application context. Keep its service and audience.')
+    content=json.dumps({**data,**reference_metadata(previous),**governance(request.form,previous)});version=a['version']+1;c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=?,status='draft',author=?,reviewer=NULL,review_note='',updated=? WHERE id=?",(data['module'],data['stage'],data['audience'],content,version,actor,now,aid))
    else:
+    if any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
     import secrets
     slug=re.sub('[^a-z0-9]+','-',data['title'].lower()).strip('-')+'-'+secrets.token_hex(4)
     aid=c.execute("INSERT INTO km_articles(slug,module,stage,audience,draft,version,status,author,updated) VALUES(?,?,?,?,?,1,'draft',?,?)",(slug,data['module'],data['stage'],data['audience'],content,actor,now)).lastrowid

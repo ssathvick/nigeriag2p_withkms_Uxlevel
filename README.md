@@ -2,6 +2,8 @@
 
 **Current application source: 19 November 2026. This repository is public.**
 
+**Documentation and contextual Help update, 21 November 2026.** The release includes the static docs builder, 534 public Knowledge Library entries and the role-aware Help panel. Follow the [Ooru installation and upgrade guide](docs/current/OORU-DOCS-HELP-INSTALL.md) to set destination hosts, deploy Help, verify publication and roll back if needed.
+
 **Registry Data Imports.** To enable file upload, independent approval and Registry receipt tracking on an existing installation, follow the [Data Imports upgrade and test procedure](docs/current/DATA-IMPORTS-UPGRADE.md). It includes a three-row synthetic [acceptance CSV](docs/current/examples/data-imports-acceptance.csv).
 
 This release contains the updated Master Beneficiary Registry UI, native Registry/AWE review workflow, staff personas and roles, shared knowledge/navigation, and the native PBMS programme-to-payment flow. These are changes to the actual applications. A separate standalone Experience Kit remains available for previewing the reusable UX/KMS template.

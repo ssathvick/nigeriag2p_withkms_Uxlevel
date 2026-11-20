@@ -1,0 +1,21 @@
+{
+  "platform": "g2p.example.org",
+  "docs": "docs.g2p.example.org",
+  "registration_upstream": "http://127.0.0.1:18081",
+  "services": {
+    "register": "registry.example.org",
+    "registry": "social-registry.example.org",
+    "beneficiary": "beneficiary.example.org",
+    "pbms": "pbms.example.org",
+    "awe": "approvals.example.org",
+    "portal-admin": "portal-admin.example.org",
+    "odk": "odk.example.org",
+    "superset": "analytics.example.org",
+    "master-data-ui": "master-data.example.org",
+    "partner-management": "partners.example.org",
+    "consent-manager": "consent.example.org",
+    "staff-portal": "staff.example.org",
+    "iam-staff-ui": "iam.example.org",
+    "keycloak": "identity.example.org"
+  }
+}
