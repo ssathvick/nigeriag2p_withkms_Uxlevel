@@ -10,6 +10,8 @@ from urllib.parse import urlencode, urlsplit
 from urllib.request import urlopen
 from xml.sax.saxutils import escape as xml_escape
 
+from visual_guides import GuideVisuals
+
 
 SOURCE = Path(__file__).resolve().parent
 ROOT = SOURCE.parent
@@ -100,6 +102,7 @@ class Documentation:
     def __init__(self, prefix, origin, knowledge=None):
         self.prefix = prefix
         self.origin = origin
+        self.visuals = GuideVisuals(SOURCE, self.path() + 'assets/')
         self.groups = read_json(SOURCE / 'pages.json')
         self.chapters = {}
         self.topics = {}
@@ -269,7 +272,8 @@ class Documentation:
         journey = self.cards(['start', 'lifecycle'])
         featured = self.cards(['master-registry', 'data-imports', 'programme-setup', 'payment-and-reconciliation',
                                'beneficiary-portal', 'services'])
-        body = notice + self.page_section(names[0], journey) + self.page_section(names[1], featured)
+        art = self.visuals.illustration('household-interview', 'A resident and a registration officer review household details together.')
+        body = art + self.visuals.diagram('lifecycle') + notice + self.page_section(names[0], journey) + self.page_section(names[1], featured)
         return self.shell('', 'Platform documentation',
                           'Find the steps for registration, Registry review, programme delivery and payment reconciliation.',
                           body, names)
@@ -283,7 +287,9 @@ class Documentation:
                 sections[group['name']] = self.cards(refs)
         else:
             for name, paragraphs in chapter.get('sections', {}).items():
-                sections[name] = ''.join(f'<p>{html.escape(p)}</p>' for p in paragraphs)
+                pictures = self.visuals.images['chapters'].get(ref, {})
+                sections[name] = ''.join(f'<p>{html.escape(p)}</p>' + self.visuals.screenshots(pictures.get(p, ()))
+                                         for p in paragraphs)
         if chapter.get('related'):
             sections['Related guides'] = '<ul>' + ''.join(f'<li>{self.href(rel)}</li>' for rel in chapter['related']) + '</ul>'
         guides = [(key, topic) for key, topic in self.topics.items() if topic['parent'] == ref]
@@ -293,7 +299,13 @@ class Documentation:
         if library := self.topic_groups(guides, (('library', 'Task and role articles'), ('upstream', 'Upstream references'))):
             sections['Knowledge Library articles'] = library
         open_link = self.link(chapter['app'], 'Open workspace ↗', ' class="workspace-link"') if chapter.get('app') else ''
-        body = open_link + ''.join(self.page_section(k, v) for k, v in sections.items())
+        illustration = ''
+        if ref in ('registration-review', 'registry-review'):
+            illustration = self.visuals.illustration('independent-review', 'A reviewer compares the submitted household details with the supporting record.')
+        elif ref == 'household-registration':
+            illustration = self.visuals.illustration('household-interview', 'A resident answers the registration officer’s questions about her household.')
+        body = open_link + illustration + self.visuals.diagram(ref)
+        body += ''.join(self.page_section(k, v) for k, v in sections.items())
         order = list(self.chapters)
         index = order.index(ref)
         links = []
@@ -307,12 +319,18 @@ class Documentation:
     def topic_page(self, ref, topic):
         labels = {'steps':'Steps','requirements':'Before you start','next_step':'What happens next','issues':'Common issues'}
         sections = {}
+        pictures = self.visuals.images['topics'].get(topic['slug'], {})
         for field, label in labels.items():
             text = topic.get(field, '').strip()
             if not text:
                 continue
             if field == 'steps':
-                sections[label] = '<ol>' + ''.join(f'<li>{html.escape(line)}</li>' for line in text.splitlines() if line.strip()) + '</ol>'
+                steps = []
+                for line in text.splitlines():
+                    if line.strip():
+                        photo = self.visuals.screenshots(pictures.get(line, ()))
+                        steps.append(f'<li><span class="instruction">{html.escape(line)}</span>{photo}</li>')
+                sections[label] = '<ol class="walkthrough" role="list">' + ''.join(steps) + '</ol>'
             else:
                 sections[label] = '<p>' + html.escape(text) + '</p>'
         sources = []
@@ -335,7 +353,18 @@ class Documentation:
             body = '<p class="notice">Provisional sandbox guidance</p>'
         if topic['audience'] != 'all':
             body += f'<p>Guidance for {AUDIENCES[topic["audience"]]}s.</p>'
+        body += self.visuals.screenshots(pictures.get('@purpose', ()))
         body += ''.join(self.page_section(k, v) for k, v in sections.items())
+        if topic['level'] != 'upstream':
+            diagram = self.visuals.topic_diagram(topic)
+            if topic['level'] == 'workflow' or diagram != topic['parent']:
+                body = self.visuals.diagram(diagram) + body
+            elif not pictures:
+                body += self.visuals.diagram(diagram)
+            else:
+                body += ('<details class="process-context"><summary>See how this fits into '
+                         + html.escape(self.chapters[topic['parent']]['title'])
+                         + '</summary>' + self.visuals.diagram(diagram) + '</details>')
         if topic.get('source_note'):
             body += f'<p><small>{html.escape(topic["source_note"])}</small></p>'
         body += '<p class="source-links">' + self.href(topic['parent'], 'Back to service guide') + self.link(article, 'Open in Knowledge Library ↗') + '</p>'
@@ -364,6 +393,7 @@ class Documentation:
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
               ''.join('<url><loc>' + xml_escape(url) + '</loc></url>' for url in urls) + '</urlset>')
         (out / 'assets').mkdir(exist_ok=True)
+        shutil.copytree(SOURCE / 'visuals', out / 'assets' / 'visuals', dirs_exist_ok=True)
         for name in ('site.css','site.js'):
             shutil.copy2(SOURCE / name, out / 'assets' / name)
         for name in ('wordmark','symbol'):

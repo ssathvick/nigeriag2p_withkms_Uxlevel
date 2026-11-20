@@ -1,0 +1,650 @@
+{
+  "start": {
+    "title": "Where to begin",
+    "nodes": [
+      [
+        "Find your service",
+        "Choose the workspace for the task you have been given."
+      ],
+      [
+        "Sign in",
+        "Use the account assigned to that service."
+      ],
+      [
+        "Check your role",
+        "Look for the queue or programme you expect."
+      ]
+    ]
+  },
+  "services": {
+    "title": "Choose a starting point",
+    "nodes": [
+      [
+        "Households",
+        "Find registration and self-service guides."
+      ],
+      [
+        "Reviewers",
+        "Find Registry checks and approval tasks."
+      ],
+      [
+        "Programme teams",
+        "Find list preparation, payment and reporting guides."
+      ]
+    ],
+    "parallel": true
+  },
+  "lifecycle": {
+    "title": "How a household record reaches a payment decision",
+    "nodes": [
+      [
+        "Register",
+        "A household record is captured and reviewed."
+      ],
+      [
+        "Assess",
+        "Programme staff check eligibility and calculate benefits."
+      ],
+      [
+        "Approve and pay",
+        "An approved list goes for payment. Staff check the bank outcome."
+      ]
+    ]
+  },
+  "household-registration": {
+    "title": "From household interview to registration",
+    "nodes": [
+      [
+        "Prepare the profile",
+        "Record the applicant, household members and location."
+      ],
+      [
+        "Send for review",
+        "Check the roster and declaration, then keep the case reference."
+      ],
+      [
+        "Follow the decision",
+        "Correct the same record if returned. After approval, check its Registry connection."
+      ]
+    ]
+  },
+  "registration-review": {
+    "title": "What a reviewer decides",
+    "nodes": [
+      [
+        "Open the case",
+        "Choose a registration awaiting your review."
+      ],
+      [
+        "Compare the evidence",
+        "Check each member and any earlier correction request."
+      ],
+      [
+        "Record the outcome",
+        "Approve a complete registration or explain what the applicant needs to change."
+      ]
+    ]
+  },
+  "master-registry": {
+    "title": "From draft to published record",
+    "nodes": [
+      [
+        "Field agent",
+        "Captures details and submits the record."
+      ],
+      [
+        "First reviewer",
+        "Checks the submission and sends an approved case to Level 2."
+      ],
+      [
+        "Second reviewer",
+        "Checks the earlier decision and publishes an approved record."
+      ]
+    ]
+  },
+  "registry-review": {
+    "title": "What happens to a submission",
+    "nodes": [
+      [
+        "Level 1",
+        "The first reviewer checks the record and possible matches."
+      ],
+      [
+        "Level 2",
+        "The second reviewer checks the submission and the first decision."
+      ],
+      [
+        "Publication",
+        "Final approval makes the record available to the Registry Officer."
+      ]
+    ]
+  },
+  "data-imports": {
+    "title": "How a file becomes Registry records",
+    "nodes": [
+      [
+        "Field agent",
+        "Validates the rows, resolves issues and requests approval."
+      ],
+      [
+        "First reviewer",
+        "Checks included and excluded rows before deciding."
+      ],
+      [
+        "Field agent",
+        "Transfers the approved batch and checks the Registry receipt."
+      ]
+    ]
+  },
+  "offline-collection": {
+    "title": "From an offline interview to the Registry",
+    "nodes": [
+      [
+        "Before travel",
+        "Load the assigned form on the authorised device."
+      ],
+      [
+        "During the visit",
+        "Complete and save the interview on the device."
+      ],
+      [
+        "Back online",
+        "Send the form, then check the matching Registry intake reference."
+      ]
+    ]
+  },
+  "social-registry": {
+    "title": "Finding an existing record",
+    "nodes": [
+      [
+        "Choose a register",
+        "Use the existing Social Registry for its earlier records."
+      ],
+      [
+        "Find the entry",
+        "Search the relevant individuals or groups."
+      ],
+      [
+        "Check its links",
+        "Review identifying details and the associated group or household."
+      ]
+    ]
+  },
+  "beneficiary-portal": {
+    "title": "Three places to check",
+    "nodes": [
+      [
+        "Registries",
+        "Find your registration and its review status."
+      ],
+      [
+        "My Applications",
+        "Follow a programme application by its reference."
+      ],
+      [
+        "My Benefits",
+        "Check which approved entitlements are available."
+      ]
+    ],
+    "parallel": true
+  },
+  "programme-setup": {
+    "title": "What a programme needs before a cycle",
+    "nodes": [
+      [
+        "Target population",
+        "Choose the registry and approved eligibility criteria."
+      ],
+      [
+        "Benefit",
+        "Check the benefit code, unit and quantity."
+      ],
+      [
+        "Delivery settings",
+        "Confirm the staff roles and delivery route for the programme."
+      ]
+    ]
+  },
+  "cycles-and-lists": {
+    "title": "How a cycle becomes a list",
+    "nodes": [
+      [
+        "Set the dates",
+        "Check the registration window and disbursement schedule."
+      ],
+      [
+        "Calculate",
+        "Apply the programme criteria to its target records."
+      ],
+      [
+        "Verify the list",
+        "Compare the included people, benefit amounts and total for this revision."
+      ]
+    ]
+  },
+  "pbms-approvals": {
+    "title": "Who reviews a payment list",
+    "nodes": [
+      [
+        "Payment",
+        "Starts approval for the completed list."
+      ],
+      [
+        "Finance and Audit",
+        "Finance checks amounts. Audit then checks the evidence and history."
+      ],
+      [
+        "CEO",
+        "Reviews the earlier decisions and records the final decision."
+      ]
+    ]
+  },
+  "payment-and-reconciliation": {
+    "title": "Follow the payment evidence",
+    "nodes": [
+      [
+        "Submit",
+        "Payment confirms the verified list and sponsor bank route."
+      ],
+      [
+        "Track dispatch",
+        "The batch report tracks the instructions sent towards the bank."
+      ],
+      [
+        "Check settlement",
+        "Compare the envelope report with the bank statement for each affected instruction."
+      ]
+    ]
+  },
+  "reversals-and-exceptions": {
+    "title": "When another reversal appears",
+    "nodes": [
+      [
+        "Find the instruction",
+        "Match the payment and both statement entries."
+      ],
+      [
+        "Compare amounts",
+        "Treat an identical repeat as duplicate evidence. Refer a different amount to Finance."
+      ],
+      [
+        "Keep the case history",
+        "Audit preserves both entries and the decision under the same reference."
+      ]
+    ]
+  },
+  "bridge-and-mapper": {
+    "title": "Where the instruction goes",
+    "nodes": [
+      [
+        "PBMS",
+        "Submits the approved payment instructions."
+      ],
+      [
+        "Bridge and the mapper",
+        "Resolve the beneficiary reference and track dispatch to the bank."
+      ],
+      [
+        "Finance",
+        "Checks the returned statement against the envelope and batch."
+      ]
+    ]
+  },
+  "beneficiary-admin": {
+    "title": "From programme setup to the applicant view",
+    "nodes": [
+      [
+        "Choose the programme",
+        "Find the beneficiary-facing programme in administration."
+      ],
+      [
+        "Check the configuration",
+        "Review visibility, application fields and related records."
+      ],
+      [
+        "Check the portal",
+        "Verify what an applicant can see in the corresponding programme."
+      ]
+    ]
+  },
+  "access": {
+    "title": "How staff reach their work",
+    "nodes": [
+      [
+        "Staff Portal",
+        "Sign in with the assigned staff account."
+      ],
+      [
+        "Application tile",
+        "Open the service for the task."
+      ],
+      [
+        "Assigned work",
+        "Check the queue, registry scope or programme membership inside that service."
+      ]
+    ]
+  },
+  "approvals": {
+    "title": "How to follow an approval request",
+    "nodes": [
+      [
+        "Find the request",
+        "Use the originating record or request reference."
+      ],
+      [
+        "Check the stage",
+        "Read the assigned reviewer and recorded decisions."
+      ],
+      [
+        "Verify the callback",
+        "Check whether the originating service received the result."
+      ]
+    ]
+  },
+  "master-data": {
+    "title": "Read the location hierarchy",
+    "nodes": [
+      [
+        "State or FCT",
+        "Choose the parent area in Nigeria."
+      ],
+      [
+        "Local government area",
+        "Choose an LGA within that state or territory."
+      ],
+      [
+        "Ward",
+        "Choose a ward within the selected LGA."
+      ]
+    ]
+  },
+  "partners": {
+    "title": "From request to partner record",
+    "nodes": [
+      [
+        "Identify",
+        "Check the organisation and partner reference."
+      ],
+      [
+        "Review",
+        "Read the onboarding or change request and its status."
+      ],
+      [
+        "Trace",
+        "Use the partner record to check its keys and history."
+      ]
+    ]
+  },
+  "consent": {
+    "title": "What to check before sharing information",
+    "nodes": [
+      [
+        "Partner",
+        "Identify who is requesting the information."
+      ],
+      [
+        "Scope",
+        "Check the relevant data and sharing policy."
+      ],
+      [
+        "Decision",
+        "Read the recorded approval or decision for that request."
+      ]
+    ]
+  },
+  "analytics": {
+    "title": "How to read a reported count",
+    "nodes": [
+      [
+        "Choose the measure",
+        "Identify what is being counted."
+      ],
+      [
+        "Set the scope",
+        "Check the programme, period and geography."
+      ],
+      [
+        "Keep the context",
+        "Record the filters and reporting date with any authorised export."
+      ]
+    ]
+  },
+  "phase-one": {
+    "title": "Follow a sandbox case",
+    "nodes": [
+      [
+        "Choose a scenario",
+        "Start with an example household or programme."
+      ],
+      [
+        "Open the task",
+        "Inspect the grievance, attendance or field record."
+      ],
+      [
+        "Check the evidence",
+        "Read the recorded status and verification history."
+      ]
+    ]
+  },
+  "support": {
+    "title": "Finding help for the screen in front of you",
+    "nodes": [
+      [
+        "On the screen",
+        "Select Help, or the information icon beside a field."
+      ],
+      [
+        "In the guide",
+        "Read the steps for the current task and role."
+      ],
+      [
+        "For follow-up",
+        "Keep the guide title, action, status and a non-sensitive reference."
+      ]
+    ]
+  },
+  "jos-family-support": {
+    "title": "Follow the Jos example",
+    "nodes": [
+      [
+        "Household",
+        "Start with the sample household in the demonstration."
+      ],
+      [
+        "Programme",
+        "Follow the eligibility and conditionality decisions."
+      ],
+      [
+        "Payment",
+        "Trace the approved outcome into the example payment report."
+      ]
+    ]
+  },
+  "field-interaction-preview": {
+    "title": "How a sample visit works",
+    "nodes": [
+      [
+        "Open the visit",
+        "Use a sample record to explore the form."
+      ],
+      [
+        "Work through sections",
+        "Move between the area, household needs and review."
+      ],
+      [
+        "Check the handoff",
+        "For connected work, confirm the submission in the Registry."
+      ]
+    ]
+  },
+  "territorial-atlas": {
+    "title": "How to read an area in the atlas",
+    "nodes": [
+      [
+        "Choose the area",
+        "Select the state or other available geography."
+      ],
+      [
+        "Choose the measure",
+        "Use the comparison measure that answers your question."
+      ],
+      [
+        "Read the source",
+        "Check the reference date before comparing areas."
+      ]
+    ]
+  },
+  "partial-payment": {
+    "title": "Reading a partial payment",
+    "nodes": [
+      [
+        "Find the original list",
+        "Keep its envelope and batch references."
+      ],
+      [
+        "Separate the instructions",
+        "Identify which have settled, which are outstanding and which reversed."
+      ],
+      [
+        "Check the statement",
+        "Finance verifies the affected instructions before an authorised follow-up."
+      ]
+    ]
+  },
+  "missing-log": {
+    "title": "How to read a missing or restored log",
+    "nodes": [
+      [
+        "Row saved",
+        "The Registry has already stored the row."
+      ],
+      [
+        "Receipt missing",
+        "Keep the original reference. A matching alternate correction stays on hold."
+      ],
+      [
+        "Receipt restored",
+        "Refresh the original receipt and check the restoration event in Activity."
+      ]
+    ]
+  },
+  "returned-list": {
+    "title": "How a returned list moves forward",
+    "nodes": [
+      [
+        "Read the reason",
+        "Open the returned list and identify the requested change."
+      ],
+      [
+        "Save the correction",
+        "Programme Admin corrects the affected entries and records why."
+      ],
+      [
+        "Resubmit",
+        "Payment checks the correction. The new revision starts again at Finance."
+      ]
+    ]
+  },
+  "separate-import": {
+    "title": "Two files from the same connection",
+    "nodes": [
+      [
+        "Identify the original",
+        "Use the batch reference to choose the original import."
+      ],
+      [
+        "Start another import",
+        "Fetch a new CSV when a separate import is intended."
+      ],
+      [
+        "Match the follow-up",
+        "Check its previous batch reference to see which original it follows."
+      ]
+    ]
+  },
+  "duplicate-check": {
+    "title": "Review a possible match",
+    "nodes": [
+      [
+        "Open the candidate",
+        "Find the proposed match and open its comparison."
+      ],
+      [
+        "Compare the details",
+        "Check the identity and household information on both records."
+      ],
+      [
+        "Record the outcome",
+        "Follow the assigned review procedure. Escalate an unclear match."
+      ]
+    ]
+  },
+  "reversal-count-check": {
+    "title": "When the reversal counts disagree",
+    "nodes": [
+      [
+        "Find the report",
+        "Keep the list revision, envelope and batch references together."
+      ],
+      [
+        "Match the bank entries",
+        "Finance checks whether both entries refer to the same bank movement."
+      ],
+      [
+        "Follow the case decision",
+        "For a closed case, hold payment activity while the discrepancy is reviewed."
+      ]
+    ]
+  },
+  "sponsor-route": {
+    "title": "Who sets the bank route?",
+    "nodes": [
+      [
+        "Programme Admin checks",
+        "Confirm the programme and the verified list revision."
+      ],
+      [
+        "Programme Admin saves",
+        "Choose the approved sponsor bank and save the payment route."
+      ],
+      [
+        "Payment proceeds",
+        "Check the saved route before submitting the verified list."
+      ]
+    ]
+  },
+  "case-closure": {
+    "title": "Who closes a payment case?",
+    "nodes": [
+      [
+        "Finance matches",
+        "Compare the payments and reversals with the bank statement and record the balance."
+      ],
+      [
+        "Audit checks",
+        "Trace each revision and decision back to its supporting evidence."
+      ],
+      [
+        "CEO records the decision",
+        "Enter the closure reason, date and outcome under the existing case reference."
+      ]
+    ]
+  },
+  "publish-guidance": {
+    "title": "How a draft becomes published guidance",
+    "nodes": [
+      [
+        "Author drafts",
+        "Write the guidance and submit it for review."
+      ],
+      [
+        "Verifier reviews",
+        "A different person checks the draft and can return it with a reason."
+      ],
+      [
+        "Supervisor publishes",
+        "An authorised supervisor publishes the reviewed version."
+      ]
+    ]
+  }
+}

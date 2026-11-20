@@ -2,7 +2,7 @@
 
 **Current application source: 19 November 2026. This repository is public.**
 
-**Documentation and contextual Help update, 21 November 2026.** The release includes the static docs builder, 534 public Knowledge Library entries and the role-aware Help panel. Follow the [Ooru installation and upgrade guide](docs/current/OORU-DOCS-HELP-INSTALL.md) to set destination hosts, deploy Help, verify publication and roll back if needed.
+**Illustrated documentation and contextual Help, 21 November 2026.** The 534-guide release includes 219 sandbox screenshots, mobile-friendly diagrams for all 29 service chapters, two original illustrations and role-aware Help. [Browse the live guides](https://docs.g2p.wverve.in/) · [Maintain the visuals and preview changes](lab/platform-docs/README.md) · [Install or upgrade on Ooru](docs/current/OORU-DOCS-HELP-INSTALL.md)
 
 **Registry Data Imports.** To enable file upload, independent approval and Registry receipt tracking on an existing installation, follow the [Data Imports upgrade and test procedure](docs/current/DATA-IMPORTS-UPGRADE.md). It includes a three-row synthetic [acceptance CSV](docs/current/examples/data-imports-acceptance.csv).
 

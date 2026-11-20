@@ -1,0 +1,4237 @@
+{
+  "screens": {
+    "native-portal-admin-accounting-journal": {
+      "caption": "The Accounting Journal toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        100
+      ]
+    },
+    "native-portal-admin-default-cycle-managers": {
+      "caption": "The Default Cycle Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-default-deduplication-managers": {
+      "caption": "The Default Deduplication Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-default-eligibility-managers": {
+      "caption": "The Default Eligibility Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-default-entitlement-managers": {
+      "caption": "The Default Entitlement Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-default-payment-managers": {
+      "caption": "The Default Payment Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-default-program-managers": {
+      "caption": "The Default Program Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-district-configuration": {
+      "caption": "The District Configuration toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-entitlements": {
+      "caption": "The Entitlements toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-gender-types": {
+      "caption": "The Gender Types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-group-membership-kind": {
+      "caption": "The Group Membership Kind toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-group-types": {
+      "caption": "The Group types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-groups": {
+      "caption": "The Registry toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-id-deduplication-managers": {
+      "caption": "The ID Deduplication Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-id-document-eligibility-managers": {
+      "caption": "The ID Document Eligibility Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-id-types": {
+      "caption": "The ID Types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-individuals": {
+      "caption": "The Individuals toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-journals": {
+      "caption": "The Journals toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-payment-batch-tags": {
+      "caption": "The Payment Batch Tags toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-payment-batches": {
+      "caption": "The Payment Batches toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-payments": {
+      "caption": "The Payments toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-phone-number-deduplication-managers": {
+      "caption": "The Phone Number Deduplication Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-phone-number-eligibility-managers": {
+      "caption": "The Phone Number Eligibility Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-program-fund-report": {
+      "caption": "The Program Fund Report toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        100
+      ]
+    },
+    "native-portal-admin-program-funds": {
+      "caption": "The Program Funds toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-programs": {
+      "caption": "The Programs toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-registrant-tags": {
+      "caption": "The Registrant Tags toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-reimbursement-programs": {
+      "caption": "The Reimbursement Programs toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-portal-admin-relationships": {
+      "caption": "The Relationships toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-portal-admin-sms-notification-managers": {
+      "caption": "The SMS Notification Managers toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-district-configuration": {
+      "caption": "The District Configuration toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-duplicate-groups-review": {
+      "caption": "The Duplicate groups review toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-duplicate-individuals-review": {
+      "caption": "The Duplicate individuals review toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-gender-types": {
+      "caption": "The Gender Types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-group-membership-kind": {
+      "caption": "The Group Membership Kind toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-group-types": {
+      "caption": "The Group types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-groups": {
+      "caption": "The Groups toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-id-types": {
+      "caption": "The ID Types toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-individuals": {
+      "caption": "The Individuals toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        107
+      ]
+    },
+    "native-registry-region": {
+      "caption": "The Region toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-registrant-tags": {
+      "caption": "The Registrant Tags toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "native-registry-relationships": {
+      "caption": "The Relationships toolbar. Use Search to find the record you want.",
+      "width": 730,
+      "height": 55,
+      "phone": [
+        420,
+        58
+      ]
+    },
+    "pb-programmes": {
+      "caption": "The programmes screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-enrollment": {
+      "caption": "The enrollment cycles screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-disbursement": {
+      "caption": "The disbursement cycles screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-households": {
+      "caption": "The households screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-farmers": {
+      "caption": "The farmers screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-students": {
+      "caption": "The students screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-priority": {
+      "caption": "The priority rules screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-agencies": {
+      "caption": "The agencies screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-warehouses": {
+      "caption": "The warehouses and banks screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-states": {
+      "caption": "The states screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-lgas": {
+      "caption": "The local administrative areas screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-agency-benefits": {
+      "caption": "The agency benefit assignments screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-warehouse-benefits": {
+      "caption": "The bank and warehouse assignments screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-verification": {
+      "caption": "The verification queue screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-approvals": {
+      "caption": "The approval queue screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-payments": {
+      "caption": "The payments screen. Search records to narrow the list before opening an entry.",
+      "width": 665,
+      "height": 304,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-lists": {
+      "caption": "Select the programme first to see its beneficiary lists.",
+      "width": 665,
+      "height": 415,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-eligibility": {
+      "caption": "Choose the programme whose eligibility rules you want to inspect.",
+      "width": 630,
+      "height": 212,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-entitlements": {
+      "caption": "Choose the programme whose entitlement rules you want to inspect.",
+      "width": 630,
+      "height": 212,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-benefits": {
+      "caption": "Choose the programme whose benefit codes you want to inspect.",
+      "width": 630,
+      "height": 212,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-programme-benefits": {
+      "caption": "Choose the programme whose programme benefits you want to inspect.",
+      "width": 630,
+      "height": 212,
+      "phone": [
+        390,
+        355
+      ]
+    },
+    "pb-programme-analytics": {
+      "caption": "Choose the programme, cycle and map measure before reading the totals.",
+      "width": 665,
+      "height": 420,
+      "phone": [
+        390,
+        440
+      ]
+    },
+    "payment-report": {
+      "caption": "Refresh report retrieves the latest status. Download report saves a copy for follow-up.",
+      "width": 766,
+      "height": 325,
+      "phone": [
+        500,
+        325
+      ]
+    },
+    "approval-input": {
+      "caption": "The approval area has a comment box and a supporting-document field. Use the controls available at your assigned stage.",
+      "width": 1100,
+      "height": 284,
+      "phone": [
+        500,
+        284
+      ]
+    },
+    "di-history": {
+      "caption": "In Transfers, use Refresh history to update the list or New import to start a batch.",
+      "width": 414,
+      "height": 235
+    },
+    "di-expected": {
+      "caption": "Expand Expected columns to compare your spreadsheet headings with the selected source.",
+      "width": 414,
+      "height": 150
+    },
+    "di-file": {
+      "caption": "Choose File opens the file picker. The supported file types and limits appear below it.",
+      "width": 414,
+      "height": 155
+    },
+    "di-fetch": {
+      "caption": "Fetch and validate reads the CSV from the selected connection.",
+      "width": 414,
+      "height": 140
+    },
+    "di-access": {
+      "caption": "The access screen identifies who prepares a batch and who can review it.",
+      "width": 414,
+      "height": 320
+    },
+    "di-partial-rows": {
+      "caption": "In Reconcile records, read the status beside each row. Here one row was logged, one was excluded and one has no receipt.",
+      "width": 414,
+      "height": 370
+    },
+    "di-saved-without-log": {
+      "caption": "The receipt says the Registry saved the rows and their log is missing. Keep the original Registry reference.",
+      "width": 414,
+      "height": 265
+    },
+    "di-receipt-log-restored": {
+      "caption": "A restored receipt confirms the previously saved rows and keeps the original Registry reference.",
+      "width": 414,
+      "height": 265
+    },
+    "di-received-with-error": {
+      "caption": "Here the job failed after the Registry logged all included rows. Keep the receipt for investigation.",
+      "width": 414,
+      "height": 265
+    },
+    "di-activity": {
+      "caption": "Activity records when the receipt log was restored. Use the event to follow up the same batch.",
+      "width": 414,
+      "height": 240
+    },
+    "di-unconfirmed": {
+      "caption": "When delivery is uncertain, refresh the existing receipt to check what happened.",
+      "width": 414,
+      "height": 265
+    },
+    "di-returned": {
+      "caption": "Returned for correction identifies the batch the operator needs to reopen.",
+      "width": 414,
+      "height": 385
+    },
+    "di-approved": {
+      "caption": "The Approved status and row totals identify a batch ready for the operator to transfer.",
+      "width": 414,
+      "height": 385
+    },
+    "di-test": {
+      "caption": "Expand Test mapping with sample values to preview how a row will be translated.",
+      "width": 414,
+      "height": 145
+    },
+    "exclude-row": {
+      "caption": "Open the flagged row, compare the source values, then use Exclude this row from the transfer when appropriate.",
+      "width": 862,
+      "height": 423,
+      "phone": [
+        500,
+        423
+      ]
+    },
+    "map-fields": {
+      "caption": "Map each spreadsheet column to its Registry column. The transform and required-value settings apply to that field.",
+      "width": 1100,
+      "height": 574,
+      "phone": [
+        500,
+        574
+      ]
+    },
+    "source-mapping": {
+      "caption": "In Sources and mappings, choose a source before checking the destination and input method.",
+      "width": 1100,
+      "height": 408,
+      "phone": [
+        500,
+        408
+      ]
+    },
+    "find-household": {
+      "caption": "Use Filters or the search box above the household results.",
+      "width": 362,
+      "height": 341
+    },
+    "find-person": {
+      "caption": "Use the search box above the individual records to find the person you need.",
+      "width": 363,
+      "height": 345
+    },
+    "household-form": {
+      "caption": "The household intake form groups consent, members, living conditions and income into sections.",
+      "width": 363,
+      "height": 468
+    },
+    "individual-form": {
+      "caption": "Individual registration has sections for demographics and identification.",
+      "width": 363,
+      "height": 469
+    },
+    "history": {
+      "caption": "In Version History, choose the section and version to compare earlier values.",
+      "width": 363,
+      "height": 596
+    },
+    "review-actions": {
+      "caption": "Enter the reviewer message and choose the decision that matches the evidence.",
+      "width": 312,
+      "height": 304
+    },
+    "membership": {
+      "caption": "Household Member Details shows the people linked to this household.",
+      "width": 341,
+      "height": 329
+    },
+    "dwelling": {
+      "caption": "Housing and basic services shows the recorded dwelling and construction details.",
+      "width": 337,
+      "height": 441
+    },
+    "offline": {
+      "caption": "Open Offline field capture in the Registry to find the setup instructions for your assigned device.",
+      "width": 370,
+      "height": 510
+    },
+    "odk-menu": {
+      "caption": "In ODK Collect, Drafts holds unfinished interviews. Ready to send and Sent let you check delivery.",
+      "width": 1005,
+      "height": 880,
+      "phone": [
+        500,
+        880
+      ]
+    },
+    "resubmit": {
+      "caption": "Read the confirmation before submitting the corrected record for review.",
+      "width": 367,
+      "height": 375
+    },
+    "directory": {
+      "caption": "On All platform services, search for a service or browse the cards under People and households.",
+      "width": 368,
+      "height": 522
+    },
+    "staff-sign-in": {
+      "caption": "On the staff sign-in screen, enter the email for your assigned account and select Log in.",
+      "width": 350,
+      "height": 541
+    },
+    "rg-accuracy-confirm": {
+      "caption": "Review the household details before checking the accuracy declaration.",
+      "width": 392,
+      "height": 145
+    },
+    "rg-consent-answer": {
+      "caption": "Record the respondent’s answer. Choosing No tells the interviewer to stop.",
+      "width": 354,
+      "height": 141
+    },
+    "rg-survey-sponsor": {
+      "caption": "Choose the organisation that commissioned this survey.",
+      "width": 354,
+      "height": 109
+    },
+    "rg-survey-respondent": {
+      "caption": "Enter the name of the person answering the interview.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-state": {
+      "caption": "Choose the state or FCT first, then the local government area and ward.",
+      "width": 354,
+      "height": 565
+    },
+    "rg-latitude": {
+      "caption": "Enter the latitude in the labelled field and longitude in its companion field.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-gps-accuracy": {
+      "caption": "Record the accuracy reported by the device in metres.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-location-time": {
+      "caption": "Enter the time the device captured the reading, in UTC.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-location-source": {
+      "caption": "Record where the location reading came from.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-enumeration-area": {
+      "caption": "Use Locality / EA Code for the assigned enumeration area.",
+      "width": 354,
+      "height": 113
+    },
+    "registries": {
+      "caption": "The Household register card shows the reference, review status and synchronisation status.",
+      "width": 365,
+      "height": 423
+    },
+    "complaints": {
+      "caption": "Select the complaint reason and use Submit complaint to send it.",
+      "width": 363,
+      "height": 352
+    },
+    "notifications": {
+      "caption": "The unread count and the action beside each notice help you keep track of messages.",
+      "width": 368,
+      "height": 475
+    },
+    "news": {
+      "caption": "Search by keyword or select the article language.",
+      "width": 371,
+      "height": 264
+    },
+    "accounts": {
+      "caption": "Accounts identifies the household whose payment-account mapping you are viewing.",
+      "width": 368,
+      "height": 200
+    },
+    "applications": {
+      "caption": "My Applications lists each application, its status and its reference. Keep the reference for follow-up.",
+      "width": 1100,
+      "height": 318,
+      "phone": [
+        500,
+        318
+      ]
+    },
+    "apply": {
+      "caption": "Find the programme in All Programs and use the Apply button on its row.",
+      "width": 1100,
+      "height": 218,
+      "phone": [
+        500,
+        218
+      ]
+    },
+    "benefits": {
+      "caption": "My Benefits shows approved entitlements when available. The link below the empty list opens My Applications.",
+      "width": 1100,
+      "height": 383,
+      "phone": [
+        500,
+        383
+      ]
+    },
+    "staff-tiles": {
+      "caption": "Select the tile for the application you need in the Staff Portal.",
+      "width": 1100,
+      "height": 221,
+      "phone": [
+        500,
+        221
+      ]
+    },
+    "iam-apps": {
+      "caption": "The Applications list shows the registered application name and description.",
+      "width": 719,
+      "height": 542,
+      "phone": [
+        500,
+        542
+      ]
+    },
+    "providers": {
+      "caption": "Login Providers lists the configured sign-in connections and authentication methods.",
+      "width": 1059,
+      "height": 399,
+      "phone": [
+        500,
+        399
+      ]
+    },
+    "policy": {
+      "caption": "Open a policy version to see its stages and the rules for assigning each review.",
+      "width": 1088,
+      "height": 685,
+      "phone": [
+        500,
+        685
+      ]
+    },
+    "request-filter": {
+      "caption": "In Requests, use the status filter to narrow the workflow list.",
+      "width": 1100,
+      "height": 341,
+      "phone": [
+        500,
+        341
+      ]
+    },
+    "delegation": {
+      "caption": "New delegation asks for the delegator, the delegate and the period of the assignment.",
+      "width": 1100,
+      "height": 476,
+      "phone": [
+        500,
+        476
+      ]
+    },
+    "deliveries": {
+      "caption": "Webhook Deliveries has a status filter for callbacks to the originating application.",
+      "width": 1100,
+      "height": 276,
+      "phone": [
+        500,
+        276
+      ]
+    },
+    "audit": {
+      "caption": "Use the Audit Log filters to narrow the recorded actions.",
+      "width": 1100,
+      "height": 210,
+      "phone": [
+        500,
+        210
+      ]
+    },
+    "partners": {
+      "caption": "The Requests list groups onboarding and key rotation requests by status.",
+      "width": 1068,
+      "height": 369,
+      "phone": [
+        500,
+        369
+      ]
+    },
+    "partner-review": {
+      "caption": "The partner detail view keeps keys and the event history together for review.",
+      "width": 1100,
+      "height": 362,
+      "phone": [
+        500,
+        362
+      ]
+    },
+    "partner-onboard": {
+      "caption": "Start the onboarding request with the partner ID, name and organisation.",
+      "width": 891,
+      "height": 487,
+      "phone": [
+        500,
+        487
+      ]
+    },
+    "levels": {
+      "caption": "Manage Geo Levels shows the country, state or FCT, and local government area levels.",
+      "width": 896,
+      "height": 551,
+      "phone": [
+        500,
+        551
+      ]
+    },
+    "areas": {
+      "caption": "Expand Nigeria and select a state. The table shows local government areas under that state.",
+      "width": 852,
+      "height": 571,
+      "phone": [
+        500,
+        571
+      ]
+    },
+    "dashboards": {
+      "caption": "The Dashboards section in Superset Home links to dashboards available to your account.",
+      "width": 965,
+      "height": 369,
+      "phone": [
+        500,
+        369
+      ]
+    },
+    "datasets": {
+      "caption": "The Datasets view lists the sources available to the reporting workspace.",
+      "width": 1073,
+      "height": 379,
+      "phone": [
+        500,
+        379
+      ]
+    },
+    "library-editor": {
+      "caption": "In Create guidance, set the service and audience before entering the title and purpose.",
+      "width": 1048,
+      "height": 522,
+      "phone": [
+        500,
+        522
+      ]
+    },
+    "library-assistant": {
+      "caption": "Select the service, audience and workflow stage, then enter the question.",
+      "width": 1100,
+      "height": 475,
+      "phone": [
+        500,
+        475
+      ]
+    },
+    "library-version": {
+      "caption": "The version heading identifies the saved edition of an article.",
+      "width": 1078,
+      "height": 512,
+      "phone": [
+        500,
+        512
+      ]
+    },
+    "help-panel": {
+      "caption": "In Contextual help, Open documentation guide leads to the instructions for this role and screen.",
+      "width": 416,
+      "height": 598
+    },
+    "case-queue": {
+      "caption": "Household work queue shows the status and next step. Open the case marked Awaiting verification.",
+      "width": 400,
+      "height": 300
+    },
+    "case-roster": {
+      "caption": "Household members identifies the household head and the other people on the submitted record.",
+      "width": 362,
+      "height": 159
+    },
+    "jos": {
+      "caption": "Use the Jos Family Support navigation to follow a sample household through the programme.",
+      "width": 1100,
+      "height": 327,
+      "phone": [
+        500,
+        327
+      ]
+    },
+    "field-visit": {
+      "caption": "In the sample household visit, use the section tabs to move between Area, Home, Needs and Review.",
+      "width": 578,
+      "height": 880
+    },
+    "phase-grievance": {
+      "caption": "In Grievance intake, select a participant and category before creating the fictional case.",
+      "width": 1098,
+      "height": 295,
+      "phone": [
+        500,
+        295
+      ]
+    },
+    "atlas": {
+      "caption": "Choose a territorial measure and area. The map and the neighbouring summary show the same selection.",
+      "width": 1100,
+      "height": 546,
+      "phone": [
+        500,
+        546
+      ]
+    },
+    "state-map": {
+      "caption": "Use Select state / FCT to read the count and share for one area.",
+      "width": 391,
+      "height": 465
+    },
+    "record-points": {
+      "caption": "Select Household records and use Show household location points to display reported locations.",
+      "width": 858,
+      "height": 196,
+      "phone": [
+        500,
+        196
+      ]
+    },
+    "rg-submit": {
+      "caption": "Save Draft keeps work for later. Submit sends it for review.",
+      "width": 392,
+      "height": 50
+    },
+    "live-consent-manager-partners": {
+      "caption": "Partner policies shows which partner and sharing policy are linked.",
+      "width": 610,
+      "height": 182,
+      "phone": [
+        500,
+        182
+      ]
+    },
+    "live-consent-manager-approvals": {
+      "caption": "Approvals lists policy changes waiting for the assigned reviewer.",
+      "width": 610,
+      "height": 182,
+      "phone": [
+        500,
+        182
+      ]
+    },
+    "live-consent-manager-decisions": {
+      "caption": "Decisions lists recorded consent checks for review.",
+      "width": 610,
+      "height": 182,
+      "phone": [
+        500,
+        182
+      ]
+    },
+    "live-partner-management-directory": {
+      "caption": "In Partners, compare the organisation and status before opening its record.",
+      "width": 610,
+      "height": 182,
+      "phone": [
+        500,
+        182
+      ]
+    },
+    "di-partial": {
+      "caption": "The receipt gives the ingested count. Use Refresh Registry receipt to check progress before following up.",
+      "width": 414,
+      "height": 265
+    },
+    "rg-member-relationship": {
+      "caption": "Choose how the member is related to the household head.",
+      "width": 392,
+      "height": 184
+    },
+    "rg-member-age": {
+      "caption": "When the date of birth is unknown, enter the estimated age in completed years.",
+      "width": 392,
+      "height": 184
+    },
+    "rg-member-nin": {
+      "caption": "Enter the 11-digit NIN in its own field when available.",
+      "width": 392,
+      "height": 184
+    },
+    "rg-member-banking": {
+      "caption": "The bank account number field takes 10 digits. The BVN has its own field.",
+      "width": 392,
+      "height": 184
+    },
+    "rg-health-response": {
+      "caption": "Record each response for the member whose details are open.",
+      "width": 322,
+      "height": 452
+    },
+    "rg-monthly-income": {
+      "caption": "Read the reporting period before entering the household amount.",
+      "width": 354,
+      "height": 113
+    },
+    "rg-income-source": {
+      "caption": "Choose the source of income reported by the household.",
+      "width": 354,
+      "height": 109
+    },
+    "rg-household-shock": {
+      "caption": "Select the applicable shocks after the household reports a shock in the past three years.",
+      "width": 354,
+      "height": 285
+    },
+    "rg-insurance-status": {
+      "caption": "Record whether anyone in this household has health insurance.",
+      "width": 354,
+      "height": 169
+    },
+    "rg-asset-response": {
+      "caption": "Record the answer to the ownership question before filling any follow-up fields.",
+      "width": 354,
+      "height": 169
+    },
+    "rg-crops-grown": {
+      "caption": "Choose Yes to see the follow-up crop list, or No when the household grows no crops.",
+      "width": 354,
+      "height": 145
+    },
+    "case-reason": {
+      "caption": "Read What needs correction before changing the returned household record.",
+      "width": 362,
+      "height": 97
+    },
+    "case-edit": {
+      "caption": "Update the returned household, then use Save correction & resubmit to send the same case back to review.",
+      "width": 400,
+      "height": 514
+    },
+    "case-checks": {
+      "caption": "Check the household details, whether the correction was addressed, and what registration approval covers.",
+      "width": 362,
+      "height": 100
+    },
+    "case-confirm": {
+      "caption": "Read the confirmation before connecting the registration to the registries.",
+      "width": 362,
+      "height": 168
+    },
+    "citizen-members": {
+      "caption": "Member 1 is the applicant and household head. Add the other household members below.",
+      "width": 455,
+      "height": 240
+    },
+    "citizen-household": {
+      "caption": "Start with Household details. Enter the household name and select its state or FCT.",
+      "width": 455,
+      "height": 240
+    },
+    "live-g2p-library": {
+      "caption": "Search guidance in the Knowledge Library, then narrow the results to your service and audience.",
+      "width": 650,
+      "height": 300,
+      "phone": [
+        500,
+        300
+      ]
+    },
+    "live-g2p-analytics": {
+      "caption": "Select the state or programme and check the report time before comparing totals.",
+      "width": 650,
+      "height": 300,
+      "phone": [
+        500,
+        300
+      ]
+    },
+    "pay-67-counts": {
+      "caption": "In this example, one instruction was reconciled and one reversal was recorded. Check the bank statement for the same instruction.",
+      "width": 824,
+      "height": 265,
+      "phone": [
+        500,
+        265
+      ]
+    },
+    "pay-71-counts": {
+      "caption": "This example has two declared instructions and one reversal. Check the individual outcomes against the statement.",
+      "width": 824,
+      "height": 265,
+      "phone": [
+        500,
+        265
+      ]
+    },
+    "pay-70-0-exception": {
+      "caption": "A reversal amount exception means a later statement supplied a conflicting amount. Finance checks the two entries.",
+      "width": 398,
+      "height": 67
+    },
+    "pay-67-1-dispatch": {
+      "caption": "Sponsor bank dispatch status shows the state of the batch handoff.",
+      "width": 398,
+      "height": 67
+    },
+    "pay-67-1-resolution": {
+      "caption": "FA resolution status shows whether the financial address was resolved for dispatch.",
+      "width": 398,
+      "height": 67
+    },
+    "pay-progress": {
+      "caption": "View payment progress opens the workflow for the submitted list.",
+      "width": 181,
+      "height": 39
+    },
+    "detail-programme-detail": {
+      "caption": "Open Programme information and use Edit programme settings when your role allows it.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-tabs": {
+      "caption": "Use the tabs inside the selected programme to move between its settings, rules and lists.",
+      "width": 452,
+      "height": 125
+    },
+    "detail-eligibility": {
+      "caption": "Eligibility rules lists the criteria used for this programme.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-lists": {
+      "caption": "Beneficiary lists opens the processing records for the selected programme.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-benefits": {
+      "caption": "Benefit codes shows the benefits available in this programme.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-programme-benefits": {
+      "caption": "Programme benefits shows which benefits are assigned to this programme.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-entitlements": {
+      "caption": "Entitlement rules connects a benefit with its assigned quantity.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-enrollment-workflow": {
+      "caption": "Open an enrollment list to inspect its calculation, evidence and approval history.",
+      "width": 452,
+      "height": 248
+    },
+    "detail-disbursement-workflow": {
+      "caption": "Use Disbursement lists and workflow to find the list for this cycle.",
+      "width": 452,
+      "height": 248
+    },
+    "button-approve-batch": {
+      "caption": "The independent reviewer uses Approve batch after checking the rows.",
+      "width": 166,
+      "height": 45
+    },
+    "button-return-batch": {
+      "caption": "Use Return for correction when the operator needs to change the batch.",
+      "width": 166,
+      "height": 45
+    },
+    "button-request": {
+      "caption": "Send for approval passes the prepared batch to an independent reviewer.",
+      "width": 180,
+      "height": 45
+    },
+    "button-new-csv": {
+      "caption": "Use Fetch a new CSV only when you intend to start a separate import.",
+      "width": 402,
+      "height": 45
+    },
+    "button-transfer": {
+      "caption": "Transfer to Registry sends the rows from the approved batch.",
+      "width": 180,
+      "height": 45
+    },
+    "button-download-audit": {
+      "caption": "Download audit report keeps the batch history for follow-up.",
+      "width": 180,
+      "height": 45
+    },
+    "button-logged": {
+      "caption": "Expand the row in Reconcile records to see its Registry receipt status.",
+      "width": 366,
+      "height": 45
+    },
+    "odk-projects": {
+      "caption": "Open the assigned project to find its forms.",
+      "width": 682,
+      "height": 121,
+      "phone": [
+        500,
+        121
+      ]
+    },
+    "odk-users": {
+      "caption": "Web Users shows account administration. Project access is managed for the assigned collection work.",
+      "width": 730,
+      "height": 166,
+      "phone": [
+        500,
+        166
+      ]
+    },
+    "odk-audits": {
+      "caption": "In Server Audit Logs, use the action and date filters to find an event.",
+      "width": 797,
+      "height": 262,
+      "phone": [
+        500,
+        262
+      ]
+    },
+    "odk-analytics": {
+      "caption": "The Usage Reporting tab displays the server reporting settings.",
+      "width": 735,
+      "height": 267,
+      "phone": [
+        500,
+        267
+      ]
+    },
+    "registry-settings": {
+      "caption": "Registry details identifies the configuration workspace for this Registry.",
+      "width": 367,
+      "height": 341
+    },
+    "review-queue": {
+      "caption": "In Intake Form Submission, use the status filters to find a task awaiting a decision.",
+      "width": 363,
+      "height": 268
+    },
+    "change-tasks": {
+      "caption": "In Change Requests, use the status filters to find the request you need.",
+      "width": 363,
+      "height": 266
+    },
+    "staff-roles": {
+      "caption": "Staff and roles shows the Registry staff configuration available to an administrator.",
+      "width": 369,
+      "height": 499
+    },
+    "pb-login": {
+      "caption": "Use the Email and Password fields on the PBMS sign-in screen.",
+      "width": 403,
+      "height": 377
+    },
+    "incoming": {
+      "caption": "The incoming messages list lets staff inspect records moving through the Registry integration.",
+      "width": 365,
+      "height": 440
+    },
+    "outgoing": {
+      "caption": "The outgoing messages list lets staff inspect records moving through the Registry integration.",
+      "width": 365,
+      "height": 440
+    },
+    "flow-access": {
+      "caption": "Use Find staff to locate the existing account before assigning its programme role.",
+      "width": 416,
+      "height": 45
+    },
+    "flow-history": {
+      "caption": "Each history entry identifies the role, decision and list revision. Compare the revision before acting.",
+      "width": 253,
+      "height": 21
+    },
+    "flow-comment": {
+      "caption": "Use the comment field to record the context for the current submission.",
+      "width": 428,
+      "height": 131
+    },
+    "flow-stats": {
+      "caption": "Status and Revision identify the list version. NOB is the beneficiary count. Total NGN is the list amount in naira.",
+      "width": 428,
+      "height": 145
+    },
+    "flow-dates": {
+      "caption": "Use the four separate dates for the registration and disbursement windows.",
+      "width": 412,
+      "height": 391
+    },
+    "flow-schedule": {
+      "caption": "Check the approved enrolment cycle before entering the scheduled disbursement date.",
+      "width": 412,
+      "height": 66
+    },
+    "button-return-note": {
+      "caption": "Describe the error in Reason for returning this batch so the operator can correct the same batch.",
+      "width": 340,
+      "height": 118
+    },
+    "sandbox-conditionality": {
+      "caption": "In Submit fictional evidence, choose the household and monthly period for the attendance record.",
+      "width": 812,
+      "height": 274,
+      "phone": [
+        500,
+        274
+      ]
+    },
+    "sandbox-readiness": {
+      "caption": "Read the scope of the checks under Verified engineering results before interpreting the figures.",
+      "width": 619,
+      "height": 358,
+      "phone": [
+        500,
+        358
+      ]
+    },
+    "partner-simulation": {
+      "caption": "In Start a demonstration, choose a scenario to follow a fictional transfer.",
+      "width": 820,
+      "height": 216,
+      "phone": [
+        500,
+        216
+      ]
+    },
+    "household-programmes": {
+      "caption": "Use the Household programmes tab to check the programme entries linked to the published household.",
+      "width": 344,
+      "height": 459
+    },
+    "correction": {
+      "caption": "A returned list shows its current revision, status and beneficiary entries for correction.",
+      "width": 367,
+      "height": 415
+    },
+    "sandbox-field": {
+      "caption": "Choose the fictional household and delivery details in the field demonstration.",
+      "width": 1004,
+      "height": 502,
+      "phone": [
+        500,
+        502
+      ]
+    },
+    "public-portal": {
+      "caption": "The public portal groups programme information, news and guidance for visitors.",
+      "width": 950,
+      "height": 521,
+      "phone": [
+        500,
+        521
+      ]
+    },
+    "state-failed": {
+      "caption": "Ingestion needs attention. Use this batch reference to check the receipt and row evidence.",
+      "width": 405,
+      "height": 184
+    },
+    "state-queued": {
+      "caption": "Queued at Registry means that the Registry accepted the batch for processing.",
+      "width": 405,
+      "height": 184
+    },
+    "state-retry": {
+      "caption": "Ready to retry identifies the batch to refer to the authorised operator.",
+      "width": 405,
+      "height": 184
+    },
+    "state-sending": {
+      "caption": "Submitting to Registry means the transfer is in progress. Keep the batch reference.",
+      "width": 405,
+      "height": 184
+    },
+    "state-review": {
+      "caption": "Awaiting approval identifies a batch that still needs review.",
+      "width": 405,
+      "height": 184
+    },
+    "button-retry": {
+      "caption": "The authorised operator can select Retry transfer after resolving the reported issue.",
+      "width": 180,
+      "height": 45
+    }
+  },
+  "chapters": {
+    "start": {
+      "Open the service appropriate to your assignment. Staff use the Staff Portal or a direct service link. Applicants use Household Registration or the Beneficiary Portal.": [
+        "directory"
+      ],
+      "Use the email assigned to the relevant service. Staff services may redirect to the shared identity provider. PBMS has its own sign-in screen and programme assignments.": [
+        "staff-sign-in"
+      ]
+    },
+    "household-registration": {
+      "Record the applicant as the head and add the members of the same household. Use the displayed formats for names, birth dates and location. Enter submitted or device coordinates only when they describe the household.": [
+        "case-roster",
+        "citizen-household"
+      ],
+      "Check the registry connection status. Once connected, follow the relevant programme’s application process.": [
+        "registries"
+      ],
+      "Check the roster and synthetic declaration before sending for review. Open the workspace to see the case status. If the record comes back, read the reason, correct the existing profile and send it again.": [
+        "case-reason"
+      ]
+    },
+    "registration-review": {
+      "Select the Verification officer workspace and open an awaiting case. Read the earlier reason and review history when a correction has been requested.": [
+        "case-queue"
+      ],
+      "Review the household and member roster. Decide whether the current evidence is complete, whether the previous reason has been addressed, and whether you are ready to approve the registration itself.": [
+        "case-roster",
+        "case-checks"
+      ],
+      "For a correctable issue, explain exactly what needs changing. Approval connects the registration to the registries. Track connection status from the case.": [
+        "case-confirm"
+      ]
+    },
+    "master-registry": {
+      "Open Households or Individuals to browse approved master records. Open Form submissions for drafts, pending submissions or revalidation. Reviewers open their assigned tasks from My tasks.": [
+        "find-household"
+      ],
+      "Create the appropriate intake. For household intake, complete the consent and enumeration section, verify the geographic hierarchy, add the head and household members, and work through the dwelling, income, health, assets and crop sections. Save edited sections and confirm the household information before submitting.": [
+        "household-form",
+        "rg-consent-answer"
+      ],
+      "Open an approved record to inspect its details and version history. Propose corrections through a change request. Keep its target record reference and review history together.": [
+        "history"
+      ],
+      "Administrators manage authorised staff configuration and approved register metadata. Use the corresponding view for inbound and outbound messages when following an integration issue.": [
+        "staff-roles"
+      ]
+    },
+    "registry-review": {
+      "Level 1 checks the assigned submission and advances it to Level 2 when approved. Level 2 reviews the current submission and the Level 1 decision. Final approval publishes the approved record for the Registry Officer.": [
+        "review-actions",
+        "review-queue"
+      ],
+      "Use Revalidate when the original field agent can correct the submission. Write the reason and the section to revisit. The creator opens it under Revalidation, corrects the same draft and submits it again. Both return paths restart at Level 1.": [
+        "resubmit"
+      ]
+    },
+    "data-imports": {
+      "Select the configured data source and check Expected columns. Upload CSV or XLSX, or fetch CSV from a configured connection. The workspace supports up to 2 MB, 1,000 data rows and 40 columns. XLSX uses the first worksheet.": [
+        "di-file"
+      ],
+      "Check source and mapped Registry values. Resolve required fields and duplicate keys within the batch. Save each correction or exclusion and confirm which rows will transfer.": [
+        "exclude-row"
+      ],
+      "In New import, choose a connected source, check Expected columns and select Fetch and validate. A new fetch opens a draft. Use Reconcile records to review the mapped rows before sending the draft for approval.": [
+        "di-fetch"
+      ],
+      "If a browser asks you to choose a match, open Transfers and select Refresh history. Use Batch reference to open the intended import and Previous batch reference to confirm which original it follows. A source, filename and time may appear on multiple batches.": [
+        "di-history"
+      ],
+      "As First Reviewer, open the submitted follow-ups by Batch reference. Check each batch’s included and excluded rows, then approve or return each independently. The Field Agent transfers each approved batch and follows its own Registry receipt.": [
+        "di-approved"
+      ],
+      "Send the reconciled batch for approval. The approver checks included rows and returns issues with a reason when needed. Correct the same batch and send it back for review.": [
+        "di-approved",
+        "button-transfer"
+      ],
+      "After approval, the authorised operator uses Transfer to Registry. The Data Bridge sends the included mapped rows to the native import queue. Check the Registry reference and Refresh Registry receipt on the same batch.": [
+        "di-partial"
+      ],
+      "Refresh the original receipt and compare the ingested and found counts. In Reconcile records, use Issues and exclusions only to find included rows marked No Registry row receipt. Clear the filter to see Registry logged rows. Excluded rows were outside the transfer.": [
+        "di-partial-rows"
+      ],
+      "Data Imports blocks an included row when the same source key already has a receipt or is in progress in another batch for the same source and destination mapping. When two approved corrections try to transfer the same row together, the first transfer reserves the row. The other batch stays blocked while that receipt is pending and after the row is received.": [
+        "di-partial-rows"
+      ],
+      "A native job can fail after the Registry logs a row. Refresh the original receipt and use Reconcile records to confirm Registry logged. When the receipt shows the row was ingested, the alternate correction stays blocked for that source key.": [
+        "di-received-with-error"
+      ],
+      "The Registry records the save in the same transaction as the row. If the job fails before writing the normal receipt log, Data Imports shows Registry saved, receipt log missing. Matching alternate corrections stay blocked. A native retry can use the original save when writing the receipt log.": [
+        "di-saved-without-log"
+      ],
+      "After Registry integration support retries the existing job, use Refresh Registry receipt on the original batch. Confirm Registry logged under Reconcile records and Registry receipt log restored under Activity. Download the audit report to keep the restoration event with the original Registry reference.": [
+        "di-activity"
+      ],
+      "If both retries fail before writing the log and the native job has stopped, refresh the original receipt. The job remains Failed and the row stays Registry saved, receipt log missing. The matching alternate remains blocked. Activity and the downloadable audit report preserve the missing-log result.": [
+        "di-saved-without-log"
+      ],
+      "When Registry integration support resolves the log error, a further native retry can restore the missing log on the existing job. Refresh the original receipt and verify Processed, the original Registry reference and one receipt-log entry for the previously saved row. The matching alternate stays blocked.": [
+        "di-receipt-log-restored"
+      ],
+      "Administrators maintain versioned mappings. Check the destination register and template, input connection, required values, field transforms and duplicate key in Sources and mappings. Use Test mapping with sample values before saving an authorised change.": [
+        "map-fields"
+      ],
+      "Existing batches retain the mapping version they started with. Access shows the assigned roles for data preparation, independent approval and administration.": [
+        "di-access"
+      ],
+      "When one browser starts a separate CSV import and another retries the original, each action keeps its own batch. If two browsers use Fetch a new CSV from the same earlier batch, both open the same separate draft. If they start from different originals, each original gets its own follow-up, even when both use the same source.": [
+        "button-new-csv"
+      ]
+    },
+    "offline-collection": {
+      "Open Offline field capture through the assigned Registry account. Use the approved ODK Collect configuration and install the assigned form before travelling offline. Keep configuration codes within the authorised team.": [
+        "offline"
+      ],
+      "Complete the household interview and save it on the device. When connected again, check which forms were sent successfully. ODK Central supports staff oversight of forms and submissions.": [
+        "odk-menu"
+      ]
+    },
+    "social-registry": {
+      "Use the earlier Social Registry workspace for its existing registrant and group records. Use the Master Registry for new native intake and its Level 1 and Level 2 workflow.": [
+        "native-registry-individuals"
+      ],
+      "Review relationships, ID types, tags and district settings where available to your administrative role. Confirm downstream use before changing shared options.": [
+        "native-registry-relationships"
+      ]
+    },
+    "beneficiary-portal": {
+      "Use Registries to find an applicable registration path. Use Programmes to check which programme applications are available and what information they require.": [
+        "registries",
+        "apply"
+      ],
+      "Complete the application for the selected programme. Keep the application reference and check your status in the corresponding workspace.": [
+        "applications"
+      ],
+      "A beneficiary application, a registration and a payment each have their own status. Use the reference tied to the item you are following.": [
+        "benefits"
+      ]
+    },
+    "programme-setup": {
+      "Select the target registry and the applicable benefit code, unit and quantity. Confirm the eligibility expression against the approved criteria, including any PMT rule, cutoff and version. Check which fields are supported on the selected registry.": [
+        "pb-eligibility"
+      ],
+      "Use Programmes or the programme approval flow. Assign programme staff, including separate Payment, Finance, Audit and CEO roles where configured. Programme Admin maintains programme setup and sponsor routing.": [
+        "pb-programmes",
+        "detail-programme-detail",
+        "flow-access"
+      ],
+      "Review programme benefits, agencies, warehouses or sponsor-bank routes where required by the delivery model. Verify units, beneficiary populations and cycle dates before creating lists.": [
+        "pb-warehouses"
+      ]
+    },
+    "cycles-and-lists": {
+      "Check the approved programme calendar. Use the enrolment cycle’s registration and disbursement windows and the linked disbursement cycle schedule date.": [
+        "pb-enrollment",
+        "flow-dates"
+      ],
+      "Open the cycle and calculate its list using the configured criteria. Compare the beneficiary count, included and excluded lines, benefits and totals to the approved scope. Check that the correct cycle and revision are selected.": [
+        "pb-lists"
+      ],
+      "Inspect the enrolment or disbursement workflow for the current results and checks. Use the applicable programme and registry reference when following an exclusion or entitlement.": [
+        "detail-disbursement-workflow"
+      ]
+    },
+    "pbms-approvals": {
+      "Payment opens the completed list and starts approval for the current revision. Finance, Audit and CEO then make their own decisions when the corresponding stage opens.": [
+        "pb-approvals"
+      ],
+      "Finance checks the programme, cycle, approved scope and amounts against the current list. Audit checks the approval history, supporting evidence and traceability for that revision. The CEO reviews the completed earlier decisions and makes the final decision. Each role acts from its assigned stage and records its decision in the approval history.": [
+        "approval-input"
+      ],
+      "Corrected resubmission starts a new revision at Finance. Reviewing staff confirm they are deciding the current revision. After final approval, check routing and payment readiness in the Payments section.": [
+        "flow-history"
+      ],
+      "The current approver records a reason when returning a list. Programme Admin opens the affected beneficiaries, makes the approved correction and saves the correction reason. Payment checks the saved correction and resubmits the list.": [
+        "correction"
+      ]
+    },
+    "payment-and-reconciliation": {
+      "Open View payment progress and select the applicable report. The batch report shows financial-address resolution and sponsor bank dispatch. The envelope report shows declared, received, shipped, reconciled and reversed instruction counts. Refresh the report when Bridge is still preparing it.": [
+        "payment-report"
+      ],
+      "Programme Admin saves the approved sponsor bank route for the verified list. Payment opens Proceed to payments and confirms the revision, beneficiary count, total and route. Keep the submitted envelope and batch references.": [
+        "pay-progress"
+      ],
+      "Payment retains the original references and sends affected instruction IDs to Finance. Finance checks the available statement entries and separates outstanding and reversed instructions. Audit checks traceability. Programme Admin coordinates the authorised follow-up, and the CEO handles escalated decisions where required.": [
+        "pay-71-counts"
+      ]
+    },
+    "bridge-and-mapper": {
+      "In the sandbox, the configured Example Bank route can exercise synthetic dispatch and statement processing. Finance uses statement references and the envelope report to confirm outcomes and investigate reversals.": [
+        "payment-report"
+      ],
+      "Bridge uses the configured account mapper, including SPAR where enabled, to resolve a beneficiary reference to a financial address. Review resolution and dispatch status through the batch report and authorised integration support.": [
+        "pay-67-1-resolution"
+      ]
+    },
+    "beneficiary-admin": {
+      "Use this workspace to maintain beneficiary programme visibility, application forms and related records available to assigned administrators. Check the resulting applicant experience in the Beneficiary Portal.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "access": {
+      "Sign in to the Staff Portal with the assigned staff account. Use the service tiles for your work. Some applications require a separate programme or record-scope assignment.": [
+        "staff-tiles"
+      ]
+    },
+    "approvals": {
+      "Open the request associated with the intake or change. Check its current stage, assignment and decision history. Use the originating workspace when the task is managed there.": [
+        "request-filter"
+      ],
+      "Check recent decisions and whether the originating service reflects the resulting status. Provide the request and artifact references to support when recorded states disagree.": [
+        "deliveries"
+      ],
+      "Authorised administrators use the controls enabled for their role to inspect workflow policies, versions and delegation. Confirm the approved workflow and test it with synthetic cases before relying on new rules.": [
+        "policy"
+      ]
+    },
+    "master-data": {
+      "Select the correct State or FCT before inspecting the available LGA and ward values. Use the reference code and parent area when checking an import mapping.": [
+        "areas"
+      ],
+      "Assigned administrators check the intended code, validity and downstream mappings before proposing changes. Report unavailable areas with their parent reference and the source used to verify them.": [
+        "levels"
+      ]
+    },
+    "partners": {
+      "Open the directory and confirm the organisation and reference. Use the relevant request and approval history for onboarding or changes.": [
+        "live-partner-management-directory"
+      ],
+      "Check the approved partner scope and current connection details with authorised administrators. Coordinate changes using the managed workflow and keep credentials in designated secret-handling channels.": [
+        "partner-review"
+      ]
+    },
+    "consent": {
+      "Confirm the partner, request and relevant data scope before reviewing approvals or recorded decisions. Use the corresponding view available to your role.": [
+        "live-consent-manager-partners"
+      ],
+      "Check the applicable consent record, approved sharing rules and any recorded follow-up. Send unresolved questions to the authorised consent owner with the request reference.": [
+        "live-consent-manager-decisions"
+      ]
+    },
+    "analytics": {
+      "Use platform Analytics for connected service summaries, the PBMS analytics view for programme measures and Superset for authorised dashboards. Check the scope, time period and refresh status before comparing counts.": [
+        "pb-programme-analytics"
+      ],
+      "Use Geographic record data to inspect coverage, grouped counts and reported coordinates. Check what location fields are available before interpreting gaps.": [
+        "state-map"
+      ]
+    },
+    "phase-one": {
+      "Use the relevant Phase 1 workspace for grievance cases or conditionality. Inspect the case, recorded activity and verification status with the assigned role.": [
+        "phase-grievance",
+        "sandbox-conditionality"
+      ]
+    },
+    "support": {
+      "Select Help on the current screen or use a field’s Help icon. The available guidance follows the service, screen, role and workflow state. The Knowledge Library also supports browsing by task and service.": [
+        "help-panel"
+      ],
+      "Open in Knowledge Library takes you to the published source article. Upstream references describe OpenG2P features and release-dependent behaviour. Confirm availability in NSIPA before using them for an operational decision.": [
+        "live-g2p-library"
+      ]
+    },
+    "jos-family-support": {
+      "Open Jos Family Support to see how a conditional cash transfer programme connects household intake, programme decisions and payment reporting.": [
+        "jos"
+      ]
+    },
+    "field-interaction-preview": {
+      "Use the interaction preview to understand the form sequence and saved-visit workflow with sample data.": [
+        "field-visit"
+      ]
+    },
+    "territorial-atlas": {
+      "Select the area in the public atlas and examine its displayed geographic and territorial data. Read the source and reference dates for the view you are comparing.": [
+        "atlas"
+      ],
+      "Use the atlas for public territorial reference. Use Geographic record data in the staff workspace to inspect the location coverage of synthetic registration records.": [
+        "record-points"
+      ]
+    },
+    "reversals-and-exceptions": {
+      "Confirm the instruction, original payment, statement entry and amount. Record the reversal against the existing case or reconciliation record. Keep any original approved invoice or list evidence traceable.": [
+        "pay-67-counts"
+      ],
+      "Bridge counts a repeated reversal for the same instruction once. If another statement shows a different amount, Bridge reports a reconciliation exception. Finance compares both statement entries before changing the case outcome. Audit retains the decision trail.": [
+        "pay-70-0-exception"
+      ]
+    }
+  },
+  "topics": {
+    "nsipa-native-portal-admin-accounting-journal": {
+      "Select the correct programme, journal and reporting period where those filters are available.": [
+        "native-portal-admin-accounting-journal"
+      ]
+    },
+    "nsipa-native-portal-admin-default-cycle-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-cycle-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-default-deduplication-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-deduplication-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-default-eligibility-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-eligibility-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-default-entitlement-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-entitlement-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-default-payment-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-payment-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-default-program-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-default-program-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-district-configuration": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-district-configuration"
+      ]
+    },
+    "nsipa-native-portal-admin-entitlements": {
+      "Find the entitlement for the correct programme, cycle and participant.": [
+        "native-portal-admin-entitlements"
+      ]
+    },
+    "nsipa-native-portal-admin-gender-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-gender-types"
+      ]
+    },
+    "nsipa-native-portal-admin-group-membership-kind": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-group-membership-kind"
+      ]
+    },
+    "nsipa-native-portal-admin-group-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-group-types"
+      ]
+    },
+    "nsipa-native-portal-admin-registry": {
+      "Find the intended person or household using the available search and filters.": [
+        "native-portal-admin-groups"
+      ]
+    },
+    "nsipa-native-portal-admin-groups": {
+      "Find the intended person or household using the available search and filters.": [
+        "native-portal-admin-groups"
+      ]
+    },
+    "nsipa-native-portal-admin-id-deduplication-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-id-deduplication-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-id-document-eligibility-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-id-document-eligibility-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-id-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-id-types"
+      ]
+    },
+    "nsipa-native-portal-admin-individuals": {
+      "Find the intended person or household using the available search and filters.": [
+        "native-portal-admin-individuals"
+      ]
+    },
+    "nsipa-native-portal-admin-journals": {
+      "Select the correct programme, journal and reporting period where those filters are available.": [
+        "native-portal-admin-journals"
+      ]
+    },
+    "nsipa-native-portal-admin-payment-batch-tags": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-payment-batch-tags"
+      ]
+    },
+    "nsipa-native-portal-admin-payment-batches": {
+      "Select the payment or batch for the correct programme and cycle.": [
+        "native-portal-admin-payment-batches"
+      ]
+    },
+    "nsipa-native-portal-admin-payments": {
+      "Select the payment or batch for the correct programme and cycle.": [
+        "native-portal-admin-payments"
+      ]
+    },
+    "nsipa-native-portal-admin-phone-number-deduplication-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-phone-number-deduplication-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-phone-number-eligibility-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-phone-number-eligibility-managers"
+      ]
+    },
+    "nsipa-native-portal-admin-program-fund-report": {
+      "Select the correct programme, journal and reporting period where those filters are available.": [
+        "native-portal-admin-program-fund-report"
+      ]
+    },
+    "nsipa-native-portal-admin-program-funds": {
+      "Select the correct programme, journal and reporting period where those filters are available.": [
+        "native-portal-admin-program-funds"
+      ]
+    },
+    "nsipa-native-portal-admin-programs": {
+      "Open the intended programme and confirm its identifier and target group.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "nsipa-native-portal-admin-registrant-tags": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-registrant-tags"
+      ]
+    },
+    "nsipa-native-portal-admin-reimbursement-programs": {
+      "Open the intended programme and confirm its identifier and target group.": [
+        "native-portal-admin-reimbursement-programs"
+      ]
+    },
+    "nsipa-native-portal-admin-relationships": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-portal-admin-relationships"
+      ]
+    },
+    "nsipa-native-portal-admin-sms-notification-managers": {
+      "Open the intended manager configuration and identify the programmes that use it.": [
+        "native-portal-admin-sms-notification-managers"
+      ]
+    },
+    "nsipa-native-registry-district-configuration": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-district-configuration"
+      ]
+    },
+    "nsipa-native-registry-duplicate-groups-review": {
+      "Confirm which people or groups are being compared.": [
+        "native-registry-duplicate-groups-review"
+      ]
+    },
+    "nsipa-native-registry-duplicate-individuals-review": {
+      "Confirm which people or groups are being compared.": [
+        "native-registry-duplicate-individuals-review"
+      ]
+    },
+    "nsipa-native-registry-gender-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-gender-types"
+      ]
+    },
+    "nsipa-native-registry-group-membership-kind": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-group-membership-kind"
+      ]
+    },
+    "nsipa-native-registry-group-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-group-types"
+      ]
+    },
+    "nsipa-native-registry-groups": {
+      "Find the intended person or household using the available search and filters.": [
+        "native-registry-groups"
+      ]
+    },
+    "nsipa-native-registry-id-types": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-id-types"
+      ]
+    },
+    "nsipa-native-registry-individuals": {
+      "Find the intended person or household using the available search and filters.": [
+        "native-registry-individuals"
+      ]
+    },
+    "nsipa-native-registry-region": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-region"
+      ]
+    },
+    "nsipa-native-registry-registrant-tags": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-registrant-tags"
+      ]
+    },
+    "nsipa-native-registry-relationships": {
+      "Search for an existing value before adding a duplicate.": [
+        "native-registry-relationships"
+      ]
+    },
+    "pbms-react-programmes": {
+      "Search for the programme and open its workspace.": [
+        "pb-programmes"
+      ]
+    },
+    "pbms-react-enrollment-cycles": {
+      "Confirm the programme and open the relevant cycle.": [
+        "pb-enrollment"
+      ]
+    },
+    "pbms-react-disbursement-cycles": {
+      "Confirm the programme and cycle schedule.": [
+        "pb-disbursement"
+      ]
+    },
+    "pbms-react-households": {
+      "Search the list and open the intended record.": [
+        "pb-households"
+      ]
+    },
+    "pbms-react-farmers": {
+      "Search for the entry and check its identifying details and source.": [
+        "pb-farmers"
+      ]
+    },
+    "pbms-react-students": {
+      "Search the assigned record list and confirm the selected entry.": [
+        "pb-students"
+      ]
+    },
+    "pbms-react-priority-rules": {
+      "Open the relevant rule and review its conditions before any authorised change.": [
+        "pb-priority"
+      ]
+    },
+    "pbms-react-agencies": {
+      "Search for the existing agency and verify its details.": [
+        "pb-agencies"
+      ]
+    },
+    "pbms-react-warehouses-banks": {
+      "Open the relevant entry and check its type and details.": [
+        "pb-warehouses"
+      ]
+    },
+    "pbms-react-states-regions": {
+      "Search for the correct area code or name and open the record.": [
+        "pb-states"
+      ]
+    },
+    "pbms-react-local-administrative-areas": {
+      "Search by the local area name or code.": [
+        "pb-lgas"
+      ]
+    },
+    "pbms-react-agency-benefit-assignments": {
+      "Select or open the assignment and check programme, benefit and agency.": [
+        "pb-agency-benefits"
+      ]
+    },
+    "pbms-react-bank-warehouse-assignments": {
+      "Open the relevant assignment and check the programme, benefit and destination.": [
+        "pb-warehouse-benefits"
+      ]
+    },
+    "pbms-react-verification-queue": {
+      "Confirm the programme, cycle and list status.": [
+        "pb-verification"
+      ]
+    },
+    "pbms-react-approval-queue": {
+      "Check the programme, cycle and current status.": [
+        "pb-approvals"
+      ]
+    },
+    "pbms-react-payments": {
+      "Open a disbursement list and inspect its envelope and batch creation status.": [
+        "pb-payments"
+      ]
+    },
+    "context-pbms-payments": {
+      "Open the payment entry for the correct programme and disbursement list.": [
+        "pb-payments"
+      ],
+      "Review bank settlement or reconciliation evidence separately from dispatch status.": [
+        "pay-67-1-dispatch"
+      ]
+    },
+    "pbms-react-beneficiary-lists": {
+      "Find the list in the relevant enrollment or disbursement workflow.": [
+        "pb-lists"
+      ]
+    },
+    "context-pbms-flow-lists": {
+      "Check Stage, Status and NOB on the list row.": [
+        "pb-lists"
+      ]
+    },
+    "context-pbms-programme-selector": {
+      "@purpose": [
+        "pb-lists"
+      ]
+    },
+    "pbms-react-eligibility-rules": {
+      "Confirm the programme and its target registry.": [
+        "pb-eligibility"
+      ]
+    },
+    "pbms-react-entitlement-rules": {
+      "Select the programme and open the entitlement rule.": [
+        "pb-entitlements"
+      ],
+      "Check the assigned benefit code, amount or quantity, and the applicable rule.": [
+        "detail-entitlements"
+      ]
+    },
+    "pbms-react-benefit-codes": {
+      "Search the displayed benefit list and open the applicable code.": [
+        "pb-benefits"
+      ]
+    },
+    "pbms-react-programme-benefits": {
+      "Confirm the programme and open the assigned benefit code.": [
+        "pb-programme-benefits"
+      ],
+      "Compare the configuration with the approved units and limits for that programme.": [
+        "detail-programme-benefits"
+      ]
+    },
+    "nsipa-screen-platform-programme-analytics": {
+      "Check the reporting period and scope.": [
+        "pb-programme-analytics"
+      ]
+    },
+    "context-pbms-analytics": {
+      "Select the intended programme and reporting filters.": [
+        "pb-programme-analytics"
+      ]
+    },
+    "pbms-react-payment-status-report": {
+      "Confirm the list and batch reference.": [
+        "payment-report"
+      ]
+    },
+    "context-pbms-flow-payment-read": {
+      "Open View payment progress when available and read the envelope, batch and settlement evidence.": [
+        "payment-report",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-progress": {
+      "Open an envelope report for reconciliation or a batch report for financial address resolution and bank dispatch.": [
+        "payment-report"
+      ],
+      "Use Refresh workflow when processing details have changed.": [
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-envelopes": {
+      "Match the envelope benefit, beneficiary count and total quantity to the approved list.": [
+        "payment-report"
+      ]
+    },
+    "context-pbms-payment-batches": {
+      "Check the batch beneficiary count, total quantity and Submission to Bridge.": [
+        "payment-report"
+      ]
+    },
+    "context-pbms-payment-report-envelope": {
+      "Compare the reconciled and reversed counts with the expected beneficiary count and quantity on the envelope and approved list.": [
+        "payment-report"
+      ]
+    },
+    "context-pbms-payment-report-batch": {
+      "Choose Refresh report to see the latest status or Download report for authorised evidence handling.": [
+        "payment-report"
+      ],
+      "Read FA Resolution Status and Sponsor Bank Dispatch Status and check any displayed attempt or error information.": [
+        "pay-67-1-dispatch"
+      ]
+    },
+    "context-pbms-finance": {
+      "Enter Approval comment and attach supporting evidence if required.": [
+        "approval-input"
+      ]
+    },
+    "context-pbms-audit": {
+      "Complete the approved Audit checks and enter Approval comment.": [
+        "approval-input"
+      ]
+    },
+    "context-pbms-ceo": {
+      "Complete the approved final checks and enter Approval comment.": [
+        "approval-input"
+      ]
+    },
+    "context-pbms-approval-comment": {
+      "@purpose": [
+        "approval-input"
+      ]
+    },
+    "context-pbms-supporting-doc": {
+      "@purpose": [
+        "approval-input"
+      ]
+    },
+    "context-imports-transfers": {
+      "Refresh history if you expect a recent change.": [
+        "di-history"
+      ]
+    },
+    "context-imports-operator": {
+      "Use New import to start a batch or open a batch in Transfers.": [
+        "di-history"
+      ]
+    },
+    "context-imports-approver": {
+      "Open Transfers and use the approval status filter.": [
+        "di-history"
+      ]
+    },
+    "context-imports-admin": {
+      "Use Transfers to inspect batch status and receipts.": [
+        "di-history"
+      ],
+      "Use Sources and mappings to review the active source configuration.": [
+        "source-mapping"
+      ]
+    },
+    "context-imports-choose-fetch": {
+      "Open Transfers and select Refresh history. Use Batch reference to identify the batch you intend to resume. Connected imports can share a source, filename and time.": [
+        "di-history",
+        "button-new-csv"
+      ]
+    },
+    "context-imports-shared-fetch": {
+      "Open Transfers to find the earlier batch by reference. Choosing Fetch a new CSV from the separate draft starts another import.": [
+        "di-history"
+      ],
+      "Compare Batch reference if both browsers used Fetch a new CSV from the same earlier batch. Both browsers open the same separate draft. Use one browser to reconcile the rows and Send for approval.": [
+        "button-new-csv"
+      ]
+    },
+    "context-imports-start": {
+      "Choose the Data source and expand Expected columns.": [
+        "di-file",
+        "di-expected"
+      ],
+      "For an uploaded file, choose CSV or XLSX and select Validate file. For a configured connection, use Fetch and validate to retrieve its CSV.": [
+        "di-fetch"
+      ]
+    },
+    "context-imports-file-choice": {
+      "@purpose": [
+        "di-file"
+      ]
+    },
+    "context-imports-expected-columns": {
+      "Open Expected columns and compare the names with the file header row.": [
+        "di-expected"
+      ],
+      "Check identifier formatting and use Validate file or Fetch and validate for the selected source.": [
+        "di-fetch"
+      ]
+    },
+    "context-imports-source-choice": {
+      "@purpose": [
+        "di-expected"
+      ]
+    },
+    "context-imports-fetch": {
+      "Select Fetch and validate. A new fetch opens a draft with the source and mapping version. After a lost response, use the same Registry login and source from either browser to reopen the saved batch. Both browsers can reopen the same batch if they retry together.": [
+        "di-fetch"
+      ],
+      "Choose the connected Data source and check Expected columns.": [
+        "di-expected",
+        "button-new-csv"
+      ]
+    },
+    "context-imports-fetch-error": {
+      "Note the selected source, error and time. Use the same Registry login and select the same source under New import. Use Fetch and validate to reopen a saved batch whose response was lost. This works from another browser, including when both browsers retry together. If the workspace asks you to choose a match, open Transfers. Select Refresh history and use the batch reference because connected batches can share a filename.": [
+        "di-fetch",
+        "di-history"
+      ],
+      "When the batch is reopened, continue from its current status. Use Fetch a new CSV only when you intend to start a separate import from that source. Repeat that action from the same earlier batch to find its separate import. To resume the original, open it by reference in Transfers.": [
+        "button-new-csv"
+      ]
+    },
+    "context-imports-access": {
+      "Field agents operate their own batches.": [
+        "di-access"
+      ]
+    },
+    "context-imports-denied": {
+      "Sign in with the account assigned for this work.": [
+        "di-access"
+      ]
+    },
+    "context-imports-partial": {
+      "Use Refresh Registry receipt on the original batch. Compare the ingested and found counts. Under Reconcile records, select Issues and exclusions only to find included rows marked No Registry row receipt. Clear the filter to see rows marked Registry logged. Excluded rows were outside the transfer.": [
+        "di-partial-rows",
+        "button-logged"
+      ]
+    },
+    "context-imports-partial-field": {
+      "Under Reconcile records, select Issues and exclusions only. Note the included rows marked No Registry row receipt. Clear the filter to compare rows marked Registry logged. Excluded rows were outside the transfer.": [
+        "di-partial-rows",
+        "button-logged"
+      ],
+      "Use Download audit report to save the evidence alongside the batch and Registry references.": [
+        "button-download-audit"
+      ]
+    },
+    "context-imports-partial-review": {
+      "Open the original batch in Transfers and select Refresh Registry receipt. Compare the included rows, the ingested count and the row evidence against the approved batch.": [
+        "di-partial-rows"
+      ]
+    },
+    "context-imports-partial-admin": {
+      "Select Refresh Registry receipt on the original batch. Capture the batch reference, Registry reference, attempts and row counts with Download audit report.": [
+        "di-partial-rows",
+        "button-download-audit"
+      ],
+      "Use Reconcile records to distinguish rows marked Registry logged, No Registry row receipt and Excluded. Compare included row numbers with the native import job and its row logs through the authorised integration owner.": [
+        "button-logged"
+      ]
+    },
+    "context-imports-reconcile": {
+      "Use Issues and exclusions only to focus on rows requiring attention.": [
+        "di-partial-rows"
+      ]
+    },
+    "context-imports-issues-filter": {
+      "@purpose": [
+        "di-partial-rows"
+      ]
+    },
+    "context-imports-receipt-log-missing": {
+      "Open Reconcile records and check Registry saved, receipt log missing. Use Download audit report and keep the original batch and Registry references.": [
+        "di-saved-without-log",
+        "button-download-audit"
+      ]
+    },
+    "context-imports-receipt-log-restored": {
+      "Check the original Registry reference and confirm Registry logged under Reconcile records. In Activity, look for Registry receipt log restored. Use Download audit report to retain that event.": [
+        "di-receipt-log-restored",
+        "di-activity",
+        "button-download-audit",
+        "button-logged"
+      ]
+    },
+    "context-imports-receipt-after-job-failure": {
+      "Compare the ingested count with the included rows. Under Reconcile records, confirm Registry logged for each affected row. Record the batch reference and native Registry reference with Download audit report.": [
+        "di-received-with-error",
+        "button-logged",
+        "button-download-audit"
+      ]
+    },
+    "context-imports-activity": {
+      "Read Activity for timestamps, actions and on-screen feedback.": [
+        "di-activity"
+      ],
+      "Use Download audit report to save the batch reference, source and version, status, native reference, counts, attempts and event names for an authorised review.": [
+        "button-download-audit"
+      ]
+    },
+    "context-imports-unconfirmed": {
+      "Use Refresh Registry receipt and keep the original batch reference.": [
+        "di-unconfirmed"
+      ]
+    },
+    "context-imports-returned-read": {
+      "Read the recorded return reason and inspect the affected rows if your scope allows.": [
+        "di-returned"
+      ]
+    },
+    "context-imports-approved-read": {
+      "Confirm the version and included count. Track the existing batch from Transfers.": [
+        "di-approved"
+      ]
+    },
+    "context-imports-ready": {
+      "Confirm the batch reference, source version and Approved status.": [
+        "di-approved"
+      ],
+      "Choose Transfer to Registry when your account has permission. Record the Registry reference shown in the batch and check the receipt.": [
+        "button-transfer"
+      ]
+    },
+    "context-imports-test-mapping": {
+      "Expand Test mapping with sample values and enter a sample for each affected field.": [
+        "di-test"
+      ]
+    },
+    "context-imports-correct": {
+      "Open affected rows and correct or exclude values as authorised.": [
+        "exclude-row"
+      ]
+    },
+    "context-imports-exclude-row": {
+      "@purpose": [
+        "exclude-row"
+      ]
+    },
+    "context-imports-prepare": {
+      "Expand rows with issues. Correct a source value or exclude a row, then Save row and verify the mapped result.": [
+        "exclude-row"
+      ],
+      "Use Send for approval once there are included rows and their validation checks pass.": [
+        "button-request"
+      ]
+    },
+    "context-imports-source-row-value": {
+      "@purpose": [
+        "exclude-row"
+      ]
+    },
+    "context-imports-source": {
+      "Choose file upload or an available connected source. Map the spreadsheet columns, required values, transforms and the field for duplicate checks.": [
+        "map-fields",
+        "di-file"
+      ],
+      "Use Test mapping with sample values to inspect the output. Save the source mapping when authorised.": [
+        "di-test"
+      ]
+    },
+    "context-imports-mapping-columns": {
+      "@purpose": [
+        "map-fields"
+      ]
+    },
+    "context-imports-mapping-rules": {
+      "@purpose": [
+        "map-fields"
+      ]
+    },
+    "context-imports-mapping-duplicate-key": {
+      "@purpose": [
+        "map-fields"
+      ]
+    },
+    "context-imports-mapping-source": {
+      "@purpose": [
+        "source-mapping"
+      ]
+    },
+    "context-imports-mapping-destination": {
+      "@purpose": [
+        "source-mapping"
+      ]
+    },
+    "context-imports-mapping-connection": {
+      "@purpose": [
+        "source-mapping"
+      ]
+    },
+    "context-imports-mapping-availability": {
+      "@purpose": [
+        "source-mapping"
+      ]
+    },
+    "register-find-a-record": {
+      "Search using the available name or reference fields.": [
+        "find-household"
+      ]
+    },
+    "register-household-details": {
+      "Choose the recorded state and an available LGA belonging to it.": [
+        "find-household"
+      ]
+    },
+    "register-find-a-record-officer": {
+      "Search using the available name or reference fields.": [
+        "find-household"
+      ]
+    },
+    "register-find-a-record-verifier": {
+      "Search using the available name or reference fields.": [
+        "find-household"
+      ]
+    },
+    "register-household-details-officer": {
+      "Choose the recorded state and an available LGA belonging to it.": [
+        "find-household"
+      ]
+    },
+    "register-household-details-verifier": {
+      "Choose the recorded state and an available LGA belonging to it.": [
+        "find-household"
+      ]
+    },
+    "context-register-overview": {
+      "Open Households or Individuals for published records.": [
+        "find-household"
+      ]
+    },
+    "context-register-households": {
+      "Search the household list and open the matching record.": [
+        "find-household"
+      ]
+    },
+    "register-individual-details": {
+      "Confirm that you have opened the correct person.": [
+        "find-person"
+      ]
+    },
+    "register-individual-details-officer": {
+      "Confirm that you have opened the correct person.": [
+        "find-person"
+      ]
+    },
+    "register-individual-details-verifier": {
+      "Confirm that you have opened the correct person.": [
+        "find-person"
+      ]
+    },
+    "context-register-individuals": {
+      "Search the individual list and open the matching record.": [
+        "find-person"
+      ]
+    },
+    "context-register-capture-dashboard": {
+      "Choose the household or individual registration option available to your account.": [
+        "household-form"
+      ]
+    },
+    "context-register-intake": {
+      "Record the respondent’s consent and complete the location and household member sections.": [
+        "household-form"
+      ],
+      "Save each changed section. Use Save Draft to finish later.": [
+        "rg-submit"
+      ]
+    },
+    "context-register-submission-queues": {
+      "Choose Households or Individuals and the relevant status.": [
+        "household-form"
+      ]
+    },
+    "context-register-journey": {
+      "Capture and save the record in the correct register.": [
+        "household-form"
+      ],
+      "Submit for review. The assigned Level 1 reviewer records an initial decision, followed by Level 2 when advanced.": [
+        "rg-submit"
+      ]
+    },
+    "context-register-identity": {
+      "Check whose information the section applies to.": [
+        "household-form"
+      ]
+    },
+    "context-register-survey": {
+      "Read the question and available choices, then enter the information for the household or member shown.": [
+        "household-form"
+      ]
+    },
+    "context-register-individual-intake": {
+      "Complete the sections shown for the individual.": [
+        "individual-form"
+      ],
+      "Review the record before choosing Submit. Use Save Draft to continue later.": [
+        "rg-submit"
+      ]
+    },
+    "docs-register-version-history": {
+      "Open Version History if it is available on the record.": [
+        "history"
+      ]
+    },
+    "context-register-history": {
+      "Open the relevant version.": [
+        "history"
+      ]
+    },
+    "context-register-change-detail": {
+      "Confirm the target identifier and review old and proposed values.": [
+        "history"
+      ]
+    },
+    "context-register-household-detail": {
+      "Review members and any related change requests before proposing a correction.": [
+        "membership"
+      ]
+    },
+    "context-register-members": {
+      "Open the member section and check the existing roster.": [
+        "membership"
+      ]
+    },
+    "context-register-headship": {
+      "Identify the household head using the approved definition.": [
+        "membership"
+      ]
+    },
+    "context-register-conditions": {
+      "Read the question and available choices.": [
+        "dwelling"
+      ]
+    },
+    "context-register-review-intake": {
+      "Check the submission and decision history.": [
+        "review-actions"
+      ]
+    },
+    "context-register-review-l1": {
+      "Open your assigned task from My registration reviews and check the current submission.": [
+        "review-actions"
+      ]
+    },
+    "context-register-decision-note": {
+      "@purpose": [
+        "review-actions"
+      ]
+    },
+    "nsipa-screen-platform-mobile-collection-setup": {
+      "Read the installation or preview instructions for your device.": [
+        "offline"
+      ]
+    },
+    "context-register-offline": {
+      "Check the local drafts or queued records on the signed-in device.": [
+        "offline"
+      ]
+    },
+    "odk-collect-field-data": {
+      "Confirm the project and form version before starting.": [
+        "odk-menu"
+      ]
+    },
+    "odk-submit-and-quality-check": {
+      "Check the submission status and synchronise pending submissions when connectivity is available.": [
+        "odk-menu"
+      ]
+    },
+    "odk-collect-field-data-officer": {
+      "Confirm the project and form version before starting.": [
+        "odk-menu"
+      ]
+    },
+    "odk-collect-field-data-supervisor": {
+      "Confirm the project and form version before starting.": [
+        "odk-menu"
+      ]
+    },
+    "odk-submit-and-quality-check-officer": {
+      "Check the submission status and synchronise pending submissions when connectivity is available.": [
+        "odk-menu"
+      ]
+    },
+    "odk-submit-and-quality-check-supervisor": {
+      "Check the submission status and synchronise pending submissions when connectivity is available.": [
+        "odk-menu"
+      ]
+    },
+    "context-register-returned-intake": {
+      "Check the relevant section against the source information. Save each changed section, then confirm the household information before selecting Submit.": [
+        "resubmit"
+      ]
+    },
+    "platform-find-your-service": {
+      "Open the matching service from the service catalogue.": [
+        "directory"
+      ]
+    },
+    "platform-choose-your-role": {
+      "Choose the role that matches your work.": [
+        "directory"
+      ]
+    },
+    "nigeria-guide-platform-2": {
+      "Choose the persona relevant to the client walkthrough.": [
+        "directory"
+      ]
+    },
+    "context-platform-sign-in": {
+      "Enter the assigned staff email and password on the sign-in screen.": [
+        "staff-sign-in"
+      ]
+    },
+    "context-platform-sign-in-email": {
+      "@purpose": [
+        "staff-sign-in"
+      ]
+    },
+    "context-register-accuracy-confirm": {
+      "@purpose": [
+        "rg-accuracy-confirm"
+      ]
+    },
+    "context-register-consent": {
+      "Explain the request using the approved consent wording.": [
+        "rg-consent-answer"
+      ]
+    },
+    "context-register-consent-answer": {
+      "@purpose": [
+        "rg-consent-answer"
+      ]
+    },
+    "context-register-survey-sponsor": {
+      "@purpose": [
+        "rg-survey-sponsor"
+      ]
+    },
+    "context-register-survey-respondent": {
+      "@purpose": [
+        "rg-survey-respondent"
+      ]
+    },
+    "context-register-location": {
+      "Choose Use current location or enter coordinates manually.": [
+        "rg-state"
+      ]
+    },
+    "context-register-state": {
+      "@purpose": [
+        "rg-state"
+      ]
+    },
+    "context-register-lga": {
+      "@purpose": [
+        "rg-state"
+      ]
+    },
+    "context-register-ward": {
+      "@purpose": [
+        "rg-state"
+      ]
+    },
+    "context-register-latitude": {
+      "@purpose": [
+        "rg-latitude"
+      ]
+    },
+    "context-register-gps-accuracy": {
+      "@purpose": [
+        "rg-gps-accuracy"
+      ]
+    },
+    "context-register-location-time": {
+      "@purpose": [
+        "rg-location-time"
+      ]
+    },
+    "context-register-location-source": {
+      "@purpose": [
+        "rg-location-source"
+      ]
+    },
+    "context-register-enumeration-area": {
+      "@purpose": [
+        "rg-enumeration-area"
+      ]
+    },
+    "beneficiary-register-household": {
+      "Open Registries to review the household reference, review status, synchronisation status and registered member names.": [
+        "registries"
+      ]
+    },
+    "beneficiary-register-household-citizen": {
+      "Open Registries to review the household reference, review status, synchronisation status and registered member names.": [
+        "registries"
+      ]
+    },
+    "context-beneficiary-registries": {
+      "Open Registries and select the relevant register card, such as Household register.": [
+        "registries"
+      ]
+    },
+    "nsipa-screen-beneficiary-complaints-and-enquiries": {
+      "Select the complaint reason: payment delay, account issue, registration correction or service quality.": [
+        "complaints"
+      ]
+    },
+    "nsipa-screen-beneficiary-notifications": {
+      "Review the unread count and open the relevant service if an activity needs follow-up.": [
+        "notifications"
+      ]
+    },
+    "nsipa-screen-beneficiary-news-and-announcements": {
+      "Browse the published news titles and publication version numbers.": [
+        "news"
+      ]
+    },
+    "nsipa-screen-beneficiary-payment-account-details": {
+      "Review the currently linked account, or confirm that no account is linked.": [
+        "accounts"
+      ]
+    },
+    "beneficiary-programme-application": {
+      "Submit the application if eligible to apply, then track its status. Submission does not guarantee enrollment.": [
+        "apply"
+      ]
+    },
+    "beneficiary-programme-application-citizen": {
+      "Submit the application if eligible to apply, then track its status. Submission does not guarantee enrollment.": [
+        "apply"
+      ]
+    },
+    "context-beneficiary-programmes": {
+      "Choose Apply when it is available, or View to open recorded information.": [
+        "apply"
+      ]
+    },
+    "beneficiary-application-status": {
+      "Locate the application and confirm its programme and reference.": [
+        "applications"
+      ]
+    },
+    "beneficiary-application-status-citizen": {
+      "Locate the application and confirm its programme and reference.": [
+        "applications"
+      ]
+    },
+    "nigeria-guide-beneficiary-8": {
+      "Read the household review status first.": [
+        "applications"
+      ]
+    },
+    "nsipa-screen-beneficiary-benefit-history": {
+      "Select the relevant benefit or programme.": [
+        "benefits"
+      ]
+    },
+    "staff-portal-choose-service": {
+      "Select the relevant service and complete its sign-in if prompted.": [
+        "staff-tiles"
+      ]
+    },
+    "staff-portal-choose-service-officer": {
+      "Sign in and review the services available to your account.": [
+        "staff-tiles"
+      ]
+    },
+    "staff-portal-choose-service-verifier": {
+      "Sign in and review the services available to your account.": [
+        "staff-tiles"
+      ]
+    },
+    "staff-portal-choose-service-supervisor": {
+      "Sign in and review the services available to your account.": [
+        "staff-tiles"
+      ]
+    },
+    "nsipa-restored-iam-staff-ui-application-configuration": {
+      "Open an existing application or the Add form.": [
+        "iam-apps"
+      ]
+    },
+    "nsipa-restored-iam-staff-ui-login-provider-configuration": {
+      "Open the intended login provider and review its issuer, client and callback settings.": [
+        "providers"
+      ]
+    },
+    "nsipa-screen-awe-approval-simulation": {
+      "Confirm the policy and version selected for simulation.": [
+        "policy"
+      ]
+    },
+    "context-awe-detail": {
+      "Open the intended request and check the active stage and recorded evidence.": [
+        "policy"
+      ]
+    },
+    "awe-assigned-tasks": {
+      "Open the task assigned to your account and check the current stage.": [
+        "request-filter"
+      ]
+    },
+    "awe-assigned-tasks-verifier": {
+      "Filter or search the task list using the available controls.": [
+        "request-filter"
+      ]
+    },
+    "awe-assigned-tasks-supervisor": {
+      "Filter or search the task list using the available controls.": [
+        "request-filter"
+      ]
+    },
+    "nsipa-screen-awe-approval-delegation": {
+      "Identify the delegating user and intended substitute.": [
+        "delegation"
+      ]
+    },
+    "nsipa-screen-awe-webhook-deliveries": {
+      "Locate the delivery associated with the relevant approval request.": [
+        "deliveries"
+      ]
+    },
+    "nsipa-screen-awe-approval-audit-log": {
+      "Filter the log to the relevant request, policy or actor.": [
+        "audit"
+      ]
+    },
+    "nsipa-restored-partner-management-partner-requests": {
+      "Open the request and confirm the partner and requested change.": [
+        "partners"
+      ]
+    },
+    "partner-management-partner-onboarding": {
+      "Check whether the partner already exists.": [
+        "partner-onboard"
+      ]
+    },
+    "partner-management-integration-access": {
+      "Select the correct partner and integration.": [
+        "partner-review"
+      ]
+    },
+    "context-partner-management-partner-detail": {
+      "Confirm the organisation and partner identifier.": [
+        "partner-review"
+      ]
+    },
+    "nsipa-restored-master-data-ui-geographic-levels": {
+      "Review the existing levels and their order before editing.": [
+        "levels"
+      ]
+    },
+    "master-data-ui-location-reference-data": {
+      "Search for an existing location before creating a new entry.": [
+        "areas"
+      ]
+    },
+    "superset-choose-dashboard": {
+      "Select an available dashboard and read its title and measures.": [
+        "dashboards"
+      ]
+    },
+    "superset-choose-dashboard-supervisor": {
+      "Select an available dashboard and read its title and measures.": [
+        "dashboards"
+      ]
+    },
+    "nsipa-restored-superset-analytics-datasets": {
+      "Find the dataset used by the intended report.": [
+        "datasets"
+      ]
+    },
+    "knowledge-edit-guidance": {
+      "Save the draft, then submit it for an independent review.": [
+        "library-editor"
+      ]
+    },
+    "knowledge-local-ai-draft": {
+      "Choose the service, audience and workflow stage in the guidance editor.": [
+        "library-editor"
+      ]
+    },
+    "knowledge-local-ai-chat": {
+      "Ask a task question without personal or confidential information.": [
+        "library-assistant"
+      ]
+    },
+    "knowledge-version-history": {
+      "Open a version from the guidance history.": [
+        "library-version"
+      ]
+    },
+    "review-review-queue": {
+      "Use the available status and search controls to locate a record.": [
+        "case-queue"
+      ]
+    },
+    "review-review-queue-officer": {
+      "Use the available status and search controls to locate a record.": [
+        "case-queue"
+      ]
+    },
+    "review-review-queue-verifier": {
+      "Use the available status and search controls to locate a record.": [
+        "case-queue"
+      ]
+    },
+    "review-review-queue-supervisor": {
+      "Use the available status and search controls to locate a record.": [
+        "case-queue"
+      ]
+    },
+    "intake-household-members": {
+      "Enter each member’s name, birth date and gender.": [
+        "case-roster",
+        "citizen-members"
+      ]
+    },
+    "intake-household-members-officer": {
+      "Enter each member’s name, birth date and gender.": [
+        "case-roster",
+        "citizen-members"
+      ]
+    },
+    "intake-household-members-citizen": {
+      "Enter each member’s name, birth date and gender.": [
+        "case-roster",
+        "citizen-members"
+      ]
+    },
+    "context-review-case-members": {
+      "Check the person marked Household head and compare the visible household members with the submitted case evidence.": [
+        "case-roster"
+      ]
+    },
+    "nsipa-screen-platform-jos-pilot-demonstration": {
+      "Inspect the demonstration outcome without treating it as an authorised allocation or real payment.": [
+        "jos"
+      ]
+    },
+    "nsipa-screen-platform-sandbox-grievances": {
+      "Locate the case or open the available new-case form.": [
+        "phase-grievance"
+      ]
+    },
+    "nsipa-screen-platform-territorial-intelligence": {
+      "Select the administrative area and indicator.": [
+        "atlas"
+      ]
+    },
+    "geography-state-record-map": {
+      "Select a state to see its zone, count and share of the total.": [
+        "state-map"
+      ]
+    },
+    "geography-location-coverage": {
+      "Choose the geographic scope and review the record counts.": [
+        "state-map"
+      ]
+    },
+    "geography-state-record-map-supervisor": {
+      "Select a state to see its zone, count and share of the total.": [
+        "state-map"
+      ]
+    },
+    "geography-location-coverage-supervisor": {
+      "Choose the geographic scope and review the record counts.": [
+        "state-map"
+      ]
+    },
+    "geography-household-location-points": {
+      "Enable Show household location points.": [
+        "record-points"
+      ]
+    },
+    "geography-household-location-points-supervisor": {
+      "Enable Show household location points.": [
+        "record-points"
+      ]
+    },
+    "context-register-draft": {
+      "Review the corrected record, confirm accuracy where required and submit when ready.": [
+        "rg-submit"
+      ]
+    },
+    "nsipa-screen-consent-manager-partner-consent-bindings": {
+      "Open the partner binding and check the partner, policy and applicable scope.": [
+        "live-consent-manager-partners"
+      ]
+    },
+    "nsipa-screen-consent-manager-consent-approvals": {
+      "Open the relevant request and inspect its partner, purpose and requested scope.": [
+        "live-consent-manager-approvals"
+      ]
+    },
+    "consent-manager-review-consent": {
+      "Locate the correct person, partner or consent record.": [
+        "live-consent-manager-decisions"
+      ]
+    },
+    "context-partner-management-directory": {
+      "Open Partners and locate the organisation in the list.": [
+        "live-partner-management-directory"
+      ]
+    },
+    "context-register-review-l2": {
+      "Use Revalidate — return to field agent when a correction is needed. Enter the affected section and what must be confirmed or corrected. Use Approve or Reject permanently according to the authorised procedure.": [
+        "review-actions"
+      ]
+    },
+    "context-register-individual-detail": {
+      "Choose the relevant detail section or open Record version history to see committed changes.": [
+        "history"
+      ]
+    },
+    "context-register-officer-dashboard": {
+      "Find the record and inspect the published details or version history available to your account.": [
+        "history"
+      ]
+    },
+    "context-pbms-payment-report-pending": {
+      "Choose Refresh report after a short wait.": [
+        "payment-report"
+      ]
+    },
+    "context-pbms-payment-report-reversal": {
+      "Use Refresh report or Download report to capture evidence for the existing envelope and linked batch.": [
+        "payment-report",
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-payment-report-reversal-payment": {
+      "Use Download report and include the programme, cycle, list revision, envelope and linked batch references.": [
+        "payment-report"
+      ],
+      "Refresh the envelope report and record the reconciled and reversed counts for the current reference.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-payment-report-reversal-audit": {
+      "Use Refresh report and Download report to capture the current envelope evidence.": [
+        "payment-report",
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-payment-report-partial": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-report-partial-payment": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-report-partial-finance": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-report-partial-audit": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-report-partial-programme-admin": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "context-pbms-payment-report-partial-ceo": {
+      "Open View payment progress and Refresh report. Compare Disbursements declared, reconciled and reversed. Check batch dispatch and financial address resolution when an instruction has no statement match.": [
+        "payment-report",
+        "pay-71-counts",
+        "pay-progress"
+      ]
+    },
+    "intake-submit-registration": {
+      "Check household details, location and household members.": [
+        "case-roster"
+      ]
+    },
+    "intake-submit-registration-officer": {
+      "Check household details, location and household members.": [
+        "case-roster"
+      ]
+    },
+    "intake-submit-registration-citizen": {
+      "Check household details, location and household members.": [
+        "case-roster"
+      ]
+    },
+    "context-register-member-relationship": {
+      "@purpose": [
+        "rg-member-relationship"
+      ]
+    },
+    "context-register-member-age": {
+      "@purpose": [
+        "rg-member-age"
+      ]
+    },
+    "context-register-member-nin": {
+      "@purpose": [
+        "rg-member-nin"
+      ]
+    },
+    "context-register-member-banking": {
+      "@purpose": [
+        "rg-member-banking"
+      ]
+    },
+    "context-register-health-response": {
+      "@purpose": [
+        "rg-health-response"
+      ]
+    },
+    "context-register-monthly-income": {
+      "@purpose": [
+        "rg-monthly-income"
+      ]
+    },
+    "context-register-income-source": {
+      "@purpose": [
+        "rg-income-source"
+      ]
+    },
+    "context-register-household-shock": {
+      "@purpose": [
+        "rg-household-shock"
+      ]
+    },
+    "context-register-insurance-status": {
+      "@purpose": [
+        "rg-insurance-status"
+      ]
+    },
+    "context-register-asset-response": {
+      "@purpose": [
+        "rg-asset-response"
+      ]
+    },
+    "context-register-crops-grown": {
+      "@purpose": [
+        "rg-crops-grown"
+      ]
+    },
+    "context-register-vulnerability": {
+      "Choose the response that matches the interview and use any follow-up fields shown.": [
+        "rg-health-response"
+      ]
+    },
+    "context-register-income": {
+      "Enter the stated value or select the offered option.": [
+        "rg-income-source"
+      ],
+      "Read each income label and its reporting period.": [
+        "rg-monthly-income"
+      ]
+    },
+    "context-register-assets": {
+      "Select the items that apply and complete any quantities or follow-up fields displayed.": [
+        "rg-asset-response"
+      ]
+    },
+    "intake-household-details": {
+      "Enter the household name, community, contact details and monthly income.": [
+        "citizen-household"
+      ]
+    },
+    "intake-household-details-officer": {
+      "Enter the household name, community, contact details and monthly income.": [
+        "citizen-household"
+      ]
+    },
+    "intake-household-details-citizen": {
+      "Enter the household name, community, contact details and monthly income.": [
+        "citizen-household"
+      ]
+    },
+    "intake-service-overview": {
+      "Open the current household record or start a draft when assigned.": [
+        "citizen-household"
+      ]
+    },
+    "nigeria-guide-intake-3": {
+      "Check required household details and location fields.": [
+        "citizen-household"
+      ]
+    },
+    "intake-correct-returned-details": {
+      "Read the reason the registration was returned.": [
+        "case-reason"
+      ],
+      "Resubmit the corrected registration and confirm its new status.": [
+        "case-edit"
+      ]
+    },
+    "intake-correct-returned-details-officer": {
+      "Read the reason the registration was returned.": [
+        "case-reason"
+      ],
+      "Resubmit the corrected registration and confirm its new status.": [
+        "case-edit"
+      ]
+    },
+    "intake-correct-returned-details-citizen": {
+      "Read the reason the registration was returned.": [
+        "case-reason"
+      ],
+      "Resubmit the corrected registration and confirm its new status.": [
+        "case-edit"
+      ]
+    },
+    "nigeria-guide-intake-4": {
+      "Read the reason for correction.": [
+        "case-reason"
+      ],
+      "Resubmit through the form when the application allows it.": [
+        "case-edit"
+      ]
+    },
+    "context-review-case-correction": {
+      "@purpose": [
+        "case-reason"
+      ]
+    },
+    "review-awaiting-review": {
+      "Read the current registration status.": [
+        "case-queue"
+      ]
+    },
+    "review-service-overview": {
+      "Open the case from Review queue and compare the submitted information with the approved checks.": [
+        "case-queue"
+      ]
+    },
+    "nigeria-guide-review-5": {
+      "Open a pending record assigned or available to your account.": [
+        "case-queue",
+        "case-checks"
+      ]
+    },
+    "review-verification-checks": {
+      "Complete the displayed review checks.": [
+        "case-checks"
+      ]
+    },
+    "review-verification-checks-officer": {
+      "Complete the displayed review checks.": [
+        "case-checks"
+      ]
+    },
+    "review-verification-checks-verifier": {
+      "Complete the displayed review checks.": [
+        "case-checks"
+      ]
+    },
+    "review-verification-checks-supervisor": {
+      "Complete the displayed review checks.": [
+        "case-checks"
+      ]
+    },
+    "review-approve-or-return": {
+      "Confirm required checks.": [
+        "case-checks"
+      ],
+      "Approve a complete registration or return it with an actionable reason.": [
+        "case-confirm"
+      ]
+    },
+    "review-approve-or-return-officer": {
+      "Confirm required checks.": [
+        "case-checks"
+      ],
+      "Approve a complete registration or return it with an actionable reason.": [
+        "case-confirm"
+      ]
+    },
+    "review-approve-or-return-verifier": {
+      "Confirm required checks.": [
+        "case-checks"
+      ],
+      "Approve a complete registration or return it with an actionable reason.": [
+        "case-confirm"
+      ]
+    },
+    "review-approve-or-return-supervisor": {
+      "Confirm required checks.": [
+        "case-checks"
+      ],
+      "Approve a complete registration or return it with an actionable reason.": [
+        "case-confirm"
+      ]
+    },
+    "context-review-case-checks": {
+      "Complete the three checks before using Approve registration & connect, then review the confirmation.": [
+        "case-checks"
+      ],
+      "Apply the approved procedure to any missing location or membership information. When a correction is needed, select Return for correction and give a specific reason.": [
+        "case-confirm"
+      ]
+    },
+    "context-review-case-completeness": {
+      "@purpose": [
+        "case-checks"
+      ]
+    },
+    "context-review-case-registration-only": {
+      "@purpose": [
+        "case-checks",
+        "case-confirm"
+      ]
+    },
+    "nigeria-guide-review-6": {
+      "Find the household or submission reference.": [
+        "case-confirm"
+      ]
+    },
+    "knowledge-browse-guidance": {
+      "Search for the task or use the service and audience filters.": [
+        "live-g2p-library"
+      ]
+    },
+    "context-knowledge-service-overview": {
+      "Open the Help panel on a screen or search the knowledge library.": [
+        "live-g2p-library"
+      ]
+    },
+    "nigeria-guide-knowledge-13": {
+      "Check the article’s service and workflow stage.": [
+        "live-g2p-library"
+      ]
+    },
+    "geography-service-overview": {
+      "Select the geography and read the scope of the totals.": [
+        "live-g2p-analytics"
+      ]
+    },
+    "nigeria-guide-knowledge-14": {
+      "Create or edit the service, stage, audience and six guidance fields.": [
+        "library-editor"
+      ]
+    },
+    "nigeria-guide-knowledge-15": {
+      "Ask a task question without personal information.": [
+        "library-assistant"
+      ]
+    },
+    "pbms-programme-setup": {
+      "Open the programme and check its identifier and target registry.": [
+        "detail-programme-detail"
+      ]
+    },
+    "pbms-programme-setup-supervisor": {
+      "Open the programme and check its identifier and target registry.": [
+        "detail-programme-detail"
+      ]
+    },
+    "context-pbms-programme-detail": {
+      "Check the programme name, status and target registry.": [
+        "detail-programme-detail"
+      ]
+    },
+    "context-pbms-programme-editor": {
+      "Review the programme identifiers, target registry and workflow configuration.": [
+        "detail-programme-detail"
+      ]
+    },
+    "pbms-service-overview": {
+      "Open the programme workspace for the relevant programme.": [
+        "detail-programme-detail"
+      ]
+    },
+    "pbms-eligibility": {
+      "Open the programme and its configured criteria.": [
+        "detail-eligibility"
+      ]
+    },
+    "pbms-eligibility-supervisor": {
+      "Open the programme and its configured criteria.": [
+        "detail-eligibility"
+      ]
+    },
+    "context-pbms-eligibility-editor": {
+      "@purpose": [
+        "detail-eligibility"
+      ]
+    },
+    "pbms-enrollment": {
+      "Confirm the programme and enrollment cycle dates.": [
+        "pb-enrollment"
+      ],
+      "Review eligibility processing and the associated beneficiary list.": [
+        "detail-lists"
+      ]
+    },
+    "pbms-enrollment-supervisor": {
+      "Confirm the programme and enrollment cycle dates.": [
+        "pb-enrollment"
+      ],
+      "Review eligibility processing and the associated beneficiary list.": [
+        "detail-lists"
+      ]
+    },
+    "context-pbms-flow-enrollment": {
+      "Create the enrollment cycle if authorised.": [
+        "pb-enrollment"
+      ],
+      "Check the approved registration and disbursement dates.": [
+        "flow-dates"
+      ]
+    },
+    "pbms-benefit-calculation": {
+      "Confirm the programme, benefit codes, quantities and rule conditions.": [
+        "detail-benefits"
+      ],
+      "Open the associated beneficiary list and inspect the calculation status and totals.": [
+        "detail-lists"
+      ]
+    },
+    "pbms-benefit-calculation-supervisor": {
+      "Confirm the programme, benefit codes, quantities and rule conditions.": [
+        "detail-benefits"
+      ],
+      "Open the associated beneficiary list and inspect the calculation status and totals.": [
+        "detail-lists"
+      ]
+    },
+    "pbms-disbursement": {
+      "Check the approved benefit list and cycle.": [
+        "pb-disbursement"
+      ]
+    },
+    "pbms-disbursement-supervisor": {
+      "Check the approved benefit list and cycle.": [
+        "pb-disbursement"
+      ]
+    },
+    "context-pbms-flow-disbursement": {
+      "Select the approved enrollment cycle and enter the approved schedule.": [
+        "pb-disbursement"
+      ]
+    },
+    "pbms-reconciliation": {
+      "Review dispatch, reconciliation and reversal states separately.": [
+        "pay-67-1-dispatch"
+      ]
+    },
+    "pbms-reconciliation-supervisor": {
+      "Review dispatch, reconciliation and reversal states separately.": [
+        "pay-67-1-dispatch"
+      ]
+    },
+    "context-pbms-flow-setup": {
+      "Check the benefit code mapping and approved eligibility and entitlement settings.": [
+        "detail-tabs"
+      ]
+    },
+    "context-pbms-enrollment-workflow": {
+      "Open the relevant list to see its result and history.": [
+        "detail-enrollment-workflow"
+      ]
+    },
+    "context-pbms-disbursement-workflow": {
+      "Open the relevant list to review entitlement calculation, evidence and approvals.": [
+        "detail-disbursement-workflow"
+      ]
+    },
+    "context-pbms-payment-report-reversal-programme-admin": {
+      "Keep the original approved list and payment reference in the case record.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-payment-report-reversal-finance": {
+      "Match the statement entry to the relevant payment reference and verify the amount and effective date against the bank evidence available to you.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-payment-report-reversal-ceo": {
+      "Confirm the affected payment references and the outcome established by Finance.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-corrective-reversal-workflow": {
+      "Payment refreshes and downloads both envelope reports, gives Finance the case reference and supporting reports, and holds further payment attempts pending an authorised decision.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-late-reversal-case-reopening-workflow": {
+      "Payment refreshes and downloads the affected envelope report, records the list, revision, envelope and batch references, and gives the evidence to Finance. Hold further payment submissions.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-duplicate-reversal-workflow": {
+      "Payment refreshes and downloads the existing envelope report. Share the original and latest bank notices with Finance, along with the approved list, revision, envelope and batch references. Keep payment activity stopped for the closed case.": [
+        "pay-67-counts"
+      ]
+    },
+    "context-pbms-partial-payment-workflow": {
+      "Payment records the envelope and batch, then provides the unresolved instruction references to Finance.": [
+        "pay-71-counts"
+      ]
+    },
+    "context-pbms-reversal-amount-discrepancy-workflow": {
+      "Finance matches the instruction, currency, value date and bank transaction references. Record the original reversal amount, the later reversal amount and the difference. Confirm with the bank whether the later entry is a correction, a separate movement or a reporting error.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception": {
+      "Refresh and download the report. Share the existing case, instruction, envelope and batch references with Finance. Keep the original and later bank statements with the case.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception-programme-admin": {
+      "Log the amount discrepancy under the existing case reference. Attach the current report, both bank statement references and the earlier closure decision.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception-payment": {
+      "Refresh and download the report. Share both statement references, the existing case reference and the list, envelope and batch details with Finance.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception-finance": {
+      "Match both statements to the approved instruction. Record the original amount, the later amount and the difference. If the original amount is unavailable, obtain it from the bank before resolving the exception.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception-audit": {
+      "Preserve both statements and the original closure decision. Match the exception to the instruction, approved revision, envelope and batch. Record the Finance conclusion and supporting bank evidence.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-payment-report-reversal-amount-exception-ceo": {
+      "Review the unresolved amount before deciding whether to reopen. Record the decision, reason and owner under the existing case reference through the authorised process.": [
+        "pay-70-0-exception"
+      ]
+    },
+    "context-pbms-flow-payment-submitted": {
+      "Choose View payment progress, then open Payments for the linked envelopes and batches.": [
+        "pay-progress"
+      ]
+    },
+    "context-imports-batch": {
+      "Read the batch status, source and counts.": [
+        "button-request"
+      ]
+    },
+    "context-imports-journey": {
+      "The operator uploads the approved structured file, or fetches CSV from a configured connection, and verifies the included mapped rows.": [
+        "button-request",
+        "button-transfer"
+      ]
+    },
+    "context-imports-review": {
+      "Choose Approve batch when the approved checks are satisfied.": [
+        "button-approve-batch"
+      ],
+      "For a return, enter a specific reason and choose Return for correction.": [
+        "button-return-batch",
+        "button-return-note"
+      ]
+    },
+    "context-imports-return-note": {
+      "@purpose": [
+        "button-return-batch",
+        "button-return-note"
+      ]
+    },
+    "context-imports-receipt": {
+      "Expand a row to check Registry logged. Excluded rows remain visible in the batch for traceability and stay outside the transferred set.": [
+        "button-logged"
+      ],
+      "Keep the Registry reference and Download audit report for authorised follow-up.": [
+        "button-download-audit"
+      ]
+    },
+    "context-imports-duplicate-receipt": {
+      "When two approved corrections try to send the same row, the first transfer reserves it. For Registry transfer in progress, refresh the earlier receipt and wait for its outcome. A received row stays outside any correction file.": [
+        "button-logged"
+      ]
+    },
+    "context-imports-duplicate-receipt-field": {
+      "If the status is Registry transfer in progress, select Refresh Registry receipt on the earlier batch and wait for the earlier receipt to settle. Reopen the blocked batch to see the updated row status. If it is Already received by Registry, keep the existing source key and exclude the row from an editable batch.": [
+        "button-logged"
+      ]
+    },
+    "context-imports-duplicate-receipt-review": {
+      "Open the affected row and its existing batch. Compare the source key and receipt. If the earlier transfer is still in progress, wait for its receipt or ask the Registry Administrator to reconcile it.": [
+        "button-logged"
+      ]
+    },
+    "context-imports-duplicate-receipt-admin": {
+      "Open the affected row and the existing batch. Compare the mapped source key, both batch references, the native Registry reference and the row receipt. If two approved corrections competed to send the row, check Activity to confirm which batch entered the Registry queue. Refresh that receipt and coordinate any uncertain outcome with the integration owner.": [
+        "button-logged"
+      ]
+    },
+    "staff-portal-sign-in-troubleshooting": {
+      "Use the available password recovery or sign-in method.": [
+        "staff-sign-in"
+      ]
+    },
+    "staff-portal-sign-in-troubleshooting-officer": {
+      "Use the available password recovery or sign-in method.": [
+        "staff-sign-in"
+      ]
+    },
+    "staff-portal-sign-in-troubleshooting-verifier": {
+      "Use the available password recovery or sign-in method.": [
+        "staff-sign-in"
+      ]
+    },
+    "staff-portal-sign-in-troubleshooting-supervisor": {
+      "Use the available password recovery or sign-in method.": [
+        "staff-sign-in"
+      ]
+    },
+    "nigeria-guide-staff-portal-12": {
+      "Confirm the correct service and staff sign-in route.": [
+        "staff-sign-in"
+      ]
+    },
+    "staff-portal-service-overview": {
+      "Complete any application-specific authentication and use that service’s contextual help.": [
+        "staff-tiles"
+      ]
+    },
+    "nigeria-guide-staff-portal-11": {
+      "Confirm the application and record context before acting.": [
+        "staff-tiles"
+      ]
+    },
+    "platform-service-overview": {
+      "Use the staff launcher for assigned operations or the beneficiary portal for self-service.": [
+        "directory"
+      ]
+    },
+    "registry-household-membership": {
+      "Open the correct household and review its members.": [
+        "native-registry-groups"
+      ]
+    },
+    "registry-household-membership-officer": {
+      "Open the correct household and review its members.": [
+        "native-registry-groups"
+      ]
+    },
+    "registry-household-membership-verifier": {
+      "Open the correct household and review its members.": [
+        "native-registry-groups"
+      ]
+    },
+    "registry-household-membership-supervisor": {
+      "Open the correct household and review its members.": [
+        "native-registry-groups"
+      ]
+    },
+    "portal-admin-programme-configuration": {
+      "Open the correct programme and review its current settings.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "portal-admin-programme-configuration-supervisor": {
+      "Open the correct programme and review its current settings.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "portal-admin-application-administration": {
+      "Check the applicant, programme and current workflow status.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "portal-admin-application-administration-supervisor": {
+      "Check the applicant, programme and current workflow status.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "nigeria-guide-geography-9": {
+      "Read the colour legend before comparing states.": [
+        "state-map"
+      ]
+    },
+    "nigeria-guide-geography-10": {
+      "Check latitude, longitude and coordinate source.": [
+        "record-points"
+      ]
+    },
+    "awe-service-overview": {
+      "Use Requests to find the workflow item or Policies to inspect routing.": [
+        "request-filter"
+      ]
+    },
+    "master-data-ui-service-overview": {
+      "Choose the relevant geography or attribute list.": [
+        "areas"
+      ]
+    },
+    "partner-management-service-overview": {
+      "Find the existing partner and check identity, status and access assignments.": [
+        "live-partner-management-directory"
+      ]
+    },
+    "consent-manager-service-overview": {
+      "Open Partner policies, Approvals or Decisions according to the task.": [
+        "live-consent-manager-partners"
+      ]
+    },
+    "nsipa-screen-consent-manager-consent-decisions": {
+      "Locate the relevant decision using the available filters.": [
+        "live-consent-manager-decisions"
+      ]
+    },
+    "superset-service-overview": {
+      "Open an authorised dashboard.": [
+        "dashboards"
+      ]
+    },
+    "odk-prepare-collection-form": {
+      "Choose the correct project and review the form questions and required fields.": [
+        "odk-projects"
+      ]
+    },
+    "odk-prepare-collection-form-officer": {
+      "Choose the correct project and review the form questions and required fields.": [
+        "odk-projects"
+      ]
+    },
+    "odk-prepare-collection-form-supervisor": {
+      "Choose the correct project and review the form questions and required fields.": [
+        "odk-projects"
+      ]
+    },
+    "odk-service-overview": {
+      "Open the project and select the current form version.": [
+        "odk-projects"
+      ]
+    },
+    "nsipa-restored-odk-field-collection-users": {
+      "Locate the existing user before adding a duplicate account.": [
+        "odk-users"
+      ]
+    },
+    "nsipa-restored-odk-collection-system-audit": {
+      "Select the relevant time period or event filters.": [
+        "odk-audits"
+      ]
+    },
+    "nsipa-restored-odk-usage-reporting": {
+      "Read the description of the information collected and where it is sent.": [
+        "odk-analytics"
+      ]
+    },
+    "nsipa-screen-register-registry-configuration": {
+      "Open the relevant configuration list and locate the exact item.": [
+        "registry-settings"
+      ]
+    },
+    "context-register-review-dashboard": {
+      "Open My registration reviews or My change request reviews.": [
+        "review-queue"
+      ]
+    },
+    "context-register-intake-queue": {
+      "Open Approvals and choose the registration task queue.": [
+        "review-queue"
+      ]
+    },
+    "context-register-change-queue": {
+      "Filter by request status and open the matching request.": [
+        "change-tasks"
+      ]
+    },
+    "context-register-change-task-queue": {
+      "Open My change request reviews and locate a pending task.": [
+        "change-tasks"
+      ]
+    },
+    "context-register-staff": {
+      "Find the existing account and review its assignments.": [
+        "staff-roles"
+      ]
+    },
+    "pbms-react-sign-in": {
+      "Enter the email address and password for your existing PBMS staff account.": [
+        "pb-login"
+      ]
+    },
+    "context-register-incoming": {
+      "Open the message matching the source and reference.": [
+        "incoming"
+      ]
+    },
+    "nsipa-screen-register-outgoing-message-monitoring": {
+      "Find the message associated with the correct record or request.": [
+        "outgoing"
+      ]
+    },
+    "context-register-outgoing": {
+      "Locate the relevant message and check its destination, reference and current status.": [
+        "outgoing"
+      ]
+    },
+    "context-pbms-flow-journey": {
+      "Open View payment progress. Use the batch report to check dispatch and the envelope report to check reconciliation and reversals. Bridge exchanges and tracks payment instructions and reconciliation evidence between PBMS and the bank.": [
+        "pay-progress"
+      ]
+    },
+    "context-pbms-flow-access": {
+      "Search for the staff account and inspect existing roles.": [
+        "flow-access"
+      ]
+    },
+    "context-pbms-decision-visible": {
+      "Check the list Status and Revision.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-flow-history": {
+      "Check the Revision shown on the list.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-flow-returned": {
+      "Open Verification history and read the rejection reason for the current revision.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-flow-correction-saved": {
+      "Review the correction in Verification history against the rejection reason.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-flow-resubmit-wait": {
+      "Read the current revision’s rejection reason in Verification history.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-flow-resubmit": {
+      "Compare the rejection reason and Programme Admin correction in Verification history.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-submission-comment": {
+      "@purpose": [
+        "flow-comment"
+      ]
+    },
+    "context-pbms-flow-open": {
+      "Read Status, Revision, NOB and Total NGN.": [
+        "flow-stats"
+      ]
+    },
+    "context-pbms-flow-submit": {
+      "Confirm programme, cycle, revision, count and total.": [
+        "flow-stats"
+      ]
+    },
+    "context-pbms-flow-payment": {
+      "Confirm Fully verified and review the displayed counts and amount.": [
+        "flow-stats"
+      ]
+    },
+    "context-pbms-flow-payment-wait-route": {
+      "Check that the list shows Fully verified and note its programme, cycle and revision.": [
+        "flow-stats"
+      ]
+    },
+    "context-pbms-payment-confirm": {
+      "Compare the beneficiary count, Total NGN and revision in the confirmation with the verified list.": [
+        "flow-stats"
+      ]
+    },
+    "context-pbms-cycle-window-date": {
+      "@purpose": [
+        "flow-dates"
+      ]
+    },
+    "context-pbms-cycle-schedule-date": {
+      "@purpose": [
+        "flow-schedule"
+      ]
+    },
+    "register-submit-for-approval": {
+      "Resolve validation errors before submitting the change.": [
+        "rg-submit"
+      ]
+    },
+    "register-submit-for-approval-officer": {
+      "Resolve validation errors before submitting the change.": [
+        "rg-submit"
+      ]
+    },
+    "register-submit-for-approval-verifier": {
+      "Resolve validation errors before submitting the change.": [
+        "rg-submit"
+      ]
+    },
+    "nigeria-guide-platform-1": {
+      "Start with the persona workspace or All services.": [
+        "directory"
+      ]
+    },
+    "beneficiary-service-overview": {
+      "Sign in with the account associated with your application.": [
+        "registries"
+      ]
+    },
+    "nigeria-guide-beneficiary-7": {
+      "Check that the household registration has the required status.": [
+        "registries"
+      ]
+    },
+    "context-pbms-flow": {
+      "Select the intended programme and open the relevant tab.": [
+        "detail-tabs"
+      ]
+    },
+    "review-role-verifier": {
+      "Review submitted evidence independently and record a clear decision.": [
+        "case-checks"
+      ]
+    },
+    "review-role-officer": {
+      "Assist intake, check completeness and correct returned cases.": [
+        "case-reason"
+      ]
+    },
+    "review-role-citizen": {
+      "Enter your own household details and follow your application status.": [
+        "citizen-household"
+      ]
+    },
+    "review-role-supervisor": {
+      "Monitor delivery, exceptions and authorised programme workflows.": [
+        "case-queue"
+      ]
+    },
+    "registry-record-maintenance": {
+      "Find the record and check its current values and status.": [
+        "native-registry-individuals"
+      ]
+    },
+    "registry-record-maintenance-officer": {
+      "Find the record and check its current values and status.": [
+        "native-registry-individuals"
+      ]
+    },
+    "registry-record-maintenance-verifier": {
+      "Find the record and check its current values and status.": [
+        "native-registry-individuals"
+      ]
+    },
+    "registry-record-maintenance-supervisor": {
+      "Find the record and check its current values and status.": [
+        "native-registry-individuals"
+      ]
+    },
+    "register-service-overview": {
+      "Use the relevant intake, approval or published record screen to continue.": [
+        "find-household"
+      ]
+    },
+    "registry-service-overview": {
+      "Choose the appropriate record list or reference table.": [
+        "native-registry-groups"
+      ]
+    },
+    "portal-admin-service-overview": {
+      "Open the relevant programme or application and check its status.": [
+        "native-portal-admin-programs"
+      ]
+    },
+    "iam-staff-ui-service-overview": {
+      "Search for the staff account or application before making a change.": [
+        "iam-apps"
+      ]
+    },
+    "nsipa-screen-platform-sign-in": {
+      "Check the service address and choose the sign-in method shown on the page.": [
+        "staff-sign-in"
+      ]
+    },
+    "awe-review-evidence": {
+      "Open the request and check its subject and proposed change.": [
+        "policy"
+      ]
+    },
+    "awe-review-evidence-verifier": {
+      "Open the request and check its subject and proposed change.": [
+        "policy"
+      ]
+    },
+    "awe-review-evidence-supervisor": {
+      "Open the request and check its subject and proposed change.": [
+        "policy"
+      ]
+    },
+    "context-imports-awaiting-review": {
+      "Check the submitted batch reference and use Reconcile records to inspect the included rows.": [
+        "di-partial-rows",
+        "state-review"
+      ]
+    },
+    "context-imports-transfer-conflict": {
+      "Use Reload batch on the existing batch. If the batch is submitting, unconfirmed or queued, use Refresh Registry receipt as available. If it is ingested, check the existing receipt and counts.": [
+        "di-unconfirmed"
+      ]
+    },
+    "context-pbms-corrective-payment-workflow": {
+      "Confirm the authorised decision and its case reference, affected instruction and approved amount. Keep the original list revision, envelope, batch and reversal evidence on the case.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-escalation-further-payment-workflow": {
+      "Programme Admin prepares a separate disbursement list for the authorised programme and cycle. Link its revision to the decision and both reversed payment records. Use the approved sponsor bank route.": [
+        "flow-history"
+      ]
+    },
+    "context-pbms-reopened-case-payment-workflow": {
+      "Payment initiates approval of the new list with the case and decision references. Finance verifies the net balance and authorised amount. Audit traces the decisions and earlier payment records. CEO records final approval of the new list revision.": [
+        "flow-history"
+      ]
+    },
+    "nsipa-screen-platform-sandbox-conditionality": {
+      "Select the fictional programme or household record.": [
+        "sandbox-conditionality"
+      ]
+    },
+    "nsipa-screen-platform-sandbox-readiness": {
+      "Read each capability and its reported status.": [
+        "sandbox-readiness"
+      ]
+    },
+    "nsipa-screen-platform-partner-simulation": {
+      "Read the scenario and confirm that all inputs are fictional.": [
+        "partner-simulation"
+      ]
+    },
+    "context-register-programmes": {
+      "Open the household programmes section and review existing entries.": [
+        "household-programmes"
+      ]
+    },
+    "context-pbms-flow-correct": {
+      "Read the rejection reason for the current revision in Verification history.": [
+        "correction"
+      ]
+    },
+    "context-pbms-correction-reason": {
+      "@purpose": [
+        "correction"
+      ]
+    },
+    "nsipa-screen-platform-sandbox-field-collection": {
+      "Choose the relevant form or existing record.": [
+        "sandbox-field"
+      ]
+    },
+    "nsipa-screen-platform-sandbox-portal": {
+      "Choose the demonstration feature needed for your task.": [
+        "public-portal"
+      ]
+    },
+    "context-imports-failed": {
+      "Refresh the receipt and check status, counts, attempts and Registry reference.": [
+        "state-failed"
+      ]
+    },
+    "context-imports-queued": {
+      "Record the batch and Registry references. Select Refresh Registry receipt to see the latest row counts and attempts.": [
+        "state-queued"
+      ]
+    },
+    "context-imports-retry-read": {
+      "Read the error and give the batch reference to the authorised operator or administrator.": [
+        "state-retry"
+      ]
+    },
+    "context-imports-submitting": {
+      "Keep the batch reference and use Refresh Registry receipt when it is available.": [
+        "state-sending"
+      ]
+    },
+    "context-imports-retry": {
+      "Choose Retry transfer and check the resulting Registry receipt.": [
+        "button-retry"
+      ]
+    },
+    "intake-capture-household-coordinates": {
+      "Capture device location only when the device is at the household.": [
+        "rg-latitude"
+      ]
+    },
+    "context-pbms-flow-export": {
+      "Confirm the programme, cycle and revision.": [
+        "flow-stats"
+      ]
+    },
+    "nigeria-guide-knowledge-16": {
+      "Generate and read the suggestion preview.": [
+        "library-assistant"
+      ]
+    }
+  }
+}

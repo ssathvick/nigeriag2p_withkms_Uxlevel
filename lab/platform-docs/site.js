@@ -89,3 +89,39 @@ input.addEventListener('keydown', event => {
   if (event.key === 'ArrowDown') results.querySelector('a')?.focus();
   if (event.key === 'Enter') results.querySelector('a')?.click();
 });
+
+// The link also opens the original capture when the dialog API is unavailable.
+if (document.querySelector('.screen-link') && typeof HTMLDialogElement !== 'undefined') {
+  const viewer = document.createElement('dialog');
+  viewer.className = 'image-viewer';
+  viewer.setAttribute('aria-label', 'Enlarged screenshot');
+  viewer.innerHTML = '<div class="viewer-bar"><button type="button" class="viewer-zoom" aria-pressed="false">Actual size</button><button type="button" class="viewer-close" autofocus>Close</button></div><div class="viewer-scroll" tabindex="0" role="region" aria-label="Screenshot"><img alt=""></div><p class="viewer-caption"></p>';
+  document.body.append(viewer);
+  const scrollArea = viewer.querySelector('.viewer-scroll');
+  const enlarged = scrollArea.querySelector('img');
+  const zoom = viewer.querySelector('.viewer-zoom');
+  const close = viewer.querySelector('.viewer-close');
+  let trigger;
+  document.addEventListener('click', event => {
+    const link = event.target.closest('.screen-link');
+    if (!link || event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    trigger = link;
+    const caption = link.closest('figure').querySelector('figcaption').textContent;
+    enlarged.src = link.href;
+    enlarged.alt = caption;
+    viewer.querySelector('.viewer-caption').textContent = caption;
+    scrollArea.classList.remove('full-size');
+    zoom.setAttribute('aria-pressed', 'false');
+    viewer.showModal();
+    scrollArea.scrollTo(0, 0);
+    close.focus();
+  });
+  zoom.addEventListener('click', () => {
+    const full = scrollArea.classList.toggle('full-size');
+    zoom.setAttribute('aria-pressed', String(full));
+    scrollArea.scrollTo(0, 0);
+  });
+  close.addEventListener('click', () => viewer.close());
+  viewer.addEventListener('close', () => trigger?.focus({preventScroll:true}));
+}

@@ -5,6 +5,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import re
+import shutil
 from urllib.parse import urlsplit
 
 from merge_knowledge import read_seed
@@ -51,8 +52,10 @@ def stage(destination, config):
         content = (LAB / previous).read_text(encoding='utf-8-sig')
         target.write_text(host_pattern.sub(lambda match: hosts[match[0]], content), encoding='utf-8')
 
-    for name in ('build.py', 'verify.py', 'pages.json', 'site.css', 'site.js'):
+    for name in ('build.py', 'verify.py', 'pages.json', 'site.css', 'site.js',
+                 'visual_guides.py', 'diagrams.json', 'screenshots.json'):
         copy('platform-docs/' + name, source / 'platform-docs' / name)
+    shutil.copytree(LAB / 'platform-docs/visuals', source / 'platform-docs/visuals')
     for name in ('nsipa-wordmark.svg', 'nsipa-symbol.svg'):
         copy('platform-docs/branding/' + name, source / 'platform-docs' / 'branding' / name)
     copy('knowledge/contextual-catalog.json', source / 'knowledge/contextual-catalog.json')

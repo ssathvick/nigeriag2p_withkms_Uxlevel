@@ -18,6 +18,8 @@ class Page(HTMLParser):
         self.canonicals = []
         self.in_main = False
         self.main_text = []
+        self.instructions = []
+        self.in_instruction = False
         self.feed(contents.decode('utf-8'))
 
     def handle_starttag(self, tag, attributes):
@@ -26,6 +28,10 @@ class Page(HTMLParser):
             if attrs['id'] in self.ids:
                 raise ValueError(f'Duplicate anchor {attrs["id"]}')
             self.ids.add(attrs['id'])
+        if tag == 'span' and attrs.get('class') == 'instruction':
+            self.in_instruction = True
+        if tag == 'source' and 'srcset' in attrs:
+            self.links.add(attrs['srcset'])
         if tag == 'main':
             self.in_main = True
         if tag == 'link' and attrs.get('rel') == 'canonical':
@@ -34,12 +40,16 @@ class Page(HTMLParser):
             self.links.update(attrs[key] for key in ('href', 'src') if key in attrs)
 
     def handle_endtag(self, tag):
+        if tag == 'span':
+            self.in_instruction = False
         if tag == 'main':
             self.in_main = False
 
     def handle_data(self, data):
         if self.in_main:
             self.main_text.append(data)
+            if self.in_instruction:
+                self.instructions.append(data)
 
 
 def collapsed(text):
@@ -90,7 +100,8 @@ def verify_build(docs, root):
         search = collapsed(indexed[path]['title'] + ' ' + indexed[path]['body'])
         for field in ('title', *TOPIC_SECTIONS, 'stage'):
             text = collapsed(topic.get(field, ''))
-            if text and (text not in search or field != 'stage' and text not in content):
+            displayed = collapsed(' '.join(pages[path].instructions)) if field == 'steps' else content
+            if text and (text not in search or field != 'stage' and text not in displayed):
                 raise ValueError(f'Missing {field} for {path}')
     return files
 

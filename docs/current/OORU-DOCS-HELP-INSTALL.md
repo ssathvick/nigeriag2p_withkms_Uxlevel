@@ -36,6 +36,8 @@ The deployment account needs write access to the release directory and Nginx nee
 
 ## 2. Install or upgrade the Knowledge Library
 
+**For a visual-only update on an existing installation**, stage the new release as in section 1. Continue with the published-feed build and docs root in section 3. The existing Knowledge Library and Help integration can serve this update without a database merge or registration-service restart. Keep the current Help assets available if the release pointer also serves them.
+
 On a fresh installation, deploy `registration/knowledge_management.py`, `registration/knowledge-seed.json` and the three staged `registration/templates/knowledge-*.html` files with the existing registration service. The registration app calls `knowledge_management.install(...)` during startup. It creates the Knowledge Library tables and seeds the release. Preserve the destination's `base.html`, remaining library templates, identity settings and application configuration.
 
 On an existing installation, preview the merge. The runtime paths below are from the base installation. Adjust them for Ooru before running the commands.
@@ -102,6 +104,8 @@ Point the docs root at `current/published-site` when you built from the public f
 4. Validate and reload the proxy with `nginx -t` and the deployment's normal reload process. Use a fresh browser session to verify the asset version, the Help launcher and the Documentation link. Confirm that the site stylesheet and scripts load without 404s.
 
 ## 4. Verify in staging
+
+Open the household registration and restored-receipt guides on a phone. Check that the process diagram stacks, the screenshot opens at full size and closing it returns to the same instruction. Confirm the static host serves the WebP files under `assets/visuals/` with the `image/webp` content type. The maintainer guide includes the example routes, a local preview command and the screenshot placement format. [Visual guide maintenance](../../lab/platform-docs/README.md)
 
 Run the source catalog checks with Node.js and verify the deployed routes using destination-owned synthetic records.
 
