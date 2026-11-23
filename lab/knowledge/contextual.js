@@ -48,6 +48,7 @@
       [/^field for duplicate checks$/i, 'mapping-duplicate-key']
     ].find(([pattern]) => pattern.test(s.field))?.[1] || (s.importRowField ? 'source-row-value' : undefined);
     if (s.denied) return context('imports', 'denied');
+    if (!s.batch && s.section === 'Transfer history') return context('imports', 'transfers');
     if (s.importRowConflict && !/^activity$/i.test(s.section)) {
       const guides = {field:'duplicate-receipt-field', level1:'duplicate-receipt-review', admin:'duplicate-receipt-admin'};
       return context('imports', guides[s.role] || 'duplicate-receipt', field);
@@ -93,21 +94,85 @@
     return context('imports', tabs[s.tab] || byRole[s.role] || 'transfers', field);
   }
 
+  const registrySettings = new Map([
+    ['registry/details', 'registry-details'],
+    ['registry/languages', 'registry-languages'],
+    ['registry/themes', 'registry-themes'],
+    ['registry/themes/create', 'theme-create'],
+    ['registry/users', 'staff'],
+    ['data-models', 'data-models'],
+    ['data-policies', 'data-policies'],
+    ['data-policies/new', 'policy-create'],
+    ['awe-policy-config', 'approval-policies'],
+    ['registers', 'register-definitions'],
+    ['intake-forms', 'form-definitions'],
+    ['ingest-configurations/key-paths', 'ingest-paths'],
+    ['ingest-configurations/manage-subscription', 'ingest-subscriptions'],
+    ['ingest-configurations/semantic-patterns', 'ingest-patterns'],
+    ['ingest-configurations/templates', 'ingest-templates'],
+    ['outgest-configurations/templates', 'outgoing-templates'],
+    ['outgest-configurations/topics', 'outgoing-topics'],
+  ]);
+
+  const registryDashboardSections = new Map([
+    ['Register your household', 'registration-start'],
+    ['Master Registry', 'published-registers'],
+    ['Form submissions', 'submission-queues'],
+    ['Change requests', 'change-queue'],
+    ['My tasks', 'review-dashboard'],
+    ['From capture to master record', 'journey'],
+  ]);
+
+  const offlineSections = new Map([
+    ['Prepare your device', 'offline-device'],
+    ['Connect to this registry', 'offline-device'],
+    ['Download before you travel', 'offline-device'],
+    ['Set up your device', 'offline-device'],
+    ['Capture and check the interview', 'offline-delivery'],
+    ['Reconnect and confirm delivery', 'offline-delivery'],
+    ['One review workflow', 'journey'],
+    ['Corrections and rejected records', 'returned-intake'],
+  ]);
+
+  function registryConfiguration(path, s) {
+    if (s.configurationNav) return 'configuration-navigation';
+    if (path === 'registry/users') {
+      if (s.section === 'Onboard a staff member') return 'staff-onboarding';
+      if (s.section === 'Independent responsibilities') return 'staff-responsibilities';
+    }
+    if (path === 'data-policies/new' && /^filter (rules|preview)$/i.test(s.section)) return 'policy-filters';
+    const exact = registrySettings.get(path);
+    if (exact) return exact;
+    const details = [
+      [/^registers\/[^/]+$/, 'register-structure'],
+      [/^registers\/[^/]+\/sections\/[^/]+$/, 'register-section'],
+      [/^registers\/[^/]+\/tabs\/[^/]+$/, 'register-tab'],
+      [/^registers\/[^/]+\/scores\/[^/]+$/, 'register-score'],
+      [/^intake-forms\/[^/]+$/, 'form-tabs'],
+      [/^intake-forms\/[^/]+\/tabs\/[^/]+$/, 'form-sections']
+    ];
+    return details.find(([pattern]) => pattern.test(path))?.[1] || 'setup';
+  }
+
   function registry(s) {
-    const path = s.path.replace(/^\/[a-z]{2}(?:-[a-z]{2})?(?=\/|$)/i, '') || '/';
+    const path = s.path.replace(/^\/[a-z]{2}(?:-[a-z]{2})?(?=\/|$)/i, '').replace(/\/$/, '') || '/';
+    if (s.registryPageState === 'Access restricted') return context('register', 'state-restricted');
+    if (s.registryPageState === 'Page not found') return context('register', 'state-missing');
+    if (s.registryPageState === 'We could not load this page') return context('register', 'state-error');
     if (/^\/data-imports(?:\/|$)/.test(path)) return imports(s);
+    const duplicateGuide = !s.field && (!s.section || /duplicate|^match\s*#/i.test(s.section)) ? s.duplicateView : undefined;
     if (/^\/tasks\/intake-form\/?$/.test(path)) return context('register', 'intake-queue');
     if (/^\/tasks\/intake-form\//.test(path)) {
-      const key = s.duplicateView || (/duplicate/i.test(s.section) ? 'duplicates' :
+      const key = duplicateGuide || (/duplicate/i.test(s.section) ? 'duplicates' :
         s.role === 'level1' && s.canReview ? 'review-l1' : s.role === 'level2' && s.canReview ? 'review-l2' : 'review-intake');
       return context('register', key, /message|reason/i.test(s.field) ? 'decision-note' : undefined);
     }
     if (/^\/tasks\/change-request\/?$/.test(path)) return context('register', 'change-task-queue');
     if (/^\/tasks\/change-request\//.test(path)) return context('register', 'change-detail');
-    const intake = path.match(/^\/intake-form\/(household|individual)(?:\/(new|submission)(?:\/|$))?/);
+    const intake = path.match(/^\/intake-form\/(household|individual)(?:\/(new|submission)\/[^/]+)?$/);
     if (intake) {
       if (!intake[2]) return context('register', 'submission-queues');
-      if (s.duplicateView) return context('register', s.duplicateView);
+      if (duplicateGuide) return context('register', duplicateGuide);
       if (intake[2] === 'submission' && !s.intakeEditor) return context('register', /duplicate/i.test(s.section) ? 'duplicates' : 'submission-detail');
       const field = [
         [/accuracy.*(?:metres|meters|\(m\))/i, 'gps-accuracy'],
@@ -144,29 +209,27 @@
       const key = section || (s.intakeSection ? 'survey' : s.returnedIntake ? 'returned-intake' : intake[2] === 'submission' ? 'draft' : intake[1] === 'individual' ? 'individual-intake' : 'intake');
       return context('register', key, field);
     }
-    if (path.endsWith('/version-history')) return context('register', 'history');
+    if (/^\/register\/(?:household|individual)\/[^/]+\/version-history$/.test(path)) return context('register', 'history');
     if (/\/change-request(?:\/|$)/.test(path)) {
       const key = /^\/change-request\/?$/.test(path) ? 'change-queue' :
-        path.endsWith('/change-request') && path.startsWith('/register/') ? 'change-create' : 'change-detail';
+        path.endsWith('/change-request') && path.startsWith('/register/') ? 'record-change-list' : 'change-detail';
       return context('register', key);
     }
-    const published = path.match(/^\/register\/(household|individual)(?:\/(.+))?/);
+    const published = path.match(/^\/register\/(household|individual)(?:\/([^/]+))?$/);
     if (published) {
       if (s.recordEditor) return context('register', 'change-create');
       if (published[2]) return context('register', published[1] + '-detail');
       return context('register', published[1] === 'household' ? 'households' : 'individuals');
     }
-    const routes = [
-      [/^\/offline\/?$/, 'offline'], [/^\/incoming-messages/, 'incoming'],
-      [/^\/outgoing-messages/, 'outgoing'], [/^\/myprofile/, 'profile'],
-      [/^\/configuration\/registry\/users/, 'staff'], [/^\/configuration\/(?:data-policies|awe-policy-config)/, 'sharing'],
-      [/^\/configuration\/(?:ingest-configurations|outgest-configurations)/, 'integration'],
-      [/^\/configuration(?:\/|$)/, 'setup']
-    ];
-    const map = routes.find(([pattern]) => pattern.test(path));
-    if (map) return context('register', map[1]);
+    if (path === '/offline') return context('register', offlineSections.get(s.section) || 'offline');
+    if (path.startsWith('/configuration/')) return context('register', registryConfiguration(path.slice(15), s));
+    if (path === '/incoming-messages') return context('register', 'incoming');
+    if (path === '/outgoing-messages') return context('register', 'outgoing');
+    if (path === '/myprofile') return context('register', 'state-missing');
     if (path === '/') {
-      const key = /from capture to master record/i.test(s.section) ? 'journey' :
+      const section = registryDashboardSections.get(s.section);
+      if (section) return context('register', section);
+      const key =
         s.role === 'field' ? 'capture-dashboard' : s.role === 'officer' ? 'officer-dashboard' :
         ['level1', 'level2'].includes(s.role) ? 'review-dashboard' : 'overview';
       return context('register', key);

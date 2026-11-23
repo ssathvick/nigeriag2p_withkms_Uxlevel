@@ -2801,5 +2801,311 @@
     "requirements": "Use the verified source information. If a row should stay out of the transfer, use Exclude this row from the transfer.",
     "help_level": "field",
     "source": "Live Master Registry Data Imports catalog release and 19 November Data Imports testing guide"
+  },
+  {
+    "group": "register",
+    "key": "state-restricted",
+    "title": "Access to this Registry screen",
+    "purpose": "The Registry is showing Access restricted for the current account.",
+    "steps": "Use Return to dashboard to see the workspaces available to you.\nIf this screen is part of your assigned job, ask the Registry administrator to check the role on your existing account and give them the page name.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "state-missing",
+    "title": "Registry page not found",
+    "purpose": "The requested page is unavailable or its link has changed.",
+    "steps": "Return to the dashboard and open the task from its current menu.\nIf a menu or saved link takes you back here, report the page path to the service owner.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "state-error",
+    "title": "Registry page could not load",
+    "purpose": "The Registry could not display the requested page.",
+    "steps": "Use Try again if it is available.\nIf the page still fails, return to the dashboard and report the affected page and time. Check the record status before repeating any previous submission.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "registration-start",
+    "title": "Start or track household registration",
+    "purpose": "This dashboard card provides entry points for household intake and submission tracking.",
+    "steps": "If Register your household is available to your account, open it to begin the household form.\nChoose View submissions to track existing interviews, drafts or returned work in Registration review.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "published-registers",
+    "title": "Published Registry records",
+    "purpose": "The Master Registry card shows counts of published households and individuals available to your account.",
+    "steps": "Choose Households or Individuals to open that published register.\nUse Form submissions to track an interview that has not yet been published.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "registry-details",
+    "title": "Registry name and default settings",
+    "purpose": "This screen shows the identity and default presentation settings of the Registry.",
+    "steps": "Check the Registry name, logo, theme and language.\nWhen an approved change is needed, use the available edit control, verify the selected defaults and save.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "registry-languages",
+    "title": "Registry languages",
+    "purpose": "Review the languages configured for the Registry interface.",
+    "steps": "Open Languages and find the required language in the list.\nUse Add New Language only if your assigned role allows it. Use Registry details to check the selected default.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "registry-themes",
+    "title": "Registry themes and colours",
+    "purpose": "Review the colour settings for a Registry theme.",
+    "steps": "Choose the theme and check its primary, secondary and other colours.\nUse the available controls for an approved update. Check the active theme under Registry details.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "theme-create",
+    "title": "Create a Registry theme",
+    "purpose": "Define a named visual theme before choosing it as a Registry default.",
+    "steps": "Enter a distinct theme name and review the colour groups and image options shown.\nChoose Create to save the new theme or Cancel to leave it unchanged.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "register-definitions",
+    "title": "Register definitions",
+    "purpose": "Choose the register whose structure you want to inspect.",
+    "steps": "Select the intended register from the list.\nOpen its configuration to inspect tabs, sections, scores and the import or search schemas.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "register-structure",
+    "title": "Configure a selected register",
+    "purpose": "The selected register groups its tabs, sections, scores, import settings and schemas.",
+    "steps": "Confirm the register in the breadcrumb, then choose the relevant configuration tab.\nOpen the specific entry and check its linked section or schema before making an authorised change.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "register-section",
+    "title": "Register section configuration",
+    "purpose": "Inspect one section within the selected register.",
+    "steps": "Confirm the register and section mnemonic.\nReview the section details and UI schema. Check the resulting section on a demonstration record after an approved update.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "register-tab",
+    "title": "Sections on a register tab",
+    "purpose": "Review which sections appear together on the selected register tab.",
+    "steps": "Check the register and tab in the breadcrumb.\nReview the assigned sections and use the available controls only for the intended tab.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "register-score",
+    "title": "Register score definition",
+    "purpose": "Inspect how a score definition uses the contributing attributes for this register.",
+    "steps": "Check the register, the score definition and its status.\nReview the contributing attributes before adding or changing one.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "form-definitions",
+    "title": "Registration form definitions",
+    "purpose": "Find the configured form for the register and registration task you intend to support.",
+    "steps": "Check the form name, register, description and verification settings.\nOpen the form to inspect its tabs and sections.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "form-tabs",
+    "title": "Tabs on a registration form",
+    "purpose": "Review the tab labels and order for the selected registration form.",
+    "steps": "Confirm the form in the breadcrumb.\nFind the tab by label and order, then open it to inspect its sections.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "form-sections",
+    "title": "Sections on a registration form tab",
+    "purpose": "Review the sections shown on the selected tab of a registration form.",
+    "steps": "Check the form and tab, then compare the section ID and section order.\nVerify the registration form with demonstration data after an approved section change.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "data-models",
+    "title": "Registry data models",
+    "purpose": "Inspect how a data model is identified and linked to a template.",
+    "steps": "Find the model mnemonic, template ID and active status.\nOpen the model and verify the linked template before an authorised edit.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "data-policies",
+    "title": "Register data policies",
+    "purpose": "Data policies define record filters for a selected register.",
+    "steps": "Select a register to list its policies.\nCheck the policy mnemonic, type and description. Open the policy to inspect its filter conditions.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "policy-create",
+    "title": "Create a register data policy",
+    "purpose": "Define which register a data policy applies to and which records match it.",
+    "steps": "Select the register, enter the policy mnemonic and check the policy type.\nAdd the required filter conditions. Inspect the filter preview before saving the authorised policy.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "approval-policies",
+    "title": "Registry approval policy configuration",
+    "purpose": "Identify the approval policy attached to a Registry scope.",
+    "steps": "Check the scope, register where applicable, policy type and policy key.\nUse View to check the selected configuration before an authorised change to routing.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "ingest-paths",
+    "title": "Incoming data key paths",
+    "purpose": "Key paths identify where values are found in incoming data.",
+    "steps": "Find the key path ID and its data model mnemonic.\nCheck whether the path represents a list before using it in a mapping.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "ingest-subscriptions",
+    "title": "Incoming subscription logs",
+    "purpose": "Subscription logs show partner subscription activity.",
+    "steps": "Locate the partner and activity log ID.\nCompare the timestamp and unsubscribe indicator when tracing an incoming subscription.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "ingest-patterns",
+    "title": "Incoming semantic patterns",
+    "purpose": "Review the interpretation of incoming values for a registration form.",
+    "steps": "Check the semantic pattern ID, data model, Registry and registration form.\nOpen the pattern to verify the configured association.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "ingest-templates",
+    "title": "Incoming data templates",
+    "purpose": "Inspect a template used to receive and transform Registry data.",
+    "steps": "Find the template ID and data model mnemonic.\nCheck the Registry and template file ID against the intended incoming integration.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "outgoing-templates",
+    "title": "Outgoing data templates",
+    "purpose": "Inspect the template used to prepare messages leaving the Registry.",
+    "steps": "Locate the data model, Registry and template file ID.\nCheck the outgoing integration that uses this template before making a change.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "outgoing-topics",
+    "title": "Outgoing Registry topics",
+    "purpose": "Topics identify the destinations for outgoing Registry events.",
+    "steps": "Check the data model, Registry, WebSub topic and status.\nConfirm the intended destination before an authorised change to its status.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "configuration-navigation",
+    "title": "Choose a configuration section",
+    "purpose": "The configuration menu groups settings by the job they support.",
+    "steps": "Use Registry for identity, language and theme settings, or Data and registration for registers, forms and models.\nLook under Governance for policies and under Incoming data or Outgoing data for integrations. Only available groups are shown.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "staff-onboarding",
+    "title": "Onboard a Registry staff member",
+    "purpose": "Create a staff account for the main Registry and assign its intended role.",
+    "steps": "Check Assigned staff for an existing account.\nEnter the required identity details, choose the authorised role and follow your organisation’s account handover process.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "staff-responsibilities",
+    "title": "Independent Registry responsibilities",
+    "purpose": "Use this section to check which role performs each stage of Registry work.",
+    "steps": "Compare the listed Field Agent, reviewer, officer and administrator responsibilities.\nKeep capture and independent review assignments separate when choosing the staff role.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "offline-device",
+    "title": "Prepare an offline collection device",
+    "purpose": "Set up ODK Collect with the field agent’s assigned project before travelling.",
+    "steps": "While online, prepare the device and scan the private setup code for your own account in Collect.\nDownload the household form before leaving network coverage. Keep the setup code private.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "offline-delivery",
+    "title": "Send an offline household interview",
+    "purpose": "A completed interview on the device still needs to reach the Registry.",
+    "steps": "Review the answers and finalise the interview in Collect. Reconnect and check the sending status.\nConfirm the interview appears in Registration review before treating it as delivered.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "policy-filters",
+    "title": "Check data policy filters",
+    "purpose": "The filter rules and preview describe the records covered by the proposed policy.",
+    "steps": "Choose the register first. Review each filter condition and its value.\nCompare the preview with the intended record scope before saving the policy.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
+  },
+  {
+    "group": "register",
+    "key": "record-change-list",
+    "title": "Change requests for this record",
+    "purpose": "See the changes requested for a particular published household or individual.",
+    "steps": "Check the record and select the relevant tab. The pending count and list apply to that selection.\nOpen a request to read its details. If the list is empty, check the selected tab and record.",
+    "help_level": "screen",
+    "source": "Master Registry screen and controls · registry-ui-source/src"
   }
 ]

@@ -34,7 +34,7 @@ python3 build.py "$PREVIEW" --prefix= --origin http://127.0.0.1:8000
 python3 -m http.server 8000 --bind 127.0.0.1 --directory "$PREVIEW"
 ```
 
-Open `http://127.0.0.1:8000/`. The builder checks guide text, internal links, anchors, full and phone image paths, search, canonical URLs and the sitemap. For the November seed, expect 564 pages. Stop the preview with Ctrl+C.
+Open `http://127.0.0.1:8000/`. The builder checks guide text, internal links, anchors, full and phone image paths, search, canonical URLs and the sitemap. For the 23 November seed, expect 598 pages. Stop the preview with Ctrl+C.
 
 | Page to check | What to verify |
 | --- | --- |

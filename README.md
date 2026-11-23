@@ -2,7 +2,9 @@
 
 **Current application source: 19 November 2026. This repository is public.**
 
-**Illustrated documentation and contextual Help, 21 November 2026.** The 534-guide release includes 219 sandbox screenshots, mobile-friendly diagrams for all 29 service chapters, two original illustrations and role-aware Help. [Browse the live guides](https://docs.g2p.wverve.in/) · [Maintain the visuals and preview changes](lab/platform-docs/README.md) · [Install or upgrade on Ooru](docs/current/OORU-DOCS-HELP-INSTALL.md)
+**Master Registry contextual Help, 23 November 2026.** This release adds 34 guides. On the dashboard, **Form submissions** opens **Registration review queues**. In Approvals, the registration task queue opens **My registration reviews**. [Read the sandbox audit and mobile checks](docs/current/MASTER-REGISTRY-HELP-AUDIT.md)
+
+The 568-guide documentation portal includes 219 sandbox screenshots, mobile-friendly diagrams for all 29 service chapters, two original illustrations and role-aware Help. [Browse the live guides](https://docs.g2p.wverve.in/) · [Maintain the visuals and preview changes](lab/platform-docs/README.md) · [Install or upgrade on Ooru](docs/current/OORU-DOCS-HELP-INSTALL.md)
 
 **Registry Data Imports.** To enable file upload, independent approval and Registry receipt tracking on an existing installation, follow the [Data Imports upgrade and test procedure](docs/current/DATA-IMPORTS-UPGRADE.md). It includes a three-row synthetic [acceptance CSV](docs/current/examples/data-imports-acceptance.csv).
 

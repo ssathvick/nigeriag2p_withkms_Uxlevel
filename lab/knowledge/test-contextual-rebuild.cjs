@@ -55,6 +55,9 @@ registry('/intake-form/household/new/example','members',
   {field:'Relationship to household head',dialog:'Add Household Member'},'member-relationship');
 registry('/intake-form/household/submission/example','submission-detail');
 registry('/tasks/intake-form','intake-queue');
+for (const role of ['all','field','level1','level2','officer','admin']) {
+  registry('/','submission-queues',{role,section:'Form submissions'});
+}
 registry('/tasks/intake-form/household/example','review-l1',{role:'level1',canReview:true,field:'Message'},'decision-note');
 registry('/tasks/intake-form/household/example','review-l2',{role:'level2',canReview:true});
 registry('/tasks/intake-form/household/example','review-intake',{role:'level2',canReview:false});
@@ -65,11 +68,60 @@ registry('/tasks/change-request','change-task-queue');
 registry('/tasks/change-request/example','change-detail');
 registry('/change-request','change-queue');
 registry('/configuration/registry/users','staff');
-registry('/configuration/data-policies/new','sharing');
-registry('/configuration/ingest-configurations/semantic-patterns','integration');
+registry('/configuration/data-policies/new','policy-create');
+registry('/configuration/ingest-configurations/semantic-patterns','ingest-patterns');
 registry('/offline','offline');
 registry('/incoming-messages','incoming');
 registry('/outgoing-messages','outgoing');
+
+
+for (const [path, key] of [
+  ['/configuration/awe-policy-config', 'approval-policies'],
+  ['/configuration/data-models', 'data-models'],
+  ['/configuration/data-policies', 'data-policies'],
+  ['/configuration/intake-forms', 'form-definitions'],
+  ['/configuration/intake-forms/form', 'form-tabs'],
+  ['/configuration/intake-forms/form/tabs/tab', 'form-sections'],
+  ['/configuration/registers', 'register-definitions'],
+  ['/configuration/registers/example', 'register-structure'],
+  ['/configuration/registers/example/sections/section', 'register-section'],
+  ['/configuration/registers/example/tabs/tab', 'register-tab'],
+  ['/configuration/registers/example/scores/score', 'register-score'],
+  ['/configuration/registry/details', 'registry-details'],
+  ['/configuration/registry/languages', 'registry-languages'],
+  ['/configuration/registry/themes', 'registry-themes'],
+  ['/configuration/registry/themes/create', 'theme-create'],
+  ['/configuration/ingest-configurations/templates', 'ingest-templates'],
+  ['/configuration/ingest-configurations/key-paths', 'ingest-paths'],
+  ['/configuration/ingest-configurations/manage-subscription', 'ingest-subscriptions'],
+  ['/configuration/outgest-configurations/templates', 'outgoing-templates'],
+  ['/configuration/outgest-configurations/topics', 'outgoing-topics'],
+  ['/incoming-messages/change-request/example', 'change-detail'],
+  ['/register/household/example/change-request', 'record-change-list'],
+  ['/register/household/example/change-request/change', 'change-detail'],
+  ['/change-request/example', 'change-detail'],
+  ['/myprofile', 'state-missing'],
+]) registry(path, key);
+
+for (const [heading, key] of [
+  ['Register your household', 'registration-start'], ['Master Registry', 'published-registers'],
+  ['Form submissions', 'submission-queues'], ['My tasks', 'review-dashboard'],
+  ['Change requests', 'change-queue'], ['From capture to master record', 'journey'],
+]) registry('/', key, {section:heading, role:'admin'});
+registry('/offline', 'offline-device', {section:'Prepare your device'});
+registry('/offline', 'offline-delivery', {section:'Reconnect and confirm delivery'});
+registry('/configuration/registry/users', 'staff-onboarding', {section:'Onboard a staff member'});
+registry('/configuration/registry/users', 'staff-responsibilities', {section:'Independent responsibilities'});
+registry('/configuration/data-policies/new', 'policy-filters', {section:'Filter rules'});
+registry('/configuration/data-policies', 'configuration-navigation', {configurationNav:true});
+for (const [state, key] of [
+  ['Access restricted','state-restricted'], ['Page not found','state-missing'],
+  ['We could not load this page','state-error'],
+]) registry('/register/household/example', key, {registryPageState:state, recordEditor:true});
+registry('/register/household-list','state-missing',{registryPageState:'Page not found'});
+registry('/tasks/intake-form/household/example','review-l1',
+  {section:'Review decision', duplicateView:'duplicates-intake', role:'level1',canReview:true,field:'Message'}, 'decision-note');
+registry('/tasks/intake-form/household/example','duplicates-register',{duplicateView:'duplicates-register',section:'Match #1'});
 
 const imports = (key, options, field) =>
   check({service:'register',path:'/en/data-imports',...options},'imports-' + key,field && 'imports-' + field);
@@ -78,6 +130,7 @@ imports('approver',{role:'level1'});
 imports('admin',{role:'admin'});
 imports('denied',{role:'level2',denied:true});
 imports('source',{role:'admin',tab:'Sources and mappings'});
+imports('transfers',{section:'Transfer history',role:'admin'});
 imports('access',{role:'admin',tab:'Access'});
 imports('start',{tab:'New import',field:'Data source'},'source-choice');
 imports('fetch',{role:'field',tab:'New import',importConnected:true,field:'Data source'},'source-choice');

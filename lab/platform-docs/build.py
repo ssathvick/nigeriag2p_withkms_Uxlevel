@@ -74,7 +74,7 @@ def topic_chapter(topic, defaults):
     if group == 'register':
         if key.startswith(('review-', 'duplicates')) or key in {'intake-queue', 'returned-intake', 'decision-note'}:
             return 'registry-review'
-        if key == 'offline':
+        if key == 'offline' or key.startswith('offline-'):
             return 'offline-collection'
     return defaults[group]
 

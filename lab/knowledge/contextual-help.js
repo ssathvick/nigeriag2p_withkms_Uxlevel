@@ -226,6 +226,8 @@
     const input = {
       ...paymentContext,
       service:serviceName, path:location.pathname, hash:location.hash, role, section,
+      registryPageState:serviceName === 'register' ? headingText([...document.querySelectorAll('main.application-state h1')].find(visible)) : '',
+      configurationNav:serviceName === 'register' && !!target?.closest('nav[aria-label="Configuration sections"]'),
       duplicateView:duplicateTab ? (words(duplicateTab.firstChild.textContent) === 'Intake Duplicates' ? 'duplicates-intake' : 'duplicates-register') : undefined,
       returnedIntake:serviceName === 'register' && [...document.querySelectorAll('section h2')]
         .some(node => visible(node) && headingText(node) === 'Review feedback'),
@@ -319,12 +321,12 @@
     }
     if (shown.scope === 'upstream_reference') articleBody.append(element('p','Upstream reference. Confirm availability in this installation.'));
     const references = [...(shown.sources || [])];
-    const importTopic = shown.visibility === 'public' && shown.scope === 'local_workflow' &&
-      /^context-imports-([a-z0-9]+(?:-[a-z0-9]+)*)$/.exec(shown.context_key);
-    if (importTopic) {
+    const documentationTopic = shown.visibility === 'public' && shown.scope === 'local_workflow' &&
+      /^context-(imports|register)-([a-z0-9]+(?:-[a-z0-9]+)*)$/.exec(shown.context_key);
+    if (documentationTopic) {
       references.unshift({
         title: 'Open documentation guide',
-        url: docs + '/topics/imports/' + importTopic[1] + '/',
+        url: docs + '/topics/' + documentationTopic[1] + '/' + documentationTopic[2] + '/',
       });
     }
     if (references.length) {
@@ -432,9 +434,9 @@
     launcher.setAttribute('aria-expanded','false');
     if (openedFrom.isConnected) openedFrom.focus();
   }
-  async function open(source, control) {
+  async function open(source, control, sectionHeading) {
     openedFrom = source;
-    anchor = source === launcher ? null : source;
+    anchor = source === launcher ? null : sectionHeading || source;
     targetField = control;
     browsing = false;
     opening = true;
@@ -460,7 +462,7 @@
     const selected = articles.find(item => String(item.id) === stageSelect.value);
     render(selected,undefined,selected ? legacy.relatedGuides(selected).map(item => matchesStage(item.module,item.stage,roleSelect.value,true)) : []);
   }
-  function addHelp(parent, label, control) {
+  function addHelp(parent, label, control, sectionButton) {
     const trigger = element('button','ⓘ');
     trigger.type = 'button';
     trigger.className = 'ng-km-inline';
@@ -469,17 +471,21 @@
     trigger.addEventListener('click',event => {
       event.preventDefault();
       event.stopPropagation();
-      void open(trigger,control);
+      void open(trigger,control,sectionButton ? parent : undefined);
     });
-    if (control) parent.after(trigger);
+    if (sectionButton) sectionButton.after(trigger);
+    else if (control) parent.after(trigger);
     else parent.append(trigger);
   }
   function decorate() {
     for (const heading of document.querySelectorAll('h1,h2,h3,h4,legend')) {
+      if (serviceName === 'register' && heading.closest('a[href]')) continue;
+      const sectionButton = serviceName === 'register' && heading.closest('button,[role="button"]');
+      if (sectionButton && sectionButton.nextElementSibling?.classList.contains('ng-km-inline')) continue;
       if (excluded(heading) || !visible(heading) || heading.closest('header,aside,nav') && !heading.closest('main') ||
           heading.querySelector(':scope > .ng-km-inline')) continue;
       const label = headingText(heading);
-      if (label) addHelp(heading,label);
+      if (label) addHelp(heading,label,undefined,sectionButton);
     }
     if (onImportsPage()) {
       for (const label of document.querySelectorAll('main summary, main section strong')) {

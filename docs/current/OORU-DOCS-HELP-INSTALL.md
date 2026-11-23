@@ -1,6 +1,6 @@
 # Install NSIPA documentation and contextual Help on Ooru
 
-This release packages 29 service chapters and 534 public Knowledge Library entries, including 261 contextual workflow, screen and field guides. The published sandbox demonstrates the intended navigation and guidance. [NSIPA documentation](https://docs.g2p.wverve.in/)
+This release packages 29 service chapters and 568 public Knowledge Library entries, including 295 contextual workflow, screen and field guides. The published sandbox demonstrates the intended navigation and guidance. [NSIPA documentation](https://docs.g2p.wverve.in/)
 
 | Checkout | Set `LAB` to | Use it for |
 | --- | --- | --- |
@@ -32,9 +32,11 @@ python3 "$RELEASE/source/platform-docs/build.py" "$RELEASE/site" \
   --prefix '' --origin "https://$DOCS_HOST"
 ```
 
-The deployment account needs write access to the release directory and Nginx needs read access. Use a new release directory for each build. The seed build should report 29 chapters, 261 contextual topics, 273 additional library topics and 564 pages including the home page. The builder checks that every included guide has its source text, navigation entry, search result and canonical URL. It also checks internal links, anchors and the sitemap.
+The deployment account needs write access to the release directory and Nginx needs read access. Use a new release directory for each build. The seed build should report 29 chapters, 295 contextual topics, 273 additional library topics and 598 pages including the home page. The builder checks that every included guide has its source text, navigation entry, search result and canonical URL. It also checks internal links, anchors and the sitemap.
 
 ## 2. Install or upgrade the Knowledge Library
+
+The 23 November Registry update includes 34 new articles and revised Help scripts. On an existing installation, merge the seed in this section, rebuild the published docs and install the versioned Help tags in section 3. Verify the dashboard, approval queue and mobile checks in section 4. [Registry help audit](MASTER-REGISTRY-HELP-AUDIT.md)
 
 **For a visual-only update on an existing installation**, stage the new release as in section 1. Continue with the published-feed build and docs root in section 3. The existing Knowledge Library and Help integration can serve this update without a database merge or registration-service restart. Keep the current Help assets available if the release pointer also serves them.
 
@@ -119,7 +121,7 @@ curl --fail --silent --show-error -o /dev/null \
 | Area | Expected result |
 | --- | --- |
 | Docs and library | Search lands on the expected workflow or role guide. Service links use destination hosts. Upstream articles are labelled as references. Published docs open the matching Knowledge Library article. Staff-only test guidance requires authorised access and stays out of public search. |
-| Master Registry | Field Agent, First Reviewer, Second Reviewer and Registry Administrator see guidance for their own screens. Verify returned records, review queues and both duplicate tabs. Check that each match appears once per tab in a release with the current Registry matcher. |
+| Master Registry | Check the Field Agent, First Reviewer, Second Reviewer, MBR Officer and Registry Administrator accounts. Wherever the **Form submissions** card is visible, its information button opens **Registration review queues**. In the registration approval queue, Help opens **My registration reviews**, including when the queue is empty. On a restricted page, Help explains how to request access. On a phone, open a section or field guide and check that **Open documentation guide** opens the same topic on the destination docs host. Verify returned records, review queues and both duplicate tabs. Check that each match appears once per tab in a release with the current Registry matcher. |
 | Data Imports and Data Bridge | Verify connected CSV failure and retry, one draft per retry, independent approval and receipts. For a partial receipt, correct only the outstanding row. Where native saved-row tracking and receipt recovery are installed, confirm that restored receipts keep one saved row and one receipt log, including overlapping late deliveries, and that a matching alternate remains blocked. Verify that Help opens the matching documentation for Field Agent, First Reviewer and Registry Administrator. Second Reviewer sees the access guide. |
 | PBMS and Bridge | Verify the installed revision of the Programme Admin, Payment, Finance, Audit and CEO flow. Check resubmission, partial payments, reversal and case closure guidance. Where the matching Bridge reconciliation update is installed, distinguish repeated reversals from a different-amount exception across bank statements. |
 
