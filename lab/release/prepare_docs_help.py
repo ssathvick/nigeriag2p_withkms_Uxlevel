@@ -64,7 +64,13 @@ def stage(destination, config):
     runtime.mkdir()
     runtime_seed.write_bytes((source / 'knowledge-seed.json').read_bytes())
     copy('knowledge_management.py', runtime / 'knowledge_management.py')
-    for name in ('knowledge-article.html', 'knowledge-library.html', 'knowledge-editor.html'):
+    copy('knowledge_management.py', source / 'knowledge_management.py')
+    copy('km_governance.py', runtime / 'km_governance.py')
+    copy('km_governance.py', source / 'km_governance.py')
+    copy('local_ai.py', runtime / 'local_ai.py')
+    copy('ai/local-ai.js', runtime / 'static/local-ai.js')
+    for name in ('knowledge-article.html', 'knowledge-library.html', 'knowledge-editor.html', 'knowledge-revision.html',
+                 'knowledge-admin.html', 'knowledge-register.html', 'knowledge-checks.html'):
         copy('registration-ui/' + name, runtime / 'templates' / name)
 
     help_assets.mkdir()

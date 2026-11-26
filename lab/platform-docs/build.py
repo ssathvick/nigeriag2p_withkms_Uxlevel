@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import shutil
+import sys
 from urllib.parse import urlencode, urlsplit
 from urllib.request import urlopen
 from xml.sax.saxutils import escape as xml_escape
@@ -15,6 +16,8 @@ from visual_guides import GuideVisuals
 
 SOURCE = Path(__file__).resolve().parent
 ROOT = SOURCE.parent
+sys.path.insert(0, str(ROOT))
+from knowledge_management import reader_content
 PLATFORM = 'https://g2p.wverve.in'
 KNOWLEDGE = PLATFORM + '/registration/knowledge'
 KNOWLEDGE_FEED = 'http://127.0.0.1:18081/registration/api/knowledge?include_roles=1'
@@ -169,7 +172,7 @@ class Documentation:
 
             if ref in self.topics or parent not in self.chapters:
                 raise ValueError(f'Invalid documentation route for {article_slug}')
-            self.topics[ref] = {**entry, 'parent': parent, 'level': level}
+            self.topics[ref] = {**reader_content(entry), 'parent': parent, 'level': level}
 
         if missing := catalog.keys() - contexts:
             raise ValueError(f"Published contextual guidance is missing {', '.join(sorted(missing))}")
@@ -349,8 +352,8 @@ class Documentation:
         body = ''
         if topic['level'] == 'upstream':
             body = '<p class="notice">Upstream reference. Confirm feature availability in the installed NSIPA release.</p>'
-        elif topic.get('provisional'):
-            body = '<p class="notice">Provisional sandbox guidance</p>'
+        if topic.get('provisional') or topic.get('context_key'):
+            body += '<p class="notice">Provisional sandbox guidance · Business validation pending</p>'
         if topic['audience'] != 'all':
             body += f'<p>Guidance for {AUDIENCES[topic["audience"]]}s.</p>'
         body += self.visuals.screenshots(pictures.get('@purpose', ()))
@@ -365,8 +368,6 @@ class Documentation:
                 body += ('<details class="process-context"><summary>See how this fits into '
                          + html.escape(self.chapters[topic['parent']]['title'])
                          + '</summary>' + self.visuals.diagram(diagram) + '</details>')
-        if topic.get('source_note'):
-            body += f'<p><small>{html.escape(topic["source_note"])}</small></p>'
         body += '<p class="source-links">' + self.href(topic['parent'], 'Back to service guide') + self.link(article, 'Open in Knowledge Library ↗') + '</p>'
         return self.shell(ref, topic['title'], topic['purpose'], body, sections, topic['parent'])
 

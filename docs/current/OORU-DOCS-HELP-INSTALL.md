@@ -11,7 +11,7 @@ Use one checkout for a deployment. The package supplies the static docs, publish
 
 ## 1. Build a release for the destination
 
-Use Python 3.10 or newer. Run the commands from the chosen repository root in Bash. Set up the destination DNS, TLS, platform host and service hostnames. The example assumes one HTTPS host per service and the registration gateway at `/registration`. If Ooru shares one host across services, adapt the Help service selection to use its route prefixes and verify the result on every affected service before publishing it.
+Use Python 3.10 or newer. Run the portal builder with the registration virtual environment, which provides Flask for the shared KMS modules. Run the commands from the chosen repository root in Bash. Set up the destination DNS, TLS, platform host and service hostnames. The example assumes one HTTPS host per service and the registration gateway at `/registration`. If Ooru shares one host across services, adapt the Help service selection to use its route prefixes and verify the result on every affected service before publishing it.
 
 ```bash
 LAB="$PWD/lab"                         # UX/KMS checkout
@@ -28,7 +28,7 @@ Replace the example hostnames and set `registration_upstream` to the registratio
 python3 "$LAB/release/prepare_docs_help.py" --config "$CONFIG" --output "$RELEASE"
 DOCS_HOST=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["docs"])' "$CONFIG")
 PLATFORM_HOST=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["platform"])' "$CONFIG")
-python3 "$RELEASE/source/platform-docs/build.py" "$RELEASE/site" \
+"${REGISTRATION_PYTHON:-/opt/openg2p-lab/registration-venv/bin/python}" "$RELEASE/source/platform-docs/build.py" "$RELEASE/site" \
   --prefix '' --origin "https://$DOCS_HOST"
 ```
 
@@ -40,7 +40,9 @@ The 23 November Registry update includes 34 new articles and revised Help script
 
 **For a visual-only update on an existing installation**, stage the new release as in section 1. Continue with the published-feed build and docs root in section 3. The existing Knowledge Library and Help integration can serve this update without a database merge or registration-service restart. Keep the current Help assets available if the release pointer also serves them.
 
-On a fresh installation, deploy `registration/knowledge_management.py`, `registration/knowledge-seed.json` and the three staged `registration/templates/knowledge-*.html` files with the existing registration service. The registration app calls `knowledge_management.install(...)` during startup. It creates the Knowledge Library tables and seeds the release. Preserve the destination's `base.html`, remaining library templates, identity settings and application configuration.
+The 25 November update changes Help routing, the editor, source visibility and the documentation build. Preserve the existing seed and database. Use the updated Help tags and rebuild the public site from the anonymous feed. The [authoring pilot](KMS-AUTHORING-PILOT.md) records the 15 reviewed examples.
+
+On a fresh installation, deploy `registration/knowledge_management.py`, `registration/km_governance.py`, `registration/knowledge-seed.json` and the staged `registration/local_ai.py`, `registration/static/local-ai.js` and four `registration/templates/knowledge-*.html` files with the existing registration service. The registration app calls `knowledge_management.install(...)` during startup. It creates the Knowledge Library tables and seeds the release. Preserve the destination's `base.html`, remaining library templates, identity settings and application configuration.
 
 On an existing installation, preview the merge. The runtime paths below are from the base installation. Adjust them for Ooru before running the commands.
 
@@ -60,14 +62,18 @@ Schedule a maintenance window for the registration gateway. Stop its writers, th
 BACKUP="/var/backups/nsipa-knowledge/$(date -u +%Y%m%dT%H%M%SZ)"
 sudo install -d -m 0700 "$BACKUP"
 sudo systemctl stop "$KM_SERVICE"
-sudo cp -a "$REG/knowledge_management.py" "$REG/knowledge-seed.json" \
+sudo cp -a "$REG/knowledge_management.py" "$REG/knowledge-seed.json" "$REG/local_ai.py" "$REG/static/local-ai.js" \
   "$REG/templates/knowledge-article.html" "$REG/templates/knowledge-library.html" \
-  "$REG/templates/knowledge-editor.html" "$BACKUP/"
+  "$REG/templates/knowledge-editor.html" "$REG/templates/knowledge-revision.html" "$REG/templates/knowledge-admin.html" "$BACKUP/"
+for F in "$REG/km_governance.py" "$REG/templates/knowledge-register.html" "$REG/templates/knowledge-checks.html"; do
+  if [ -f "$F" ]; then sudo cp -a "$F" "$BACKUP/"; fi
+done
 sudo "$PYTHON" "$LAB/release/merge_knowledge.py" \
   --database "$REG/intake.sqlite" --seed "$RELEASE/registration/knowledge-seed.json" \
   --apply --backup "$BACKUP/intake.sqlite"
-sudo install -m 0644 "$RELEASE/registration/knowledge_management.py" \
-  "$RELEASE/registration/knowledge-seed.json" "$REG/"
+sudo install -m 0644 "$RELEASE/registration/km_governance.py" "$RELEASE/registration/knowledge_management.py" \
+  "$RELEASE/registration/knowledge-seed.json" "$RELEASE/registration/local_ai.py" "$REG/"
+sudo install -m 0644 "$RELEASE/registration/static/local-ai.js" "$REG/static/"
 sudo install -m 0644 "$RELEASE/registration/templates/"knowledge-*.html "$REG/templates/"
 sudo systemctl start "$KM_SERVICE"
 curl --fail --silent --show-error "https://$PLATFORM_HOST/registration/health"
@@ -83,7 +89,7 @@ For an existing deployment, build from the destination's anonymous published fee
 PUBLISHED=$(mktemp)
 curl -q --fail --silent --show-error \
   "https://$PLATFORM_HOST/registration/api/knowledge?include_roles=1" > "$PUBLISHED"
-python3 "$RELEASE/source/platform-docs/build.py" "$RELEASE/published-site" \
+"${REGISTRATION_PYTHON:-/opt/openg2p-lab/registration-venv/bin/python}" "$RELEASE/source/platform-docs/build.py" "$RELEASE/published-site" \
   --prefix '' --origin "https://$DOCS_HOST" --knowledge-file "$PUBLISHED"
 ```
 
@@ -121,7 +127,7 @@ curl --fail --silent --show-error -o /dev/null \
 | Area | Expected result |
 | --- | --- |
 | Docs and library | Search lands on the expected workflow or role guide. Service links use destination hosts. Upstream articles are labelled as references. Published docs open the matching Knowledge Library article. Staff-only test guidance requires authorised access and stays out of public search. |
-| Master Registry | Check the Field Agent, First Reviewer, Second Reviewer, MBR Officer and Registry Administrator accounts. Wherever the **Form submissions** card is visible, its information button opens **Registration review queues**. In the registration approval queue, Help opens **My registration reviews**, including when the queue is empty. On a restricted page, Help explains how to request access. On a phone, open a section or field guide and check that **Open documentation guide** opens the same topic on the destination docs host. Verify returned records, review queues and both duplicate tabs. Check that each match appears once per tab in a release with the current Registry matcher. |
+| Master Registry | Check the Field Agent, First Reviewer, Second Reviewer, MBR Officer and Registry Administrator accounts. Wherever the **Form submissions** card is visible, its information button opens **Registration review queues**. An empty registration approval queue opens **My registration reviews**. With an open or claimed task, First Reviewer and Second Reviewer receive their respective level-specific guides. On a restricted page, Help explains how to request access. On a phone, open a section or field guide and check that **Open documentation guide** opens the same topic on the destination docs host. Verify returned records, review queues and both duplicate tabs. Check that each match appears once per tab in a release with the current Registry matcher. |
 | Data Imports and Data Bridge | Verify connected CSV failure and retry, one draft per retry, independent approval and receipts. For a partial receipt, correct only the outstanding row. Where native saved-row tracking and receipt recovery are installed, confirm that restored receipts keep one saved row and one receipt log, including overlapping late deliveries, and that a matching alternate remains blocked. Verify that Help opens the matching documentation for Field Agent, First Reviewer and Registry Administrator. Second Reviewer sees the access guide. |
 | PBMS and Bridge | Verify the installed revision of the Programme Admin, Payment, Finance, Audit and CEO flow. Check resubmission, partial payments, reversal and case closure guidance. Where the matching Bridge reconciliation update is installed, distinguish repeated reversals from a different-amount exception across bank statements. |
 
@@ -129,6 +135,6 @@ The published guides for connected CSV concurrency, saved-row receipt recovery a
 
 ## 5. Roll back or publish a later revision
 
-For a docs or Help asset rollback, point `current` and the docs root at their previous verified release and restore the previous layout tags and proxy configuration. Validate and reload. For a Knowledge Library rollback during the maintenance window, stop the registration service, restore the backed-up code and templates and use SQLite's backup API to restore the consistent database copy to the stopped database. If writes resumed after the upgrade, reconcile those changes before restoring database state. Confirm sign-in, library access and Help after recovery.
+For a docs or Help asset rollback, point `current` and the docs root at their previous verified release and restore the previous layout tags and proxy configuration. Validate and reload. For a Knowledge Library rollback during the maintenance window, stop the registration service, restore the backed-up code, static editor script and templates and use SQLite's backup API to restore the consistent database copy to the stopped database. If writes resumed after the upgrade, reconcile those changes before restoring database state. Confirm sign-in, library access and Help after recovery.
 
 For subsequent content updates, publish the approved article in the Knowledge Library, export the anonymous published feed again, then rebuild, verify and switch the static release. Use a staff review when a source has changed or when a guide's operational status needs approval.

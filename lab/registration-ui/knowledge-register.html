@@ -1,0 +1,20 @@
+{% extends 'base.html' %}{% block content %}
+<p><a href="{{prefix}}/knowledge/admin">Knowledge management</a></p>
+<h1>Staff review register</h1>
+<form method="get" class="card">
+<label>Find a guide by title, module, workflow, screen or field <input name="q" value="{{query}}" maxlength="160"></label>
+<label>Guidance level <select name="level">{% for v in ['', 'field','screen','workflow'] %}<option value="{{v}}" {% if level==v %}selected{% endif %}>{{v|capitalize or 'All levels'}}</option>{% endfor %}</select></label>
+<label>Review set <select name="scope">{% for v,label in [('','All guides'),('calibration','10 calibration guides'),('ai','Guides with a current AI report')] %}<option value="{{v}}" {% if scope==v %}selected{% endif %}>{{label}}</option>{% endfor %}</select></label>
+<label>Exact dependency <input name="dependency" value="{{dep}}" maxlength="160" placeholder="pbms.approval-comment"></label>
+<button>Filter register</button> <button name="export" value="json">Export versioned evidence (JSON)</button>
+</form>
+<p>{{items|length}} matching guides. Swift KM owns editorial records. Reviewers score independently. The second submission unlocks both scores for comparison.</p>
+{% if perms.review %}<details class="card"><summary>Record a source or control change</summary>
+<p>Enter a dependency from the register. The change records the versions of currently mapped guides for re-review. Sandbox identifiers are provisional.</p>
+<form method="post" action="{{prefix}}/knowledge/admin/register/change"><input type="hidden" name="csrf" value="{{csrf}}">
+<label>Exact dependency <input name="dependency" value="{{dep}}" required maxlength="160"></label>
+<label>Change or mock scenario <input name="description" required minlength="4" maxlength="1500"></label><button>Open change review</button></form></details>{% endif %}
+{% if cases %}<details><summary>Recorded changes ({{cases|length}})</summary>{% for c in cases %}<p>#{{c.id}} · <a href="?dependency={{c.dependency|urlencode}}">{{c.dependency}}</a> · {{c.description}} · {{c.at}}</p>{% endfor %}</details>{% endif %}
+<div class="table-wrap"><table><thead><tr><th>Guide</th><th>Module and task</th><th>Version and evidence</th><th>Provisional dependencies</th></tr></thead><tbody>
+{% for a in items %}<tr><td><a href="{{prefix}}/knowledge/admin/{{a.id}}/checks">#{{a.id}} {{a.title}}</a><br>{{a.level}}</td><td>{{a.module}} · {{a.stage}}</td><td>v{{a.version}} · {{a.status}}<br>{{a.ai}} AI report(s) · {{a.scores}} visible score(s)</td><td>{% for k in a.dependencies %}<a href="?dependency={{k|urlencode}}">{{k}}</a><br>{% endfor %}</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

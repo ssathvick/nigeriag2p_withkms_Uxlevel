@@ -2,7 +2,7 @@
 import json,re,datetime,unicodedata,math
 from urllib.parse import urlencode
 from pathlib import Path
-from flask import Blueprint,g,request,abort,redirect
+import km_governance
 SEED=json.loads(Path(__file__).with_name('knowledge-seed.json').read_text(encoding='utf-8'))
 FIELDS=['module','stage','audience','title','purpose','steps','requirements','next_step','issues']
 AUDIENCES=['all','citizen','officer','verifier','supervisor']
@@ -22,7 +22,27 @@ def reference_metadata(item):
  if item.get('provisional') is True:result['provisional']=True
  if item.get('source_note'):result['source_note']=str(item['source_note'])[:400]
  return result
+# These checks flag drafts for sourcing. An editorial review or a recorded
+# reference alone cannot establish that a government authority validated a rule.
+POLICY_CLAIM = re.compile(
+ r'\b(consent|eligib\w*|refus\w*|revalidat\w*|reject\w*|approv\w*|payments?|disbursements?)\b', re.I)
+def needs_authority(item):
+ return bool(item.get('policy_sensitive') or item.get('context_key') or
+             (item.get('scope') != 'upstream_reference' and
+              POLICY_CLAIM.search(' '.join(item.get(key,'') for key in FIELDS[3:]))))
+def editorial_content(item):
+ result=dict(item)
+ if needs_authority(item):
+  result['source_status']='Source recorded · validation pending' if item.get('authority_reference') else 'NEEDS SOURCE'
+ return result
+def reader_content(item):
+ result=dict(item)
+ for key in ('source_note','authority_reference','policy_sensitive','source_status','review_dependencies'):
+  result.pop(key,None)
+ if needs_authority(item):result['provisional']=True
+ return result
 def install(r):
+ from flask import Blueprint,g,request,abort,redirect
  bp=Blueprint('knowledge',__name__)
  with r.db() as c:
   c.executescript("""CREATE TABLE IF NOT EXISTS km_articles(id INTEGER PRIMARY KEY,slug TEXT UNIQUE NOT NULL,module TEXT NOT NULL,stage TEXT NOT NULL,audience TEXT NOT NULL,draft TEXT NOT NULL,version INTEGER NOT NULL,status TEXT NOT NULL,author TEXT NOT NULL,reviewer TEXT,published TEXT,published_version INTEGER,updated TEXT NOT NULL);
@@ -55,7 +75,20 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   if due:
    try:datetime.date.fromisoformat(due)
    except ValueError:abort(400,'Use a valid review date.')
-  return {'visibility':visibility,'review_due':due}
+  reference=form.get('authority_reference',previous.get('authority_reference','')).strip()
+  if len(reference)>500:abort(400,'Keep the authority reference under 501 characters.')
+  level=form.get('help_level',previous.get('help_level',''))
+  if level not in ('','field','screen','workflow'):abort(400,'Choose a valid guidance level.')
+  if previous.get('context_key') and level!=previous.get('help_level'):abort(400,'Keep the level of mapped guidance.')
+  result={'visibility':visibility,'review_due':due}
+  raw=form.get('review_dependencies', '\n'.join(previous.get('review_dependencies',[])))
+  keys=list(dict.fromkeys(raw.split()))
+  if len(keys)>40 or any(not re.fullmatch(r'[a-z0-9][a-z0-9._-]{0,119}',k) for k in keys):abort(400,'Use up to 40 lowercase dependency identifiers.')
+  if keys:result['review_dependencies']=keys
+  if level:result['help_level']=level
+  if reference:result['authority_reference']=reference
+  if form.get('policy_sensitive') or ('source_review_form' not in form and previous.get('policy_sensitive')):result['policy_sensitive']=True
+  return result
  def normalized(value):
   return ''.join(c for c in unicodedata.normalize('NFKD',value.casefold()) if not unicodedata.combining(c))
  def matches(article,query):
@@ -65,7 +98,7 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
   result=[]
   for row in r.rows("SELECT * FROM km_articles WHERE published IS NOT NULL AND status!='archived' ORDER BY module,stage,audience"):
    content=json.loads(row['published'])
-   if readable(content):result.append({'id':row['id'],'slug':row['slug'],'version':row['published_version'],**content})
+   if readable(content):result.append({'id':row['id'],'slug':row['slug'],'version':row['published_version'],**reader_content(content)})
   return result
  @bp.get(r.PREFIX+'/api/knowledge')
  def public_api():
@@ -115,7 +148,7 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
  def export(aid):
   item=next((a for a in published() if a['id']==aid),None)
   if not item:abort(404)
-  status=' · Provisional guidance' if item.get('provisional') else ''
+  status=' · Provisional sandbox guidance · Business validation pending' if item.get('provisional') else ''
   body=item['title']+'\nPublished version '+str(item['version'])+status+'\n\n'+'\n\n'.join(k.replace('_',' ').title()+'\n'+item[k] for k in FIELDS if k not in ('title','module','audience','stage') and item[k])
   response=r.app.make_response(body);response.headers['Content-Type']='text/plain; charset=utf-8';response.headers['Content-Disposition']='attachment; filename="knowledge-'+str(aid)+'-v'+str(item['version'])+'.txt"';response.headers['Cache-Control']='private, no-store';return response
  @bp.get(r.PREFIX+'/knowledge/admin')
@@ -129,7 +162,8 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
  def editor(aid=None):
   require('edit');a=r.one('SELECT * FROM km_articles WHERE id=?',(aid,)) if aid else None
   if aid and not a:abort(404)
-  return r.page('knowledge-editor.html',article=a,content=json.loads(a['draft']) if a else {},modules=MODULES,audiences=AUDIENCES,perms=permissions(),history=r.rows('SELECT id,version,action,actor,at,note FROM km_history WHERE article=? ORDER BY id DESC',(aid,)) if aid else [])
+  published_revision=reader_content(json.loads(a['published'])) if a and a['published'] else {}
+  return r.page('knowledge-editor.html',article=a,published_revision=published_revision,content=editorial_content(json.loads(a['draft'])) if a else {},modules=MODULES,audiences=AUDIENCES,perms=permissions(),history=r.rows('SELECT id,version,action,actor,at,note FROM km_history WHERE article=? ORDER BY id DESC',(aid,)) if aid else [])
  @bp.post(r.PREFIX+'/knowledge/admin/save')
  def save():
   require('edit');aid=request.form.get('id');data={k:request.form.get(k,'').strip() for k in FIELDS}
@@ -143,11 +177,14 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
     if not a:abort(404)
     if request.form.get('version')!=str(a['version']):abort(409,'Guidance changed. Reload before saving.')
     previous=json.loads(a['draft'])
-    if not previous.get('context_key') and any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
+    if previous.get('help_level')=='field':
+     for key in ('steps','requirements','next_step','issues'):
+      if key not in request.form:data[key]=previous.get(key,'')
+    if not previous.get('context_key') and request.form.get('help_level',previous.get('help_level'))!='field' and any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
     if previous.get('context_key') and any(data[k]!=previous[k] for k in ('module','audience')):abort(400,'This guide is mapped to an application context. Keep its service and audience.')
     content=json.dumps({**data,**reference_metadata(previous),**governance(request.form,previous)});version=a['version']+1;c.execute("UPDATE km_articles SET module=?,stage=?,audience=?,draft=?,version=?,status='draft',author=?,reviewer=NULL,review_note='',updated=? WHERE id=?",(data['module'],data['stage'],data['audience'],content,version,actor,now,aid))
    else:
-    if any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
+    if request.form.get('help_level')!='field' and any(not data[k] for k in FIELDS):abort(400,'Complete all guidance fields.')
     import secrets
     slug=re.sub('[^a-z0-9]+','-',data['title'].lower()).strip('-')+'-'+secrets.token_hex(4)
     aid=c.execute("INSERT INTO km_articles(slug,module,stage,audience,draft,version,status,author,updated) VALUES(?,?,?,?,?,1,'draft',?,?)",(slug,data['module'],data['stage'],data['audience'],content,actor,now)).lastrowid
@@ -168,6 +205,10 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
    if a['status'] not in allowed[action]:abort(409,'This action is not available in the current status.')
    if action in ['review','return'] and a['author']==actor:abort(403,'A different staff member must review your guidance.')
    if action=='publish' and (not a['reviewer'] or a['reviewer']==a['author']):abort(403,'An independent review is required before publication.')
+   if action in ('submit','publish'):
+    peers=c.execute("SELECT id,draft FROM km_articles WHERE status!='archived'").fetchall()
+    issues=km_governance.preflight(a,peers,needs_authority)
+    km_governance.record(c,a,'preflight',actor,r.stamp(),{'action':action,'issues':issues})
    if action=='publish':c.execute("UPDATE km_articles SET published=draft,published_version=version,status='published',updated=? WHERE id=?",(r.stamp(),aid))
    else:
     status={'submit':'in_review','review':'reviewed','return':'draft','archive':'archived','restore':'draft'}[action]
@@ -180,7 +221,7 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
  def revision(aid,hid):
   require('edit');row=r.one('SELECT * FROM km_history WHERE article=? AND id=?',(aid,hid))
   if not row:abort(404)
-  return r.page('knowledge-revision.html',revision=row,content=json.loads(row['content']),article=r.one('SELECT * FROM km_articles WHERE id=?',(aid,)),perms=permissions())
+  return r.page('knowledge-revision.html',revision=row,content=editorial_content(json.loads(row['content'])),article=r.one('SELECT * FROM km_articles WHERE id=?',(aid,)),perms=permissions())
  @bp.post(r.PREFIX+'/knowledge/admin/<int:aid>/restore-version/<int:hid>')
  def restore_version(aid,hid):
   require('edit')
@@ -192,5 +233,6 @@ CREATE TABLE IF NOT EXISTS km_history(id INTEGER PRIMARY KEY,article INTEGER NOT
    if a['status']=='archived':c.execute('UPDATE km_articles SET published=NULL,published_version=NULL WHERE id=?',(aid,))
    history(c,dict(c.execute('SELECT * FROM km_articles WHERE id=?',(aid,)).fetchone()),'restore_version')
   return redirect(r.PREFIX+'/knowledge/admin/'+str(aid))
+ km_governance.install(r,bp,require,permissions,needs_authority)
  r.knowledge_readable=readable
  r.app.register_blueprint(bp)

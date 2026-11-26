@@ -1,6 +1,6 @@
 import datetime,json,pathlib,shutil,subprocess
 root=pathlib.Path('/opt/openg2p-lab/pbms-react')
-src=pathlib.Path('/mnt/h/Nigeria_Mosip/codex/openg2p-lab/pbms-react/workflow_api.py')
+src=pathlib.Path(__file__).resolve().with_name('workflow_api.py')
 target=root/'adapter/workflow_api.py';target.parent.mkdir(exist_ok=True)
 backup=root/'backups'/('adapter-'+datetime.datetime.now().strftime('%Y%m%d-%H%M%S'));backup.mkdir(mode=0o700)
 unit=pathlib.Path('/etc/systemd/system/pbms-react-api.service')
@@ -33,6 +33,6 @@ WantedBy=multi-user.target
 ''')
 subprocess.run(['systemctl','daemon-reload'],check=True)
 subprocess.run(['systemctl','enable','pbms-react-api'],check=True,capture_output=True)
-subprocess.run(['systemctl','restart','pbms-react-api'],check=True)
+subprocess.run(['/opt/openg2p-lab/registration-venv/bin/python',str(src.parent/'finance_cases/install_sandbox.py')],check=True)
 subprocess.run(['systemctl','is-active','pbms-react-api'],check=True)
 print('Adapter installed; existing backend services unchanged. Backup:',backup)

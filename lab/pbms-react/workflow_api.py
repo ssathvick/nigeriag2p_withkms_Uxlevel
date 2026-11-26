@@ -169,3 +169,6 @@ def headers(response):
     response.headers['Cache-Control']='no-store'
     response.headers['X-Content-Type-Options']='nosniff'
     return response
+
+from finance_cases.register import install as install_finance_cases
+install_finance_cases(app, User, Problem)

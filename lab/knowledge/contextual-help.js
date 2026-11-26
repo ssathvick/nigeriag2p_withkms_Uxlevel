@@ -68,7 +68,7 @@
   panel.append(header, content);
   document.body.append(launcher, panel);
 
-  let articles = [], articleRequest, identityRequest, signedRole, openedFrom = launcher, targetField;
+  let articles = [], articleRequest, identityGeneration = 0, identityPending = false, signedRole, openedFrom = launcher, targetField;
   let browsing = false, opening = false, anchor = null, timer, lastKey = '', route = location.href;
   const excluded = node => !!node?.closest?.('#ng-km-panel,#ng-km-launcher,#ng2p-platform-guide,#ng2p-platform-bar');
   const visible = node => !!node && node.getClientRects().length > 0 && !node.closest('[hidden],[aria-hidden="true"]') &&
@@ -85,7 +85,7 @@
     ];
     for (const note of document.querySelectorAll('aside[role="note"]')) {
       const match = hints.find(([pattern]) => pattern.test(headingText(note)));
-      if (match) return match[1];
+      if (match && visible(note)) return match[1];
     }
   }
   function fieldLabel(control) {
@@ -127,39 +127,42 @@
       !document.querySelector('.sidebar nav, .registry-workspace');
   }
   async function loadIdentity() {
-    if (identityRequest || signIn()) return identityRequest;
-    if (!['register','pbms'].includes(serviceName)) return;
-    identityRequest = (async () => {
-      try {
-        if (serviceName === 'register') {
-          const options = {credentials:'same-origin', cache:'no-store'};
-          let response = await fetch('/api/me', options);
-          if (!response.ok && response.status !== 403) {
-            await new Promise(resolve => setTimeout(resolve,150));
-            response = await fetch('/api/me',options);
-          }
-          const identity = response.ok ? await response.json() : {};
-          if (roles[identity.registry_scope]) signedRole = identity.registry_scope;
-          else if (!response.ok) identityRequest = undefined;
-        } else if (document.querySelector('.sidebar nav')) {
-          const model = 'g2p.beneficiary.list', method = 'nsipa_identity';
-          const response = await fetch('/web/dataset/call_kw/' + model + '/' + method, {
-            method:'POST', credentials:'same-origin', headers:{'Content-Type':'application/json'},
-            body:JSON.stringify({jsonrpc:'2.0', method:'call', params:{model, method, args:[], kwargs:{}}, id:1})
-          });
-          const {result} = response.ok ? await response.json() : {};
-          if (result) {
-            const assigned = (result.roles || []).map(value => value.toLowerCase()).filter(value => roles[value]);
-            signedRole = result.admin ? 'pbms-admin' : result.payment ? 'payment' : assigned.length === 1 ? assigned[0] : undefined;
-          }
+    const generation = ++identityGeneration;
+    signedRole = undefined;
+    identityPending = false;
+    if (signIn() || !['register','pbms'].includes(serviceName)) return;
+    identityPending = true;
+    let role;
+    try {
+      if (serviceName === 'register') {
+        const options = {credentials:'same-origin', cache:'no-store'};
+        let response = await fetch('/api/me',options);
+        if (!response.ok && ![401,403].includes(response.status)) {
+          await new Promise(resolve => setTimeout(resolve,150));
+          if (generation !== identityGeneration || signIn()) return;
+          response = await fetch('/api/me',options);
         }
-      } catch {
-        // A missing role hint leaves general guidance available.
-        identityRequest = undefined;
+        const identity = response.ok ? await response.json() : {};
+        if (Object.hasOwn(roles,identity.registry_scope)) role = identity.registry_scope;
+      } else if (document.querySelector('.sidebar nav')) {
+        const model = 'g2p.beneficiary.list', method = 'nsipa_identity';
+        const response = await fetch('/web/dataset/call_kw/' + model + '/' + method, {
+          method:'POST', credentials:'same-origin', cache:'no-store', headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({jsonrpc:'2.0', method:'call', params:{model, method, args:[], kwargs:{}}, id:1})
+        });
+        const {result} = response.ok ? await response.json() : {};
+        if (result) {
+          const assigned = (result.roles || []).map(value => value.toLowerCase()).filter(value => Object.hasOwn(roles,value));
+          role = result.admin ? 'pbms-admin' : result.payment ? 'payment' : assigned.length === 1 ? assigned[0] : undefined;
+        }
       }
-      return signedRole;
-    })();
-    return identityRequest;
+    } catch {
+      // Current screen markers can still identify the role when identity is unavailable.
+    }
+    if (generation === identityGeneration) {
+      identityPending = false;
+      if (!signIn()) signedRole = role;
+    }
   }
   function contextFor(target, control) {
     const screen = document.querySelector('[data-km-screen]');
@@ -196,7 +199,7 @@
     const correctionRecorded = listStatus === 'Returned for correction' && contextual?.correctionSinceReturn?.(
       listStat('Revision'), [...modal.querySelectorAll('.demo-history > strong')].map(headingText));
     const actionScope = modal || document;
-    const role = signedRole || registryScopeNote() || data.kmPersona || 'all';
+    const role = signIn() ? 'all' : signedRole || registryScopeNote() || data.kmPersona || 'all';
     const paymentReportFields = serviceName === 'pbms' ? [...(modal?.querySelectorAll('dt') || [])] : [];
     const reportCount = label => {
       const field = paymentReportFields.find(node => label.test(headingText(node)));
@@ -240,6 +243,8 @@
       exportList:shownButton(actionScope, ['Export Beneficiaries (.xls)'], true),
       canPayList:shownButton(actionScope, ['Proceed to payments'], true),
       canRouteList:shownButton(actionScope, ['Save payment routing']),
+      assignedIntakeTask:serviceName === 'register' && /\/tasks\/intake-form\/?$/.test(location.pathname) &&
+        [...document.querySelectorAll('span[title="open" i],span[title="claimed" i]')].some(visible),
       canReview:shownButton(document, ['Approve','Reject permanently','Revalidate — return to field agent'], true),
       intakeEditor:shownButton(document, ['Save Draft','Submit']) || !!document.querySelector('.registry-native-form form'),
       intakeSection:!!target?.closest('[data-section-id]'),
@@ -291,24 +296,25 @@
   }
   function render(article, field, related = []) {
     articleBody.replaceChildren();
-    if (!article) {
+    if (!article && !field) {
       articleBody.append(element('p', 'No task-specific guidance is available for this screen.'));
       return;
     }
     const shown = field || article;
     content.scrollTop = 0;
     if (shown.provisional) {
-      const status = element('p','Provisional guidance');
+      const status = element('p','Provisional sandbox guidance · Business validation pending');
       status.className = 'ng-km-note';
       articleBody.append(status);
     }
     articleBody.append(element('h3',shown.title),element('p',shown.purpose));
-    if (field) {
+    if (field && article) {
       const screenLink = element('button','Show screen help');
+      screenLink.textContent = article.help_level === 'workflow' ? 'Show workflow guide' : 'Show screen help';
       screenLink.type = 'button';
       screenLink.addEventListener('click', () => render(article, undefined, related));
       articleBody.append(screenLink);
-    } else {
+    } else if (!field) {
       const steps = (article.steps || '').split('\n').filter(line => line.trim());
       if (steps.length) {
         const list = element('ol');
@@ -347,7 +353,7 @@
       if (refs.children.length) articleBody.append(element('h4','References'),refs);
     }
     articleBody.append(element('small','Version ' + shown.version));
-    const links = [...new Map(related.filter(item => item?.id && item.id !== article.id).map(item => [item.id,item])).values()];
+    const links = [...new Map(related.filter(item => item?.id && item.id !== shown.id && item.id !== article?.id).map(item => [item.id,item])).values()];
     if (links.length) {
       const more = element('details'), list = element('ul');
       more.append(element('summary','Related guidance'));
@@ -386,20 +392,21 @@
     stageSelect.value = selected || '';
   }
   function sync(force = false) {
-    if (panel.hidden || browsing || (opening && !force) || !articles.length) return;
+    if (panel.hidden || browsing || identityPending || (opening && !force) || !articles.length) return;
     if (anchor && !anchor.isConnected) anchor = null;
     if (targetField && !targetField.isConnected) targetField = null;
     const current = contextFor(anchor,targetField);
     const key = JSON.stringify(current);
     if (!force && key === lastKey) return;
     lastKey = key;
+    const group = current.slug?.match(/^context-(register|imports|pbms)-/)?.[1];
+    const workflow = group && bySlug('context-' + group + (group === 'pbms' ? '-flow-journey' : '-journey'));
     const screen = bySlug(current.slug) || matchesStage(current.module,current.stage,current.audience,false) ||
       (!current.contextual && matchesStage(current.module,current.stage,current.audience,true)) ||
-      (!current.contextual && matchesStage(current.module,'Service overview',current.audience,false));
+      (!current.contextual && matchesStage(current.module,'Service overview',current.audience,false)) || workflow;
     const field = targetField ? bySlug(current.fieldSlug) : undefined;
     const related = (current.related || []).map(item => matchesStage(item.module,item.stage,current.audience,true));
     if (current.contextual) {
-      const group = current.slug.match(/^context-(register|imports|pbms)-/)?.[1];
       if (current.slug.startsWith('context-pbms-payment-report-partial')) {
         related.push(bySlug('context-pbms-partial-payment-workflow'),
           bySlug('context-pbms-reversal-amount-discrepancy-workflow'));
@@ -420,11 +427,12 @@
           bySlug('context-pbms-late-reversal-case-reopening-workflow'),
           bySlug('context-pbms-reopened-case-payment-workflow'));
       }
-      if (group) related.push(bySlug('context-' + group + (group === 'pbms' ? '-flow-journey' : '-journey')));
+      if (workflow) related.push(workflow);
     }
     const level = field ? 'Field help' : screen?.help_level === 'workflow' ? 'Workflow guide' :
       !current.contextual && screen?.stage === 'Service overview' ? 'Service guide' : 'Screen help';
-    const audienceName = serviceName === 'register' && current.audience === 'officer' ? 'MBR Officer' : roles[current.audience];
+    const importRoles = {level1:'Approver · Registry First Reviewer',field:'Operator · Registry Field Agent',admin:'Administrator · Registry Administrator'};
+    const audienceName = onImportsPage() && importRoles[current.audience] || (serviceName === 'register' && current.audience === 'officer' ? 'MBR Officer' : roles[current.audience]);
     note.textContent = level + ' · ' + (audienceName || roles.all);
     showChoices(current.module,current.audience,screen?.id);
     render(screen,field,related);
@@ -443,6 +451,7 @@
     lastKey = '';
     panel.hidden = false;
     launcher.setAttribute('aria-expanded','true');
+    note.textContent = '';
     articleBody.replaceChildren(element('p','Loading guidance…'));
     try {
       await Promise.all([load(),loadIdentity()]);
@@ -526,17 +535,38 @@
     browseSelection();
   });
   follow.addEventListener('click',() => { browsing = false; anchor = null; targetField = null; browse.open = false; sync(true); });
+  let sessionMarker = sessionContext();
+  function sessionContext() {
+    return JSON.stringify([location.href, signIn(), registryScopeNote(), !!document.querySelector('.sidebar nav')]);
+  }
+  function refreshContext(force = false) {
+    const marker = sessionContext();
+    if (!force && marker === sessionMarker) return;
+    sessionMarker = marker;
+    ++identityGeneration;
+    signedRole = undefined;
+    anchor = targetField = null;
+    browsing = false;
+    browse.open = false;
+    lastKey = '';
+    if (!panel.hidden) {
+      note.textContent = '';
+      articleBody.replaceChildren(element('p','Loading guidance…'));
+      void loadIdentity().then(() => sync(true));
+    }
+    schedule();
+  }
   new MutationObserver(records => {
-    if (records.some(record => !excluded(record.target.nodeType === 1 ? record.target : record.target.parentElement))) schedule();
+    if (records.some(record => !excluded(record.target.nodeType === 1 ? record.target : record.target.parentElement))) {
+      refreshContext();
+      schedule();
+    }
   }).observe(document.body,{childList:true,subtree:true,attributes:true,
     attributeFilter:['hidden','disabled','aria-current','aria-selected','aria-pressed','data-km-stage','data-km-status','data-km-persona','data-km-view']});
-  window.addEventListener('pbms-session-expired',() => { identityRequest = undefined; signedRole = undefined; schedule(); });
-  window.setInterval(() => {
-    if (route === location.href) return;
-    route = location.href;
-    anchor = null;
-    targetField = null;
-    schedule();
-  },300);
+  window.addEventListener('pbms-session-expired',() => refreshContext(true));
+  window.addEventListener('pageshow',event => { if (event.persisted) refreshContext(true); });
+  window.addEventListener('popstate',() => refreshContext());
+  window.addEventListener('hashchange',() => refreshContext());
+  window.setInterval(() => { if (route !== location.href) { route = location.href; refreshContext(); } },300);
   decorate();
 })();

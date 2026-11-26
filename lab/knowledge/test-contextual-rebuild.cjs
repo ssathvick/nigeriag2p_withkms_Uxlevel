@@ -55,6 +55,15 @@ registry('/intake-form/household/new/example','members',
   {field:'Relationship to household head',dialog:'Add Household Member'},'member-relationship');
 registry('/intake-form/household/submission/example','submission-detail');
 registry('/tasks/intake-form','intake-queue');
+for (const [role, guide] of [['level1','review-l1'], ['level2','review-l2']]) {
+  registry('/tasks/intake-form',guide,{role,assignedIntakeTask:true});
+  registry('/tasks/intake-form','intake-queue',{role,assignedIntakeTask:false});
+  registry('/intake-form/household/submission/example',guide,{role,canReview:true});
+  registry('/intake-form/household/submission/example','submission-detail',{role,canReview:false});
+}
+registry('/intake-form/household/submission/example','returned-intake',{
+  role:'field', intakeEditor:true, returnedIntake:true, intakeSection:true, section:'Review feedback'
+});
 for (const role of ['all','field','level1','level2','officer','admin']) {
   registry('/','submission-queues',{role,section:'Form submissions'});
 }
@@ -211,6 +220,7 @@ assert.equal(correctionSinceReturn('2',[rejection,correction,rejection]),false);
 const verified = {...detail,listStatus:'Fully verified'};
 pbms('flow-export',{...verified,exportList:true});
 pbms('flow-payment',{...verified,canPayList:true});
+pbms('flow-payment-wait-route',{...verified,section:'Example disbursement list',role:'payment',paymentRoutingMissing:true});
 pbms('flow-payment',{...verified,section:'Payments',role:'payment',canPayList:true});
 pbms('flow-payment-read',{...detail,section:'Payments',role:'audit'});
 pbms('flow-routing',{...detail,section:'Payments',field:'Sponsor bank routing',canRouteList:true},'sponsor-routing');

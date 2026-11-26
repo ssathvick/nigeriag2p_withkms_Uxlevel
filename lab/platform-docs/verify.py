@@ -97,6 +97,8 @@ def verify_build(docs, root):
         if 'id' in topic and f'{KNOWLEDGE}/{topic["id"]}' not in pages[path].links:
             raise ValueError(f'Missing Knowledge Library link on {path}')
         content = collapsed(' '.join(pages[path].main_text))
+        if topic.get('provisional') and 'Provisional sandbox guidance' not in content:
+            raise ValueError(f'Missing provisional label for {path}')
         search = collapsed(indexed[path]['title'] + ' ' + indexed[path]['body'])
         for field in ('title', *TOPIC_SECTIONS, 'stage'):
             text = collapsed(topic.get(field, ''))

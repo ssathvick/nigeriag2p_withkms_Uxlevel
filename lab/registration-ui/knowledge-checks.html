@@ -1,0 +1,26 @@
+{% extends 'base.html' %}{% block content %}
+<p><a href="{{prefix}}/knowledge/admin/register">Staff review register</a> · <a href="{{prefix}}/knowledge/admin/{{article.id}}">Open guide and editorial history</a></p>
+<h1>{{data.title}}</h1><p>Guide #{{article.id}} · v{{article.version}} · {{data.help_level or 'Reference'}} · {{article.status}}</p>
+<section class="card"><h2>Draft preflight</h2>{% for name,detail in issues %}<p><strong>{{name}}</strong> · {{detail}}</p>{% else %}<p>No configured checks flagged this draft.</p>{% endfor %}</section>
+<details class="card"><summary>Read the current draft</summary>{% for k in ['purpose','steps','requirements','next_step','issues'] %}{% if data[k] %}<p><strong>{{k|replace('_',' ')|title}}</strong><br>{{data[k]}}</p>{% endif %}{% endfor %}</details>
+{% macro common(kind) %}<input type="hidden" name="csrf" value="{{csrf}}"><input type="hidden" name="version" value="{{article.version}}"><input type="hidden" name="kind" value="{{kind}}">{% endmacro %}
+{% if rubric %}<section class="card"><h2>Instructional calibration</h2><p>Swift pilot rubric v1 · 0 missing, 1 incomplete, 2 usable with a gap, 3 clear and supported by the supplied evidence. Not Assessable removes the criterion and its weight. Explain exclusions in the finding. Technical fit and business validation are assessed separately.</p>
+{% if perms.review and not already and not can_reconcile and user.sub!=article.author %}<form method="post">{{common('score')}}
+{% for label,weight in rubric %}<label>{{label}} ({{weight}}%) <select name="mark" required><option value="">Choose</option>{% for v in ['0','1','2','3','NA'] %}<option value="{{v}}">{{'Not Assessable' if v=='NA' else v}}</option>{% endfor %}</select></label>{% endfor %}
+<label>Finding and evidence <textarea name="note" required minlength="4" maxlength="1500"></textarea></label><button>Record independent score</button></form>
+{% else %}<p>{% for label,weight in rubric %}{{label}} ({{weight}}%){% if not loop.last %} · {% endif %}{% endfor %}</p>{% endif %}
+{% if can_reconcile and perms.review and user.sub!=article.author %}<form method="post">{{common('reconcile')}}<label>Agreed interpretation and reasons for differences <textarea required minlength="4" maxlength="1500" name="note"></textarea></label><button>Record reconciliation</button></form>{% endif %}</section>{% endif %}
+{% if cases %}<section class="card"><h2>Change reviews</h2>{% for c in cases %}<p>#{{c.id}} {{c.dependency}} · {{c.description}} · Affected v{{c.version}}</p>
+{% if perms.review and user.sub!=article.author %}<form method="post">{{common('impact')}}<input type="hidden" name="change" value="{{c.id}}"><label>Re-review finding for v{{article.version}} <input name="note" required minlength="4" maxlength="1500"></label><button>Record change review</button></form>{% endif %}{% endfor %}</section>{% endif %}
+<h2>Versioned evidence</h2><p><a href="{{prefix}}/knowledge/admin/{{article.id}}/checks/input">Download the exact draft and numbered inputs for independent review</a></p>
+{% if perms.review and user.sub!=article.author %}<details class="card"><summary>Attach independent AI report</summary>
+<form method="post" enctype="multipart/form-data" action="{{prefix}}/knowledge/admin/{{article.id}}/checks/report">{{common('ai')}}
+<label>Review JSON for v{{article.version}} <input type="file" name="report" accept=".json" required></label><button>Retain report</button></form></details>{% endif %}{% for e in events %}<details class="card"><summary>v{{e.version}} · {{e.kind}} · {{e.actor}} · {{e.at}}</summary>
+{% if e.kind=='ai' %}<p><strong>{{e.detail.verdict}}</strong> · {{e.detail.model}} · {{e.detail.prompt_version}}</p>
+<p>Instructional quality · {{e.detail.instructional}}</p><p>Technical fit · {{e.detail.technical}}</p><p>Policy validity · {{e.detail.policy}}</p>
+{% for f in e.detail.findings %}<p><strong>{{f.status}}</strong> · {{e.detail.packet.units[f.id-1].text}}<br>{{f.finding}} · {{f.sources|join(', ')}}</p>{% endfor %}
+<details><summary>Prompt and source snapshot</summary><p>{{e.detail.prompt}}</p>{% for key,src in e.detail.packet.sources.items() %}<p><strong>{{key}} · {{src.reference}}</strong><br>{{src.text}}</p>{% endfor %}<p>Article digest · {{e.detail.digest}}</p></details>
+{% elif e.kind=='score' %}<p>{{e.detail.percentage if e.detail.percentage is not none else 'Not Assessable'}}{% if e.detail.percentage is not none %}%{% endif %} · {{e.detail.rubric}}</p>{% for label,weight in e.detail.criteria %}<p>{{label}} ({{weight}}%) · {{e.detail.marks[loop.index0]}}</p>{% endfor %}<p>{{e.detail.note}}</p>
+{% elif e.kind=='preflight' %}<p>{{e.detail.action}}</p>{% for name,detail in e.detail.issues %}<p>{{name}} · {{detail}}</p>{% else %}<p>No configured flags.</p>{% endfor %}
+{% else %}<p>{{e.detail.note}}{% if e.detail.change %} · Change #{{e.detail.change}}, affected v{{e.detail.affected_version}}{% endif %}</p>{% endif %}</details>{% else %}<p>No visible review records for this guide yet.</p>{% endfor %}
+{% endblock %}

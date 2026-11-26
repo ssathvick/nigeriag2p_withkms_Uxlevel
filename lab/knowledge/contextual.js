@@ -161,7 +161,10 @@
     if (s.registryPageState === 'We could not load this page') return context('register', 'state-error');
     if (/^\/data-imports(?:\/|$)/.test(path)) return imports(s);
     const duplicateGuide = !s.field && (!s.section || /duplicate|^match\s*#/i.test(s.section)) ? s.duplicateView : undefined;
-    if (/^\/tasks\/intake-form\/?$/.test(path)) return context('register', 'intake-queue');
+    if (/^\/tasks\/intake-form\/?$/.test(path)) {
+      const guide = {level1:'review-l1', level2:'review-l2'}[s.role];
+      return context('register', (s.assignedIntakeTask && guide) || 'intake-queue');
+    }
     if (/^\/tasks\/intake-form\//.test(path)) {
       const key = duplicateGuide || (/duplicate/i.test(s.section) ? 'duplicates' :
         s.role === 'level1' && s.canReview ? 'review-l1' : s.role === 'level2' && s.canReview ? 'review-l2' : 'review-intake');
@@ -173,7 +176,13 @@
     if (intake) {
       if (!intake[2]) return context('register', 'submission-queues');
       if (duplicateGuide) return context('register', duplicateGuide);
-      if (intake[2] === 'submission' && !s.intakeEditor) return context('register', /duplicate/i.test(s.section) ? 'duplicates' : 'submission-detail');
+      if (intake[2] === 'submission' && s.canReview && ['level1','level2'].includes(s.role)) {
+        return context('register', s.role === 'level1' ? 'review-l1' : 'review-l2',
+          /message|reason/i.test(s.field) ? 'decision-note' : undefined);
+      }
+      if (intake[2] === 'submission' && !s.intakeEditor) {
+        return context('register', /duplicate/i.test(s.section) ? 'duplicates' : 'submission-detail');
+      }
       const field = [
         [/accuracy.*(?:metres|meters|\(m\))/i, 'gps-accuracy'],
         [/consent to share/i, 'consent-answer'],
@@ -206,7 +215,7 @@
       };
       const defaultSection = fieldSections[field];
       const section = defaultSection || registrySection(s.section,s.sectionId);
-      const key = section || (s.intakeSection ? 'survey' : s.returnedIntake ? 'returned-intake' : intake[2] === 'submission' ? 'draft' : intake[1] === 'individual' ? 'individual-intake' : 'intake');
+      const key = section || (s.returnedIntake ? 'returned-intake' : s.intakeSection ? 'survey' : intake[2] === 'submission' ? 'draft' : intake[1] === 'individual' ? 'individual-intake' : 'intake');
       return context('register', key, field);
     }
     if (/^\/register\/(?:household|individual)\/[^/]+\/version-history$/.test(path)) return context('register', 'history');
@@ -298,14 +307,15 @@
     if (/^confirm payment submission$/i.test(s.dialog)) return context('pbms','payment-confirm');
     if (/^disbursement approval list$/i.test(s.dialog)) {
       let key = 'flow-open';
+      const overview = !['Approval','Beneficiaries','Verification history','Payments'].includes(s.section);
       if (s.section === 'Verification history') key = 'flow-history';
       else if (s.exportList && s.section === 'Beneficiaries') key = 'flow-export';
-      else if (s.section === 'Payments' || field === 'sponsor-routing' || (!s.section && s.listStatus==='Fully verified')) {
+      else if (s.section === 'Payments' || field === 'sponsor-routing' || (overview && s.listStatus==='Fully verified')) {
         if (s.paymentSubmitted) key = 'flow-payment-submitted';
         else if (s.canRouteList) key = 'flow-routing';
         else if (s.canPayList) key = 'flow-payment';
         else if (s.role === 'payment' && s.paymentRoutingMissing) key = 'flow-payment-wait-route';
-        else if (s.exportList && !s.section) key = 'flow-export';
+        else if (s.exportList && overview) key = 'flow-export';
         else key = 'flow-payment-read';
       }
       else if (s.correctList && (s.section === 'Beneficiaries' || field === 'correction-reason')) key = 'flow-correct';

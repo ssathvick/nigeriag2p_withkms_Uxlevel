@@ -22,6 +22,18 @@ class AI(kt.Knowledge):
   with patch.object(local_ai,'generate',return_value=draft):
    response=self.client.post('/registration/api/ai/draft',data=self.data());self.assertEqual(response.status_code,200);self.assertEqual(response.json['draft'],draft)
   self.assertEqual(before,[dict(a)for a in r.rows('SELECT * FROM km_articles')]);self.assertEqual(self.client.get('/registration/ai').status_code,200)
+ def test_field_prompt_and_private_source_boundaries(self):
+  data={**self.data(),'module':'pbms','stage':'Approval','help_level':'field',
+        'authority_reference':'Internal pilot source revision 4','instructions':'Explain the approval comment for Finance.'}
+  draft={k:'Suggested '+k if k in ('title','purpose') else '' for k in local_ai.FIELDS}
+  with patch.object(local_ai,'generate',return_value=draft) as generator:
+   self.assertEqual(self.client.post('/registration/api/ai/draft',data=data).status_code,200)
+   system,payload=generator.call_args.args[0]
+   self.assertIn('complete short instruction in purpose',system['content'])
+   packet=json.loads(payload['content'])
+   self.assertEqual(packet['authority_reference'],data['authority_reference'])
+   self.assertTrue(packet['published_guidance'])
+   self.assertTrue(all('source_note' not in guide and 'authority_reference' not in guide for guide in packet['published_guidance']))
  def test_ai_limit_and_invalid_output(self):
   with patch.object(local_ai,'generate',return_value={'answer':'Answer','source_ids':[]}):
    for _ in range(8):self.assertEqual(self.client.post('/registration/api/ai/chat',data=self.data()).status_code,200)
