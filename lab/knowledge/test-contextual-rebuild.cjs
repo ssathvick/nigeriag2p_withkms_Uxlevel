@@ -277,3 +277,22 @@ check({service:'beneficiary',path:'/selfservice/en/programs'},'beneficiary-progr
 check({service:'beneficiary',path:'/selfservice/en/registries'},'beneficiary-registries');
 assert.equal(resolve({service:'beneficiary',path:'/selfservice/en/programs/apply/example'}),undefined);
 console.log('Catalog covers',typed.size,'authored guides across 18 services. Priority screen, role, state and field mapping cases passed.');
+
+// Verify the V0.2 household field hints and the parent screen for each.
+const intakeHints = [
+  ['Community / area', 'consent'], ['Survey serial number','consent'], ['Household address','consent'],
+  ['Community (optional)','location'], ['Reported location / address','location'], ['Altitude (metres)','location'],
+];
+for (const [field, parent] of intakeHints) {
+  const input = {service:'register', path:'/en/intake-form/household/new/example', role:'field', field};
+  const guide = resolve(input);
+  assert.equal(guide.slug, 'context-register-' + parent);
+  assert.equal(guide.fieldHelp.label, field);
+  assert.ok(guide.fieldHelp.description.length > 10);
+  assert.equal(resolve({...input, path:'/en/intake-form/individual/new/example'}).fieldHelp, undefined);
+}
+for (const [role, guide] of Object.entries({field:'registration-start',officer:'officer-dashboard',level1:'review-dashboard',level2:'review-dashboard'})) {
+  registry('',guide,{section:'Register your household',role});
+}
+registry('/register/household/example','history',{section:'Record version history'});
+registry('/register/household/example','record-change-list',{section:'Change requests'});

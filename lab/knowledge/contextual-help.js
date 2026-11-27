@@ -167,7 +167,11 @@
   function contextFor(target, control) {
     const screen = document.querySelector('[data-km-screen]');
     const dialogs = [...document.querySelectorAll('[role="dialog"],[role="alertdialog"],.modal.show,.o_dialog')].filter(node => !excluded(node) && visible(node));
-    const modal = dialogs.at(-1);
+    // An explicit Help trigger follows its own surface. The main launcher follows
+    // the topmost dialog, including a report opened over an approval list.
+    const explicitTarget = control || target;
+    const modal = explicitTarget && serviceName === 'pbms' ?
+      dialogs.findLast(dialog => dialog.contains(explicitTarget)) : dialogs.at(-1);
     const area = target?.closest('[data-km-stage]') || (modal && (modal.closest('[data-km-stage]') || modal.querySelector('[data-km-stage]'))) || screen;
     const heading = target?.closest('h1,h2,h3,h4,legend,summary,strong[data-km-import-receipt]');
     const parentSection = (control || target)?.closest('section,[data-section-id]');
@@ -294,27 +298,28 @@
   function appendSection(heading, value) {
     if (value?.trim()) articleBody.append(element('h4', heading), element('p', value));
   }
-  function render(article, field, related = []) {
+  function render(article, field, related = [], fieldHelp) {
     articleBody.replaceChildren();
-    if (!article && !field) {
+    if (!article && !field && !fieldHelp) {
       articleBody.append(element('p', 'No task-specific guidance is available for this screen.'));
       return;
     }
-    const shown = field || article;
+    const shown = field || article || {};
     content.scrollTop = 0;
-    if (shown.provisional) {
+    if (shown.provisional || fieldHelp) {
       const status = element('p','Provisional sandbox guidance · Business validation pending');
       status.className = 'ng-km-note';
       articleBody.append(status);
     }
-    articleBody.append(element('h3',shown.title),element('p',shown.purpose));
-    if (field && article) {
+    articleBody.append(element('h3',fieldHelp?.label || shown.title),
+      element('p',fieldHelp?.description || shown.purpose));
+    if ((field || fieldHelp) && article) {
       const screenLink = element('button','Show screen help');
       screenLink.textContent = article.help_level === 'workflow' ? 'Show workflow guide' : 'Show screen help';
       screenLink.type = 'button';
       screenLink.addEventListener('click', () => render(article, undefined, related));
       articleBody.append(screenLink);
-    } else if (!field) {
+    } else if (!field && !fieldHelp) {
       const steps = (article.steps || '').split('\n').filter(line => line.trim());
       if (steps.length) {
         const list = element('ol');
@@ -429,13 +434,14 @@
       }
       if (workflow) related.push(workflow);
     }
-    const level = field ? 'Field help' : screen?.help_level === 'workflow' ? 'Workflow guide' :
+    const level = field || current.fieldHelp ? 'Field help' : screen?.help_level === 'workflow' ? 'Workflow guide' :
       !current.contextual && screen?.stage === 'Service overview' ? 'Service guide' : 'Screen help';
     const importRoles = {level1:'Approver · Registry First Reviewer',field:'Operator · Registry Field Agent',admin:'Administrator · Registry Administrator'};
-    const audienceName = onImportsPage() && importRoles[current.audience] || (serviceName === 'register' && current.audience === 'officer' ? 'MBR Officer' : roles[current.audience]);
+    const audienceName = onImportsPage() && importRoles[current.audience] ||
+      (serviceName === 'register' && current.audience === 'officer' ? 'MBR Officer' : roles[current.audience]);
     note.textContent = level + ' · ' + (audienceName || roles.all);
     showChoices(current.module,current.audience,screen?.id);
-    render(screen,field,related);
+    render(screen,field,related,current.fieldHelp);
   }
   function hide() {
     panel.hidden = true;
@@ -512,7 +518,8 @@
       if (excluded(control) || control.dataset.kmFieldDecorated ||
           (!visible(control) && !(isImportFile(control) && visible(labelNode)))) continue;
       const label = labelText(control);
-      if (!label || !contextFor(control,control).fieldSlug) continue;
+      const fieldContext = contextFor(control,control);
+      if (!label || !(fieldContext.fieldSlug || fieldContext.fieldHelp)) continue;
       control.dataset.kmFieldDecorated = '1';
       if (control.name === 'consent_status') {
         const group = control.closest('[data-section-id]');
@@ -522,8 +529,12 @@
     }
   }
   function schedule() {
-    clearTimeout(timer);
-    timer = setTimeout(() => { decorate(); sync(); },100);
+    if (timer !== undefined) return;
+    timer = setTimeout(() => {
+      timer = undefined;
+      decorate();
+      sync();
+    },100);
   }
   close.addEventListener('click',hide);
   panel.addEventListener('keydown',event => { if (event.key === 'Escape') { event.preventDefault(); hide(); } });

@@ -39,6 +39,15 @@ def reader_content(item):
  result=dict(item)
  for key in ('source_note','authority_reference','policy_sensitive','source_status','review_dependencies'):
   result.pop(key,None)
+ # Generic template filler carries no task-specific instruction. Keep it in
+ # the editor and history so reviewers can identify the affected source text.
+ stock_lines = {
+  'requirements': 'The information requested by the screen and an authorised account.',
+  'next_step': 'Confirm the resulting status or saved information before continuing to the next task described on this screen.',
+ }
+ for field,stock in stock_lines.items():
+  if result.get(field,'').strip() == stock:
+   result[field]=''
  if needs_authority(item):result['provisional']=True
  return result
 def install(r):

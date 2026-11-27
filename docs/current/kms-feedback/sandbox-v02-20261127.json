@@ -1,0 +1,33 @@
+{
+  "help_release": "20261126T141420Z-kms-intake-fields",
+  "portal_release": "20261126T133348Z-kms-v02-remaining",
+  "live_asset_sha256": {
+    "knowledge-context.js": "a6555d5f79c80579cfd3d2e6f70c015d696cbebaa31c34b367275833b30e0251",
+    "knowledge-help.js": "183db624ddf7795b2c38e36d8a52d0bf6d82f0e466f8a4ddf8edc69f9458cd89"
+  },
+  "portal_files": {
+    "site": {
+      "file_count": 941,
+      "tree_sha256": "01de55b174cf9918eaa650989f581a1a423d0cc47c931b1f3e00b1cf85489468"
+    },
+    "fallback": {
+      "file_count": 941,
+      "tree_sha256": "47d1b3a37e521efc4772cb559441962b8ef4534c993edc67c234442a1e3c99da"
+    }
+  },
+  "source_sha256_lf": {
+    "knowledge/contextual.js": "8aed0295d88e40eda60621035cf11bb0b94975ba6cd8f979ac7ed48c57158755",
+    "knowledge/contextual-help.js": "183db624ddf7795b2c38e36d8a52d0bf6d82f0e466f8a4ddf8edc69f9458cd89",
+    "knowledge_management.py": "f68f8c1826b3851417ce463e878401a69d3f1fab08b24e9ef3332c7b5269a71e",
+    "platform-docs/build.py": "88d895ca9b8926be3bfb6116817e9f238b3994f0ee5f6510f3ed0c62830869e1",
+    "platform-docs/pages.json": "53d2eba9b99700591d6489f0f1c6170461cf47aa93f7600c34b51b8cfc182191",
+    "platform-docs/screenshots.json": "214ff68a06412f2179e32bdb0eacc808223726c144b12ec5ac16c2e99974fb46",
+    "knowledge/test-contextual-rebuild.cjs": "80d1b71c83f554fcbf442d4ec5d69762dd1c22f6decf3afb6f24f30361bfc2be"
+  },
+  "artifact_sha256": {
+    "Swift_G2P_KMS_Response_to_V0.2_Sandbox_Baseline_26Nov2026_R5.pdf": "95836ba2a4af0e0186bf8f40ce389cb6cb2174a049bf85476500aef17fb1e678",
+    "simulation/Swift_G2P_KMS_V0.2_Simulated_Closeout_Register_27Nov2026_Verified.xlsx": "b0b974870829160bfba3fbde6c73a33d112e0b51b7e969a9ab6072d9062a764c",
+    "simulation/Swift_G2P_KMS_Simulated_Finance_Signoffs_27Nov2026_Verified.pdf": "0c581e6529f4df3debea4b4ca84a56811ff418b3f6aca93d8a950b09b3161261"
+  },
+  "portal_verification": "Rebuilt portal matches the deployed tree after normalizing LF and CRLF in assets/site.css and assets/site.js."
+}

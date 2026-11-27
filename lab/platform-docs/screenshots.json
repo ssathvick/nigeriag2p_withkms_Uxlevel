@@ -1585,11 +1585,11 @@
         "household-form",
         "rg-consent-answer"
       ],
-      "Open an approved record to inspect its details and version history. Propose corrections through a change request. Keep its target record reference and review history together.": [
-        "history"
-      ],
       "Administrators manage authorised staff configuration and approved register metadata. Use the corresponding view for inbound and outbound messages when following an integration issue.": [
         "staff-roles"
+      ],
+      "Open an approved record to inspect its details and version history. If your assigned role shows a change-request action, use the separate change-request workflow and retain the target record reference. Read-only access supports inspection.": [
+        "history"
       ]
     },
     "registry-review": {

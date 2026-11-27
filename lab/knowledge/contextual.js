@@ -154,6 +154,15 @@
     return details.find(([pattern]) => pattern.test(path))?.[1] || 'setup';
   }
 
+  const householdFieldHelp = new Map([
+    ['community / area', ['consent', 'Record the community or area for this survey entry in the enumeration section. Use the household location fields to record the location separately.']],
+    ['survey serial number', ['consent', 'Use the serial number shown on the survey record when one is available. This field refers to the survey entry.']],
+    ['household address', ['consent', 'Record the household address in the survey section. Use Reported location / address for the description requested in the location section.']],
+    ['community (optional)', ['location', 'Enter the community name or code when it is available. This field is optional. Keep the selected State, LGA and Ward in their own fields.']],
+    ['reported location / address', ['location', 'Enter the reported location or address as text. Use the latitude and longitude fields to record coordinates.']],
+    ['altitude (metres)', ['location', 'Enter the altitude reading in metres when it is available. The location-accuracy field records a separate measurement.']],
+  ]);
+
   function registry(s) {
     const path = s.path.replace(/^\/[a-z]{2}(?:-[a-z]{2})?(?=\/|$)/i, '').replace(/\/$/, '') || '/';
     if (s.registryPageState === 'Access restricted') return context('register', 'state-restricted');
@@ -182,6 +191,11 @@
       }
       if (intake[2] === 'submission' && !s.intakeEditor) {
         return context('register', /duplicate/i.test(s.section) ? 'duplicates' : 'submission-detail');
+      }
+      const fieldHelp = intake[1] === 'household' && householdFieldHelp.get(s.field.toLowerCase());
+      if (fieldHelp) {
+        const [section, description] = fieldHelp;
+        return {...context('register', section), fieldHelp: {label:s.field, description}};
       }
       const field = [
         [/accuracy.*(?:metres|meters|\(m\))/i, 'gps-accuracy'],
@@ -227,7 +241,11 @@
     const published = path.match(/^\/register\/(household|individual)(?:\/([^/]+))?$/);
     if (published) {
       if (s.recordEditor) return context('register', 'change-create');
-      if (published[2]) return context('register', published[1] + '-detail');
+      if (published[2]) {
+        if (/^(?:record )?version history$/i.test(s.section)) return context('register', 'history');
+        if (/^(?:record )?change requests$/i.test(s.section)) return context('register', 'record-change-list');
+        return context('register', published[1] + '-detail');
+      }
       return context('register', published[1] === 'household' ? 'households' : 'individuals');
     }
     if (path === '/offline') return context('register', offlineSections.get(s.section) || 'offline');
@@ -237,6 +255,10 @@
     if (path === '/myprofile') return context('register', 'state-missing');
     if (path === '/') {
       const section = registryDashboardSections.get(s.section);
+      if (section === 'registration-start') {
+        const roleGuide = {officer:'officer-dashboard', level1:'review-dashboard', level2:'review-dashboard'}[s.role];
+        return context('register', roleGuide || section);
+      }
       if (section) return context('register', section);
       const key =
         s.role === 'field' ? 'capture-dashboard' : s.role === 'officer' ? 'officer-dashboard' :

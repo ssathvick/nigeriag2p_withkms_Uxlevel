@@ -308,7 +308,15 @@ class Documentation:
         elif ref == 'household-registration':
             illustration = self.visuals.illustration('household-interview', 'A resident answers the registration officer’s questions about her household.')
         body = open_link + illustration + self.visuals.diagram(ref)
-        body += ''.join(self.page_section(k, v) for k, v in sections.items())
+        if chapter.get('sandbox_demo'):
+            body += '<p class="notice">Sandbox demonstration with sample data. Use the linked staff workspace for assigned work.</p>'
+        collapsed = set(chapter.get('collapsed_sections', ()))
+        for heading, content in sections.items():
+            if heading in collapsed:
+                body += (f'<details class="process-context" id="{slug(heading)}">'
+                         f'<summary>{html.escape(heading)}</summary>{content}</details>')
+            else:
+                body += self.page_section(heading, content)
         order = list(self.chapters)
         index = order.index(ref)
         links = []
@@ -352,8 +360,13 @@ class Documentation:
         body = ''
         if topic['level'] == 'upstream':
             body = '<p class="notice">Upstream reference. Confirm feature availability in the installed NSIPA release.</p>'
+        release_details = []
+        if (version := topic.get('version')) is not None:
+            release_details.append('Guide version ' + html.escape(str(version)))
         if topic.get('provisional') or topic.get('context_key'):
-            body += '<p class="notice">Provisional sandbox guidance · Business validation pending</p>'
+            release_details.append('Provisional sandbox guidance · Business validation pending')
+        if release_details:
+            body += '<p class="notice">' + ' · '.join(release_details) + '</p>'
         if topic['audience'] != 'all':
             body += f'<p>Guidance for {AUDIENCES[topic["audience"]]}s.</p>'
         body += self.visuals.screenshots(pictures.get('@purpose', ()))
